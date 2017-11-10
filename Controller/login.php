@@ -3,6 +3,7 @@
 require_once 'Model/php/User.php';
 
 session_start();
+header('Content-type: application/json');
 
 $_POST['username'] = 'Billy';
 $_POST['password'] = 'Bobby';
