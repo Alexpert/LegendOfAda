@@ -6,7 +6,7 @@ CREATE TABLE SALOON
 CREATE TABLE USER
 (
   id int PRIMARY KEY NOT NULL,
-  username varchar(32),
+  username varchar(32) UNIQUE,
   name varchar(32),
   student boolean,
   password varchar(256)
