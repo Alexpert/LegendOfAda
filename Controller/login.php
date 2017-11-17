@@ -1,9 +1,6 @@
 <?php
 
-require_once 'Model/php/User.php';
-
-session_start();
-header('Content-type: application/json');
+include_once 'header.php';
 
 $_POST['username'] = 'Billy';
 $_POST['password'] = 'Bobby';
