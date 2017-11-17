@@ -145,6 +145,7 @@ CREATE TABLE FRIEND
 (
   user1Id uuid NOT NULL,
   user2Id uuid NOT NULL,
+  accepted boolean DEFAULT false,
 
   FOREIGN KEY (user1Id) REFERENCES USER(id),
   FOREIGN KEY (user2Id) REFERENCES USER(id),
