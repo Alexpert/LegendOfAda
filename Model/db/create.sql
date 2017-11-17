@@ -6,7 +6,7 @@ CREATE TABLE SALOON
 CREATE TABLE USER
 (
   id int PRIMARY KEY NOT NULL,
-  username varchar(32),
+  username varchar(32) UNIQUE,
   name varchar(32),
   student boolean,
   password varchar(256)
@@ -27,7 +27,8 @@ CREATE TABLE GUILD
 
 CREATE TABLE GAME
 (
-  name varchar(32) PRIMARY KEY NOT NULL,
+  id int PRIMARY KEY NOT NULL,
+  name varchar(32),
   worldId int,
 
   FOREIGN KEY (worldId) REFERENCES WORLD(id)
@@ -35,7 +36,8 @@ CREATE TABLE GAME
 
 CREATE TABLE WORLD
 (
-  name varchar(32) PRIMARY KEY NOT NULL,
+  id int PRIMARY KEY NOT NULL,
+  name varchar(32),
   themeId int,
 
   FOREIGN KEY (themeId) REFERENCES THEME(id)
@@ -43,7 +45,8 @@ CREATE TABLE WORLD
 
 CREATE TABLE LESSON
 (
-  name varchar(32) PRIMARY KEY NOT NULL,
+  id int PRIMARY KEY NOT NULL,
+  name varchar(32),
   themeId int,
 
   FOREIGN KEY (themeId) REFERENCES THEME(id)
@@ -51,7 +54,8 @@ CREATE TABLE LESSON
 
 CREATE TABLE THEME
 (
-  name varchar(32) PRIMARY KEY NOT NULL,
+  id int PRIMARY KEY NOT NULL,
+  name varchar(32),
   worldId int,
 
   FOREIGN KEY (worldId) REFERENCES WORLD(id)
@@ -68,11 +72,14 @@ CREATE TABLE CHAT
 
 CREATE TABLE SCORE
 (
-  userID int PRIMARY KEY NOT NULL,
+  userId int NOT NULL,
   gameId int NOT NULL,
+  highScore int NOT NULL,
 
   FOREIGN KEY (userId) REFERENCES USER(id),
-  FOREIGN KEY (gameId) REFERENCES GAME(id)
+  FOREIGN KEY (gameId) REFERENCES GAME(id),
+
+  CONSTRAINT PK_SCORE PRIMARY KEY(userID, gameId)
 );
 
 CREATE TABLE BELONG
@@ -110,10 +117,10 @@ CREATE TABLE FAVORITE
 
 CREATE TABLE FINISHED
 (
-  userId int NOT NULL,
+  guildId int NOT NULL,
   worldId int NOT NULL,
 
-  FOREIGN KEY (userId) REFERENCES USER(id),
+  FOREIGN KEY (guildId) REFERENCES GUILD(id),
   FOREIGN KEY (worldId) REFERENCES WORLD(id),
 
   CONSTRAINT PK_FINISHED PRIMARY KEY(userId, worldId)
@@ -128,4 +135,35 @@ CREATE TABLE ISABOUT
   FOREIGN KEY (lessonId) REFERENCES LESSON(id),
 
   CONSTRAINT PK_ISABOUT PRIMARY KEY(gameId, lessonId)
+);
+
+CREATE TABLE FRIEND
+(
+  user1Id int NOT NULL,
+  user2Id int NOT NULL,
+
+  FOREIGN KEY (user1Id) REFERENCES USER(id),
+  FOREIGN KEY (user2Id) REFERENCES USER(id),
+
+  CONSTRAINT PK_FRIEND PRIMARY KEY(user1Id, user2Id)
+);
+
+CREATE TABLE CONNECTED
+(
+  game1Id int NOT NULL,
+  game2Id int NOT NULL,
+
+  FOREIGN KEY (game1Id) REFERENCES GAME(id),
+  FOREIGN KEY (game2Id)
+);
+
+CREATE TABLE COMPLETED
+(
+  userId int NOT NULL,
+  gameId int NOT NULL,
+
+  FOREIGN KEY (userId) REFERENCES USER(id),
+  FOREIGN KEY (gameId) REFERENCES GAME(id),
+
+  PRIMARY KEY PK_COMPLETED PRIMARY KEY(userId, gameId)
 );
