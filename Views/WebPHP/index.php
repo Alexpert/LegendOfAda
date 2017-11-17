@@ -25,32 +25,32 @@
 <social class="index">
 	<h1>Social</h1>
 </social>
-<footer class="scroller">
-	<figure>
+<footer class="index">
+	<figure class="game">
 		<a href="game.php">
 			<figcaption>Un mini jeu</figcaption>
 			<img src="images/minigame.png"></img>
 		</a>
 	</figure>
-	<figure>
+	<figure class="game">
 		<a href="game.php">
 			<figcaption>Un mini jeu</figcaption>
 			<img src="images/minigame.png"></img>
 		</a>
 	</figure>
-	<figure>
+	<figure class="game">
 		<a href="game.php">
 			<figcaption>Un mini jeu</figcaption>
 			<img src="images/minigame.png"></img>
 		</a>
 	</figure>
-	<figure>
+	<figure class="game">
 		<a href="game.php">
 			<figcaption>Un mini jeu</figcaption>
 			<img src="images/minigame.png"></img>
 		</a>
 	</figure>
-	<figure>
+	<figure class="game">
 		<a href="game.php">
 			<figcaption>Un mini jeu</figcaption>
 			<img src="images/minigame.png"></img>

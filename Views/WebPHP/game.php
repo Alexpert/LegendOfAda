@@ -4,9 +4,9 @@
 <head>
 	<title>Mini-jeu</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type-"text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="minigame">
+<body class="game">
 <header>
 	<p>
 		<a href="index.php">Menu Principal</a>
@@ -16,7 +16,7 @@
 	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
 </header>
 <a class="course" href="courses.php">Cours</a>
-<?php Chat('minigame'); ?>
+<?php Chat('game'); ?>
 <rules>
 	<h1>Description et image</h1>
 	<img src="images/minigame.png"></img>
@@ -24,7 +24,7 @@
 		Règles du jeu, voir même description.
 	</p>
 </rules>
-<social class="minigame">
+<social class="game">
 	<h1>Leaderboards</h1>
 	<table>
 		<tr><td>1</td><td>Bobby</td><td>1345</td></tr>

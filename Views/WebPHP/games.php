@@ -15,13 +15,13 @@
 	</p>
 	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
 </header>
-<menu class="games">
-	<figure class="game">
+<menu>
+<?php for($i = 0; $i < 10; $i++) { ?><figure class="game">
 		<a href="game.php">
 			<figcaption>Un mini jeu</figcaption>
-			<img src="images/minigame.png"></img>
+			<img src="images/minigame.png"/>
 		</a>
-	</figure>
+	</figure><?php } ?>
 </menu>
 </body>
 </html>

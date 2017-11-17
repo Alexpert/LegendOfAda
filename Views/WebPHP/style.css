@@ -1,8 +1,15 @@
+/* General */
+
+@keyframes background {
+	from { background-position: 100% 0; }
+	to { background-position: 0 0; }
+}
 
 body {
 	background-size: 12.5vw;
 	background-image: url(images/index-background.jpg);
 	background-repeat: repeat;
+	margin: 0;
 }
 
 body * {
@@ -43,6 +50,87 @@ body > header img.user {
 	height: 8vh;
 }
 
+figure.game {
+	position: relative;
+	display: inline-block;
+}
+
+figure.game figcaption {
+	position: absolute;
+	font-weight: bold;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.60);
+	opacity: 0;
+	padding: 0;
+	transition: padding 0.5s, opacity 0.5s;
+}
+
+figure.game:hover figcaption {
+	padding: 0.7em;
+	opacity: 1;
+}
+
+chat {
+	position: fixed;
+	left: 0;
+	border: 1px solid black;
+	background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+}
+
+chat > h1 {
+	height: 10%;
+	text-align: center;
+	font-size: 150%;
+	background: rgba(0,0,0,0.4);
+	color: white;
+}
+
+chat > textarea {
+	width: 95%;
+	height: 80%;
+	resize: none;
+	color: white;
+	background-color: rgba(0,0,0,0);
+	padding-left: 5%;
+	border: none;
+}
+
+chat > input {
+	width: 97%;
+	height: 9%;
+	resize: none;
+	border: none;
+	font-size: 1.0em;
+	padding-left: 3%;
+	color: white;
+	background-color: rgba(255,255,255,0.2);
+}
+
+social {
+	position: fixed;
+	right: 0;
+	border: 1px solid black;
+	color: white;
+	background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+}
+
+social > h1 {
+	text-align: center;
+	background: rgba(0,0,0,0.4);
+	color: white;
+}
+
+social > table {
+	width: 100%;
+}
+
+social > table td {
+	text-align: center;
+	color: white;
+}
+
+/* login */
+
 body.login > form {
 	width: 30vw;
 	height: 15vh;
@@ -54,6 +142,73 @@ body.login > form {
 	border-radius: 1vmin;
 }
 
+/* index */
+
+menu.index {
+	position: fixed;
+	top: 25vh;
+	left: 35vw;
+	width: 30vw;
+	background-color: orange;
+	border: 1vh solid darkorange;
+	border-radius: 1vh;
+}
+
+menu.index > h1 {
+	text-align: center;
+	left: 0;
+	background-color: darkorange;
+}
+
+menu.index > p > a {
+	display: inline-block;
+	margin: 2%;
+	text-align: center;
+	width: 96%;
+	height: 15%;
+	background: darkorange;
+	font-size: 4vh;
+	transition: 0.25s;
+}
+
+menu.index > p > a:hover {
+	background: hsl(43,100%,70%);
+}
+
+chat.index {
+	width: 25vw;
+	top: 15vh;
+	bottom: 27.5vh;
+}
+
+social.index {
+	width: 25vw;
+	top: 15vh;
+	bottom: 27.5vh;
+}
+
+footer.index {
+	position: fixed;
+	width: 100vw;
+	height: 20vh;
+	bottom: 2.5vh;
+	left: 0;
+	background-color: orange;
+	border: 10px solid darkorange;
+	border-width: 1vh 0 1vh 0;
+}
+
+footer.index > figure {
+	position: relative;
+	display: inline-block;
+}
+
+footer.index > figure img {
+	height: 20vh;
+}
+
+/* campaign */
+
 body.campaign > img {
 	text-align: center;
 	height: 50%;
@@ -61,6 +216,129 @@ body.campaign > img {
 	padding-top: 10%;
 	padding-left: 25%;
 }
+
+chat.campaign {
+	width: 25vw;
+	height: 45vh;
+	bottom: 0;
+}
+
+menu.campaign {
+	position: fixed;
+	font-size: 3vmin;
+	padding: 2vh;
+	right: 0;
+	bottom: 0;
+	width: 60vw;
+	background-color: orange;
+	border: 1vh solid darkorange;
+	border-width: 1vh 0 0 1vh;
+	border-radius: 1vh 0 0 0;
+}
+
+menu.campaign > a {
+	margin: 2vh;
+	padding: 2vh;
+	background-color: darkorange;
+}
+
+/* games */
+
+body.games > menu {
+	margin: 15vh 5vw 0 5vw;
+	padding: 0;
+}
+
+body.games > menu > figure.game {
+	display: inline-block;
+	width: 33%;
+	margin: 0;
+	padding: 0;
+}
+
+body.games > menu > figure.game img {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* game */
+
+a.course {
+	position: fixed;
+	font-size: 7vh;
+	padding: 1.5vh;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 0 2vh 2vh 0;
+	color: white;
+	top: 15vh;
+	left: 0;
+	width: 23.5vw;
+	background: rgba(0,0,0,0.6);
+	transition: 0.25s;
+}
+
+a.course:hover {
+	background: rgba(0,0,0,0.2);
+	color: black;
+}
+
+chat.game {
+	width: 25vw;
+	top: 30vh;
+	bottom: 27.5vh;
+}
+
+rules {
+	position: fixed;
+	top: 15vh;
+	left: 33vw;
+	width: 35vw;
+	height: 56vh;
+	text-align: center;
+	border: 1vh solid darkorange;
+	border-radius: 1vh;
+	background-color: orange;
+}
+
+rules > h1 {
+	background-color: darkorange;
+}
+
+rules > img {
+	padding: 5%;
+	width: 50%;
+}
+
+social.game {
+	width: 25vw;
+	top: 15vh;
+	bottom: 27.5vh;
+}
+
+footer.play {
+	position: fixed;
+	text-align: center;
+	border: 1vh solid darkorange;
+	border-radius: 4vh 4vh 0 0;
+	border-width: 1vh 1vh 0 1vh;
+	font-size: 5vh;
+	padding: 5vmin;
+	width: 35vw;
+	height: 10vh;
+	bottom: 0;
+	left: 30vw;
+	background-color: orange;
+	transition: 0.25s;
+}
+
+footer.play:hover {
+	border-color: #CA5500;
+	background-color: #FF8700;
+}
+
+/* courses */
 
 body.courses > div {
 	margin-top: 15vh;
@@ -104,238 +382,4 @@ body.courses > div > ol > li:hover {
 	background-color: hsl(43,100%,70%);
 }
 
-footer.scroller {
-	position: fixed;
-	width: 100vw;
-	height: 20vh;
-	bottom: 2.5vh;
-	left: 0;
-	background-color: orange;
-	border: 10px solid darkorange;
-	border-width: 1vh 0 1vh 0;
-}
-
-footer.scroller > figure {
-	position: relative;
-	display: inline-block;
-}
-
-footer.scroller > figure figcaption {
-	position: absolute;
-	font-weight: bold;
-	color: white;
-	background-color: rgba(0, 0, 0, 0.60);
-	opacity: 0;
-	padding: 0;
-	transition: padding 0.5s, opacity 0.5s;
-}
-
-footer.scroller > figure:hover figcaption {
-	padding: 0.7em;
-	opacity: 1;
-}
-
-footer.scroller > figure img {
-	height: 20vh;
-}
-
-footer.play {
-	position: fixed;
-	text-align: center;
-	border: 1vh solid darkorange;
-	border-radius: 4vh 4vh 0 0;
-	border-width: 1vh 1vh 0 1vh;
-	font-size: 5vh;
-	padding: 5vmin;
-	width: 35vw;
-	height: 10vh;
-	bottom: 0;
-	left: 30vw;
-	background-color: orange;
-	transition: 0.25s;
-}
-
-footer.play:hover {
-	border-color: #CA5500;
-	background-color: #FF8700;
-}
-
-chat {
-	position: fixed;
-	left: 0;
-	border: 1px solid black;
-	background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
-}
-
-chat > h1 {
-	height: 10%;
-	text-align: center;
-	font-size: 150%;
-	background: rgba(0,0,0,0.4);
-	color: white;
-}
-
-chat > textarea {
-	width: 95%;
-	height: 80%;
-	resize: none;
-	color: white;
-	background-color: rgba(0,0,0,0);
-	padding-left: 5%;
-	border: none;
-}
-
-chat > input {
-	width: 97%;
-	height: 9%;
-	resize: none;
-	border: none;
-	font-size: 1.0em;
-	padding-left: 3%;
-	color: white;
-	background-color: rgba(255,255,255,0.2);
-}
-
-chat.index {
-	width: 25vw;
-	top: 15vh;
-	bottom: 27.5vh;
-}
-
-chat.minigame {
-	width: 25vw;
-	top: 30vh;
-	bottom: 27.5vh;
-}
-
-chat.campaign {
-	width: 25vw;
-	height: 45vh;
-	bottom: 0;
-}
-
-social {
-	position: fixed;
-	right: 0;
-	border: 1px solid black;
-	color: white;
-	background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-}
-
-social > h1 {
-	text-align: center;
-	background: rgba(0,0,0,0.4);
-	color: white;
-}
-
-social > table {
-	width: 100%;
-}
-
-social > table td {
-	text-align: center;
-	color: white;
-}
-
-social.index, social.minigame {
-	width: 25vw;
-	top: 15vh;
-	bottom: 27.5vh;
-}
-
-menu.index {
-	position: fixed;
-	top: 25vh;
-	left: 35vw;
-	width: 30vw;
-	background-color: orange;
-	border: 1vh solid darkorange;
-	border-radius: 1vh;
-}
-
-menu.index > h1 {
-	text-align: center;
-	left: 0;
-	background-color: darkorange;
-}
-
-menu.index > p > a {
-	display: inline-block;
-	margin: 2%;
-	text-align: center;
-	width: 96%;
-	height: 15%;
-	background: darkorange;
-	font-size: 4vh;
-	transition: 0.25s;
-}
-
-menu.index > p > a:hover {
-	background: hsl(43,100%,70%);
-}
-
-menu.campaign {
-	position: fixed;
-	font-size: 3vmin;
-	padding: 2vh;
-	right: 0;
-	bottom: 0;
-	width: 60vw;
-	background-color: orange;
-	border: 1vh solid darkorange;
-	border-width: 1vh 0 0 1vh;
-	border-radius: 1vh 0 0 0;
-}
-
-menu.campaign > a {
-	margin: 2vh;
-	padding: 2vh;
-	background-color: darkorange;
-}
-
-rules {
-	position: fixed;
-	top: 15vh;
-	left: 33vw;
-	width: 35vw;
-	height: 56vh;
-	text-align: center;
-	border: 1vh solid darkorange;
-	border-radius: 1vh;
-	background-color: orange;
-}
-
-rules > h1 {
-	background-color: darkorange;
-}
-
-rules > img {
-	padding: 5%;
-	width: 50%;
-}
-
-a.course {
-	position: fixed;
-	font-size: 7vh;
-	padding: 1.5vh;
-	text-align: center;
-	border: 1px solid black;
-	border-radius: 0 2vh 2vh 0;
-	color: white;
-	top: 15vh;
-	left: 0;
-	width: 23.5vw;
-	background: rgba(0,0,0,0.6);
-	transition: 0.25s;
-}
-
-a.course:hover {
-	background: rgba(0,0,0,0.2);
-	color: black;
-}
-
-@keyframes background {
-	from { background-position: 100% 0; }
-	to { background-position: 0 0; }
-}
 
