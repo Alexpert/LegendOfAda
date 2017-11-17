@@ -17,4 +17,17 @@ function Chat($class = null) {
 	echo "</chat>\n";
 }
 
+function Head($title = null) {
+	echo "<head>\n";
+	echo '	<title>';
+	if($title != null)
+		echo $title;
+	else
+		echo 'Legend of Ada';
+	echo "</title>\n";
+	echo "	<meta charset=\"UTF-8\">\n";
+	echo "	<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">";
+	echo "</head>\n";
+}
+
 ?>

@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-<?php include_once 'session.php'; ?>
-<head>
-	<title>Minijeux</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<?php
+include_once 'session.php';
+Head('Jeux');
+?>
 <body class="games">
 <header>
 	<p>
