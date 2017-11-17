@@ -1,11 +1,13 @@
+CREATE EXTENSION "pgcrypto";
+
 CREATE TABLE SALOON
 (
-  id int PRIMARY KEY NOT NULL
+  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4()
 );
 
 CREATE TABLE USER
 (
-  id int PRIMARY KEY NOT NULL,
+  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
   username varchar(32) UNIQUE,
   name varchar(32),
   student boolean,
@@ -14,12 +16,12 @@ CREATE TABLE USER
 
 CREATE TABLE GUILD
 (
-  id int PRIMARY KEY NOT NULL,
+  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
   name varchar(32),
   description varchar(2048),
   standalone boolean,
-  leaderId int,
-  worldId int,
+  leaderId uuid,
+  worldId uuid,
 
   FOREIGN KEY (leaderId) REFERENCES USER(id),
   FOREIGN KEY (worldId) REFERENCES WORLD(id)
@@ -27,44 +29,46 @@ CREATE TABLE GUILD
 
 CREATE TABLE GAME
 (
-  id int PRIMARY KEY NOT NULL,
-  name varchar(32),
-  worldId int,
+  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
+  name varchar(32) UNIQUE,
+  description varchar(255),
+  rule varchar(255),
+  worldId uuid,
 
   FOREIGN KEY (worldId) REFERENCES WORLD(id)
 );
 
 CREATE TABLE WORLD
 (
-  id int PRIMARY KEY NOT NULL,
+  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
   name varchar(32),
-  themeId int,
+  themeId uuid,
 
   FOREIGN KEY (themeId) REFERENCES THEME(id)
 );
 
 CREATE TABLE LESSON
 (
-  id int PRIMARY KEY NOT NULL,
+  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
   name varchar(32),
-  themeId int,
+  themeId uuid,
 
   FOREIGN KEY (themeId) REFERENCES THEME(id)
 );
 
 CREATE TABLE THEME
 (
-  id int PRIMARY KEY NOT NULL,
+  id uuid PRIMARY KEY NOT NULL uuid_generate_v4(),
   name varchar(32),
-  worldId int,
+  worldId uuid,
 
   FOREIGN KEY (worldId) REFERENCES WORLD(id)
 );
 
 CREATE TABLE CHAT
 (
-  userID int PRIMARY KEY NOT NULL,
-  saloonId int,
+  userID uuid PRIMARY KEY NOT NULL,
+  saloonId uuid,
 
   FOREIGN KEY (userId) REFERENCES USER(id),
   FOREIGN KEY (saloonId) REFERENCES SALOON(id)
@@ -72,8 +76,8 @@ CREATE TABLE CHAT
 
 CREATE TABLE SCORE
 (
-  userId int NOT NULL,
-  gameId int NOT NULL,
+  userId uuid NOT NULL,
+  gameId uuid NOT NULL,
   highScore int NOT NULL,
 
   FOREIGN KEY (userId) REFERENCES USER(id),
@@ -84,8 +88,8 @@ CREATE TABLE SCORE
 
 CREATE TABLE BELONG
 (
-  userID int,
-  guildId int,
+  userID uuid,
+  guildId uuid,
 
   FOREIGN KEY (userId) REFERENCES USER(id),
   FOREIGN KEY (guildId) REFERENCES GUILD(id),
@@ -95,8 +99,8 @@ CREATE TABLE BELONG
 
 CREATE TABLE ISINTERESTED
 (
-  userId int NOT NULL,
-  lessonId int NOT NULL,
+  userId uuid NOT NULL,
+  lessonId uuid NOT NULL,
 
   FOREIGN KEY (userId) REFERENCES USER(id),
   FOREIGN KEY (lessonId) REFERENCES LESSON(id),
@@ -106,8 +110,8 @@ CREATE TABLE ISINTERESTED
 
 CREATE TABLE FAVORITE
 (
-  userId int NOT NULL,
-  gameId int NOT NULL,
+  userId uuid NOT NULL,
+  gameId uuid NOT NULL,
 
   FOREIGN KEY (userId) REFERENCES USER(id),
   FOREIGN KEY (gameId) REFERENCES GAME(id),
@@ -117,8 +121,8 @@ CREATE TABLE FAVORITE
 
 CREATE TABLE FINISHED
 (
-  guildId int NOT NULL,
-  worldId int NOT NULL,
+  guildId uuid NOT NULL,
+  worldId uuid NOT NULL,
 
   FOREIGN KEY (guildId) REFERENCES GUILD(id),
   FOREIGN KEY (worldId) REFERENCES WORLD(id),
@@ -128,8 +132,8 @@ CREATE TABLE FINISHED
 
 CREATE TABLE ISABOUT
 (
-  gameId int NOT NULL,
-  lessonId int NOT NULL,
+  gameId uuid NOT NULL,
+  lessonId uuid NOT NULL,
 
   FOREIGN KEY (gameId) REFERENCES GAME(id),
   FOREIGN KEY (lessonId) REFERENCES LESSON(id),
@@ -139,8 +143,8 @@ CREATE TABLE ISABOUT
 
 CREATE TABLE FRIEND
 (
-  user1Id int NOT NULL,
-  user2Id int NOT NULL,
+  user1Id uuid NOT NULL,
+  user2Id uuid NOT NULL,
 
   FOREIGN KEY (user1Id) REFERENCES USER(id),
   FOREIGN KEY (user2Id) REFERENCES USER(id),
@@ -150,8 +154,8 @@ CREATE TABLE FRIEND
 
 CREATE TABLE CONNECTED
 (
-  game1Id int NOT NULL,
-  game2Id int NOT NULL,
+  game1Id uuid NOT NULL,
+  game2Id uuid NOT NULL,
 
   FOREIGN KEY (game1Id) REFERENCES GAME(id),
   FOREIGN KEY (game2Id)
@@ -159,8 +163,8 @@ CREATE TABLE CONNECTED
 
 CREATE TABLE COMPLETED
 (
-  userId int NOT NULL,
-  gameId int NOT NULL,
+  userId uuid NOT NULL,
+  gameId uuid NOT NULL,
 
   FOREIGN KEY (userId) REFERENCES USER(id),
   FOREIGN KEY (gameId) REFERENCES GAME(id),
