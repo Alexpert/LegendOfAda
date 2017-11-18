@@ -2,25 +2,15 @@
     <h2> 1 - Multiple, diviseurs et nombres premiers</h2>
         <h3> A - Multiples et Diviseurs</h3>
         <p>
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Entier Naturel
                 </dfn>
                 Un entier naturel est un nombre entier positif ou nul.
             </p>
-=======
-            <dl>
-                <dt><dfn>Entier Naturel</dfn></dt>
-                <dd>Un entier naturel est un nombre entier positif ou nul.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>0, 12 et 55 sont des entiers naturels</li>
             </ul>
-
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Multiple
@@ -28,14 +18,6 @@
                 On dit que l'entier naturel <var>a</var> est multiple de l'entier naturel <var>b</var> s'il existe un entier <var>k</var> tel que <var>a</var> = <var>b</var>*<var>k</var>. <br/>
                 On dit aussi : "<var>b</var> est un diviseur de <var>a</var>" ou "<var>a</var> est divisible par <var>b</var>".
             </p>
-=======
-            <dl>
-                <dt><dfn>Multiple</dfn></dt>
-                <dd>On dit que l'entier naturel <var>a</var> est multiple de l'entier naturel <var>b</var> s'il existe un entier <var>k</var> tel que <var>a</var> = <var>b</var>*<var>k</var>. <br/>
-                On dit aussi : "<var>b</var> est un diviseur de <var>a</var>" ou "<var>a</var> est divisible par <var>b</var>".</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>14 = 2*7 donc 14 est un multiple de 7. Autrement dit, 7 est un diviseur de 14.
                     <ul>
@@ -53,20 +35,12 @@
 
         <h3> B - Nombres Premiers</h3>
         <p>
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Nombre Premier
                 </dfn>
                 Un nombre premier est un entier naturel qui n'admet uniquement deux diviseurs distincts, 1 et lui-même.
             </p>
-=======
-            <dl>
-                <dt><dfn>Nombre Premier</dfn></dt>
-                <dd>Un nombre premier est un entier naturel qui n'admet uniquement deux diviseurs distincts, 1 et lui-même.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>Début de liste des nombres premiers : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, ...
                     <ul>
@@ -78,74 +52,39 @@
 
         <h3> C - Critères de Divisibilité</h3>
         <p>
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Divisibilité par 2
                 </dfn>
                 Un nombre est divisible par 2 s'il est pair. Il se termine par 0, 2, 4, 6 ou 8.
             </p>
-=======
-            <dl>
-                <dt><dfn>Divisibilité par 2</dfn></dt>
-                <dd>Un nombre est divisible par 2 s'il est pair. Il se termine par 0, 2, 4, 6 ou 8.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>184 est divisible par 2, mais 435 ne l'est pas.</li>
             </ul>
-
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Divisibilité par 5
                 </dfn>
                 Un nombre est divisible par 2 s'il se termine par 0 ou 5.
             </p>
-=======
-            <dl>
-                <dt><dfn>Divisibilité par 5</dfn></dt>
-                <dd>Un nombre est divisible par 2 s'il se termine par 0 ou 5.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>265 est divisible par 5, mais 841 ne l'est pas.</li>
             </ul>
-
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Divisibilité par 3
                 </dfn>
                 Un nombre est divisible par 3 si la somme des ses chiffres est un multiple de 3.
             </p>
-=======
-            <dl>
-                <dt><dfn>Divisibilité par 3</dfn></dt>
-                <dd>Un nombre est divisible par 3 si la somme des ses chiffres est un multiple de 3.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>564 est divisible par 3, car 5+6+4 = 15 qui est un multiple de 3 (3*5).</li>
             </ul>
-
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Divisibilité par 9
                 </dfn>
                 Un nombre est divisible par 9 si la somme des ses chiffres est un multiple de 9.
             </p>
-=======
-            <dl>
-                <dt><dfn>Divisibilité par 9</dfn></dt>
-                <dd>Un nombre est divisible par 9 si la somme des ses chiffres est un multiple de 9.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>765 est divisible par 9, car 7+6+5 = 18 qui est un multiple de 9 (9*2).</li>
             </ul>
@@ -153,38 +92,21 @@
 
         <h3> D - Diviseurs Communs à Deux Nombres Entiers</h3>
         <p>
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Diviseur commun
                 </dfn>
                 Dire qu'un nombre <var>d</var> est un diviseur commun de deux nombres entiers <var>a</var> et <var>b</var> signifie que <var>a</var> et <var>b</var> sont divisibles par <var>d</var>.
             </p>
-=======
-            <dl>
-                <dt><dfn>Diviseur commun</dfn></dt>
-                <dd>Dire qu'un nombre <var>d</var> est un diviseur commun de deux nombres entiers <var>a</var> et <var>b</var> signifie que <var>a</var> et <var>b</var> sont divisibles par <var>d</var>.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>1, 2, 3 et 6 sont des diviseurs communs à 12 et 18.</li>
             </ul>
-
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Nombres premiers entre eux
                 </dfn>
                 Dire que deux nombres entiers sont premiers entre eux signifie que leur seul diviseur commun est 1.
             </p>
-=======
-            <dl>
-                <dt><dfn>Nombres premiers entre eux</dfn></dt>
-                <dd>Dire que deux nombres entiers sont premiers entre eux signifie que leur seul diviseur commun est 1.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>Les diviseurs de 12 sont : 1, 2, 3, 4, 6, 12. </li>
                 <li>Les diviseurs de 35 sont : 1, 5, 7 et 35. </li>
@@ -207,21 +129,12 @@
                     Ainsi, 588 = 2*2*3*7*7 = (2^2)*3*(7^2)
                 </li>
             </ul>
-
-<<<<<<< HEAD
             <p class="definition">
                 <dfn>
                     Fraction irréductible
                 </dfn>
                 Soit <var>a</var> et <var>b</var> deux entiers. On dit que la fraction <var>a</var>/<var>b</var> est irréductible lorsque <var>a</var> et <var>b</var> sont premiers entre eux.
             </p>
-=======
-            <dl>
-                <dt><dfn>Fraction irréductible</dfn></dt>
-                <dd>Soit <var>a</var> et <var>b</var> deux entiers. On dit que la fraction <var>a</var>/<var>b</var> est irréductible lorsque <var>a</var> et <var>b</var> sont premiers entre eux.</dd>
-            </dl>
-            Exemple
->>>>>>> 5b526e43df6d6e1e034bcb0c0f87591c80622c41
             <ul>
                 <li>5/7 est une fraction irréductible car 5 et 7 sont premiers entre eux.</li>
             </ul>
