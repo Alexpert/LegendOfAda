@@ -15,8 +15,9 @@ var gameLength = 60000;
 
 function preload() {
   createCanvas(windowWidth, windowHeight);
-  eratoasterSprite = loadImage("testMiniJeu/assets/eratoaster.png");
-  toastSprite = loadImage("testMiniJeu/assets/toast.png");
+  console.log(window.location.pathname);
+  eratoasterSprite = loadImage("assets/eratoaster.png");
+  toastSprite = loadImage("assets/toast.png");
 }
 
 function Eratoaster() {
