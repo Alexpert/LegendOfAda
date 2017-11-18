@@ -13,9 +13,9 @@ body {
 }
 
 body * {
+	font-family: Montserrat, sans-serif;
 	padding: 0;
 	margin: 0;
-	font-family: sans-serif;
 	text-decoration: none;
 	color: black;
 }
@@ -391,39 +391,37 @@ body.courses > div > ol > li:hover {
 	background-color: hsl(43,100%,70%);
 }
 
-body.courses > div > ul {
-    display: block;
-    list-style-type: disc;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 40px;
+body.courses > div.lesson {
+	text-align: center;
 }
 
-body.courses > div > h2, body.courses > div > h3 {
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
+body.courses > div.lesson h2, body.courses > div.lesson h3 {
+	background-color: darkorange;
 }
 
-body.courses > div > h3 {
-	padding-left: 20px;
+body.courses > div.lesson > p.definition, body.courses > div.lesson > p.property {
+	margin: 1vmin;
+	padding: 1vmin;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 1vmin;
 }
 
-body.courses > div > dl {
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
+body.courses > div.lesson > p > dfn {
+	display: block;
+	font-size: 130%;
+	font-weight: bold;
 }
 
-body.courses > div > dl > dd {
-    display: block;
-    margin-left: 40px;
+body.courses > div.lesson > p.property {
+	border: 1vmin solid hsl(43,100%,70%);
 }
 
-body.courses > div > ul ul{
-    padding-left: 60px;
-    margin-bottom: 1em;
+body.courses > div.lesson > p.property:hover {
+	background-color: hsl(43,100%,70%);
+}
+
+body.courses > div.lesson ul, body.courses > div.lesson li {
+	padding: 0.2vmin 10% 0.2vmin 10%;
+	margin: 0 1pt 0 1pt;
+	border-radius: 1vmin;
 }

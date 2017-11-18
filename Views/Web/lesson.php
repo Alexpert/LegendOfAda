@@ -35,7 +35,7 @@ Head('Nombres premiers et fractions irréductibles');
 	</p>
 	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
 </header>
-<div>
+<div class="lesson">
 <?= $content ?>
 </div>
 </body>

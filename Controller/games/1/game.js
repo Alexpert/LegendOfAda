@@ -1,6 +1,6 @@
 var eratoasterSprite;
 var toastSprite;
-var backSprite;
+//var backSprite;
 
 var eratoaster;
 var toasts = [];
@@ -17,7 +17,7 @@ var gameLength = 60000;
 function preload() {
   eratoasterSprite = loadImage("assets/eratoaster.png");
   toastSprite = loadImage("assets/toast.png");
-  backSprite = loadImage("assets/background.png");
+//  backSprite = loadImage("assets/background.png");
 }
 
 function Eratoaster() {
@@ -119,7 +119,7 @@ function draw() {
 
 
   clear();
-  image(backSprite, 0, 0);
+  //image(backSprite, 0, 0);
 
 
   stroke('white');
