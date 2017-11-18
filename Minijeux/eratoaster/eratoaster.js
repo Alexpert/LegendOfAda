@@ -7,7 +7,7 @@ var toasts = [];
 var score = 0;
 var startTime;
 
-var gravity = 0.03;
+var gravity = 0.002 * windowHeight;
 var primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 var probaToast = 0.02;
 var gain = 5;
@@ -39,7 +39,7 @@ function Eratoaster() {
 function Toast(x) {
   this.x = x;
   this.y = windowHeight - eratoasterSprite.height;
-  this.velocity = -Math.floor(Math.random() * windowsHeight);
+  this.velocity = -Math.floor(Math.random() * windowHeight);
   this.value = Math.floor(Math.random() * 100);
   this.hit = false;
 
