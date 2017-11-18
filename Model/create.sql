@@ -33,7 +33,6 @@ CREATE TABLE GAME
   name varchar(32) UNIQUE,
   description varchar(255),
   rule varchar(255),
-  worldId uuid,
 
   FOREIGN KEY (worldId) REFERENCES WORLD(id)
 );
