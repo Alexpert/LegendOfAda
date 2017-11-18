@@ -1,5 +1,6 @@
 var eratoasterSprite;
 var toastSprite;
+var backSprite;
 
 var eratoaster;
 var toasts = [];
@@ -14,10 +15,9 @@ var loose = 2;
 var gameLength = 60000;
 
 function preload() {
-  createCanvas(windowWidth, windowHeight);
-  console.log(window.location.pathname);
   eratoasterSprite = loadImage("assets/eratoaster.png");
   toastSprite = loadImage("assets/toast.png");
+  backSprite = loadImage("assets/background.png");
 }
 
 function Eratoaster() {
@@ -93,6 +93,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   eratoaster = new Eratoaster();
   startTime = new Date().getTime();
+  //backSprite = backSprite.resize(windowWidth, windowHeight);
   loop();
 }
 
@@ -118,7 +119,7 @@ function draw() {
 
 
   clear();
-  background(42);
+  image(backSprite, 0, 0);
 
 
   stroke('white');
