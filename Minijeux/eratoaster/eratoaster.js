@@ -7,7 +7,7 @@ var toasts = [];
 var score = 0;
 var startTime;
 
-var gravity;
+var gravity = 0.03;
 var primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 var probaToast = 0.02;
 var gain = 5;
@@ -91,7 +91,6 @@ function Toast(x) {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  gravity = 0.001 * windowHeight;
   eratoaster = new Eratoaster();
   startTime = new Date().getTime();
   //backSprite = backSprite.resize(windowWidth, windowHeight);
