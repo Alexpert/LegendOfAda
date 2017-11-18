@@ -3,12 +3,15 @@ var toastSprite;
 
 var eratoaster;
 var toasts = [];
+var score = 0;
+var startTime;
 
 var gravity = 0.2;
 var primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 var probaToast = 0.02;
 var gain = 5;
 var loose = 2;
+var gameLength = 60000;
 
 function preload() {
   createCanvas(windowWidth, windowHeight);
@@ -35,11 +38,24 @@ function Eratoaster() {
 function Toast(x) {
   this.x = x;
   this.y = windowHeight - eratoasterSprite.height;
-  this.velocity = -10;
+  this.velocity = -(7 + Math.floor(Math.random() * 5));
   this.value = Math.floor(Math.random() * 100);
+  this.hit = false;
 
   this.draw = function() {
     image(toastSprite, this.x, this.y);
+    if (this.hit) {
+      if (this.prime) {
+        stroke('green');
+        fill('green');
+      } else {
+        stroke('red');
+        fill('red');
+      }
+    } else {
+      stroke('white');
+      fill('white');
+    }
     textSize(50);
     text (this.value, this.x, this.y + toastSprite.height * 0.7);
   }
@@ -50,7 +66,14 @@ function Toast(x) {
   }
 
   this.isHit = function(x, y) {
-    return (x > this.x && x < this.x + toastSprite.width && y > this.y && y < this.y + toastSprite.height);
+    if (this.hit) {
+      return false;
+    } else {
+      if (x > this.x && x < this.x + toastSprite.width && y > this.y && y < this.y + toastSprite.height) {
+        this.hit = true;
+        return true;
+      }
+    }
   }
 
   this.isPrime = function() {
@@ -62,28 +85,59 @@ function Toast(x) {
     }
     return prime;
   }
+  this.prime = this.isPrime();
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   eratoaster = new Eratoaster();
+  startTime = new Date().getTime();
   loop();
 }
 
+function endScreen() {
+  clear();
+  background(42);
+  stroke('white');
+  fill('white');
+  text("Le Temps est écoulé",windowWidth / 2 - 250, 0.2 * windowHeight);
+  text("Votre score est de:",windowWidth / 2 - 250, 0.4 * windowHeight);
+  text(score, windowWidth / 2 - 250, 0.6 * windowHeight);
+  text("Get Gud Fagget",windowWidth / 2 - 250, 0.8 * windowHeight);
+  noLoop();
+}
+
 function draw() {
+
   for (i = 0; i < toasts.length; i++) {
     if (toasts[i].y > windowHeight) {
       toasts.splice(i, 1);
     }
   }
+
+
   clear();
   background(42);
+
+
+  stroke('white');
+  fill('white');
+  textSize(69);
+  text(score, 10, 79)
+  var timeLeft = Math.floor((gameLength - (new Date().getTime() - startTime)) / 1000);
+  if (timeLeft < 11) {
+    stroke('red');
+    fill('red');
+  }
+  text(timeLeft, windowWidth / 2 - 69, 79);
+
+
   for (i = 0; i < toasts.length; i++) {
     toasts[i].move();
   }
   eratoaster.move();
 
-  if (Math.random() < probaToast) {
+  if (toasts.length == 0) {
     toasts.push(new Toast(eratoaster.x));
   }
 
@@ -92,28 +146,20 @@ function draw() {
     toasts[i].draw();
   }
   eratoaster.draw();
-}
 
-function testForToast() {
-
+  if (new Date().getTime() >= startTime + gameLength) {
+      endScreen();
+  }
 }
 
 function mouseClicked() {
-  console.log("mouse Clicked");
   for (i = 0; i < toasts.length; i++) {
-    console.log("toast no " + i);
-    console.log(toasts.length);
     if (toasts[i].isHit(mouseX, mouseY)) {
-      console.log("toast hit");
-      if (toasts[i].isPrime()) {
-        console.log("toast prime");
+      if (toasts[i].prime) {
         score += gain;
       } else {
-        console.log("toast not prime");
         score -= loose;
       }
     }
   }
-  console.log(score);
-
 }
