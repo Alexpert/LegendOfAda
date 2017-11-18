@@ -29,7 +29,7 @@ function AquaYak(x, y) {
   this.distance = Math.sqrt(x*x + y*y);
 
   this.draw = function() {
-    image(aquaYakSprite, this.x, this.y);
+    image(aquaYakSprite, this.x / 12 * windowsWidth, this.y / 7 * windowHeight);
   }
 }
 
@@ -40,7 +40,7 @@ function button(i, val) {
 
 function setup() {
   createCanvas(windowsWidth, windowHeight);
-  boat = new boat(0.9 * windowWidth)
+  boat = new boat(1/12 * windowWidth)
   currentYak = new AquaYak(Math.floor(Math.random() * 10), Math.floor(Math.random * 7));
 }
 
@@ -48,6 +48,7 @@ function draw() {
   if (!currentYak.alive) {
     currentYak = new AuquaYak(Math.floor(Math.random() * 10), Math.floor(Math.random * 7));
   }
+  
   
 
 }
