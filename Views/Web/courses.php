@@ -16,7 +16,7 @@ Head('Leçons');
 <div>
 	<h1>Nombre et calculs</h1>
 	<ol>
-		<li>Nombres premiers et fractions irréductibles</li>
+		<li><a href='lesson.php?theme=1&lesson=1'>Nombres premiers et fractions irréductibles</a></li>
 		<li>Calcul littéral</li>
 		<li>Équations et inéquations</li>
 	</ol>

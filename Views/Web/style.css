@@ -1,8 +1,15 @@
+/* General */
+
+@keyframes background {
+	from { background-position: 100% 0; }
+	to { background-position: 0 0; }
+}
 
 body {
 	background-size: 12.5vw;
 	background-image: url(images/index-background.jpg);
 	background-repeat: repeat;
+	margin: 0;
 }
 
 body * {
@@ -35,7 +42,7 @@ body > header > p > img {
 	height: 4vh;
 }
 
-body > header > img {
+body > header img.user {
 	position: fixed;
 	padding: 1.4vh;
 	right: 0;
@@ -43,69 +50,12 @@ body > header > img {
 	height: 8vh;
 }
 
-body.campaign > img {
-	text-align: center;
-	height: 50%;
-	width: 50%;
-	padding-top: 10%;
-	padding-left: 25%;
-}
-
-body.courses > div {
-	margin-top: 15vh;
-	margin-left: 19.5vw;
-	margin-right: 19.5vw;
-	width: 60vw;
-	background-color: orange;
-	border: 0.5vw solid darkorange;
-	border-radius: 1vw;
-}
-
-body.courses > div > h1 {
-	margin-top: 1vw;
-	margin-bottom: 1vw;
-	text-align: center;
-	background-color: darkorange;
-	transition: 0.25s;
-}
-
-body.courses > div > h1:hover {
-	background-color: hsl(43,100%,70%);
-}
-
-body.courses > div > ol {
-	width: 30%;
-	padding-left: 35%;
-	padding-right: 35%;
-	font-size: 4vmin;
-	text-align: center;
-}
-
-body.courses > div > ol > li:hover {
-	transition: 0.25s;
-}
-
-body.courses > div > ol > li:hover {
-	background-color: hsl(43,100%,70%);
-}
-
-footer.scroller {
-	position: fixed;
-	width: 100vw;
-	height: 20vh;
-	bottom: 2.5vh;
-	left: 0;
-	background-color: orange;
-	border: 10px solid darkorange;
-	border-width: 1vh 0 1vh 0;
-}
-
-footer.scroller > figure {
+figure.game {
 	position: relative;
 	display: inline-block;
 }
 
-footer.scroller > figure figcaption {
+figure.game figcaption {
 	position: absolute;
 	font-weight: bold;
 	color: white;
@@ -115,34 +65,9 @@ footer.scroller > figure figcaption {
 	transition: padding 0.5s, opacity 0.5s;
 }
 
-footer.scroller > figure:hover figcaption {
+figure.game:hover figcaption {
 	padding: 0.7em;
 	opacity: 1;
-}
-
-footer.scroller > figure img {
-	height: 20vh;
-}
-
-footer.play {
-	position: fixed;
-	text-align: center;
-	border: 1vh solid darkorange;
-	border-radius: 4vh 4vh 0 0;
-	border-width: 1vh 1vh 0 1vh;
-	font-size: 5vh;
-	padding: 5vmin;
-	width: 35vw;
-	height: 10vh;
-	bottom: 0;
-	left: 30vw;
-	background-color: orange;
-	transition: 0.25s;
-}
-
-footer.play:hover {
-	border-color: #CA5500;
-	background-color: #FF8700;
 }
 
 chat {
@@ -152,51 +77,42 @@ chat {
 	background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
 }
 
-chat > h1 {
-	height: 10%;
+chat > div {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+chat > div > h1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	text-align: center;
-	font-size: 150%;
 	background: rgba(0,0,0,0.4);
 	color: white;
 }
 
-chat > textarea {
-	width: 95%;
-	height: 80%;
+chat > div > textarea {
+	width: 100%;
+	height: 100%;
 	resize: none;
 	color: white;
 	background-color: rgba(0,0,0,0);
-	padding-left: 5%;
 	border: none;
 }
 
-chat > input {
-	width: 97%;
-	height: 9%;
+chat > div > input {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 5%;
 	resize: none;
 	border: none;
 	font-size: 1.0em;
-	padding-left: 3%;
 	color: white;
 	background-color: rgba(255,255,255,0.2);
-}
-
-chat.index {
-	width: 25vw;
-	top: 15vh;
-	bottom: 27.5vh;
-}
-
-chat.minigame {
-	width: 25vw;
-	top: 30vh;
-	bottom: 27.5vh;
-}
-
-chat.campaign {
-	width: 25vw;
-	height: 45vh;
-	bottom: 0;
 }
 
 social {
@@ -222,11 +138,20 @@ social > table td {
 	color: white;
 }
 
-social.index, social.minigame {
-	width: 25vw;
-	top: 15vh;
-	bottom: 27.5vh;
+/* login */
+
+body.login > form {
+	width: 30vw;
+	height: 15vh;
+	margin: 15vh 30vw 15vh 30vw;
+	padding: 0 5vw 0 5vw;
+	background-color: orange;
+	border: 1vmin solid darkorange;
+	text-align: center;
+	border-radius: 1vmin;
 }
+
+/* index */
 
 menu.index {
 	position: fixed;
@@ -259,6 +184,54 @@ menu.index > p > a:hover {
 	background: hsl(43,100%,70%);
 }
 
+chat.index {
+	width: 25vw;
+	top: 15vh;
+	bottom: 27.5vh;
+}
+
+social.index {
+	width: 25vw;
+	top: 15vh;
+	bottom: 27.5vh;
+}
+
+footer.index {
+	position: fixed;
+	width: 100vw;
+	height: 20vh;
+	bottom: 2.5vh;
+	left: 0;
+	background-color: orange;
+	border: 10px solid darkorange;
+	border-width: 1vh 0 1vh 0;
+}
+
+footer.index > figure {
+	position: relative;
+	display: inline-block;
+}
+
+footer.index > figure img {
+	height: 20vh;
+}
+
+/* campaign */
+
+body.campaign > img {
+	text-align: center;
+	height: 50%;
+	width: 50%;
+	padding-top: 10%;
+	padding-left: 25%;
+}
+
+chat.campaign {
+	width: 25vw;
+	height: 45vh;
+	bottom: 0;
+}
+
 menu.campaign {
 	position: fixed;
 	font-size: 3vmin;
@@ -276,6 +249,54 @@ menu.campaign > a {
 	margin: 2vh;
 	padding: 2vh;
 	background-color: darkorange;
+}
+
+/* games */
+
+body.games > menu {
+	margin: 15vh 5vw 0 5vw;
+	padding: 0;
+}
+
+body.games > menu > figure.game {
+	display: inline-block;
+	width: 33%;
+	margin: 0;
+	padding: 0;
+}
+
+body.games > menu > figure.game img {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* game */
+
+a.course {
+	position: fixed;
+	font-size: 7vh;
+	padding: 1.5vh;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 0 2vh 2vh 0;
+	color: white;
+	top: 15vh;
+	left: 0;
+	width: 23.5vw;
+	background: rgba(0,0,0,0.6);
+	transition: 0.25s;
+}
+
+a.course:hover {
+	background: rgba(0,0,0,0.2);
+	color: black;
+}
+
+chat.game {
+	width: 25vw;
+	top: 30vh;
+	bottom: 27.5vh;
 }
 
 rules {
@@ -299,28 +320,75 @@ rules > img {
 	width: 50%;
 }
 
-a.course {
-	position: fixed;
-	font-size: 7vh;
-	padding: 1.5vh;
-	text-align: center;
-	border: 1px solid black;
-	border-radius: 0 2vh 2vh 0;
-	color: white;
+social.game {
+	width: 25vw;
 	top: 15vh;
-	left: 0;
-	width: 23.5vw;
-	background: rgba(0,0,0,0.6);
+	bottom: 27.5vh;
+}
+
+footer.play {
+	position: fixed;
+	text-align: center;
+	border: 1vh solid darkorange;
+	border-radius: 4vh 4vh 0 0;
+	border-width: 1vh 1vh 0 1vh;
+	font-size: 5vh;
+	padding: 5vmin;
+	width: 35vw;
+	height: 10vh;
+	bottom: 0;
+	left: 30vw;
+	background-color: orange;
 	transition: 0.25s;
 }
 
-a.course:hover {
-	background: rgba(0,0,0,0.2);
-	color: black;
+footer.play:hover {
+	border-color: #CA5500;
+	background-color: #FF8700;
 }
 
-@keyframes background {
-	from { background-position: 100% 0; }
-	to { background-position: 0 0; }
+/* courses */
+
+body.courses > div {
+	margin-top: 15vh;
+	margin-left: 19.5vw;
+	margin-right: 19.5vw;
+	width: 60vw;
+	background-color: orange;
+	border: 0.5vw solid darkorange;
+	border-radius: 1vw;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
+
+body.courses > div > h1 {
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	text-align: center;
+	background-color: darkorange;
+	transition: 0.25s;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+body.courses > div > h1:hover {
+	background-color: hsl(43,100%,70%);
+}
+
+body.courses > div > ol {
+	width: 80%;
+	padding-left: 10%;
+	padding-right: 10%;
+	font-size: 4vmin;
+	text-align: center;
+}
+
+body.courses > div > ol > li:hover {
+	transition: 0.25s;
+}
+
+body.courses > div > ol > li:hover {
+	background-color: hsl(43,100%,70%);
+}
+
 

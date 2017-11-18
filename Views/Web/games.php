@@ -15,9 +15,9 @@ Head('Jeux');
 </header>
 <menu>
 <?php for($i = 0; $i < 10; $i++) { ?><figure class="game">
-		<a href="game.php">
-			<figcaption>Un mini jeu</figcaption>
-			<img src="images/minigame.png"/>
+		<a href="game.php?id=1">
+			<figcaption>Eratoaster</figcaption>
+			<img src="http://api.legendofada.eu/games/1/preview.png"/>
 		</a>
 	</figure><?php } ?>
 </menu>

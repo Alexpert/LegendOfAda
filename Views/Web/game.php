@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Mini-jeu</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type-"text/css" href="style.css">
-</head>
-<body class="minigame">
+<?php
+include_once 'session.php';
+Head('Jeu');
+?>
+<body class="game">
 <header>
 	<p>
-		<a href="index.html">Menu Principal</a>
+		<a href="index.php">Menu Principal</a>
 		<img src="images/arrow.png" alt=">"></img>
-		<a href="game.html">Mini-jeu</a>
+		<a href="game.php">Mini-jeu</a>
 	</p>
-	<img src="images/user.jpg"></img>
+	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
 </header>
-<a class="course" href="courses.html">Cours</a>
-<chat class="minigame">
-	<h1>Chat</h1>
-	<textarea readonly>
-Sandrine: Bon vous êtes prêts?
-Bobby: gg ez
-Bilel: Allons y let's go!
-	</textarea>
-	<input></input>
-</chat>
+<a class="course" href="lesson.php?theme=1&lesson=1">Cours</a>
+<?php Chat('game'); ?>
 <rules>
-	<h1>Description et image</h1>
-	<img src="images/minigame.png"></img>
+	<h1>Eratoaster</h1>
+	<img src="http://api.legendofada.eu/games/1/preview.png"/>
 	<p>
-		Règles du jeu, voir même description.
+		Cliquez sur les toasts premiers pour annihiler Eratoaster l'omnipotent
 	</p>
 </rules>
-<social class="minigame">
+<social class="game">
 	<h1>Leaderboards</h1>
 	<table>
 		<tr><td>1</td><td>Bobby</td><td>1345</td></tr>
@@ -47,6 +38,6 @@ Bilel: Allons y let's go!
 		<tr><td></td><td>...</td><td></td></tr>
 	</table>
 </social>
-<a href=""><footer class="play"><h1>Commencer</h1></footer></a>
+<a href="http://api.legendofada.eu/games/1"><footer class="play"><h1>Commencer</h1></footer></a>
 </body>
 </html>

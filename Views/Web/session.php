@@ -1,5 +1,9 @@
 <?php
 
+// Empêche les fouineurs de venir
+if(strpos($_SERVER['REQUEST_URI'], 'session.php') != false)
+	http_response_code(403);
+
 session_start();
 
 if(!isset($_SESSION['token']))
@@ -11,9 +15,11 @@ function Chat($class = null) {
 	else
 		echo "<chat>\n";
 
-	echo "	<h1>Chat</h1>\n";
-	echo "	<textarea readonly></textarea>\n";
-	echo "	<input></input>\n";
+	echo "	<div>\n";
+	echo "		<h1>Chat</h1>\n";
+	echo "		<textarea readonly></textarea>\n";
+	echo "		<input></input>\n";
+	echo "	</div>\n";
 	echo "</chat>\n";
 }
 
