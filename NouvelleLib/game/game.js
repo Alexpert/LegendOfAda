@@ -3,6 +3,7 @@ function Eratoaster() {
 	var eratoaster = new GameObject();
 	eratoaster.x = 0.45;
 	eratoaster.y = 0.38;
+	eratoaster.velocity.x = -0.1;
 	eratoaster.width = 0.1;
 	eratoaster.height = 0.25;
 	eratoaster.text = "OBEY";
@@ -25,7 +26,7 @@ function setup() {
 }
 
 function update() {
-	game.draw(eratoaster);
+	game.update(eratoaster);
 }
 
 function clicked(x, y) {
