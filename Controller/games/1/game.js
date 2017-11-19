@@ -1,167 +1,135 @@
-var eratoasterSprite;
-var toastSprite;
-//var backSprite;
 
-var eratoaster;
-var toasts = [];
-var score = 0;
-var startTime;
-
-var gravity = 0.2;
-var primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
-var probaToast = 0.02;
-var gain = 5;
-var loose = 2;
-var gameLength = 60000;
-
-function preload() {
-  eratoasterSprite = loadImage("assets/eratoaster.png");
-  toastSprite = loadImage("assets/toast.png");
-//  backSprite = loadImage("assets/background.png");
+function toastNumber() {
+	return Math.floor(Math.random() * 100);
 }
 
 function Eratoaster() {
-  this.x = windowWidth/2;
-  this.velocity = 5;
+	var eratoaster = new GameObject();
+	eratoaster.x = 0.45;
+	eratoaster.y = 0.6;
+	eratoaster.velocity.x = -0.1;
+	eratoaster.width = 0.1;
+	eratoaster.height = 0.25;
+	eratoaster.image = game.createImage('assets/eratoaster.png');
 
-  this.draw = function() {
-    image(eratoasterSprite, this.x, windowHeight - 0.8 * eratoasterSprite.height);
-  }
-
-  this.move = function() {
-    if (this.x < 0 || this.x > windowWidth - eratoasterSprite.width) {
-      this.velocity = -this.velocity;
-    }
-    this.x += this.velocity;
-  }
+	return eratoaster;
 }
 
-function Toast(x) {
-  this.x = x;
-  this.y = windowHeight - eratoasterSprite.height;
-  this.velocity = -( 7 + Math.floor(Math.random() * 7));
-  this.value = Math.floor(Math.random() * 100);
-  this.hit = false;
+function Toast() {
+	var toast = new GameObject();
+	toast.x = 0.35;
+	toast.y = 0.5;
+	toast.velocity.y = -0.2;
+	toast.width = 0.06;
+	toast.height = 0.1;
+	toast.text = toastNumber();
+	toast.image = game.createImage('assets/toast.png');
 
-  this.draw = function() {
-    image(toastSprite, this.x, this.y);
-    if (this.hit) {
-      if (this.prime) {
-        stroke('green');
-        fill('green');
-      } else {
-        stroke('red');
-        fill('red');
-      }
-    } else {
-      stroke('white');
-      fill('white');
-    }
-    textSize(50);
-    text (this.value, this.x, this.y + toastSprite.height * 0.7);
-  }
-
-  this.move = function() {
-    this.y += this.velocity;
-    this.velocity += gravity * windowHeight/1000;
-  }
-
-  this.isHit = function(x, y) {
-    if (this.hit) {
-      return false;
-    } else {
-      if (x > this.x && x < this.x + toastSprite.width && y > this.y && y < this.y + toastSprite.height) {
-        this.hit = true;
-        return true;
-      }
-    }
-  }
-
-  this.isPrime = function() {
-    prime = false;
-    for (i = 0; i < primeNumbers.length; i++) {
-      if (this.value == primeNumbers[i]) {
-        prime = true;
-      }
-    }
-    return prime;
-  }
-  this.prime = this.isPrime();
+	return toast;
 }
+
+function Score() {
+	var score = new GameObject();
+	score.x = 0.05;
+	score.y = 0.05;
+	score.width = 0.1;
+	score.height = 0.15;
+	score.text = 0;
+
+	return score;
+}
+
+function Clock() {
+	var clock = new GameObject();
+	clock.x = 0.45;
+	clock.y = 0.05;
+	clock.width = 0.1;
+	clock.height = 0.15;
+	clock.text = 0;
+
+	return clock;
+}
+
+var startDate;
+var eratoaster;
+var toast;
+var score;
+var clock;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  eratoaster = new Eratoaster();
-  startTime = new Date().getTime();
-  //backSprite = backSprite.resize(windowWidth, windowHeight);
-  loop();
+	game.setBackground('assets/background.jpg');
+
+	eratoaster = Eratoaster();
+	toast = Toast();
+	score = Score();
+	clock = Clock();
+
+	game.draw(score);
+	startDate = Date.now();
 }
 
-function endScreen() {
-  clear();
-  background(42);
-  stroke('white');
-  fill('white');
-  text("Le Temps est écoulé",windowWidth / 2 - 250, 0.2 * windowHeight);
-  text("Votre score est de:",windowWidth / 2 - 250, 0.4 * windowHeight);
-  text(score, windowWidth / 2 - 250, 0.6 * windowHeight);
-  text("Get Gud Fagget",windowWidth / 2 - 250, 0.8 * windowHeight);
-  noLoop();
+function update() {
+	clock.text = Math.floor((Date.now() - startDate) / 1000);
+
+	if(eratoaster.x <= 0.1 || eratoaster.x >= 0.8)
+		eratoaster.velocity.x = -eratoaster.velocity.x
+
+	if(toast.y > 1) {
+		game.clear(toast);
+
+		game.fill('black');
+		game.clear(score);
+		if(toast.primary == undefined)
+			score.text -= 1;
+		else if(toast.primary == true)
+			score.text += 3;
+		else
+			score.text -= 2;
+		game.draw(score);
+
+		toast.x = eratoaster.x;
+		toast.y = eratoaster.y - toast.width;
+		toast.velocity.y = -toast.velocity.y;
+		toast.text = toastNumber();
+		toast.primary = undefined;
+	} else if(toast.y <= 0.2) {
+		toast.velocity.y = -toast.velocity.y;
+	}
+
+	game.clear(eratoaster);
+	game.clear(toast);
+	game.clear(clock);
+
+	game.move(eratoaster);
+	game.move(toast);
+
+	game.draw(eratoaster);
+
+	if(toast.primary == undefined)
+		game.fill('black');
+	else if(toast.primary == true)
+		game.fill('green');
+	else
+		game.fill('red');
+	game.setFontSize(0.05);
+	game.draw(toast);
+	game.setFontSize(0.1);
+	
+	if(clock.text >= 50)
+		game.fill('red');
+	else
+		game.fill('black');
+	game.draw(clock);
+
+	if(clock.text == 60)
+		game.end(score.text);
 }
 
-function draw() {
-
-  for (i = 0; i < toasts.length; i++) {
-    if (toasts[i].y > windowHeight) {
-      toasts.splice(i, 1);
-    }
-  }
-
-
-  clear();
-  //image(backSprite, 0, 0);
-
-
-  stroke('white');
-  fill('white');
-  textSize(69);
-  text(score, 10, 79)
-  var timeLeft = Math.floor((gameLength - (new Date().getTime() - startTime)) / 1000);
-  if (timeLeft < 11) {
-    stroke('red');
-    fill('red');
-  }
-  text(timeLeft, windowWidth / 2 - 69, 79);
-
-
-  for (i = 0; i < toasts.length; i++) {
-    toasts[i].move();
-  }
-  eratoaster.move();
-
-  if (toasts.length == 0) {
-    toasts.push(new Toast(eratoaster.x));
-  }
-
-
-  for (i = 0; i < toasts.length; i++) {
-    toasts[i].draw();
-  }
-  eratoaster.draw();
-
-  if (new Date().getTime() >= startTime + gameLength) {
-      endScreen();
-  }
-}
-
-function mouseClicked() {
-  for (i = 0; i < toasts.length; i++) {
-    if (toasts[i].isHit(mouseX, mouseY)) {
-      if (toasts[i].prime) {
-        score += gain;
-      } else {
-        score -= loose;
-      }
-    }
-  }
+function clicked(x, y) {
+	if(toast.contains(x, y) && toast.primary == undefined) {
+		if(toast.text % 2 == 0)
+			toast.primary = true;
+		else
+			toast.primary = false;
+	}
 }
