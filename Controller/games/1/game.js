@@ -1,4 +1,16 @@
 
+
+let primeNumbers = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+function isPrime(n) {
+	for(i = 0; i < primeNumbers.length; i++) {
+		if(n == primeNumbers[i])
+			return true;
+	}
+
+	return false;
+}
+
 function toastNumber() {
 	return Math.floor(Math.random() * 100);
 }
@@ -11,18 +23,21 @@ function Eratoaster() {
 	eratoaster.width = 0.1;
 	eratoaster.height = 0.25;
 	eratoaster.image = game.createImage('assets/eratoaster.png');
+	eratoaster.resetToast = function(toast) {
+		toast.x = this.x;
+		toast.y = this.y - toast.width;
+		toast.velocity.y = -0.3;
+		toast.text = toastNumber();
+		toast.primary = undefined;
+	}
 
 	return eratoaster;
 }
 
 function Toast() {
 	var toast = new GameObject();
-	toast.x = 0.35;
-	toast.y = 0.5;
-	toast.velocity.y = -0.2;
 	toast.width = 0.06;
 	toast.height = 0.1;
-	toast.text = toastNumber();
 	toast.image = game.createImage('assets/toast.png');
 
 	return toast;
@@ -64,6 +79,7 @@ function setup() {
 	score = Score();
 	clock = Clock();
 
+	eratoaster.resetToast(toast);
 	game.draw(score);
 	startDate = Date.now();
 }
@@ -79,19 +95,15 @@ function update() {
 
 		game.fill('black');
 		game.clear(score);
-		if(toast.primary == undefined)
-			score.text -= 1;
-		else if(toast.primary == true)
-			score.text += 3;
-		else
-			score.text -= 2;
+		if(toast.primary != undefined) {
+			if(toast.primary)
+				score.text += 3;
+			else
+				score.text -= 3;
+		}
 		game.draw(score);
 
-		toast.x = eratoaster.x;
-		toast.y = eratoaster.y - toast.width;
-		toast.velocity.y = -toast.velocity.y;
-		toast.text = toastNumber();
-		toast.primary = undefined;
+		eratoaster.resetToast(toast);
 	} else if(toast.y <= 0.2) {
 		toast.velocity.y = -toast.velocity.y;
 	}
@@ -127,7 +139,7 @@ function update() {
 
 function clicked(x, y) {
 	if(toast.contains(x, y) && toast.primary == undefined) {
-		if(toast.text % 2 == 0)
+		if(isPrime(toast.text))
 			toast.primary = true;
 		else
 			toast.primary = false;
