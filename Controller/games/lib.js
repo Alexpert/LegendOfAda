@@ -66,8 +66,8 @@ let game = new function() {
 	}
 
 	this.move = function(object) {
-		object.x += object.velocity.x * 0.020;
-		object.y += object.velocity.y * 0.020;
+		object.x += object.velocity.x * 0.016;
+		object.y += object.velocity.y * 0.016;
 	}
 
 	this.fill = function(style) {
@@ -116,7 +116,7 @@ let game = new function() {
 		if(typeof setup == 'function')
 			setup();
 
-		this.timerId = setInterval(update, 20);
+		this.timerId = setInterval(update, 16);
 	}
 
 	this.end = function(score) {
