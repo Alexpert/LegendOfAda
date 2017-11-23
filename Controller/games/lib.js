@@ -53,8 +53,7 @@ let game = new function() {
 	}
 
 	this.clearAll = function() {
-		this.canvas.clearRect(0, 0,
-			this.canvas.clientwidth, this.canvas.clientHeight);
+		this.context.clearRect(0, 0, this.canvas.clientWidth, this.canvas.clientHeight);
 	}
 
 	this.clear = function(object) {

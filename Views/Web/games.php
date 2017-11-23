@@ -11,7 +11,7 @@ Head('Jeux');
 		<img src="images/arrow.png" alt=">"></img>
 		<a href="games.php">Mini-jeux</a>
 	</p>
-	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
+	<?php User(); ?>
 </header>
 <menu>
 <?php for($i = 0; $i < 10; $i++) { ?><figure class="game">

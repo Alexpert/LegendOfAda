@@ -1,5 +1,8 @@
 /* General */
 
+/* Replace it with non outside import */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 @keyframes background {
 	from { background-position: 100% 0; }
 	to { background-position: 0 0; }
@@ -217,14 +220,6 @@ footer.index > figure img {
 }
 
 /* campaign */
-
-body.campaign > img {
-	text-align: center;
-	height: 50%;
-	width: 50%;
-	padding-top: 10%;
-	padding-left: 25%;
-}
 
 chat.campaign {
 	width: 25vw;

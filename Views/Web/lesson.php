@@ -17,7 +17,6 @@ if(!(isset($_GET['theme'])
 }
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <?php
@@ -33,7 +32,7 @@ Head('Nombres premiers et fractions irréductibles');
 		<img src="images/arrow.png" alt=">"></img>
 		<a><?= $name ?></a>
 	</p>
-	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
+	<?php User(); ?>
 </header>
 <div class="lesson">
 <?= $content ?>

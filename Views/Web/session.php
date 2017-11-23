@@ -9,6 +9,10 @@ session_start();
 if(!isset($_SESSION['token']))
 	header('Location: login.php');
 
+function User() {
+	echo "\t".'<a href="login.php"><img class="user" src="images/user.png"></img></a>'."\n";
+}
+
 function Chat($class = null) {
 	if($class != null)
 		echo '<chat class="' . $class . "\">\n";

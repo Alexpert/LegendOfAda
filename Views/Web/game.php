@@ -11,7 +11,7 @@ Head('Jeu');
 		<img src="images/arrow.png" alt=">"></img>
 		<a href="game.php">Mini-jeu</a>
 	</p>
-	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
+	<?php User(); ?>
 </header>
 <a class="course" href="lesson.php?theme=1&lesson=1">Cours</a>
 <?php Chat('game'); ?>

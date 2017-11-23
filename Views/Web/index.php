@@ -9,7 +9,7 @@ Head('Menu');
 	<p>
 		<a href="index.php">Menu Principal</a>
 	</p>
-	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
+	<?php User(); ?>
 </header>
 <menu class="index">
 	<h1>Menu</h1>

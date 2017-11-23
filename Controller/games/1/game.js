@@ -60,7 +60,6 @@ function Clock() {
 	clock.y = 0.05;
 	clock.width = 0.1;
 	clock.height = 0.15;
-	clock.text = 0;
 
 	return clock;
 }
@@ -85,7 +84,7 @@ function setup() {
 }
 
 function update() {
-	clock.text = Math.floor((Date.now() - startDate) / 1000);
+	clock.text = 30 - Math.floor((Date.now() - startDate) / 1000);
 
 	if(eratoaster.x <= 0.1 || eratoaster.x >= 0.8)
 		eratoaster.velocity.x = -eratoaster.velocity.x
@@ -100,6 +99,8 @@ function update() {
 				score.text += 3;
 			else
 				score.text -= 3;
+		} else if(isPrime(toast.text)) {
+			score.text -= 1;
 		}
 		game.draw(score);
 
@@ -127,14 +128,31 @@ function update() {
 	game.draw(toast);
 	game.setFontSize(0.1);
 	
-	if(clock.text >= 50)
+	if(clock.text <= 10)
 		game.fill('red');
 	else
 		game.fill('black');
 	game.draw(clock);
 
-	if(clock.text == 60)
-		game.end(score.text);
+	if(clock.text == 0) {
+		var finalScore = score.text;
+		game.clearAll();
+		game.fill('white');
+		score.x = 0.25;
+		score.y = 0.4;
+		score.width = 0.5;
+
+		if(score.text <= 0) {
+			game.setBackground('preview.png');
+			score.text = "VOUS AVEZ PERDU";
+		} else {
+			score.text = "VOUS AVEZ GAGNÉ";
+		}
+
+		game.draw(score);
+
+		game.end(finalScore);
+	}
 }
 
 function clicked(x, y) {

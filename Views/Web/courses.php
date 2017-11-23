@@ -11,7 +11,7 @@ Head('Leçons');
 		<img src="images/arrow.png" alt=">"></img>
 		<a href="courses.php">Leçons</a>
 	</p>
-	<a href="login.php"><img class="user" src="images/user.jpg"></img></a>
+	<?php User(); ?>
 </header>
 <div>
 	<h1>Nombre et calculs</h1>
