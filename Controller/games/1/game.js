@@ -138,14 +138,15 @@ function update() {
 		var finalScore = score.text;
 		game.clearAll();
 		score.x = 0.25;
-		score.y = 0.4;
 		score.width = 0.5;
 
 		if(score.text <= 0) {
+			score.y = 0.4;
 			game.fill('white');
 			game.setBackground('preview.png');
 			score.text = "VOUS AVEZ PERDU";
 		} else {
+			score.y = 0.3;
 			game.fill('black');
 			score.text = "VOUS AVEZ GAGNÉ";
 		}

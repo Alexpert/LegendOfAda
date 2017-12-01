@@ -30,9 +30,9 @@ body > header {
 	height: 10vh;
 	top: 0;
 	left: 0;
-	background-color: #65A6E4;
+	background-color: hsl(39, 100%, 50%);
 	z-index: 1;
-	border: 1vh solid #5C92C4;
+	border: 1vh solid hsl(33, 100%, 50%);
 	border-width: 0 0 1vh 0;
 }
 
@@ -148,8 +148,8 @@ body.login > form {
 	height: 15vh;
 	margin: 15vh 30vw 15vh 30vw;
 	padding: 0 5vw 0 5vw;
-	background-color: #65A6E4;
-	border: 1vmin solid #5C92C4;
+	background-color: hsl(39, 100%, 50%);
+	border: 1vmin solid hsl(33, 100%, 50%);
 	text-align: center;
 	border-radius: 1vmin;
 }
@@ -161,15 +161,15 @@ menu.index {
 	top: 25vh;
 	left: 35vw;
 	width: 30vw;
-	background-color: #65A6E4;
-	border: 1vh solid #5C92C4;
+	background-color: hsl(39, 100%, 50%);
+	border: 1vh solid hsl(33, 100%, 50%);
 	border-radius: 1vh;
 }
 
 menu.index > h1 {
 	text-align: center;
 	left: 0;
-	background-color: #5C92C4;
+	background-color: hsl(33, 100%, 50%);
 }
 
 menu.index > p > a {
@@ -178,13 +178,13 @@ menu.index > p > a {
 	text-align: center;
 	width: 96%;
 	height: 15%;
-	background: #5C92C4;
+	background: hsl(33, 100%, 50%);
 	font-size: 4vh;
 	transition: 0.25s;
 }
 
 menu.index > p > a:hover {
-	background: #9BE8E8;
+	background: hsl(43,100%,70%);
 }
 
 chat.index {
@@ -205,8 +205,8 @@ footer.index {
 	height: 20vh;
 	bottom: 2.5vh;
 	left: 0;
-	background-color: #65A6E4;
-	border: 10px solid #5C92C4;
+	background-color: hsl(39, 100%, 50%);
+	border: 10px solid hsl(33, 100%, 50%);
 	border-width: 1vh 0 1vh 0;
 }
 
@@ -234,8 +234,8 @@ menu.campaign {
 	right: 0;
 	bottom: 0;
 	width: 60vw;
-	background-color: #65A6E4;
-	border: 1vh solid #5C92C4;
+	background-color: hsl(39, 100%, 50%);
+	border: 1vh solid hsl(33, 100%, 50%);
 	border-width: 1vh 0 0 1vh;
 	border-radius: 1vh 0 0 0;
 }
@@ -243,7 +243,7 @@ menu.campaign {
 menu.campaign > a {
 	margin: 2vh;
 	padding: 2vh;
-	background-color: #5C92C4;
+	background-color: hsl(33, 100%, 50%);
 }
 
 /* games */
@@ -301,13 +301,13 @@ rules {
 	width: 35vw;
 	height: 56vh;
 	text-align: center;
-	border: 1vh solid #5C92C4;
+	border: 1vh solid hsl(33, 100%, 50%);
 	border-radius: 1vh;
-	background-color: #65A6E4;
+	background-color: hsl(39, 100%, 50%);
 }
 
 rules > h1 {
-	background-color: #5C92C4;
+	background-color: hsl(33, 100%, 50%);
 }
 
 rules > img {
@@ -324,7 +324,7 @@ social.game {
 footer.play {
 	position: fixed;
 	text-align: center;
-	border: 1vh solid #5C92C4;
+	border: 1vh solid hsl(33, 100%, 50%);
 	border-radius: 4vh 4vh 0 0;
 	border-width: 1vh 1vh 0 1vh;
 	font-size: 5vh;
@@ -333,7 +333,7 @@ footer.play {
 	height: 10vh;
 	bottom: 0;
 	left: 30vw;
-	background-color: #65A6E4;
+	background-color: hsl(39, 100%, 50%);
 	transition: 0.25s;
 }
 
@@ -349,8 +349,8 @@ body.courses > div {
 	margin-left: 19.5vw;
 	margin-right: 19.5vw;
 	width: 60vw;
-	background-color: #65A6E4;
-	border: 0.5vw solid #5C92C4;
+	background-color: hsl(39, 100%, 50%);
+	border: 0.5vw solid hsl(33, 100%, 50%);
 	border-radius: 1vw;
 	padding-top: 1%;
 	padding-bottom: 1%;
@@ -360,14 +360,14 @@ body.courses > div > h1 {
 	margin-top: 1vw;
 	margin-bottom: 1vw;
 	text-align: center;
-	background-color: #5C92C4;
+	background-color: hsl(33, 100%, 50%);
 	transition: 0.25s;
 	padding-top: 1%;
 	padding-bottom: 1%;
 }
 
 body.courses > div > h1:hover {
-	background-color: #9BE8E8;
+	background-color: hsl(43,100%,70%);
 }
 
 body.courses > div > ol {
@@ -383,7 +383,7 @@ body.courses > div > ol > li:hover {
 }
 
 body.courses > div > ol > li:hover {
-	background-color: #9BE8E8;
+	background-color: hsl(43,100%,70%);
 }
 
 body.courses > div.lesson {
@@ -391,7 +391,7 @@ body.courses > div.lesson {
 }
 
 body.courses > div.lesson h2, body.courses > div.lesson h3 {
-	background-color: #5C92C4;
+	background-color: hsl(33, 100%, 50%);
 }
 
 body.courses > div.lesson > p.definition, body.courses > div.lesson > p.property {
@@ -408,11 +408,11 @@ body.courses > div.lesson > p > dfn {
 }
 
 body.courses > div.lesson > p.property {
-	border: 1vmin solid #9BE8E8;
+	border: 1vmin solid hsl(43,100%,70%);
 }
 
 body.courses > div.lesson > p.property:hover {
-	background-color: #9BE8E8;
+	background-color: hsl(43,100%,70%);
 }
 
 body.courses > div.lesson ul, body.courses > div.lesson li {
