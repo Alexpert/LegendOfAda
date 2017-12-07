@@ -11,21 +11,33 @@ var answers = [];
 
 
 
-questions[0] = "Quelle est le carré de 2?";
+questions[0] = "Quel est le carré de 2?";
 answers[0] = [];
 answers[0][0] = "4";
-answers[0][0] = "7";
-answers[0][0] = "6";
-answers[0][0] = "2";
+answers[0][1] = "7";
+answers[0][2] = "6";
+answers[0][3] = "2";
 
 
+questions[1] = "Quel est le carré de 3?";
+answers[1] = [];
+answers[1][0] = "9";
+answers[1][1] = "7";
+answers[1][2] = "12";
+answers[1][3] = "0.33";
 
 
+questions[2] = "Quel est la taille du pénis de Rocco Siffredi";
+answers[2] = [];
+answers[2][0] = "24";
+answers[2][1] = "22";
+answers[2][2] = "18";
+answers[2][3] = "26";
 
 
 
 function QuestionObj(content) {
-  this.obj = GameObject();
+  this.obj = new GameObject();
   this.obj.text = content;
   this.obj.x = 0;
   this.obj.y = 0.5;
@@ -73,11 +85,13 @@ function Score() {
 
 function initQuestion(num) {
   console.log("initializing question");
-  questionObj = QuestionObj(questions[numQ]);
+  questionObj = new QuestionObj(questions[numQ]);
 
   var offset = Math.floor(Math.random() * 4);
+  console.log(offset);
   for (i = 0; i < 4; i++) {
-    buttonObj[i] = ButtonObj(answers[i][(i + offset) % 4], i, i + offset == 0);
+    console.log(buttonObj);
+    buttonObj[i] = new ButtonObj(answers[i][(i + offset) % 4], i, (i + offset) == 0);
   }
 }
 
@@ -94,7 +108,11 @@ function shuffle() {
 
 
 function setup() {
+  console.log(questions);
+  console.log(answers);
   shuffle();
+  console.log(questions);
+  console.log(answers);
   qAnswered = true;
   numQ = 0;
   score = Score();
