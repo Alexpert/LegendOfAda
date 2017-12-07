@@ -14,7 +14,6 @@ Head('Jeu');
 	<?php User(); ?>
 </header>
 <a class="course" href="lesson.php?theme=1&lesson=1">Cours</a>
-<?php Chat('game'); ?>
 <rules>
 	<h1>Eratoaster</h1>
 	<img src="http://api.legendofada.eu/games/1/preview.png"/>

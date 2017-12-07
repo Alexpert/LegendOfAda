@@ -19,19 +19,21 @@ Head('Menu');
 		<a href="courses.php">Cours</a>
 	</p>
 </menu>
-<?php Chat('index'); ?>
+<scroller>
+	<h1>Tendances</h1>
+	<div>
+<?php for($i = 0; $i < 10; $i++) { ?>
+		<figure class="game">
+			<a href="game.php?id=1">
+				<figcaption>Eratoaster</figcaption>
+				<img src="http://api.legendofada.eu/games/1/preview.png"/>
+			</a>
+		</figure>
+<?php } ?>
+	</div>
+</scroller>
 <social class="index">
 	<h1>Social</h1>
 </social>
-<footer class="index">
-<?php for($i = 0; $i < 5; $i++) { ?>
-	<figure class="game">
-		<a href="game.php?id=1">
-			<figcaption>Eratoaster</figcaption>
-			<img src="http://api.legendofada.eu/games/1/preview.png"/>
-		</a>
-	</figure>
-<?php } ?>
-</footer>
 </body>
 </html>

@@ -13,20 +13,6 @@ function User() {
 	echo "\t".'<a href="login.php"><img class="user" src="images/user.png"></img></a>'."\n";
 }
 
-function Chat($class = null) {
-	if($class != null)
-		echo '<chat class="' . $class . "\">\n";
-	else
-		echo "<chat>\n";
-
-	echo "	<div>\n";
-	echo "		<h1>Chat</h1>\n";
-	echo "		<textarea readonly></textarea>\n";
-	echo "		<input></input>\n";
-	echo "	</div>\n";
-	echo "</chat>\n";
-}
-
 function Head($title = null) {
 	echo "<head>\n";
 	echo '	<title>';

@@ -26,7 +26,6 @@ Head('Campagne');
 	</p>
 	<?php User(); ?>
 </header>
-<?php Chat('campaign'); ?>
 <img src="http://api.legendofada.eu/campaign/worlds/<?= $world ?>/map.png" alt="Monde <?= $world ?>" usemap="#map"></img>
 <map name="map">
 	<area shape="circle" coords="406,282,35" href="game.php?id=1" alt="Eratoaster">
@@ -37,7 +36,7 @@ Head('Campagne');
 	<area shape="circle" coords="558,468,35" href="" alt="Eratoaster">
 </map>
 <menu class="campaign">
-	<a href="campaign.php?world=1">1</a>
+	<a href="campaign.php?world=1">Monde &#x1F1EB&#x1F1F7</a>
 </menu>
 </body>
 </html>
