@@ -27,7 +27,7 @@ answers[1][2] = "12";
 answers[1][3] = "0.33";
 
 
-questions[2] = "Quel est la taille du pénis de Rocco Siffredi";
+questions[2] = "Quel est la taille du pénis de Rocco Siffredi?";
 answers[2] = [];
 answers[2][0] = "24";
 answers[2][1] = "22";
@@ -68,30 +68,27 @@ function ButtonObj(content, id, correct) {
 
 function Score() {
   this.obj = new GameObject();
-  this.x = 3 / 8;
-  this.y = 0;
-  this.width = 2 / 8;
-  this.height = 1 / 11;
-  this.text = 0;
+  this.obj.x = 3 / 8;
+  this.obj.y = 0;
+  this.obj.width = 2 / 8;
+  this.obj.height = 1 / 11;
+  this.obj.text = 0;
 
   this.increment = function() {
-    this.text += 5;
+    this.obj.text += 5;
   }
 
   this.decrement = function() {
-    this.text -= 5;
+    this.obj.text -= 5;
   }
 }
 
 function initQuestion(num) {
-  console.log("initializing question");
   questionObj = new QuestionObj(questions[numQ]);
 
   var offset = Math.floor(Math.random() * 4);
-  console.log(offset);
   for (i = 0; i < 4; i++) {
-    console.log(buttonObj);
-    buttonObj[i] = new ButtonObj(answers[i][(i + offset) % 4], i, (i + offset) == 0);
+    buttonObj[i] = new ButtonObj(answers[numQ][(i + offset) % 4], i, (i + offset) % 4 == 0);
   }
 }
 
@@ -108,36 +105,34 @@ function shuffle() {
 
 
 function setup() {
-  console.log(questions);
-  console.log(answers);
   shuffle();
-  console.log(questions);
-  console.log(answers);
   qAnswered = true;
   numQ = 0;
-  score = Score();
+  score = new Score();
 }
 
 function update() {
   if (qAnswered) {
     if (numQ == questions.length) {
-      game.end(score.text);
+      game.end(score.obj.text);
     }
     qAnswered = false;
     initQuestion(numQ);
     numQ++;
+    console.log(questionObj);
+    console.log(buttonObj);
   }
 
-  game.draw(score);
-  game.draw(questionObj);
+  game.draw(score.obj);
+  game.draw(questionObj.obj);
   for (i = 0; i < 4; i++) {
-    game.draw(answerObj[i]);
+    game.draw(buttonObj[i].obj);
   }
 }
 
 function clicked(x, y) {
   for (i = 0; i < 4; i++) {
-    if (answerObj[i].obj.contains(x, y)) {
+    if (buttonObj[i].obj.contains(x, y)) {
         qAnswered = true;
       if (answerObj.correct) {
         score.increment();
