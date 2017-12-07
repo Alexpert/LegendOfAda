@@ -8,56 +8,61 @@ var fin = false;
 var questions = [];
 var answers = [];
 var backgrounds = [];
+var textColor = [];
+var buttonSprite = [];
+var buttonTextColor = [];
 
 ////////////////////////////////////////////////////////////////////////////////
 // Modifiez les valeur pour créer votre QCM
 ////////////////////////////////////////////////////////////////////////////////
-// Vous pouvez crer autant de questions que vous souhaitez.
-// Celles-sont numérotées à partir de 0.
+// Vous pouvez creer autant de questions que vous souhaitez.
+// Celles-sont numérotées à partir de 0, elles aparraitront à l'utilisateur dans un ordre alétoire
 // Vous devez mettre pour chaques question, 4 réponses et un background (image de fond)
+// Attention vous devez mettre un ";" à la fin de chaque instruction.
 //
 // La variable question contient l'énoncé de toutes les questions
 // Exemple: question[0] contient l'énoncé de la question 0
 //          question[1] contient l'énoncé de la question 1, etc...
+//          question[2] = "Combien font 2 x 2?"; initialise la question 2
 //
 // La variable answers contient toutes les réponses d'une questions
+// Vous devez pour chaque question avant de donner les réponse, donner l'instruction: answers[numéro de question] = [];
 // Exemple: answers[0] contient toutes les 4 réponses à la question 0
 //          Les 4 réponses sont numérotées de 0 à 3, la réponse 0 est la bonne réréponse
 //          La position des réponses sera aléatoire, vous n'avez pas à vous en occuper
 //          Exemple answers[0][0] contient la première réponse à la question 0
-//                  answers[7][3] contient la dernière réponse à la question 7 (donc la huitième)
+//                  answers[7][3] = "45"; initialise la 4ème réponse de la question 7 à 45;
 //
 // La variable backgrounds, contient le chemin vers l'image de fond des questions
-//          Exemple background[3] = "assets/imagedefond.png";
-//                  initialise l'image de fond de la question 4 ) imagedefond.png
+// Vous devez ajouter l'image au dossier "assets" du QCM
+// Exemple: background[3] = "assets/imagedefond.png";
+//          initialise l'image de fond de la question 4 à imagedefond.png
+//
+// La variable textColor contient les couleur dans laquelle est écrit l'énoncé de la questions
+// veillez à l'adapter au fond que vous utilisez
+// Exemple: textColor[1] = "white";
+//
+// Vous pouvez Customiser les boutons de réponse:
+// Pour changer l'image de fond des boutons, utilisez la viariable buttonSprite
+// Exemple: buttonSprite[2] = "assets/imageBoutons.png";
+//
+// Pour changer la couleur dans laquelle est écrite la réponse, utilisez la variable buttonTextColor
+// Exemple: buttonTextColor[1] = "red";
+////////////////////////////////////////////////////////////////////////////////
+// Modifiez à partir d'ici pour ajouter et modifier les questions du QCM
+////////////////////////////////////////////////////////////////////////////////
 
 
-
-questions[0] = "Quel est le carré de 2?";
+questions[0] = "12345678901234567890123456789";
 answers[0] = [];
-answers[0][0] = "4";
-answers[0][1] = "7";
-answers[0][2] = "6";
-answers[0][3] = "2";
-backgrounds[0] = "assets/kurtzgesagt-blueMarble.png";
-
-
-questions[1] = "Quel est le carré de 3?";
-answers[1] = [];
-answers[1][0] = "9";
-answers[1][1] = "7";
-answers[1][2] = "12";
-answers[1][3] = "0.33";
-backgrounds[1] = "assets/wallpaperAlexGrey.jpg";
-
-
-questions[2] = "Quel est la taille du pénis de Rocco Siffredi?";
-answers[2] = [];
-answers[2][0] = "24";
-answers[2][1] = "22";
-answers[2][2] = "18";
-answers[2][3] = "26";
-backgrounds[2] = "assets/Rocco-Siffredi.jpeg";
+answers[0][0] = "123456789";
+answers[0][1] = "1234567891";
+answers[0][2] = "Triangle rectangle";
+answers[0][3] = "123456789123456789123456789123456789";
+backgrounds[0] = "assets/kurtzgesagt-blueMarble.png"
+textColor[0] = "white";
+buttonSprite[0] = "assets/button.png";
+buttonTextColor[0] = "red";
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -80,8 +85,9 @@ function QuestionObj(content) {
 function ButtonObj(content, id, correct) {
   this.obj = new GameObject();
   this.obj.text = content;
-  this.obj.width = 3 / 11;
+  this.obj.width = 3 / 9;
   this.obj.height = 1 / 8;
+  this.obj.image = game.createImage(buttonSprite[numQ]);
   this.correct = correct;
   this.id = id;
   if (Math.floor(id / 2) == 0) {
@@ -90,9 +96,9 @@ function ButtonObj(content, id, correct) {
     this.obj.y = 7 / 8;
   }
   if (id % 2 == 0) {
-    this.obj.x = 1 / 11;
+    this.obj.x = 1 / 9;
   } else {
-    this.obj.x = 5 / 11;
+    this.obj.x = 5 / 9;
   }
 }
 
@@ -129,6 +135,9 @@ function shuffle() {
     [questions[i], questions[index]] = [questions[index], questions[i]];
     [answers[i], answers[index]] = [answers[index], answers[i]];
     [backgrounds[i], backgrounds[index]] = [backgrounds[index], backgrounds[i]];
+    [textColor[i], textColor[index]] = [textColor[index], textColor[i]];
+    [buttonSprite[i], buttonSprite[index]] = [buttonSprite[index], buttonSprite[i]];
+    [buttonTextColor[i], buttonTextColor[index]] = [buttonTextColor[index], buttonTextColor[i]];
   }
 }
 
@@ -155,7 +164,6 @@ function endScreen() {
 function setup() {
   shuffle();
   score = new Score();
-  //game.setBackground("assets/Rocco-Siffredi.jpeg");
 
   numQ = 0;
   initQuestion(numQ);
@@ -177,11 +185,14 @@ function update() {
     }
   }
   if (!fin) {
+    game.fill(textColor[numQ]);
     game.draw(score.obj);
     game.draw(questionObj.obj);
+    game.fill(buttonTextColor[numQ]);
     for (i = 0; i < 4; i++) {
       game.draw(buttonObj[i].obj);
     }
+    game.fill("black");
   } else {
     endScreen();
   }
