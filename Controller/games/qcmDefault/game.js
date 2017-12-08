@@ -76,6 +76,7 @@ function QuestionObj(content) {
   this.obj.y = 0.5;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
+  this.font = this.text.
 
   this.changeTxt = function content(content) {
     this.obj.text = content;
@@ -160,6 +161,17 @@ function endScreen() {
   game.draw(score.obj);
 }
 
+function drawAll() {
+  game.fill(textColor[numQ]);
+  game.draw(score.obj);
+  game.draw(questionObj.obj);
+  game.fill(buttonTextColor[numQ]);
+  for (i = 0; i < 4; i++) {
+    game.draw(buttonObj[i].obj);
+  }
+  game.fill("black");
+}
+
 
 function setup() {
   shuffle();
@@ -185,14 +197,7 @@ function update() {
     }
   }
   if (!fin) {
-    game.fill(textColor[numQ]);
-    game.draw(score.obj);
-    game.draw(questionObj.obj);
-    game.fill(buttonTextColor[numQ]);
-    for (i = 0; i < 4; i++) {
-      game.draw(buttonObj[i].obj);
-    }
-    game.fill("black");
+    drawAll();
   } else {
     endScreen();
   }
