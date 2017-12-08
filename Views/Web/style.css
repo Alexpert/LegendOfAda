@@ -20,10 +20,6 @@ body {
 	background-image: url(images/index-background.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	/*
-	background-size: 12.5vw;
-	background-repeat: repeat;
-	*/
 }
 
 body > header {
@@ -161,18 +157,26 @@ scroller {
 	border-radius: 0 1vh 1vh 0;
 }
 
-scroller > h1 {
-	text-align: center;
-	height: 7%;
+scroller > div {
+	position: relative;
+	height: 100%;
 }
 
-scroller > div {
+scroller > div > h1 {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	text-align: center;
+	background-color: #5C92C4;
+}
+
+scroller > div > div {
 	overflow-x: hidden;
 	overflow-y: scroll;
-	height: 93%;
+	height: 100%;
 }
 
-scroller > div > figure {
+scroller > div > div > figure {
 	width: 49%;
 }
 

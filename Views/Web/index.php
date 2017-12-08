@@ -20,16 +20,18 @@ Head('Menu');
 	</p>
 </menu>
 <scroller>
-	<h1>Tendances</h1>
 	<div>
+		<h1>Tendances</h1>
+		<div>
 <?php for($i = 0; $i < 10; $i++) { ?>
-		<figure class="game">
-			<a href="game.php?id=1">
-				<figcaption>Eratoaster</figcaption>
-				<img src="http://api.legendofada.eu/games/1/preview.png"/>
-			</a>
-		</figure>
+			<figure class="game">
+				<a href="game.php?id=1">
+					<figcaption>Eratoaster</figcaption>
+					<img src="http://api.legendofada.eu/games/1/preview.png"/>
+				</a>
+			</figure>
 <?php } ?>
+		</div>
 	</div>
 </scroller>
 <social class="index">
