@@ -17,7 +17,7 @@ Head('Leçons');
 	<h1>Nombre et calculs</h1>
 	<ol>
 		<li><a href='lesson.php?theme=1&lesson=1'>Nombres premiers et fractions irréductibles</a></li>
-		<li>Calcul littéral</li>
+		<li><a href='lesson.php?theme=1&lesson=2'>Calcul littéral</a></li>
 		<li>Équations et inéquations</li>
 	</ol>
 	<h1>Organisation et gestion de données, fonctions</h1>
