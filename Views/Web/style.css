@@ -20,10 +20,6 @@ body {
 	background-image: url(images/index-background.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	/*
-	background-size: 12.5vw;
-	background-repeat: repeat;
-	*/
 }
 
 body > header {
@@ -162,14 +158,17 @@ scroller {
 }
 
 scroller > h1 {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
 	text-align: center;
-	height: 7%;
+	background-color: rgba(92, 146, 196, 0.9);
 }
 
 scroller > div {
 	overflow-x: hidden;
 	overflow-y: scroll;
-	height: 93%;
+	height: 100%;
 }
 
 scroller > div > figure {
