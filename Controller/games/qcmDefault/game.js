@@ -76,11 +76,7 @@ function QuestionObj(content) {
   this.obj.y = 0.5;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
-  this.font = this.text.
-
-  this.changeTxt = function content(content) {
-    this.obj.text = content;
-  }
+  //this.font = this.text.
 }
 
 function ButtonObj(content, id, correct) {
