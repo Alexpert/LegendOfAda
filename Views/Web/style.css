@@ -157,26 +157,21 @@ scroller {
 	border-radius: 0 1vh 1vh 0;
 }
 
-scroller > div {
-	position: relative;
-	height: 100%;
-}
-
-scroller > div > h1 {
+scroller > h1 {
 	position: absolute;
 	width: 100%;
 	z-index: 1;
 	text-align: center;
-	background-color: #5C92C4;
+	background-color: rgba(92, 146, 196, 0.9);
 }
 
-scroller > div > div {
+scroller > div {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	height: 100%;
 }
 
-scroller > div > div > figure {
+scroller > div > figure {
 	width: 49%;
 }
 

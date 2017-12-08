@@ -20,7 +20,6 @@ Head('Menu');
 	</p>
 </menu>
 <scroller>
-	<div>
 		<h1>Tendances</h1>
 		<div>
 <?php for($i = 0; $i < 10; $i++) { ?>
@@ -32,7 +31,6 @@ Head('Menu');
 			</figure>
 <?php } ?>
 		</div>
-	</div>
 </scroller>
 <social class="index">
 	<h1>Social</h1>
