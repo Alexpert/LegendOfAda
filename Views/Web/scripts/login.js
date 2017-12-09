@@ -17,13 +17,13 @@ function login() {
 	var error = document.getElementById('error');
 
 	if(response.length == 0) {
-		error.style.display = 'initial';
+		error.style.visibility = 'visible';
 		error.innerHTML = 'Impossible de se connecter, veuillez réessayer plus tard';
 		return false;
 	}
 
 	if(response.error != undefined) {
-		error.style.display = 'initial';
+		error.style.visibility = 'visible';
 		error.innerHTML = response.error;
 		return false;
 	}	

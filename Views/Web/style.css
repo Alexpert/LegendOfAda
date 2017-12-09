@@ -11,6 +11,14 @@ html * {
 	color: black;
 }
 
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.5);
+}
+
 body {
 	background-image: url(images/index-background.jpg);
 	background-size: cover;
@@ -46,7 +54,7 @@ body > header > p#user {
 }
 
 body > header > p#user img {
-	height: 5.4vh;
+	height: 5.3vh;
 	vertical-align: bottom;
 }
 
@@ -151,7 +159,7 @@ div#error {
 	width: 100vw;
 	text-align: center;
 	color: red;
-	display: none;
+	visibility: hidden;
 }
 
 /* index */
@@ -225,19 +233,15 @@ social.index {
 
 body.adventure > menu {
 	position: fixed;
-	font-size: 3vmin;
-	left: 20vw;
-	right: 20vw;
+	width: 100vw;
 	bottom: 0;
 	padding: 2vh;
-	width: 60vw;
+	font-size: 3vmin;
 	background-color: #65A6E4;
-	border: 1vh solid #5C92C4;
-	border-width: 1vh 1vh 0 1vh;
-	border-radius: 1vh 1vh 0 0;
+	border: 0 solid #5C92C4;
+	border-top-width: 1vh;
 	text-align: center;
-	overflow-x: scroll;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 
 body.adventure > menu > a {
