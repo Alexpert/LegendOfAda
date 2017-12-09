@@ -1,173 +1,89 @@
-CREATE EXTENSION "pgcrypto";
 
-CREATE TABLE SALOON
-(
-  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4()
-);
 
 CREATE TABLE USER
 (
-  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
-  username varchar(32) UNIQUE,
-  name varchar(32),
-  student boolean,
+  username varchar(32) PRIMARY KEY,
   password varchar(256)
 );
 
 CREATE TABLE GUILD
 (
-  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
-  name varchar(32),
-  description varchar(2048),
-  standalone boolean,
-  leaderId uuid,
-  worldId uuid,
+  name varchar(32) PRIMARY KEY,
+  username varchar(32),
 
-  FOREIGN KEY (leaderId) REFERENCES USER(id),
-  FOREIGN KEY (worldId) REFERENCES WORLD(id)
+  FOREIGN KEY(username) REFERENCES USER(username)
 );
 
 CREATE TABLE GAME
 (
-  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
-  name varchar(32) UNIQUE,
-  description varchar(255),
-  rule varchar(255),
+  name varchar(32) PRIMARY KEY
+);
 
-  FOREIGN KEY (worldId) REFERENCES WORLD(id)
+CREATE TABLE LEVEL
+(
+    id SERIAL PRIMARY KEY,
+    worldName varchar(32),
+    nextLevel int,
+    gameName varchar(32),
+
+    FOREIGN KEY (worldName) REFERENCES WORLD(name),
+    FOREIGN KEY (nextLevel) REFERENCES LEVEL(id),
+    FOREIGN KEY (gameName) REFERENCES GAME(name)
 );
 
 CREATE TABLE WORLD
 (
-  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
-  name varchar(32),
-  themeId uuid,
-
-  FOREIGN KEY (themeId) REFERENCES THEME(id)
+  name varchar(32) PRIMARY KEY
 );
 
 CREATE TABLE LESSON
 (
-  id uuid PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
+  id SERIAL PRIMARY KEY,
   name varchar(32),
-  themeId uuid,
+  themeId int,
 
   FOREIGN KEY (themeId) REFERENCES THEME(id)
 );
 
 CREATE TABLE THEME
 (
-  id uuid PRIMARY KEY NOT NULL uuid_generate_v4(),
+  id SERIAL PRIMARY KEY,
   name varchar(32),
-  worldId uuid,
-
-  FOREIGN KEY (worldId) REFERENCES WORLD(id)
-);
-
-CREATE TABLE CHAT
-(
-  userID uuid PRIMARY KEY NOT NULL,
-  saloonId uuid,
-
-  FOREIGN KEY (userId) REFERENCES USER(id),
-  FOREIGN KEY (saloonId) REFERENCES SALOON(id)
 );
 
 CREATE TABLE SCORE
 (
-  userId uuid NOT NULL,
-  gameId uuid NOT NULL,
-  highScore int NOT NULL,
+  value int UNIQUE NOT NULL,
+  date date NOT NULL,
+  username varchar(32),
+  gameName varchar(32),
 
-  FOREIGN KEY (userId) REFERENCES USER(id),
-  FOREIGN KEY (gameId) REFERENCES GAME(id),
+  PRIMARY KEY (value, date, username, gameName)
 
-  CONSTRAINT PK_SCORE PRIMARY KEY(userID, gameId)
+  FOREIGN KEY (username) REFERENCES USER(username),
+  FOREIGN KEY (gameName) REFERENCES GAME(name)
 );
 
-CREATE TABLE BELONG
+CREATE INDEX
+
+CREATE TABLE SCOREDWITH
 (
-  userID uuid,
-  guildId uuid,
+  scoreValue int NOT NULL,
+  guildName varchar(32) NOT NULL,
 
-  FOREIGN KEY (userId) REFERENCES USER(id),
-  FOREIGN KEY (guildId) REFERENCES GUILD(id),
+  PRIMARY KEY (scoreValue,guildName),
 
-  CONSTRAINT PK_BELONG PRIMARY KEY(userId, guildId)
+  FOREIGN KEY (scoreValue) REFERENCES SCORE(value),
+  FOREIGN KEY (guildName) REFERENCES GUILD(name)
 );
 
-CREATE TABLE ISINTERESTED
+CREATE TABLE ISADVENTURE
 (
-  userId uuid NOT NULL,
-  lessonId uuid NOT NULL,
+    scoreValue int,
+    levelId int,
 
-  FOREIGN KEY (userId) REFERENCES USER(id),
-  FOREIGN KEY (lessonId) REFERENCES LESSON(id),
+    PRIMARY KEY (scoreValue, levelId),
 
-  CONSTRAINT PK_ISINTERESTED PRIMARY KEY(userId, lessonId)
-);
-
-CREATE TABLE FAVORITE
-(
-  userId uuid NOT NULL,
-  gameId uuid NOT NULL,
-
-  FOREIGN KEY (userId) REFERENCES USER(id),
-  FOREIGN KEY (gameId) REFERENCES GAME(id),
-
-  CONSTRAINT PK_FAVORITE PRIMARY KEY(userId, gameId)
-);
-
-CREATE TABLE FINISHED
-(
-  guildId uuid NOT NULL,
-  worldId uuid NOT NULL,
-
-  FOREIGN KEY (guildId) REFERENCES GUILD(id),
-  FOREIGN KEY (worldId) REFERENCES WORLD(id),
-
-  CONSTRAINT PK_FINISHED PRIMARY KEY(userId, worldId)
-);
-
-CREATE TABLE ISABOUT
-(
-  gameId uuid NOT NULL,
-  lessonId uuid NOT NULL,
-
-  FOREIGN KEY (gameId) REFERENCES GAME(id),
-  FOREIGN KEY (lessonId) REFERENCES LESSON(id),
-
-  CONSTRAINT PK_ISABOUT PRIMARY KEY(gameId, lessonId)
-);
-
-CREATE TABLE FRIEND
-(
-  user1Id uuid NOT NULL,
-  user2Id uuid NOT NULL,
-  accepted boolean DEFAULT false,
-
-  FOREIGN KEY (user1Id) REFERENCES USER(id),
-  FOREIGN KEY (user2Id) REFERENCES USER(id),
-
-  CONSTRAINT PK_FRIEND PRIMARY KEY(user1Id, user2Id)
-);
-
-CREATE TABLE CONNECTED
-(
-  game1Id uuid NOT NULL,
-  game2Id uuid NOT NULL,
-
-  FOREIGN KEY (game1Id) REFERENCES GAME(id),
-  FOREIGN KEY (game2Id)
-);
-
-CREATE TABLE COMPLETED
-(
-  userId uuid NOT NULL,
-  gameId uuid NOT NULL,
-
-  FOREIGN KEY (userId) REFERENCES USER(id),
-  FOREIGN KEY (gameId) REFERENCES GAME(id),
-
-  PRIMARY KEY PK_COMPLETED PRIMARY KEY(userId, gameId)
+    FOREIGN KEY (scoreValue) REFERENCES SCORE(value),
+    FOREIGN KEY (levelId) REFERENCES LEVEL(id)
 );

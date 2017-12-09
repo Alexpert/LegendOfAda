@@ -1,0 +1,69 @@
+<h1>Le Calcul Littéral</h1>
+  <h2>1 - Les Expressions Littérales</h2>
+    <p>
+      <p class="definition">
+        Calculer la valeur d'une expression littérale, c'est attribuer une valeur numérique à une lettre.
+      </p>
+      <ul>
+        <li>Calculer A = a * a + b    , <i>avec a = 2 et b = 3.</i></li>
+        <li>Calculer A = 2 * 2 + 3    , <i>on remplace les lettres par leur valeur numérique.</i></li>
+        <li>Calculer A = 4 + 3        , <i>on calcule en respectant l'ordre des opération.</i></li>
+        <li>Calculer A = 7            , <i>on obtient notre résultat.</i></li>
+      </ul>
+    </p>
+  <h2>2 - Identités Remarquables</h2>
+    <p>
+      <p class="definition">
+        <dfn>Identités Remarquables</dfn>
+        Quels que soient a et b.
+        <ul>
+        <li>(a + b)² = a² + 2ab + b²</li>
+        <li>(a - b)² = a² - 2ab + b²</li>
+        <li>(a + b)(a - b) = a² - b²</li>
+        </ul>
+      </p>
+      <ul>
+        <li>A = (3 + 2)²</li>
+        <li>A = 3² + 2*3*2 + 2²     , <i>on developpe grâce à l'identité remarquable (a + b)²</i></li>
+        <li>A = 9 + 12 + 4          , <i>>on calcule en respectant l'ordre des opération.</i></li>
+        <li>A = 27                  , <i>on obtient notre résultat.</i></li>
+      </ul>
+    </p>
+  <h2>3 - La Double distributivité</h2>
+    <p>
+      <p class="definition">
+        Quels que soient a, b, c et d.
+        <ul>
+        <li>(a + b) * (c + d) = a*c + a*d + b*c + b*d</li>
+        </ul>
+      </p>
+      <ul>
+        <li>A = (3 + 2) * (4 + 5)</li>
+        <li>A = 3*4 + 3*5 + 2*4 + 2*5     , <i>on developpe grâce à la double distributivité (a + b)².</i></li>
+        <li>A = 12 + 15 + 8 + 10          , <i>>on calcule en respectant l'ordre des opération.</i></li>
+        <li>A = 45                        , <i>on obtient notre résultat.</i></li>
+      </ul>
+    </p>
+  <h2>4 - Utilisation du calcul littéral pour démontrer une propriété</h2>
+    <p>
+      <p class="definition">
+        Deux expressions littérales si l'égalité se vérifie pour n'importe quelles valeurs attribuées aux lettres.
+      </p>
+      <ul>
+        <li>Un nombre pair peut toujours s'écrire sous la forme <b>2n</b></li>
+        <li>Un nombre impair peut toujours s'écrire sous la forme <b>2n + 1</b></li>
+        <li>Un nombre à 3 chiffres peut toujours s'écrire sous la forme <b>a*100 + b*10 + c</b></li>
+      </ul>
+    </p>
+    <p class="definition">
+      Pour prouver que deux expressions ne sont pas égales, il suffit de trouver un exemple pour lequel l'égalité est fausse.
+    </p>
+    <ul>
+      <li>On cherche a savoir si <b>4a + b = 3a + 2b</b></li>
+    </ul>
+      Il faut trouver une valeur de a et de b pour laquelle l'égalité est fausse.
+    <ul>
+      <li>Soit <b>a = 1</b> et <b>b = 2</b></li>
+      <li><b>4*1 + 2 = 6</b> et <b>3*1 + 2*2 = 7</b>     ,<i>On remplace les lettres par leur valeur numérique.</i><li>
+      <li>Les deux parties de l'expressions donnent des résultats différents, l'égalité est donc fausse</li>
+    </ul>
