@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-<?php
-include_once 'session.php';
-Head('Jeu');
-?>
-<body class="game">
+<head>
+	<title>Jeu</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="scripts/session.js"></script>
+</head>
+<body class="game" onload="wake()">
 <header>
 	<p>
-		<a href="index.php">Menu Principal</a>
+		<a href="index.html">Menu Principal</a>
 		<img src="images/arrow.png" alt=">"></img>
-		<a href="game.php">Mini-jeu</a>
+		<a href="game.html">Mini-jeu</a>
 	</p>
-	<?php User(); ?>
+	<p id="user"></p>
 </header>
-<a class="course" href="lesson.php?theme=1&lesson=1">Cours</a>
+<a class="course" href="lesson.html?theme=1&lesson=1">Cours</a>
 <rules>
 	<h1>Eratoaster</h1>
 	<img src="http://api.legendofada.eu/games/1/preview.png"/>

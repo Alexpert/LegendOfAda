@@ -1,16 +1,22 @@
 <?php
 
-if(isset($_POST['username'])
-	and isset($_POST['password'])
-	and isset($_POST['student'])) {
-	$data['username'] = $_POST['username'];
-	$data['password'] = $_POST['password'];
-	$data['token'] = 0;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
+header('Content-type: application/json');
+
+if(isset($_POST['username'])
+	and isset($_POST['password'])) {
+	if(isset($_POST['create'])
+		and $_POST['create'] == 'true') {
+		$data['created'] = 'success';
+	}
+	$data['username'] = 'Sandrine';
+	$data['token'] = random_int(0, PHP_INT_MAX);
 } else {
-	$data['error'] = 'Login impossible';
+	$data['error'] = 'Connexion impossible';
 }
 
-echo json_encode($data), "\n";
+echo json_encode($data);
 
 ?>
