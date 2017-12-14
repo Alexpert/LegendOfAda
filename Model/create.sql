@@ -16,12 +16,14 @@ CREATE TABLE GUILD
 
 CREATE TABLE GAME
 (
-  name varchar(32) PRIMARY KEY
+  id SERIAL PRIMARY KEY,
+  name varchar(32)
 );
 
 CREATE TABLE LEVEL
 (
     id SERIAL PRIMARY KEY,
+    dialog TEXT,
     worldName varchar(32),
     nextLevel int,
     gameName varchar(32),
@@ -142,4 +144,23 @@ CREATE TABLE ISABOUT
 
   FOREIGN KEY (lessonId) REFERENCES LESSON(id),
   FOREIGN KEY (gameName) REFERENCES GAME(name)
+);
+
+CREATE TABLE SUCCESS
+(
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  avatar TEXT,
+  description TEXT
+);
+
+CREATE TABLE ACHIEVED
+(
+  successId int NOT NULL,
+  username varchar(32) NOT NULL,
+
+  PRIMARY KEY (successId, username),
+
+  FOREIGN KEY (successId) REFERENCES SUCCESS(id),
+  FOREIGN KEY (username) REFERENCES USERS(username)
 );
