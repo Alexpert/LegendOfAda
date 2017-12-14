@@ -65,8 +65,6 @@ CREATE TABLE SCORE
   FOREIGN KEY (gameName) REFERENCES GAME(name)
 );
 
-CREATE INDEX PK_score ON SCORE (value, date, username, gameName);
-
 CREATE TABLE SCOREDWITH
 (
   scoreValue int NOT NULL,
