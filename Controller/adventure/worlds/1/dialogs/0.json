@@ -1,0 +1,46 @@
+[
+  {
+    "name":"Ada Lovelace",
+    "text":"Nous voilà enfin arrivés à Paris !"
+  },
+  {
+    "name":"Ada Lovelace",
+    "text":"Il nous faut se hâter de trouver Mr. Viète pour le libérer de l'emprise de MekAristote.<br />Il va falloir que nous évitions le plus possible ses larbins, les mekayaks français, cela nous retarderait grandement..."
+  },
+  {
+    "name":"Ada Lovelace",
+    "text":"<b>*gasp*</b> Oh non ! Nous nous sommes fait repérer !"
+  },
+  {
+    "name":"",
+    "text":"Un mekayak français vous a vu et s'approche vers vous."
+  },
+  {
+    "name":"Mekayak français",
+    "text":"Bonjour baguette ! Puis-je vous demander ce que vous faites dans ces quartiers baguette ? <br />Je ne pense pas que vous soyez autorisés à vous trouver ici baguette. Identifiez-vous s'il vous plait baguette."
+  },
+  {
+    "name":"Ada Lovelace",
+    "text":"Nous nous sommes égarés. Pourriez-vous nous indiquer le chemin ?"
+  },
+  {
+    "name":"Mekayak français",
+    "text":"Vous devez tout d'abord vous identifiez baguette ! IDENTIFIEZ-VOUS BAGUETTE !"
+  },
+  {
+    "name":"Ada Lovelace",
+    "text":"Cela ne sera point nécessaire. Nous nous en allons de ce pas."
+  },
+  {
+    "name":"Mekayak français",
+    "text":"IDENTIFIEZ-VOUS BAGUETTE !"
+  },
+  {
+    "name":"Ada Lovelace",
+    "text":"Je ne pense pas que nous puissions éviter celui-là."
+  },
+  {
+    "name":"",
+    "text":"Le Mekayak français s'approche de vous avec un air menaçant. Vous vous préparez à le combattre."
+  }
+]
