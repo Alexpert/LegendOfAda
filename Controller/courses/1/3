@@ -1,11 +1,42 @@
 <h1>Equations et Inéquations</h1>
   <h2>Equation du premier degré à une inconnue</h2>
-    <p class="property">
-      <dfn>Propriété</dfn>
-      Une équation à garde les même solutions si:
+    <p>
+      <p class="property">
+        <dfn>Propriété</dfn>
+        Une équation à garde les même solutions si:
+        <ul>
+          <li>On développe, réduit, factorise les deux membres de l'équation</li>
+          <li>On addition ou soustrait un même nombre aux deux membres de l'équation</li>
+          <li>On multiplie ou divise les deux membres de l'équation par un même nombre</li>
+        </ul>
+      </p>
       <ul>
-        <li>On développe, réduit, factorise les deux membres de l'équation</li>
-        <li>On addition ou soustrait un même nombre aux deux membres de l'équation</li>
-        <li>On multiplie ou divise les deux memebres de l'équation par un même nombre</li>
+        <li>Exemple:</li>
+        <li>6x + 5 = (3 - x) * 4</li>
+        <li>6x + 5 = 12 - 4x, <i>On développe.</i></li>
+        <li>6x + 5 <b>+ 4x</b> = 12 - 4x <b>+ 4x</b>, <i>On ajoute <b>4x</b> aux deux membres de l'équation</i></li>
+        <li>10x + 5 = 12, <i>On réduit</i></li>
+        <li>10x + 5 <b>- 5</b> = 12 <b>- 5</b>, <i>On soustrait <b>5</b> aux deux membres</i>
+        <li>10x = 7, <i>On réduit</i></li>
+        <li>x = 7 / 10, <i>On divise les deux membre par <b>10</b>, on obtient notre résultat</i></li>
+      </ul>
+    </p>
+  <h2>Equations-Produits nul</h2>
+    <p>
+      <p class="property">
+        <dfn>Propriété</dfn>
+        Un produit est nul quand l'un de ses facteur est nul.
+        Une equation de forme: <b>(ax + b)(cx + d) = 0</b> admet deux solutions.
+        Une pour: <b>ax + b = 0</b>
+        Une autre pour: <b>cx + d =0</b>
+      </p>
+      <ul>
+        <li>(4x + 3)(7x + 5) = 0</li>
+        <li>On cherche la solution pour <b>4x + 3 = 0</b></li>
+        <li>4x = -3, <i>On soustrait 3 des deux côté</i></li>
+        <li>x = -3/4, <i>On divise des deux côtés par 4 et on obtient notre premier résultat</i></li>
+        <li>On cherche la solution pour <b>7x + 5 = 0</b></li>
+        <li>7x = -5, <i>On soustrait 5 des deux côté</i></li>
+        <li>x = -5/7, <i>On divise des deux côtés par 7 et on obtient notre deuxième résultat</i></li>
       </ul>
     </p>

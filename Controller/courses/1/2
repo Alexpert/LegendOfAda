@@ -5,10 +5,11 @@
         Calculer la valeur d'une expression littérale, c'est attribuer une valeur numérique à une lettre.
       </p>
       <ul>
-        <li>Calculer A = a * a + b    , <i>avec a = 2 et b = 3.</i></li>
-        <li>Calculer A = 2 * 2 + 3    , <i>on remplace les lettres par leur valeur numérique.</i></li>
-        <li>Calculer A = 4 + 3        , <i>on calcule en respectant l'ordre des opération.</i></li>
-        <li>Calculer A = 7            , <i>on obtient notre résultat.</i></li>
+        <li>Exemple:</li>
+        <li>A = a * a + b    , <i>avec a = 2 et b = 3.</i></li>
+        <li>A = 2 * 2 + 3    , <i>on remplace les lettres par leur valeur numérique.</i></li>
+        <li>A = 4 + 3        , <i>on calcule en respectant l'ordre des opération.</i></li>
+        <li>A = 7            , <i>on obtient notre résultat.</i></li>
       </ul>
     </p>
   <h2>2 - Identités Remarquables</h2>
@@ -17,12 +18,14 @@
         <dfn>Identités Remarquables</dfn>
         Quels que soient a et b.
         <ul>
+        <li>Exemple:</li>
         <li>(a + b)² = a² + 2ab + b²</li>
         <li>(a - b)² = a² - 2ab + b²</li>
         <li>(a + b)(a - b) = a² - b²</li>
         </ul>
       </p>
       <ul>
+        <li>Exemple:</li>
         <li>A = (3 + 2)²</li>
         <li>A = 3² + 2*3*2 + 2²     , <i>on developpe grâce à l'identité remarquable (a + b)²</i></li>
         <li>A = 9 + 12 + 4          , <i>>on calcule en respectant l'ordre des opération.</i></li>
@@ -38,6 +41,7 @@
         </ul>
       </p>
       <ul>
+        <li>Exemple:</li>
         <li>A = (3 + 2) * (4 + 5)</li>
         <li>A = 3*4 + 3*5 + 2*4 + 2*5     , <i>on developpe grâce à la double distributivité (a + b)².</i></li>
         <li>A = 12 + 15 + 8 + 10          , <i>>on calcule en respectant l'ordre des opération.</i></li>
@@ -50,6 +54,7 @@
         Deux expressions littérales si l'égalité se vérifie pour n'importe quelles valeurs attribuées aux lettres.
       </p>
       <ul>
+        <li>Exemple:</li>
         <li>Un nombre pair peut toujours s'écrire sous la forme <b>2n</b></li>
         <li>Un nombre impair peut toujours s'écrire sous la forme <b>2n + 1</b></li>
         <li>Un nombre à 3 chiffres peut toujours s'écrire sous la forme <b>a*100 + b*10 + c</b></li>
