@@ -3,6 +3,7 @@ var mekaYakObj;
 var buttonsObj = [];
 var scoreObj;
 var fin = false;
+var primeNumbers = [2, 3, 5, 7, 11];
 
 function Button(x, n) {
   this.obj = new GameObject();
@@ -26,12 +27,16 @@ function MekaYak(valeur, size) {
   this.obj.y = 0.5 - this.obj.height/2;
 
   this.divide = function(divider) {
-    mekasSecondaireObj.push[new MekaYak(divider, 1)];
+    var secondMekYak = new MekaYak(divider, 1);
+    secondMekYak.obj.y = 0.7;
+    mekasSecondaireObj.push(secondMekYak);
     this.obj.text = this.obj.text / divider;
     this.size--;
 
-    this.width = 0.4 * this.size/4;
-    this.height = 0.5 * this.size/4;
+    this.obj.width = 0.4 * (4 + mekaYakObj.size)/8;
+    this.obj.height = 0.5* (4 + mekaYakObj.size)/8;
+    this.obj.x = 0.5 - this.obj.width/2;
+    this.obj.y = 0.5 - this.obj.height/2;
   }
 }
 
@@ -53,25 +58,61 @@ function Score() {
 }
 
 function initValue() {
-  return 25;
+  var number = 1;
+  for (i = 0; i < 4; i++) {
+    number = number * primeNumbers[Math.floor(Math.random() * primeNumbers.length)];
+  }
+  return number;
 }
 
 function drawAll() {
+  game.setFontSize(0.04);
+  game.fill("red");
   for (i = 0; i < mekasSecondaireObj.length; i++) {
+    mekasSecondaireObj[i].obj.x = (i + 1) / (mekasSecondaireObj.length + 1) - mekasSecondaireObj[i].obj.width/2;
     game.draw(mekasSecondaireObj[i].obj);
   }
+
+  game.setFontSize(0.15 * (4 + mekaYakObj.size)/8);
+  game.draw(mekaYakObj.obj);
+  game.fill("black");
+
+  game.setFontSize(0.1);
+  game.draw(scoreObj.obj);
 
   game.setFontSize(0.07);
   for (i = 0; i < buttonsObj.length; i++) {
     game.draw(buttonsObj[i].obj);
   }
+}
 
-  game.setFontSize(0.15);
-  game.fill("red");
-  game.draw(mekaYakObj.obj);
+function endScreen() {
+  game.clearAll();
+
+
+  game.setFontSize(0.2);
   game.fill("black");
-  game.setFontSize(0.1);
+
+  var message = new GameObject();
+  message.x = 1 / 4;
+  message.y = 1 / 5;
+  message.width = 1 / 2;
+  message.height = 1 / 4;
+  message.text = "Résultat";
+  game.draw(message);
+
+  scoreObj.obj.x = 1 / 3;
+  scoreObj.obj.y = 2 / 5;
+  scoreObj.obj.width = 1 / 3;
+  scoreObj.obj.height = 1 / 4;
   game.draw(scoreObj.obj);
+
+  game.setFontSize(0.04);
+  game.fill("red");
+  for (i = 0; i < mekasSecondaireObj.length; i++) {
+    mekasSecondaireObj[i].obj.x = (i + 1) / (mekasSecondaireObj.length + 1) - mekasSecondaireObj[i].obj.width/2;
+    game.draw(mekasSecondaireObj[i].obj);
+  }
 }
 
 function setup() {
@@ -79,7 +120,7 @@ function setup() {
   mekaYakObj = new MekaYak(initValue(), 4);
   scoreObj = new Score();
 
-  buttonsObj.push(new Button(0.01  ,  2));
+  buttonsObj.push(new Button(0.01,  2));
   buttonsObj.push(new Button(0.21,  3));
   buttonsObj.push(new Button(0.41,  5));
   buttonsObj.push(new Button(0.61,  7));
@@ -88,7 +129,6 @@ function setup() {
 
 function update() {
   if (!fin) {
-    console.log("running");
     game.clearAll();
     drawAll();
   } else {
@@ -97,18 +137,18 @@ function update() {
 }
 
 function clicked(x, y) {
-  console.log("clicked");
-  console.log(x, y);
-  for (i = 0; i < buttonsObj.length; i++) {
-    console.log(i);
-    console.log(buttonsObj[i]);
-    if (buttonsObj[i].obj.contains(x, y)) {
-      console.log("on button");
-      if (mekaYakObj.obj.text % buttonsObj[i].obj.text == 0) {
-        mekaYakObj.divide(buttonsObj[i].obj.text);
-        scoreObj.increment();
-      } else {
-        scoreObj.decrement();
+  if (!fin) {
+    console.log(mekaYakObj);
+    console.log(mekasSecondaireObj);
+    for (i = 0; i < buttonsObj.length; i++) {
+      if (buttonsObj[i].obj.contains(x, y)) {
+        if (mekaYakObj.obj.text % buttonsObj[i].obj.text == 0) {
+          mekaYakObj.divide(buttonsObj[i].obj.text);
+          scoreObj.increment();
+          fin = mekaYakObj.obj.text == 1;
+        } else {
+          scoreObj.decrement();
+        }
       }
     }
   }
