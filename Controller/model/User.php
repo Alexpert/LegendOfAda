@@ -1,7 +1,7 @@
 <?php
 
 class User implements JsonSerializable {
-	public $username;
+	public string $username;
 
 	public function jsonSerialize() {
 		return [

@@ -1,9 +1,7 @@
 <?php
 
 class World implements JsonSerializable {
-	public $id;
-	public $name;
-	public $themeId;
+	public string $name;
 
 	public function jsonSerialize() {
 		return $this;
