@@ -1,5 +1,5 @@
 <h1>Equations et Inéquations</h1>
-  <h2>Equation du premier degré à une inconnue</h2>
+  <h2>1 - Equation du premier degré à une inconnue</h2>
     <p>
       <p class="property">
         <dfn>Propriété</dfn>
@@ -21,7 +21,7 @@
         <li>x = 7 / 10, <i>On divise les deux membre par <b>10</b>, on obtient notre résultat</i></li>
       </ul>
     </p>
-  <h2>Equations-Produits nul</h2>
+  <h2>2 - Equations-Produits nul</h2>
     <p>
       <p class="property">
         <dfn>Propriété</dfn>
@@ -38,5 +38,23 @@
         <li>On cherche la solution pour <b>7x + 5 = 0</b></li>
         <li>7x = -5, <i>On soustrait 5 des deux côté</i></li>
         <li>x = -5/7, <i>On divise des deux côtés par 7 et on obtient notre deuxième résultat</i></li>
+        <li>
       </ul>
     </p>
+  <h2>3 - Inégalités</h2>
+    <h3>A - Notations et définitions </h3>
+      <p class="definition">
+        <b>a < b</b> signifie que <b>a</b> est inférieur à <b>b</b>
+        <b>a <= b</b> signifie que <b>a</b> est inférieur ou égal à <b>b</b>
+      </p>
+    <h3>B - Inégalités et Opérations</h3>
+      <p class="property">
+        Quels qu soient a, b et c, si a < b, on a:
+        <ul>
+          <li>a + c < b + c</li>
+          <li>a - c < b - c</li>
+          <li>a * c < b * c</li>
+          <li>a / c < b / c</li>
+        </ul>
+      </p>
+  <h2>Inéquations</h2>
