@@ -31,13 +31,13 @@ CREATE TABLE LEVEL
     dialog TEXT,
     worldName varchar(32),
     nextLevel int,
-    gameName varchar(32),
+    gameId int,
     x int,
     y int,
 
     FOREIGN KEY (worldName) REFERENCES WORLD(name),
     FOREIGN KEY (nextLevel) REFERENCES LEVEL(id),
-    FOREIGN KEY (gameName) REFERENCES GAME(name)
+    FOREIGN KEY (gameId) REFERENCES GAME(id)
 );
 
 CREATE TABLE THEME
