@@ -1,9 +1,8 @@
 <?php
 
 class Theme implements JsonSerializable {
-	public $id;
-	public $name;
-	public $worldId;
+	public integer $id;
+	public string $name;
 
 	public function jsonSerialize() {
 		return $this;

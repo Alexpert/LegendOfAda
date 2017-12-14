@@ -1,7 +1,7 @@
 <?php
 
-class Saloon implements JsonSerializable {
-	public $id;
+class Level implements JsonSerializable {
+	public integer $id;
 
 	public function jsonSerialize() {
 		return $this;
