@@ -1,2 +1,11 @@
 <h1>Equations et Inéquations</h1>
-  <h2></h2>
+  <h2>Equation du premier degré à une inconnue</h2>
+    <p class="property">
+      <dfn>Propriété</dfn>
+      Une équation à garde les même solutions si:
+      <ul>
+        <li>On développe, réduit, factorise les deux membres de l'équation</li>
+        <li>On addition ou soustrait un même nombre aux deux membres de l'équation</li>
+        <li>On multiplie ou divise les deux memebres de l'équation par un même nombre</li>
+      </ul>
+    </p>

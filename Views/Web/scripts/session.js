@@ -1,4 +1,17 @@
 
+var queryURL;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    queryURL = {};
+    while (match = search.exec(query))
+       queryURL[decode(match[1])] = decode(match[2]);
+})();
+
 function getSession() {
 	return JSON.parse(localStorage.getItem('session'));
 }
