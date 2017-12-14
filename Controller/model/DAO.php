@@ -1,7 +1,9 @@
 <?php
+
 require_once('User.php');
 require_once('Game.php');
 require_once('World.php');
+
 class DAO {
     private $db;
 
@@ -107,8 +109,7 @@ function updateGuild(Guild $guild) {
         $request->bindParam(":worldId", $worldId);
 
         $request->execute();
-    }
-    catch(PDOException $e) {
+    } catch(PDOException $e) {
         die("Erreur PDO :".$e->getMessage());
     }
 }
