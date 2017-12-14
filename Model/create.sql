@@ -43,7 +43,7 @@ CREATE TABLE LEVEL
 CREATE TABLE THEME
 (
   id SERIAL PRIMARY KEY,
-  name varchar(32),
+  name varchar(32)
 );
 
 CREATE TABLE LESSON
@@ -61,10 +61,10 @@ CREATE TABLE SCORE
   value int UNIQUE NOT NULL,
   date date NOT NULL,
   username varchar(32),
-  gameName varchar(32),
+  gameId int,
 
   FOREIGN KEY (username) REFERENCES USERS(username),
-  FOREIGN KEY (gameName) REFERENCES GAME(name)
+  FOREIGN KEY (gameId) REFERENCES GAME(id)
 );
 
 CREATE TABLE SCOREDWITH
@@ -127,23 +127,23 @@ CREATE TABLE LEADS
 CREATE TABLE FAVORITES
 (
   username varchar(32) NOT NULL,
-  gameName varchar(32) NOT NULL,
+  gameId int NOT NULL,
 
-  PRIMARY KEY (username, gameName),
+  PRIMARY KEY (username, gameId),
 
   FOREIGN KEY (username) REFERENCES USERS(username),
-  FOREIGN KEY (gameName) REFERENCES GAME(name)
+  FOREIGN KEY (gameId) REFERENCES GAME(id)
 );
 
 CREATE TABLE ISABOUT
 (
   lessonId int NOT NULL,
-  gameName varchar(32) NOT NULL,
+  gameId int NOT NULL,
 
-  PRIMARY KEY (lessonId, gameName),
+  PRIMARY KEY (lessonId, gameId),
 
   FOREIGN KEY (lessonId) REFERENCES LESSON(id),
-  FOREIGN KEY (gameName) REFERENCES GAME(name)
+  FOREIGN KEY (gameId) REFERENCES GAME(id)
 );
 
 CREATE TABLE SUCCESS
