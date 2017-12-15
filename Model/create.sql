@@ -43,13 +43,13 @@ CREATE TABLE LEVEL
 CREATE TABLE THEME
 (
   id SERIAL PRIMARY KEY,
-  name varchar(32)
+  name TEXT
 );
 
 CREATE TABLE LESSON
 (
   id SERIAL PRIMARY KEY,
-  name varchar(32),
+  name TEXT,
   themeId int,
 
   FOREIGN KEY (themeId) REFERENCES THEME(id)
@@ -60,33 +60,15 @@ CREATE TABLE SCORE
   id SERIAL PRIMARY KEY,
   value int UNIQUE NOT NULL,
   date date NOT NULL,
-  username varchar(32),
-  gameId int,
+  username varchar(32) NOT NULL,
+  gameId int NOT NULL,
+  levelId int,
+  guildName varchar(32),
 
   FOREIGN KEY (username) REFERENCES USERS(username),
-  FOREIGN KEY (gameId) REFERENCES GAME(id)
-);
-
-CREATE TABLE SCOREDWITH
-(
-  scoreValue int NOT NULL,
-  guildName varchar(32) NOT NULL,
-
-  PRIMARY KEY (scoreValue,guildName),
-
-  FOREIGN KEY (scoreValue) REFERENCES SCORE(value),
+  FOREIGN KEY (gameId) REFERENCES GAME(id),
+  FOREIGN KEY (levelId) REFERENCES LEVEL(id),
   FOREIGN KEY (guildName) REFERENCES GUILD(name)
-);
-
-CREATE TABLE ISADVENTURE
-(
-  scoreValue int,
-  levelId int,
-
-  PRIMARY KEY (scoreValue, levelId),
-
-  FOREIGN KEY (scoreValue) REFERENCES SCORE(value),
-  FOREIGN KEY (levelId) REFERENCES LEVEL(id)
 );
 
 CREATE TABLE FRIEND

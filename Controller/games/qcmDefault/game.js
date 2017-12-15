@@ -1,4 +1,4 @@
-var questionObj;
+﻿var questionObj;
 var buttonObj = [];
 var qAnswered;
 var score;
@@ -52,6 +52,10 @@ var buttonTextColor = [];
 // Modifiez à partir d'ici pour ajouter et modifier les questions du QCM
 ////////////////////////////////////////////////////////////////////////////////
 
+var defaultBackground = "assets/wallpaperAlexGrey.jpg"
+var defaultTextColor = "red";
+var defaultButtonSprite = "assets/button.png";
+var defaultButtonTextColor = "blue";
 
 questions[0] = "12345678901234567890123456789";
 answers[0] = [];
@@ -59,15 +63,121 @@ answers[0][0] = "123456789";
 answers[0][1] = "1234567891";
 answers[0][2] = "Triangle rectangle";
 answers[0][3] = "123456789123456789123456789123456789";
-backgrounds[0] = "assets/kurtzgesagt-blueMarble.png"
-textColor[0] = "white";
-buttonSprite[0] = "assets/button.png";
-buttonTextColor[0] = "red";
 
+questions[1] = "12345678901234567890123456789";
+answers[1] = [];
+answers[1][0] = "123456789";
+answers[1][1] = "1234567891";
+answers[1][2] = "Triangle rectangle";
+answers[1][3] = "123456789123456789123456789123456789";
+backgrounds[1] = "assets/kurtzgesagt-blueMarble.png"
+textColor[1] = "white";
+buttonSprite[1] = "assets/button.png";
+buttonTextColor[1] = "red";
+
+
+questions[2] = "12345678901234567890123456789";
+answers[2] = [];
+answers[2][0] = "123456789";
+answers[2][1] = "1234567891";
+answers[2][2] = "Triangle rectangle";
+answers[2][3] = "123456789123456789123456789123456789";
+
+questions[3] = "12345678901234567890123456789";
+answers[3] = [];
+answers[3][0] = "123456789";
+answers[3][1] = "1234567891";
+answers[3][2] = "Triangle rectangle";
+answers[3][3] = "123456789123456789123456789123456789";
+
+questions[4] = "12345678901234567890123456789";
+answers[4] = [];
+answers[4][0] = "123456789";
+answers[4][1] = "1234567891";
+answers[4][2] = "Triangle rectangle";
+answers[4][3] = "123456789123456789123456789123456789";
+backgrounds[4] = "assets/kurtzgesagt-blueMarble.png"
+textColor[4] = "white";
+buttonSprite[4] = "assets/button.png";
+buttonTextColor[4] = "red";
+
+
+questions[5] = "12345678901234567890123456789";
+answers[5] = [];
+answers[5][0] = "123456789";
+answers[5][1] = "1234567891";
+answers[5][2] = "Triangle rectangle";
+answers[5][3] = "123456789123456789123456789123456789";
+
+questions[6] = "12345678901234567890123456789";
+answers[6] = [];
+answers[6][0] = "123456789";
+answers[6][1] = "1234567891";
+answers[6][2] = "Triangle rectangle";
+answers[6][3] = "123456789123456789123456789123456789";
+
+questions[7] = "12345678901234567890123456789";
+answers[7] = [];
+answers[7][0] = "123456789";
+answers[7][1] = "1234567891";
+answers[7][2] = "Triangle rectangle";
+answers[7][3] = "123456789123456789123456789123456789";
+backgrounds[7] = "assets/kurtzgesagt-blueMarble.png"
+textColor[7] = "white";
+buttonSprite[7] = "assets/button.png";
+buttonTextColor[7] = "red";
+
+questions[8] = "12345678901234567890123456789";
+answers[8] = [];
+answers[8][0] = "123456789";
+answers[8][1] = "1234567891";
+answers[8][2] = "Triangle rectangle";
+answers[8][3] = "123456789123456789123456789123456789";
+
+questions[9] = "12345678901234567890123456789";
+answers[9] = [];
+answers[9][0] = "123456789";
+answers[9][1] = "1234567891";
+answers[9][2] = "Triangle rectangle";
+answers[9][3] = "123456789123456789123456789123456789";
+
+questions[10] = "12345678901234567890123456789";
+answers[10] = [];
+answers[10][0] = "123456789";
+answers[10][1] = "1234567891";
+answers[10][2] = "Triangle rectangle";
+answers[10][3] = "123456789123456789123456789123456789";
+backgrounds[10] = "assets/kurtzgesagt-blueMarble.png"
+textColor[10] = "white";
+buttonSprite[10] = "assets/button.png";
+buttonTextColor[10] = "red";
+
+
+questions[11] = "12345678901234567890123456789";
+answers[11] = [];
+answers[11][0] = "123456789";
+answers[11][1] = "1234567891";
+answers[11][2] = "Triangle rectangle";
+answers[11][3] = "123456789123456789123456789123456789";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Ne pas toucher au code à partir de ce point
 ////////////////////////////////////////////////////////////////////////////////
+
+for (i = 0; i < questions.length; i++) {
+  if (backgrounds[i] == undefined) {
+    backgrounds[i] = defaultBackground;
+  }
+  if (textColor[i] == undefined) {
+    textColor[i] = defaultTextColor;
+  }
+  if (buttonSprite[i] == undefined) {
+    buttonSprite[i] = defaultButtonSprite;
+  }
+  if (buttonTextColor[i] == undefined) {
+    buttonTextColor[i] = defaultButtonTextColor;
+  }
+}
 
 function QuestionObj(content) {
   this.obj = new GameObject();
@@ -76,7 +186,6 @@ function QuestionObj(content) {
   this.obj.y = 0.5;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
-  //this.font = this.text.
 }
 
 function ButtonObj(content, id, correct) {
