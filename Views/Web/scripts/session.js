@@ -31,9 +31,9 @@ function wake() {
 		link.setAttribute('href', 'login.html');
 		avatar.setAttribute('src', 'images/logo.png');
 	} else {
-		link.setAttribute('href', 'login.html');
+		link.setAttribute('href', 'profile.html');
 		text = session.username + '  ';
-		avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/sandrine.jpg');
+		avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/' + session.avatar);
 	}
 
 	link.appendChild(document.createTextNode(text));
