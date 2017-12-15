@@ -58,3 +58,28 @@
         </ul>
       </p>
   <h2>Inéquations</h2>
+    <p>
+      <p class="definition">
+        Résoudre une inéquation consiste à trouver toutes les valeurs à attribuer aux lettres pour que l'inéquations soit vraie.
+      </p>
+      <p class="property">
+        <dfn>Propriété</dfn>
+        Une équation à garde les même solutions si:
+        <ul>
+          <li>On développe, réduit, factorise les deux membres de l'équation</li>
+          <li>On addition ou soustrait un même nombre aux deux membres de l'équation</li>
+          <li>On multiplie ou divise les deux membres de l'équation par un même nombre</li>
+        </ul>
+      </p>
+      <ul>
+        <li>résoudre l'équation 8 * (x+2) >= p + 10x</li>
+        <li>8 * (x + 2) >= 9 + 10x, <i>On développe les deux membre de l'équation</i></li>
+        <li>8x + 16 >= 9 + 10x, <i>On réduit</i></li>
+        <li>8x + 16 - 10x >= 9 + 10x - 10x, <i>On soustrait 10x</i></li>
+        <li>-2x + 16 >= 9, <i>On réduit</i></li>
+        <li>-2x + 16 - 16 >= 9 - 16, <i>On soustrait 16</i></li>
+        <li>-2x >= -7, <i>On réduit</i></li>
+        <li>-x >= -7/2, <i>On divise par 2</i></li>
+        <li>x <= 7/2, <i>On multiplie par -1 pour changer de signe, On cahnge donc le sens de l'inéquation</i></li>
+      </ul>
+    </p>
