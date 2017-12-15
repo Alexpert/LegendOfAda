@@ -1,4 +1,4 @@
-var questionObj;
+﻿var questionObj;
 var buttonObj = [];
 var qAnswered;
 var score;
@@ -160,6 +160,10 @@ answers[11][1] = "1234567891";
 answers[11][2] = "Triangle rectangle";
 answers[11][3] = "123456789123456789123456789123456789";
 
+////////////////////////////////////////////////////////////////////////////////
+// Ne pas toucher au code à partir de ce point
+////////////////////////////////////////////////////////////////////////////////
+
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
     backgrounds[i] = defaultBackground;
@@ -174,11 +178,6 @@ for (i = 0; i < questions.length; i++) {
     buttonTextColor[i] = defaultButtonTextColor;
   }
 }
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Ne pas toucher au code à partir de ce point
-////////////////////////////////////////////////////////////////////////////////
 
 function QuestionObj(content) {
   this.obj = new GameObject();
