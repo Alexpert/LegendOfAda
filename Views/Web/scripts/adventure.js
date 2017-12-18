@@ -52,3 +52,4 @@ function specific() {
 		area.addEventListener('click', areaOnClick);
 	}
 }
+
