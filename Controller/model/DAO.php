@@ -10,6 +10,7 @@ function __construct() {
     $dsn = 'pgsql:dbname=legendofada;host=127.0.0.1'; // Data source name
     $user = 'legendofada';
     $password = 'Me4a4ris7o7eBestGirl';
+
     try {
         $this->db = new PDO($dsn, $user, $password);
     } catch (PDOException $e) {
@@ -19,7 +20,7 @@ function __construct() {
 
 function getWorlds() : array {
     try {
-        $request = $this->db->prepare('SELECT * FROM WORLD;');
+        $request = $this->db->prepare('SELECT * FROM WORLDS;');
         $request->execute();
         $worlds = $request->fetchAll(PDO::FETCH_CLASS, 'World');
         return $worlds;
