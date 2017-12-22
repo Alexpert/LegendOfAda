@@ -1,0 +1,30 @@
+À L'ATTENTION DE TOI QUI LIS ÇA
+
+Si vous souhaitez créer et/ou ajouter des minijeux, suivez les étapes suivantes:
+
+1. Ajouter le jeu à la base de donnée
+Allez dans Model
+Ajoutez une ligne dans l'ajout des games
+Regardez et conservez le numéro d'id du jeu
+
+2. Ajouter les fichiers de jeu
+Allez dans Controller/games
+créez un répertoire du nom de l'id du jeu
+(pas précédé de zéros ou je ne sais quelle connerie)
+Bon après vous savez quoi faire de vos fichiers de jeu
+Si vous voulez vous retrouver pendant que vous le programmez
+créez un lien symbolique comme j'ai fais avec Eratoaster
+(commande ln -s [fichier cible] [nom du lien symbolique],
+pour ceux qui savent pas, quand vous ferez ls le lien devrait appraitre
+de couleur bleu ciel)
+
+3. Quand c'est fini
+supprimez le lien symbolique (unlink [nom du lien])
+mettez un fichier monde.txt dans le répertoire du jeu
+détenant où il est et dans quel monde, je saurai
+quand vous aurez fini quand il y aura plus le lien symbolique
+(sauf pour Eratoaster, ça va de soit)
+j'ajouterai les données sur le level dans la base
+et supprimerai le monde.txt dans le répertoire
+
+ps: Noyeux joël
