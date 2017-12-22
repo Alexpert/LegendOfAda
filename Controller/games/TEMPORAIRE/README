@@ -5,7 +5,11 @@ Si vous souhaitez créer et/ou ajouter des minijeux, suivez les étapes suivante
 1. Ajouter le jeu à la base de donnée
 Allez dans Model
 Ajoutez une ligne dans l'ajout des games
-Regardez et conservez le numéro d'id du jeu
+connectez vous à la base
+dropez la base
+recréez la base
+insérez la base (profondément)
+Regardez et conservez le numéro d'id de votre jeu
 
 2. Ajouter les fichiers de jeu
 Allez dans Controller/games
