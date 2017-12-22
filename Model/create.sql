@@ -28,7 +28,6 @@ CREATE TABLE WORLD
 CREATE TABLE LEVEL
 (
     id SERIAL PRIMARY KEY,
-    dialog TEXT,
     worldName varchar(32),
     nextLevel int,
     gameId int,

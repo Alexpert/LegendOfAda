@@ -22,7 +22,7 @@ html * {
 body {
 	background-image: url(images/index-background.jpg);
 	background-size: cover;
-	background-repeat: no-repeat;
+	/* background-repeat: no-repeat; */
 }
 
 body > header {

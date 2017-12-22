@@ -1,7 +1,5 @@
 <?php
 
-require_once('User.php');
-require_once('Game.php');
 require_once('World.php');
 
 class DAO {
@@ -9,14 +7,29 @@ class DAO {
 
 // Ouverture de la base de donnée
 function __construct() {
-    $dsn = 'pgsql:../db/database.db'; // Data source name
+    $dsn = 'pgsql:dbname=legendofada;host=127.0.0.1'; // Data source name
+    $user = 'legendofada';
+    $password = 'Me4a4ris7o7eBestGirl';
     try {
-        $this->db = new PDO($dsn);
+        $this->db = new PDO($dsn, $user, $password);
     } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
     }
 }
 
+function getWorlds() : array {
+    try {
+        $request = $this->db->prepare('SELECT * FROM WORLD;');
+        $request->execute();
+        $worlds = $request->fetchAll(PDO::FETCH_CLASS, 'World');
+        return $worlds;
+    } catch (PDOException $e) {
+	$worlds['error'] = $e->getMessage();
+	return $worlds;
+    }
+}
+
+/*
 function addUser(User $user, string $password) {
     try {
         $username = $user->username;
@@ -42,11 +55,9 @@ function getUser(string $username) : User {
     }
 
 }
-/*
   function addGame(Game $game, file $file) {
 
 }
-*/
 
 function getGames() : array() {
     try {
@@ -104,6 +115,7 @@ function getFriendships(User $user, bool $accepted) : array(User) {
 
 }
 
+*/
 
 
 
