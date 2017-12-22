@@ -13,79 +13,100 @@ var buttonSprite = [];
 var buttonTextColor = [];
 
 var defaultBackground = "assets/kurtzgesagt-blueMarble.png"
-var defaultTextColor = "black";
+var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
 
-questions[0] = "Trouvez la valeur de x pour l'inequation: 2x - 4 < 0";
+questions[0] = "Développer l'équation suivante: 4a (5a + 7b)";
 answers[0] = [];
-answers[0][0] = "x < 2";
-answers[0][1] = "x > -1/2";
-answers[0][2] = "x < -4";
-answers[0][3] = "x > 1/2";
+answers[0][0] = "20a + 24ab";
+answers[0][1] = "48ab";
+answers[0][2] = "9a + 11ab";
+answers[0][3] = "27ab";
 
-questions[1] = "Trouvez la valeur de y pour l'inequation: 18 - 9y > 0";
+questions[1] = "Développer l'équation suivante: 8 (6a + b)";
 answers[1] = [];
-answers[1][0] = "y > 2";
-answers[1][1] = "y > -2";
-answers[1][2] = "y > 9";
-answers[1][3] = "y < -9";
+answers[1][0] = "48a + 8b";
+answers[1][1] = "14a + b";
+answers[1][2] = "14ab";
+answers[1][3] = "6a + 8b";
 
-questions[2] = "Trouvez la valeur de z pour l'inequation: 6z - 16 < 2";
+questions[2] = "Développer l'équation suivante: (2a + 7b)(5a - 3b)";
 answers[2] = [];
-answers[2][0] = "z < 3";
-answers[2][1] = "z > 3";
-answers[2][2] = "z < 6";
-answers[2][3] = "z > 2";
+answers[2][0] = "10a + 29ab - 21b";
+answers[2][1] = "9ab * 2ab";
+answers[2][2] = "7a + 4b";
+answers[2][3] = "11ab";
 
-questions[3] = "Trouvez la valeur de x pour l'inequation: 0 < 5x + 25";
+questions[3] = "Développer l'équation suivante: (4a - 11b)(8a + c)";
 answers[3] = [];
-answers[3][0] = "x > -5";
-answers[3][1] = "x < -5";
-answers[3][2] = "x > 5";
-answers[3][3] = "x < 5";
+answers[3][0] = "32a + 4ac - 88ab -11bc";
+answers[3][1] = "- 7ab * ac";
+answers[3][2] = "";
+answers[3][3] = "";
 
-questions[4] = "Trouvez la valeur de y pour l'inequation: 5 + 7y > - 12y - 3";
+questions[4] = "Développer l'équation suivante:";
 answers[4] = [];
-answers[4][0] = "y > -8/19";
-answers[4][1] = "y > -4";
-answers[4][2] = "y < 2";
-answers[4][3] = "y > 12/5";
+answers[4][0] = "";
+answers[4][1] = "";
+answers[4][2] = "";
+answers[4][3] = "";
 
-questions[5] = "Trouvez la valeur de z pour l'inequation: 6z - 4 > 2 - 6z";
+questions[5] = "Développer l'équation suivante:";
 answers[5] = [];
-answers[5][0] = "z > 1/2";
-answers[5][1] = "z > -1/2";
-answers[5][2] = "z < 1/2";
-answers[5][3] = "z < -1/2";
+answers[5][0] = "";
+answers[5][1] = "";
+answers[5][2] = "";
+answers[5][3] = "";
 
-questions[6] = "Trouvez la valeur de x pour l'inequation: - 24 - 3x < 3x";
+questions[6] = "Développer l'équation suivante:";
 answers[6] = [];
-answers[6][0] = "x > -6";
-answers[6][1] = "x > -24/3";
-answers[6][2] = "x > 24/3";
-answers[6][3] = "x < -24/3";
+answers[6][0] = "";
+answers[6][1] = "";
+answers[6][2] = "";
+answers[6][3] = "";
 
-questions[7] = "Trouvez la valeur de y pour l'inequation: 0 > 16y - 7";
+questions[7] = "Développer l'équation suivante:";
 answers[7] = [];
-answers[7][0] = "y > 7/16";
-answers[7][1] = "y > -7/16";
-answers[7][2] = "y < 7/16";
-answers[7][3] = "y < -7/16";
+answers[7][0] = "";
+answers[7][1] = "";
+answers[7][2] = "";
+answers[7][3] = "";
 
-questions[8] = "Trouvez la valeur de z pour l'inequation: - 15z < 5z - 4";
+questions[8] = "Développer l'équation suivante:";
 answers[8] = [];
-answers[8][0] = "z > 1/5";
-answers[8][1] = "z < 1/5";
-answers[8][2] = "z > -1/5";
-answers[8][3] = "z < -1/5";
+answers[8][0] = "";
+answers[8][1] = "";
+answers[8][2] = "";
+answers[8][3] = "";
 
-questions[9] = "Trouvez la valeur de x pour l'inequation: 8x - 4 > 12 + 4x";
+questions[9] = "Développer l'équation suivante:";
 answers[9] = [];
-answers[9][0] = "x > 4";
-answers[9][1] = "x < 4";
-answers[9][2] = "x > 1/4";
-answers[9][3] = "x < 1/4";
+answers[9][0] = "";
+answers[9][1] = "";
+answers[9][2] = "";
+answers[9][3] = "";
+
+questions[10] = "Développer l'équation suivante:";
+answers[10] = [];
+answers[10][0] = "";
+answers[10][1] = "";
+answers[10][2] = "";
+answers[10][3] = "";
+
+questions[11] = "Développer l'équation suivante:";
+answers[11] = [];
+answers[11][0] = "";
+answers[11][1] = "";
+answers[11][2] = "";
+answers[11][3] = "";
+
+questions[12] = "Développer l'équation suivante:";
+answers[12] = [];
+answers[12][0] = "";
+answers[12][1] = "";
+answers[12][2] = "";
+answers[12][3] = "";
 
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
