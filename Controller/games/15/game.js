@@ -12,80 +12,101 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/wallpaperAlexGrey.jpg"
-var defaultTextColor = "black";
+var defaultBackground = "assets/kurtzgesagt-blueMarble.png"
+var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
 
-questions[0] = "Trouvez la valeur de x pour l'inequation: 2x - 4 < 0";
+questions[0] = "Trouvez la valeur de x pour l'équation: 4x + 6 = 0";
 answers[0] = [];
-answers[0][0] = "x < 2";
-answers[0][1] = "x > -1/2";
-answers[0][2] = "x < -4";
-answers[0][3] = "x > 1/2";
+answers[0][0] = "x = -3/2";
+answers[0][1] = "x = 2/3";
+answers[0][2] = "x = -6/3";
+answers[0][3] = "x = 4/6";
 
-questions[1] = "Trouvez la valeur de y pour l'inequation: 18 - 9y > 0";
+questions[1] = "Trouvez la valeur de x pour l'équation: 5 - 8x = 0";
 answers[1] = [];
-answers[1][0] = "y > 2";
-answers[1][1] = "y > -2";
-answers[1][2] = "y > 9";
-answers[1][3] = "y < -9";
+answers[1][0] = "x = 5/8";
+answers[1][1] = "x = -8/5";
+answers[1][2] = "x = 3";
+answers[1][3] = "x = -5/8";
 
-questions[2] = "Trouvez la valeur de z pour l'inequation: 6z - 16 < 2";
+questions[2] = "Trouvez la valeur de y pour l'équation: 7y - 1 = 2y + 3";
 answers[2] = [];
-answers[2][0] = "z < 3";
-answers[2][1] = "z > 3";
-answers[2][2] = "z < 6";
-answers[2][3] = "z > 2";
+answers[2][0] = "y = 4/5";
+answers[2][1] = "y = -5/4";
+answers[2][2] = "y = 2/3";
+answers[2][3] = "y = -7/2";
 
-questions[3] = "Trouvez la valeur de x pour l'inequation: 0 < 5x + 25";
+questions[3] = "Trouvez la valeur de y pour l'équation: - 8 - 2y = 0";
 answers[3] = [];
-answers[3][0] = "x > -5";
-answers[3][1] = "x < -5";
-answers[3][2] = "x > 5";
-answers[3][3] = "x < 5";
+answers[3][0] = "y = -4";
+answers[3][1] = "y = -2/8";
+answers[3][2] = "y = 4/8";
+answers[3][3] = "y = -2";
 
-questions[4] = "Trouvez la valeur de y pour l'inequation: 5 + 7y > - 12y - 3";
+questions[4] = "Trouvez la valeur de z pour l'équation: 12z + 6 = - 3 + 3z";
 answers[4] = [];
-answers[4][0] = "y > -8/19";
-answers[4][1] = "y > -4";
-answers[4][2] = "y < 2";
-answers[4][3] = "y > 12/5";
+answers[4][0] = "z = -1";
+answers[4][1] = "z = 1";
+answers[4][2] = "z = 12/3";
+answers[4][3] = "z = 9/2";
 
-questions[5] = "Trouvez la valeur de z pour l'inequation: 6z - 4 > 2 - 6z";
+questions[5] = "Trouvez la valeur de z pour l'équation: 10 - 5z = - 2z + 1";
 answers[5] = [];
-answers[5][0] = "z > 1/2";
-answers[5][1] = "z > -1/2";
-answers[5][2] = "z < 1/2";
-answers[5][3] = "z < -1/2";
+answers[5][0] = "z = 3";
+answers[5][1] = "z = 10/2";
+answers[5][2] = "z = -10/5";
+answers[5][3] = "z = 5";
 
-questions[6] = "Trouvez la valeur de x pour l'inequation: - 24 - 3x < 3x";
+questions[6] = "Trouvez la valeur de y pour l'équation: y - 4 = 8 + 2y";
 answers[6] = [];
-answers[6][0] = "x > -6";
-answers[6][1] = "x > -24/3";
-answers[6][2] = "x > 24/3";
-answers[6][3] = "x < -24/3";
+answers[6][0] = "y = -12";
+answers[6][1] = "y = -8/2";
+answers[6][2] = "y = 4";
+answers[6][3] = "y = 2/3";
 
-questions[7] = "Trouvez la valeur de y pour l'inequation: 0 > 16y - 7";
+questions[7] = "Trouvez la valeur de x pour l'équation: 9 = 7x - 19";
 answers[7] = [];
-answers[7][0] = "y > 7/16";
-answers[7][1] = "y > -7/16";
-answers[7][2] = "y < 7/16";
-answers[7][3] = "y < -7/16";
+answers[7][0] = "x = 4";
+answers[7][1] = "x = 10/7";
+answers[7][2] = "x = 9/7";
+answers[7][3] = "x = -14";
 
-questions[8] = "Trouvez la valeur de z pour l'inequation: - 15z < 5z - 4";
+questions[8] = "Trouvez la valeur de y pour l'équation: 2y + 17 = 5y + 2";
 answers[8] = [];
-answers[8][0] = "z > 1/5";
-answers[8][1] = "z < 1/5";
-answers[8][2] = "z > -1/5";
-answers[8][3] = "z < -1/5";
+answers[8][0] = "y = 5";
+answers[8][1] = "y = 19/7";
+answers[8][2] = "y = -15/7";
+answers[8][3] = "y = -7";
 
-questions[9] = "Trouvez la valeur de x pour l'inequation: 8x - 4 > 12 + 4x";
+questions[9] = "Trouvez la valeur de z pour l'équation: 3z - 25 = 11 - 5z";
 answers[9] = [];
-answers[9][0] = "x > 4";
-answers[9][1] = "x < 4";
-answers[9][2] = "x > 1/4";
-answers[9][3] = "x < 1/4";
+answers[9][0] = "z = 9/2";
+answers[9][1] = "z = -4";
+answers[9][2] = "z = 6";
+answers[9][3] = "z = -18/3";
+
+questions[10] = "Trouvez la valeur de x pour l'équation: 0 = 14 - 6x";
+answers[10] = [];
+answers[10][0] = "x = 7/3";
+answers[10][1] = "x = -8";
+answers[10][2] = "x = 20";
+answers[10][3] = "x = 14/3";
+
+questions[11] = "Trouvez la valeur de y pour l'équation: 0 = 21 + 7y";
+answers[11] = [];
+answers[11][0] = "y = -3";
+answers[11][1] = "y = 7/21";
+answers[11][2] = "y = 3";
+answers[11][3] = "y = -21/7";
+
+questions[12] = "Trouvez la valeur de z pour l'équation: 14z = 4z + 40";
+answers[12] = [];
+answers[12][0] = "z = 4";
+answers[12][1] = "z = -4";
+answers[12][2] = "z = 10";
+answers[12][3] = "z = 2";
 
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
