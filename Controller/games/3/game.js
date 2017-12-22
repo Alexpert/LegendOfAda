@@ -12,8 +12,8 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/wallpaperAlexGrey.jpg"
-var defaultTextColor = "black";
+var defaultBackground = "assets/kurtzgesagt-blueMarble.png"
+var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
 
