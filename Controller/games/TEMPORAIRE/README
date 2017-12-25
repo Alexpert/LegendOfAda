@@ -14,7 +14,7 @@ Regardez et conservez le numéro d'id de votre jeu
 2. Ajouter les fichiers de jeu
 Allez dans Controller/games
 créez un répertoire du nom de l'id du jeu
-(pas précédé de zéros ou je ne sais quelle connerie)
+(pas précédé de zéros ou je ne sais quelle connerie)          // T'es un FDP plein de subtilité Val...
 Bon après vous savez quoi faire de vos fichiers de jeu
 Si vous voulez vous retrouver pendant que vous le programmez
 créez un lien symbolique comme j'ai fais avec Eratoaster

@@ -30,7 +30,12 @@ insert into lessons (name, theme) values
 	('Programmation', 5);
 
 insert into games (name, about) values
-	('Eratoaster', 1);
+	('Division de Mekayaks', 1),
+--('Réductions de Mékafractions', 1),
+	('Eratoaster', 1),
+	('QCM Inéquations', 3),	
+	('QCM Equations', 3),
+	('QCM Identités Remarquables', 2);
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
@@ -74,4 +79,3 @@ insert into achievements (name, description) values
 	('Explorateur intrépide', 'Finir un niveau bonus'),
 	('Love is real', 'Mettre un mini-jeu en favori'),
 	('Philantrope', 'Rejoindre une guilde');
-
