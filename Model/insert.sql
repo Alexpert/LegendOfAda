@@ -30,9 +30,9 @@ insert into lessons (name, theme) values
 	('Programmation', 5);
 
 insert into games (name, about) values
-	('Division de Mekayaks', 1),
---('Réductions de Mékafractions', 1),
 	('Eratoaster', 1),
+--('Réductions de Mékafractions', 1),
+	('Division de Mekayaks', 1),
 	('QCM Inéquations', 3),	
 	('QCM Equations', 3),
 	('QCM Identités Remarquables', 2);
@@ -47,12 +47,12 @@ insert into levels(world, game, x, y, previous) values
 	('Mongolie', 1, 0, 0, 5),
 	('Mongolie', 1, 0, 0, 6),
 -- 6 niveaux pour France
-	('France', 1, 406, 282, null),
-	('France', 1, 952, 226, 8),
+	('France', 3, 406, 282, null),
+	('France', 2, 952, 226, 8),
 	('France', 1, 1156, 491, 9),
-	('France', 1, 975, 669, 10),
-	('France', 1, 698, 606, 11),
-	('France', 1, 558, 468, 12),
+	('France', 4, 975, 669, 10),
+	('France', 5, 698, 606, 11),
+	('France', 6, 558, 468, 12),
 -- 6 niveaux pour Italie
 	('Italie', 1, 0, 0, null),
 	('Italie', 1, 0, 0, 14),

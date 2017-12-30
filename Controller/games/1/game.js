@@ -1,155 +1,167 @@
-var mekasSecondaireObj = [];
-var mekaYakObj;
-var buttonsObj = [];
-var scoreObj;
-var fin = false;
-var primeNumbers = [2, 3, 5, 7, 11];
 
-function Button(x, n) {
-  this.obj = new GameObject();
-  this.obj.x = x;
-  this.obj.y = 0.85;
-  this.obj.width = 0.18;
-  this.obj.height = 0.12;
-  this.obj.text = n;
-  this.obj.image = game.createImage("./assets/button.png");
+
+let primeNumbers = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+function isPrime(n) {
+	for(i = 0; i < primeNumbers.length; i++) {
+		if(n == primeNumbers[i])
+			return true;
+	}
+
+	return false;
 }
 
-function MekaYak(valeur, size) {
-  this.obj = new GameObject();
-  this.size = size;
+function toastNumber() {
+	return Math.floor(Math.random() * 99) + 1;
+}
 
-  this.obj.text = valeur;
-  this.obj.image = game.createImage("./assets/mekayak-français.png");
-  this.obj.width = 0.4 * this.size/4;
-  this.obj.height = 0.5 * this.size/4;
-  this.obj.x = 0.5 - this.obj.width/2;
-  this.obj.y = 0.5 - this.obj.height/2;
+function Eratoaster() {
+	var eratoaster = new GameObject();
+	eratoaster.x = 0.45;
+	eratoaster.y = 0.6;
+	eratoaster.velocity.x = -0.1;
+	eratoaster.width = 0.1;
+	eratoaster.height = 0.25;
+	eratoaster.image = game.createImage('assets/eratoaster.png');
+	eratoaster.resetToast = function(toast) {
+		toast.x = this.x;
+		toast.y = this.y - toast.width;
+		toast.velocity.y = -0.3;
+		toast.text = toastNumber();
+		toast.primary = undefined;
+	}
 
-  this.divide = function(divider) {
-    var secondMekYak = new MekaYak(divider, 1);
-    secondMekYak.obj.y = 0.7;
-    mekasSecondaireObj.push(secondMekYak);
-    this.obj.text = this.obj.text / divider;
-    this.size--;
+	return eratoaster;
+}
 
-    this.obj.width = 0.4 * (4 + mekaYakObj.size)/8;
-    this.obj.height = 0.5* (4 + mekaYakObj.size)/8;
-    this.obj.x = 0.5 - this.obj.width/2;
-    this.obj.y = 0.5 - this.obj.height/2;
-  }
+function Toast() {
+	var toast = new GameObject();
+	toast.width = 0.06;
+	toast.height = 0.1;
+	toast.image = game.createImage('assets/toast.png');
+
+	return toast;
 }
 
 function Score() {
-  this.obj = new GameObject();
-  this.obj.x = 3 / 8;
-  this.obj.y = 1/12;
-  this.obj.width = 2 / 8;
-  this.obj.height = 1 / 11;
-  this.obj.text = 0;
+	var score = new GameObject();
+	score.x = 0.05;
+	score.y = 0.05;
+	score.width = 0.1;
+	score.height = 0.15;
+	score.text = 0;
 
-  this.increment = function() {
-    this.obj.text += 5;
-  }
-
-  this.decrement = function() {
-    this.obj.text -= 5;
-  }
+	return score;
 }
 
-function initValue() {
-  var number = 1;
-  for (i = 0; i < 4; i++) {
-    number = number * primeNumbers[Math.floor(Math.random() * primeNumbers.length)];
-  }
-  return number;
+function Clock() {
+	var clock = new GameObject();
+	clock.x = 0.45;
+	clock.y = 0.05;
+	clock.width = 0.1;
+	clock.height = 0.15;
+
+	return clock;
 }
 
-function drawAll() {
-  game.setFontSize(0.04);
-  game.fill("red");
-  for (i = 0; i < mekasSecondaireObj.length; i++) {
-    mekasSecondaireObj[i].obj.x = (i + 1) / (mekasSecondaireObj.length + 1) - mekasSecondaireObj[i].obj.width/2;
-    game.draw(mekasSecondaireObj[i].obj);
-  }
-
-  game.setFontSize(0.15 * (4 + mekaYakObj.size)/8);
-  game.draw(mekaYakObj.obj);
-  game.fill("black");
-
-  game.setFontSize(0.1);
-  game.draw(scoreObj.obj);
-
-  game.setFontSize(0.07);
-  for (i = 0; i < buttonsObj.length; i++) {
-    game.draw(buttonsObj[i].obj);
-  }
-}
-
-function endScreen() {
-  game.clearAll();
-
-
-  game.setFontSize(0.2);
-  game.fill("black");
-
-  var message = new GameObject();
-  message.x = 1 / 4;
-  message.y = 1 / 5;
-  message.width = 1 / 2;
-  message.height = 1 / 4;
-  message.text = "Résultat";
-  game.draw(message);
-
-  scoreObj.obj.x = 1 / 3;
-  scoreObj.obj.y = 2 / 5;
-  scoreObj.obj.width = 1 / 3;
-  scoreObj.obj.height = 1 / 4;
-  game.draw(scoreObj.obj);
-
-  game.setFontSize(0.04);
-  game.fill("red");
-  for (i = 0; i < mekasSecondaireObj.length; i++) {
-    mekasSecondaireObj[i].obj.x = (i + 1) / (mekasSecondaireObj.length + 1) - mekasSecondaireObj[i].obj.width/2;
-    game.draw(mekasSecondaireObj[i].obj);
-  }
-}
+var startDate;
+var eratoaster;
+var toast;
+var score;
+var clock;
 
 function setup() {
-  game.setBackground("./assets/backgroundParis.jpg");
-  mekaYakObj = new MekaYak(initValue(), 4);
-  scoreObj = new Score();
+	game.setBackground('assets/background.jpg');
 
-  buttonsObj.push(new Button(0.01,  2));
-  buttonsObj.push(new Button(0.21,  3));
-  buttonsObj.push(new Button(0.41,  5));
-  buttonsObj.push(new Button(0.61,  7));
-  buttonsObj.push(new Button(0.81, 11));
+	eratoaster = Eratoaster();
+	toast = Toast();
+	score = Score();
+	clock = Clock();
+
+	eratoaster.resetToast(toast);
+	game.draw(score);
+	startDate = Date.now();
 }
 
 function update() {
-  if (!fin) {
-    game.clearAll();
-    drawAll();
-  } else {
-    endScreen();
-  }
+	clock.text = 30 - Math.floor((Date.now() - startDate) / 1000);
+
+	if(eratoaster.x <= 0.1 || eratoaster.x >= 0.8)
+		eratoaster.velocity.x = -eratoaster.velocity.x
+
+	if(toast.y > 1) {
+		game.clear(toast);
+
+		game.fill('black');
+		game.clear(score);
+		if(toast.primary != undefined) {
+			if(toast.primary)
+				score.text += 3;
+			else
+				score.text -= 3;
+		} else if(isPrime(toast.text)) {
+			score.text -= 1;
+		}
+		game.draw(score);
+
+		eratoaster.resetToast(toast);
+	} else if(toast.y <= 0.2) {
+		toast.velocity.y = -toast.velocity.y;
+	}
+
+	game.clear(eratoaster);
+	game.clear(toast);
+	game.clear(clock);
+
+	game.move(eratoaster);
+	game.move(toast);
+
+	game.draw(eratoaster);
+
+	if(toast.primary == undefined)
+		game.fill('black');
+	else if(toast.primary == true)
+		game.fill('green');
+	else
+		game.fill('red');
+	game.setFontSize(0.05);
+	game.draw(toast);
+	game.setFontSize(0.1);
+	
+	if(clock.text <= 10)
+		game.fill('red');
+	else
+		game.fill('black');
+	game.draw(clock);
+
+	if(clock.text == 0) {
+		var finalScore = score.text;
+		game.clearAll();
+		score.x = 0.25;
+		score.width = 0.5;
+
+		if(score.text <= 0) {
+			score.y = 0.4;
+			game.fill('white');
+			game.setBackground('preview.png');
+			score.text = "VOUS AVEZ PERDU";
+		} else {
+			score.y = 0.3;
+			game.fill('black');
+			score.text = "VOUS AVEZ GAGNÉ";
+		}
+
+		game.draw(score);
+
+		game.end(finalScore);
+	}
 }
 
 function clicked(x, y) {
-  if (!fin) {
-    console.log(mekaYakObj);
-    console.log(mekasSecondaireObj);
-    for (i = 0; i < buttonsObj.length; i++) {
-      if (buttonsObj[i].obj.contains(x, y)) {
-        if (mekaYakObj.obj.text % buttonsObj[i].obj.text == 0) {
-          mekaYakObj.divide(buttonsObj[i].obj.text);
-          scoreObj.increment();
-          fin = mekaYakObj.obj.text == 1;
-        } else {
-          scoreObj.decrement();
-        }
-      }
-    }
-  }
+	if(toast.contains(x, y) && toast.primary == undefined) {
+		if(isPrime(toast.text))
+			toast.primary = true;
+		else
+			toast.primary = false;
+	}
 }
