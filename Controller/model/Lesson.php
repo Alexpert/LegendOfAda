@@ -1,8 +1,9 @@
 <?php
 
 class Lesson implements JsonSerializable {
-	public integer $id;
-	public string $name;
+	public $id;
+	public $name;
+	public $theme;
 
 	public function jsonSerialize() {
 		return $this;
