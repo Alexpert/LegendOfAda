@@ -93,8 +93,10 @@ function coupleEntiers() {
 function drawAll() {
   game.draw(score.obj);
 
+  game.fill("red");
   game.draw(mekaFract.mekaUp);
   game.draw(mekaFract.mekaDown);
+  game.fill("black");
   game.draw(mekaFract.barreMid);
 
   for (i = 0; i < buttonsObj.length; i++) {
@@ -114,14 +116,14 @@ function endScreen() {
   message.y = 1 / 5;
   message.width = 1 / 2;
   message.height = 1 / 4;
-  message.text = "Résultat";
+  message.text = "Résultat";  
   game.draw(message);
 
-  scoreObj.obj.x = 1 / 3;
-  scoreObj.obj.y = 2 / 5;
-  scoreObj.obj.width = 1 / 3;
-  scoreObj.obj.height = 1 / 4;
-  game.draw(scoreObj.obj);
+  score.obj.x = 1 / 3;
+  score.obj.y = 2 / 5;
+  score.obj.width = 1 / 3;
+  score.obj.height = 1 / 4;
+  game.draw(score.obj);
 
   game.setFontSize(0.04);
   game.fill("red");
@@ -160,7 +162,7 @@ function clicked(x, y) {
         if (!mekaFract.reductible()) {
           nbMeka--;
           if (nbMeka == 0) {
-            end = true;
+            fin = true;
           } else {
             mekaFract = new MekaFract(coupleEntiers());
           }

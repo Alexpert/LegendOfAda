@@ -31,9 +31,9 @@ insert into lessons (name, theme) values
 
 insert into games (name, about) values
 	('Eratoaster', 1),
---('Réductions de Mékafractions', 1),
+	('Réductions de Mékafractions', 1),
 	('Division de Mekayaks', 1),
-	('QCM Inéquations', 3),	
+	('QCM Inéquations', 3),
 	('QCM Equations', 3),
 	('QCM Identités Remarquables', 2);
 
