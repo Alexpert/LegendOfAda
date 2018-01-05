@@ -21,17 +21,29 @@ function __construct() {
 }
 
 // Gestion Users
-function addUser(string $username, string $pw) : bool {
+function addUser(string $username, string $pw) : array {
     try {
 	$request = $this->db->prepare('insert into USERS values (:username, :pw)');
 	$request->bindParam(':username', $username, PDO::PARAM_STR);
 	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
 	$request->execute();
-	$user = new User();
-	$user->username = $username;
-	$user->password = $pw;
+	$user = getUser($username, $pw);
     } catch (PDOException $e) {
 	$users['error'] = $e->getMessage();
+    }
+
+    return $user;
+}
+
+function getUser(string $username, string $pw) : array {
+    try {
+	$request = $this->db->prepare('select * from users where username = :username and password = :pw');
+	$request->bindParam(':username', $username);
+	$request->bindParam(':pw', $pw);
+	$request->execute();
+	$user = $request->fetchAll(PDO::FETCH_CLASS, 'User');
+    } catch (PDOException $e) {
+	$user['error'] = $e->getMessage();
     }
 
     return $user;
@@ -91,7 +103,7 @@ function getLevelFromWorld($world) : array {
 	$request = $this->db->prepare('select * from levels where world = :world');
 	$request->bindParam(':world', $world, PDO::PARAM_STR);
 	$request->execute();
-	$levels = $request->fetchAll(PDO::FETCH_CLASS, 'Levels');
+	$levels = $request->fetchAll(PDO::FETCH_CLASS, 'Level');
    } catch (PDOException $e) {
 	$levels['error'] = $e->getMessage();
    }
