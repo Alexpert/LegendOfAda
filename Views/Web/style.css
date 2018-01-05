@@ -303,6 +303,7 @@ body.adventure > #dialog {
 	height: 40vh;
 	font-size: 3vh;
 	background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+	visibility: hidden;
 }
 
 body.adventure > #dialog > h2 {
