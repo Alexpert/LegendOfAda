@@ -17,6 +17,7 @@ function __construct() {
     }
 }
 
+// Gestion User
 function addUser(User $user, string $password) {
     try {
         $username = $user->username;
@@ -42,6 +43,7 @@ function getUser(string $username) : User {
     }
 
 }
+
 /*
   function addGame(Game $game, file $file) {
 
