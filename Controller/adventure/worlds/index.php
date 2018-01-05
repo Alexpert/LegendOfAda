@@ -15,7 +15,7 @@ require_once('../../model/DAO.php');
 $response['worlds'] = $dao->getWorlds();
 
 if(isset($_GET['world'])) {
-	$response['world'] = $_GET['world'];
+	$response['world'] = $dao->getLevelsFromWorld($_GET['world']);
 }
 
 echo json_encode($response);

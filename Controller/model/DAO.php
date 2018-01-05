@@ -3,6 +3,7 @@
 require_once('Theme.php');
 require_once('Lesson.php');
 require_once('World.php');
+require_once('Level.php');
 
 class DAO {
     private $db;
@@ -86,12 +87,12 @@ function getWorlds() : array {
     return $worlds;
 }
 
-function getLevelFromWorld($world) : array {
+function getLevelsFromWorld($world) : array {
     try {
 	$request = $this->db->prepare('select * from levels where world = :world');
 	$request->bindParam(':world', $world, PDO::PARAM_STR);
 	$request->execute();
-	$levels = $request->fetchAll(PDO::FETCH_CLASS, 'Levels');
+	$levels = $request->fetchAll(PDO::FETCH_CLASS, 'Level');
    } catch (PDOException $e) {
 	$levels['error'] = $e->getMessage();
    }
@@ -99,8 +100,7 @@ function getLevelFromWorld($world) : array {
    return $levels;
 }
 
-// Gestion Score
-
+}
 
 $dao = new DAO();
 
