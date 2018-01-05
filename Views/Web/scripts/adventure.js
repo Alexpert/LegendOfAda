@@ -12,20 +12,36 @@ function specific() {
 	if(session != undefined) {
 		query = '?token=' + session.token
 			+ '&world=' + world;
+	} else {
+		query = '?world=' + world;
 	}
 
 	request.onreadystatechange = function() {
 		if(request.readyState == 4
 			&& request.status == 200) {
 			let response = JSON.parse(request.responseText);
-			var menu = document.getElementsByTagName('menu')[0];
+			let menu = document.getElementsByTagName('menu')[0];
+			let map = document.getElementsByTagName('map')[0];
 
 			for(var i = 0; i < response.worlds.length; i++) {
-				var link = document.createElement('a');
+				let link = document.createElement('a');
 
 				link.setAttribute('href', 'adventure.html?world=' + response.worlds[i].name);
 				link.appendChild(document.createTextNode(response.worlds[i].name));
 				menu.appendChild(link);
+			}
+
+			for(var i = 0; i < response.world.length; i++) {
+				let area = document.createElement('area');
+
+				area.setAttribute('shape', 'circle');
+				area.setAttribute('coords', response.world[i].x
+							+ ',' + response.world[i].y
+							+ ',35');
+				area.setAttribute('href', 'game.html?id=' + response.world[i].id);
+				area.setAttribute('alt', world);
+
+				map.appendChild(area);
 			}
 		}
 	}
