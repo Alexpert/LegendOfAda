@@ -1,16 +1,21 @@
 
-
-CREATE TABLE USERS
-(
-	username VARCHAR(32) PRIMARY KEY,
-	password VARCHAR(32) NOT NULL -- md5 sum always 32 hex chars
-);
-
 CREATE TABLE ACHIEVEMENTS
 (
 	id SERIAL PRIMARY KEY,
 	name TEXT UNIQUE NOT NULL,
 	description TEXT NOT NULL
+);
+
+CREATE TABLE USERS
+(
+	username VARCHAR(32) PRIMARY KEY,
+	password VARCHAR(32) NOT NULL, -- md5 sum always 32 hex chars
+
+	token INTEGER UNIQUE,
+	timeout TIMESTAMP,
+	avatar INTEGER NOT NULL DEFAULT 1,
+
+	FOREIGN KEY(avatar) REFERENCES ACHIEVEMENTS(id)
 );
 
 CREATE TABLE GUILDS
