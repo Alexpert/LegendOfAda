@@ -1,37 +1,81 @@
-insert into world values ('Mongolie');
-insert into world values ('France');
-insert into world values ('Italie');
-insert into world values ('Inde');
-insert into world values ('Atlantis');
-insert into world values ('Enfer');
+insert into worlds values
+	('Mongolie'),
+	('France'),
+	('Italie'),
+	('Inde'),
+	('Atlantis'),
+	('Enfer');
 
-insert into theme values (1, 'Nombre et calculs');
-insert into theme values (2, 'Organisation et gestion de données, fonctions');
-insert into theme values (3, 'Grandeurs et mesures');
-insert into theme values (4, 'Espace et géométrie');
-insert into theme values (5, 'Algorithmique et programmation');
+insert into themes (name) values
+	('Nombre et calculs'),
+	('Organisation et gestion de données, fonctions'),
+	('Grandeurs et mesures'),
+	('Espace et géométrie'),
+	('Algorithmique et programmation');
 
-insert into game values (1, 'Eratoaster');
-insert into game values (2, 'Identités remarquables');
+-- Par chance, SERIAL commence a 1
+insert into lessons (name, theme) values
+	('Nombres premiers et fractions irréductibles', 1),
+	('Calcul littéral', 1),
+	('Equations et Inéquations', 1),
+	('Fonctions', 2),
+	('Fonctions linéaires, fonctions affines', 2),
+	('Proportionnalité', 2),
+	('Statistiques et probabilités', 2),
+	('Géométrie dans l''espace', 3),
+	('Les transformations du plan - Homothéties', 4),
+	('Théorème de Thalès', 4),
+	('Trigonométrie', 4),
+	('Algorithmique', 5),
+	('Programmation', 5);
 
-insert into lesson (name, themeId) values ('Nombres premiers et fractions irréductibles', 1);
-insert into lesson (name, themeId) values ('Calcul littéral', 1);
-insert into lesson (name, themeId) values ('Equations et Inéquations', 1);
+insert into games (name, about) values
+	('Eratoaster', 1),
+	('Réductions de Mékafractions', 1),
+	('Division de Mekayaks', 1),
+	('QCM Inéquations', 3),
+	('QCM Equations', 3),
+	('QCM Identités Remarquables', 2);
 
+insert into levels(world, game, x, y, previous) values
+--  7 niveaux pour Mongolie
+	('Mongolie', 1, 0, 0, null),
+	('Mongolie', 1, 0, 0, 1),
+	('Mongolie', 1, 0, 0, 2),
+	('Mongolie', 1, 0, 0, 3),
+	('Mongolie', 1, 0, 0, 4),
+	('Mongolie', 1, 0, 0, 5),
+	('Mongolie', 1, 0, 0, 6),
+-- 6 niveaux pour France
+	('France', 3, 406, 282, null),
+	('France', 2, 952, 226, 8),
+	('France', 1, 1156, 491, 9),
+	('France', 4, 975, 669, 10),
+	('France', 5, 698, 606, 11),
+	('France', 6, 558, 468, 12),
+-- 6 niveaux pour Italie
+	('Italie', 1, 0, 0, null),
+	('Italie', 1, 0, 0, 14),
+	('Italie', 1, 0, 0, 15),
+	('Italie', 1, 0, 0, 16),
+	('Italie', 1, 0, 0, 17),
+	('Italie', 1, 0, 0, 18);
 
-insert into success (name, avatar, description) values ('Chef de guilde', 'sandrine.jpg' , 'Créer une guilde');
-insert into success (name, avatar, description) values ('Apprenti sauveur', 'sandrine.jpg' , 'Vous avez sauvé Ada Lovelace');
-insert into success (name, avatar, description) values ('Baguette vendéenne', 'sandrine.jpg' , 'Vous avez sauvé François Viète');
-insert into success (name, avatar, description) values ('Veni Vidi Zombi', 'sandrine.jpg' , 'Vous avez sauvé Maria Gaëtana Agnési');
-insert into success (name, avatar, description) values ('Un curry assez épicé', 'sandrine.jpg' , 'Vous avez sauvé Marie Curie');
-insert into success (name, avatar, description) values ('Tea time', 'sandrine.jpg' , 'Vous avez sauvé Alan Turing');
-insert into success (name, avatar, description) values ('Mechtulu Ftagh''n', 'sandrine.jpg' , 'Vous avez sauvé Thalès et Pythagore');
-insert into success (name, avatar, description) values ('Un petit pas pour l''homme', 'sandrine.jpg' , 'Vous avez banni MekAristote');
-insert into success (name, avatar, description) values ('Victoire !', 'sandrine.jpg' , 'Vous avez sauvé le monde');
-insert into success (name, avatar, description) values ('Apprenti mathématicien', 'sandrine.jpg' , 'Finir un mini-jeu');
-insert into success (name, avatar, description) values ('Forever alone', 'sandrine.jpg' , 'Se demander en ami');
-insert into success (name, avatar, description) values ('Une offre que vous ne pouvez pas refuser', 'sandrine.jpg' , 'Aider la mafyak');
-insert into success (name, avatar, description) values ('Manifestation spontanée', 'sandrine.jpg' , 'Aider les proloyaks');
-insert into success (name, avatar, description) values ('Explorateur intrépide', 'sandrine.jpg' , 'Finir un niveau bonus');
-insert into success (name, avatar, description) values ('Love is real', 'sandrine.jpg' , 'Mettre un mini-jeu en favori');
-insert into success (name, avatar, description) values ('Philantrope', 'sandrine.jpg' , 'Rejoindre une guilde');
+insert into achievements (name, description) values
+	('Un début à tout', 'Créer un compte'),
+	('Chef de guilde', 'Créer une guilde'),
+	('Apprenti sauveur', 'Vous avez sauvé Ada Lovelace'),
+	('Baguette vendéenne', 'Vous avez sauvé François Viète'),
+	('Veni Vidi Zombi', 'Vous avez sauvé Maria Gaëtana Agnési'),
+	('Un curry assez épicé', 'Vous avez sauvé Marie Curie'),
+	('Tea time', 'Vous avez sauvé Alan Turing'),
+	('Mechtulu Ftagh''n', 'Vous avez sauvé Thalès et Pythagore'),
+	('Un petit pas pour l''homme', 'Vous avez banni MekAristote'),
+	('Victoire !', 'Vous avez sauvé le monde'),
+	('Apprenti mathématicien', 'Finir un mini-jeu'),
+	('Forever alone', 'Se demander en ami'),
+	('Une offre que vous ne pouvez pas refuser', 'Aider la mafyak'),
+	('Manifestation spontanée', 'Aider les proloyaks'),
+	('Explorateur intrépide', 'Finir un niveau bonus'),
+	('Love is real', 'Mettre un mini-jeu en favori'),
+	('Philantrope', 'Rejoindre une guilde');

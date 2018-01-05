@@ -2,147 +2,128 @@
 
 CREATE TABLE USERS
 (
-  username varchar(32) PRIMARY KEY,
-  password varchar(256)
+	username VARCHAR(32) PRIMARY KEY,
+	password VARCHAR(32) NOT NULL -- md5 sum always 32 hex chars
 );
 
-CREATE TABLE GUILD
+CREATE TABLE ACHIEVEMENTS
 (
-  name varchar(32) PRIMARY KEY,
-  username varchar(32),
-
-  FOREIGN KEY(username) REFERENCES USERS(username)
+	id SERIAL PRIMARY KEY,
+	name TEXT UNIQUE NOT NULL,
+	description TEXT NOT NULL
 );
 
-CREATE TABLE GAME
+CREATE TABLE GUILDS
 (
-  id SERIAL PRIMARY KEY,
-  name varchar(32)
+	name VARCHAR(32) PRIMARY KEY,
+	leader VARCHAR(32) NOT NULL,
+
+	FOREIGN KEY(leader) REFERENCES USERS(username)
 );
 
-CREATE TABLE WORLD
+CREATE TABLE THEMES
 (
-  name varchar(32) PRIMARY KEY
+	id SERIAL PRIMARY KEY,
+	name TEXT UNIQUE NOT NULL
 );
 
-CREATE TABLE LEVEL
+CREATE TABLE LESSONS
 (
-    id SERIAL PRIMARY KEY,
-    dialog TEXT,
-    worldName varchar(32),
-    nextLevel int,
-    gameId int,
-    x int,
-    y int,
+	id SERIAL PRIMARY KEY,
+	name TEXT NOT NULL,
+	theme INTEGER NOT NULL,
 
-    FOREIGN KEY (worldName) REFERENCES WORLD(name),
-    FOREIGN KEY (nextLevel) REFERENCES LEVEL(id),
-    FOREIGN KEY (gameId) REFERENCES GAME(id)
+	FOREIGN KEY(theme) REFERENCES THEMES(id)
 );
 
-CREATE TABLE THEME
+CREATE TABLE GAMES
 (
-  id SERIAL PRIMARY KEY,
-  name TEXT
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(32) NOT NULL,
+	about INTEGER NOT NULL,
+
+	FOREIGN KEY(about) REFERENCES LESSONS(id)
 );
 
-CREATE TABLE LESSON
+CREATE TABLE WORLDS
 (
-  id SERIAL PRIMARY KEY,
-  name TEXT,
-  themeId int,
-
-  FOREIGN KEY (themeId) REFERENCES THEME(id)
+	name VARCHAR(32) PRIMARY KEY
 );
 
-CREATE TABLE SCORE
+CREATE TABLE LEVELS
 (
-  id SERIAL PRIMARY KEY,
-  value int UNIQUE NOT NULL,
-  date date NOT NULL,
-  username varchar(32) NOT NULL,
-  gameId int NOT NULL,
-  levelId int,
-  guildName varchar(32),
+	id SERIAL PRIMARY KEY,
+	world VARCHAR(32) NOT NULL,
+	game INTEGER NOT NULL,
+	x INTEGER NOT NULL,
+	y INTEGER NOT NULL,
+	previous INTEGER,
 
-  FOREIGN KEY (username) REFERENCES USERS(username),
-  FOREIGN KEY (gameId) REFERENCES GAME(id),
-  FOREIGN KEY (levelId) REFERENCES LEVEL(id),
-  FOREIGN KEY (guildName) REFERENCES GUILD(name)
+	FOREIGN KEY(world) REFERENCES WORLDS(name),
+	FOREIGN KEY(game) REFERENCES GAMES(id),
+	FOREIGN KEY(previous) REFERENCES LEVELS(id)
 );
 
-CREATE TABLE FRIEND
+CREATE TABLE SCORES
 (
-  user1 varchar(32) NOT NULL,
-  user2 varchar(32) NOT NULL,
-  accepted boolean,
+	username VARCHAR(32) NOT NULL,
+	date TIMESTAMP NOT NULL,
+	value INTEGER NOT NULL,
+	game INTEGER NOT NULL,
+	level INTEGER,
+	guild VARCHAR(32),
 
-  PRIMARY KEY (user1, user2),
+	FOREIGN KEY(username) REFERENCES USERS(username),
+	FOREIGN KEY(game) REFERENCES GAMES(id),
+	FOREIGN KEY(level) REFERENCES LEVELS(id),
+	FOREIGN KEY(guild) REFERENCES GUILDS(name),
 
-  FOREIGN KEY (user1) REFERENCES USERS(username),
-  FOREIGN KEY (user2) REFERENCES USERS(username)
-
+	PRIMARY KEY(username, date)
 );
 
-CREATE TABLE BELONG
+-- Ci dessous, tables issues de la tranformation du modele
+
+CREATE TABLE FRIENDS
 (
-  guildName varchar(32) NOT NULL,
-  username varchar(32) NOT NULL,
+	user1 VARCHAR(32) NOT NULL,
+	user2 VARCHAR(32) NOT NULL,
+	accepted BOOLEAN DEFAULT FALSE,
 
-  PRIMARY KEY (guildName, username),
+	FOREIGN KEY (user1) REFERENCES USERS(username),
+	FOREIGN KEY (user2) REFERENCES USERS(username),
 
-  FOREIGN KEY (guildName) REFERENCES GUILD(name),
-  FOREIGN KEY (username) REFERENCES USERS(username)
-);
-
-CREATE TABLE LEADS
-(
-  guildName varchar(32) UNIQUE NOT NULL,
-  username varchar(32) NOT NULL,
-
-  PRIMARY KEY (guildName, username),
-
-  FOREIGN KEY (guildName) REFERENCES GUILD(name),
-  FOREIGN KEY (username) REFERENCES USERS(username)
-);
-
-CREATE TABLE FAVORITES
-(
-  username varchar(32) NOT NULL,
-  gameId int NOT NULL,
-
-  PRIMARY KEY (username, gameId),
-
-  FOREIGN KEY (username) REFERENCES USERS(username),
-  FOREIGN KEY (gameId) REFERENCES GAME(id)
-);
-
-CREATE TABLE ISABOUT
-(
-  lessonId int NOT NULL,
-  gameId int NOT NULL,
-
-  PRIMARY KEY (lessonId, gameId),
-
-  FOREIGN KEY (lessonId) REFERENCES LESSON(id),
-  FOREIGN KEY (gameId) REFERENCES GAME(id)
-);
-
-CREATE TABLE SUCCESS
-(
-  id SERIAL PRIMARY KEY,
-  name TEXT,
-  avatar TEXT,
-  description TEXT
+	PRIMARY KEY (user1, user2)
 );
 
 CREATE TABLE ACHIEVED
 (
-  successId int NOT NULL,
-  username varchar(32) NOT NULL,
+	username VARCHAR(32) NOT NULL,
+	achievement INTEGER NOT NULL,
 
-  PRIMARY KEY (successId, username),
+	FOREIGN KEY (username) REFERENCES USERS(username),
+	FOREIGN KEY (achievement) REFERENCES ACHIEVEMENTS(id),
 
-  FOREIGN KEY (successId) REFERENCES SUCCESS(id),
-  FOREIGN KEY (username) REFERENCES USERS(username)
+	PRIMARY KEY (username, achievement)
+);
+
+CREATE TABLE BELONGS
+(
+	username VARCHAR(32) NOT NULL,
+	guild VARCHAR(32) NOT NULL,
+
+	FOREIGN KEY (username) REFERENCES USERS(username),
+	FOREIGN KEY (guild) REFERENCES GUILDS(name),
+
+	PRIMARY KEY (username, guild)
+);
+
+CREATE TABLE FAVORITES
+(
+	username VARCHAR(32) NOT NULL,
+	game INTEGER NOT NULL,
+
+	FOREIGN KEY (username) REFERENCES USERS(username),
+	FOREIGN KEY (game) REFERENCES GAMES(id),
+	
+	PRIMARY KEY (username, game)
 );

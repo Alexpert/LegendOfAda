@@ -1,8 +1,9 @@
 <?php
 
-class Game implements JsonSerializable {
-	public integer $id;
-	public string $name;
+class Lesson implements JsonSerializable {
+	public $id;
+	public $name;
+	public $about;
 
 	public function jsonSerialize() {
 		return $this;

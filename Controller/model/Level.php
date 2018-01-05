@@ -1,7 +1,12 @@
 <?php
 
 class Level implements JsonSerializable {
-	public integer $id;
+	public $id;
+	public $world;
+	public $game;
+	public $x;
+	public $y;
+	public $previous;
 
 	public function jsonSerialize() {
 		return $this;

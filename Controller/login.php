@@ -11,7 +11,9 @@ if(isset($_POST['username'])
 		and $_POST['create'] == 'true') {
 		$data['created'] = 'success';
 	}
+
 	$data['username'] = 'Sandrine';
+	$data['avatar'] = 'sandrine.jpg';
 	$data['token'] = random_int(0, PHP_INT_MAX);
 } else {
 	$data['error'] = 'Connexion impossible';

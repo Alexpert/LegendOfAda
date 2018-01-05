@@ -5,19 +5,19 @@ ini_set('display_errors', 1);
 
 header('Content-type: application/json');
 
+require_once('../../model/DAO.php');
+
 /*
  * We would need:
  * 	- Player token
  * */
 
-$worlds[0] = "Mongolie";
-$worlds[1] = "France";
-$worlds[2] = "Italie";
-$worlds[3] = "Inde";
-$worlds[4] = "Atlantis";
-$worlds[5] = "Londres";
-$worlds[6] = "Enfer";
+$response['worlds'] = $dao->getWorlds();
 
-echo json_encode($worlds);
+if(isset($_GET['world'])) {
+	$response['world'] = $_GET['world'];
+}
+
+echo json_encode($response);
 
 ?>

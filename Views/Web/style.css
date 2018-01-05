@@ -22,7 +22,7 @@ html * {
 body {
 	background-image: url(images/index-background.jpg);
 	background-size: cover;
-	background-repeat: no-repeat;
+	/* background-repeat: no-repeat; */
 }
 
 body > header {
@@ -56,6 +56,17 @@ body > header > p#user {
 body > header > p#user img {
 	height: 5.3vh;
 	vertical-align: bottom;
+}
+
+body.profile > div, body.courses > div {
+	margin-top: 15vh;
+	margin-left: 19.5vw;
+	margin-right: 19.5vw;
+	width: 60vw;
+	background-color: #65A6E4;
+	border: 0.5vw solid #5C92C4;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 figure.game {
@@ -162,6 +173,46 @@ div#error {
 	visibility: hidden;
 }
 
+/* profile */
+
+body.profile > div > h1 {
+	text-align: center;
+	background-color: #5C92C4;
+}
+
+body.profile > div > div {
+	display: flex;
+	padding-bottom: 5vh;
+}
+
+body.profile > div > div > div {
+	width: 100%;
+}
+
+body.profile > div > div > div > a {
+	display: block;
+	text-align: center;
+	font-size: 110%;
+	background-color: #5C92C4;
+	transition: 0.25s;
+	margin: 3%;
+	padding: 1%;
+}
+
+body.profile > div > div > div > a:hover {
+	background-color: #9BE8E8;
+}
+
+div.achievement > img {
+	float: left;
+	height: 15vh;
+}
+
+div.achievement > h2 {
+	background-color: #5C92C4;
+	text-align: center;
+}
+
 /* index */
 
 menu.index {
@@ -185,13 +236,13 @@ menu.index > p > a {
 	text-align: center;
 	width: 96%;
 	height: 15%;
-	background: #5C92C4;
+	background-color: #5C92C4;
 	font-size: 4vh;
 	transition: 0.25s;
 }
 
 menu.index > p > a:hover {
-	background: #9BE8E8;
+	background-color: #9BE8E8;
 }
 
 scroller {
@@ -361,17 +412,6 @@ footer.play:hover {
 }
 
 /* courses */
-
-body.courses > div {
-	margin-top: 15vh;
-	margin-left: 19.5vw;
-	margin-right: 19.5vw;
-	width: 60vw;
-	background-color: #65A6E4;
-	border: 0.5vw solid #5C92C4;
-	padding-top: 1%;
-	padding-bottom: 1%;
-}
 
 body.courses > div > h1 {
 	margin-top: 1vw;

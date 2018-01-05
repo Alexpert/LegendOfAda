@@ -1,13 +1,10 @@
 <?php
-
-class User implements JsonSerializable {
-	public string $username;
+    class User implements JsonSerializable {
+	public $username;
+	public $password;
 
 	public function jsonSerialize() {
-		return [
-				'username' => $this->username,
-			];
+		return $this;
 	}
-}
-
+    }
 ?>

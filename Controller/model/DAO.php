@@ -1,7 +1,7 @@
 <?php
 
-require_once('User.php');
-require_once('Game.php');
+require_once('Theme.php');
+require_once('Lesson.php');
 require_once('World.php');
 
 class DAO {
@@ -9,109 +9,99 @@ class DAO {
 
 // Ouverture de la base de donnée
 function __construct() {
-    $dsn = 'pgsql:../db/database.db'; // Data source name
+    $dsn = 'pgsql:dbname=legendofada;host=127.0.0.1'; // Data source name
+    $user = 'legendofada';
+    $password = 'Me4a4ris7o7eBestGirl';	// Le mot de passe peut être en clair, seulement connexions locales
+
     try {
-        $this->db = new PDO($dsn);
+        $this->db = new PDO($dsn, $user, $password);
     } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
     }
 }
 
-// Gestion User
-function addUser(User $user, string $password) {
+// Gestion Users
+function addUser(string $username, string $pw) : bool {
     try {
-        $username = $user->username;
+	$request = $this->db->prepare('insert into USERS values (:username, :pw)');
+	$request->bindParam(':username', $username, PDO::PARAM_STR);
+	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
+	$request->execute();
+	$user = new User();
+	$user->username = $username;
+	$user->password = $pw;
+    } catch (PDOException $e) {
+	$users['error'] = $e->getMessage();
+    }
 
-        $request =  $this->db->prepare('INSERT INTO USERS VALUES (:username, :password);');
-        $request->bindParam(':username', $username);
-        $request->bindParam(':password', $password);
+    return $user;
+}
+
+function getAllGames() : array {
+    try {
+	$request = $this->db->prepare('select * from games');
+	$request->execute();
+	$games = $request->fetchAll(PDO::FETCH_CLASS, 'Game');
+    } catch (PDOException $e) {
+	$games['error'] = $e->getMessage();
+    }
+
+    return $games;
+}
+
+function getThemes() : array {
+    try {
+        $request = $this->db->prepare('select * from themes order by id');
         $request->execute();
+        $themes = $request->fetchAll(PDO::FETCH_CLASS, 'Theme');
     } catch (PDOException $e) {
-        echo("Erreur PDO :".$e->getMessage());
+	$themes['error'] = $e->getMessage();
     }
+
+    return $themes;
 }
 
-function getUser(string $username) : User {
+function getLessons($theme) : array {
     try {
-        $request = $this->db->prepare('SELECT * FROM USERS WHERE username = :username;');
-        $request->bindParam(':username', $username);
+        $request = $this->db->prepare('select * from lessons where theme = :theme order by id');
+	$request->bindParam(':theme', $theme, PDO::PARAM_INT);
         $request->execute();
-        $utilisateur = $request->fetchAll(PDO::FETCH_CLASS, 'User');
-        return $utilisateur[0];
+        $lessons = $request->fetchAll(PDO::FETCH_CLASS, 'Lesson');
     } catch (PDOException $e) {
-        die("Erreur PDO :".$e->getMessage());
+	$lessons['error'] = $e->getMessage();
     }
 
+    return $lessons;
 }
 
-/*
-  function addGame(Game $game, file $file) {
-
-}
-*/
-
-function getGames() : array() {
+function getWorlds() : array {
     try {
-        $request = $this->db->prepare('SELECT * FROM GAME;');
+        $request = $this->db->prepare('select * from worlds');
         $request->execute();
-        $jeux = $request->fetchAll(PDO::FETCH_CLASS, 'Game');
-        return $jeux;
+        $worlds = $request->fetchAll(PDO::FETCH_CLASS, 'World');
     } catch (PDOException $e) {
-        die("Erreur PDO :".$e->getMessage());
+	$worlds['error'] = $e->getMessage();
     }
+
+    return $worlds;
 }
 
-function getGuilds(User $leader) : array() {
+function getLevelFromWorld($world) : array {
     try {
-        $username = $leader->username;
-        $request = $this->db->prepare('SELECT * FROM GUILD WHERE leaderId = :leader;');
-        $request->bindParam(':leader', $username);
-        $request->execute();
-        $guilde = $request->fetchAll(PDO::FETCH_CLASS, 'User');
-        return $guilde[0];
-    } catch(PDOException $e) {
-        die("Erreur PDO :".$e->getMessage());
-    }
-}
-function addFriendship(User $user1, User $user2) {
-    try {
-        if($user1->username != $user2->username) {
-            $nameUser1 = $user1->username;
-            $nameUser2 = $user2->username;
+	$request = $this->db->prepare('select * from levels where world = :world');
+	$request->bindParam(':world', $world, PDO::PARAM_STR);
+	$request->execute();
+	$levels = $request->fetchAll(PDO::FETCH_CLASS, 'Levels');
+   } catch (PDOException $e) {
+	$levels['error'] = $e->getMessage();
+   }
 
-            $request = $this->db->prepare('INSERT INTO FRIEND VALUES(:user1,:user2);');
-            $request->bindParam(':user1', $nameUser1);
-            $request->bindParam(':user2', $nameUser2);
-            $request->execute();
-        }
-    } catch (PDOException $e) {
-        die("Erreur PDO :".$e->getMessage());
-    }
+   return $levels;
 }
 
-function getFriendships(User $user, bool $accepted) : array(User) {
-    try {
-        $username = $user->username;
+// Gestion Score
 
-        $request1 = $this->db->prepare('SELECT * FROM USER WHERE username IN(SELECT username FROM FRIEND WHERE ((user1 = :username) OR (user2 = :username)) AND username != :username AND accepted = :accepted);');
-        $request1->bindParam(':username',$username);
-        $request1->bindParam(':accepted',$accepted);
-        $request1->execute();
-        $utilisateurs = $request1->fetchAll(PDO::FETCH_CLASS, 'User');
-
-        return $utilisateurs;
-    } catch (PDOException $e) {
-        die("Erreur PDO :".$e->getMessage());
-    }
-
-}
-
-
-
-
-
-}
 
 $dao = new DAO();
 
- ?>
+?>
