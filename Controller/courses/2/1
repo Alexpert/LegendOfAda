@@ -1,1 +1,85 @@
 <h1>Fonctions</h1>
+    <h2>Les Fonctions Linéaires</h2>
+        <h3>A - Définition et Notations</h3>
+            <p>
+                <p class="definition">
+                <dfn>
+                    Fonctions Linéaires
+                </dfn>
+                Une fonction linéaire est une fonction qui à un <b>x</b> fait correstondre un nombre <b>a * x</b>, <i> avec a un nombre donné</i>.<br>
+                On la note f: x -> ax ou f(x) = ax
+                </p>
+                <ul> On peut avoir, par Exemple la fonction f, qui à un nombre associe son double peut s'écrire de ces deux façons.
+                    <li>f: x -> 2x</li>
+                    <li>f(x) = 2x</li>
+                </ul>
+            </p>
+        <h3>B - Tableau de valeurs d'un fonction linéaire</h3>
+            <p>
+                <p class="property">
+                Un tableau de valeurs est un tableau dont la deuxème ligne contient les <b>images</b> des nombre de la première ligne.</br>
+                </p>
+                La fonction f:x -> 2x est une fonction linéaire, on peu lui associer le tableau de valeurs suivant.
+                <table>
+                <tr>
+                    <td>-2</td>   <td>0</td>   <td>1</td>   <td>2</td>   <td>5</td>
+                </tr>
+                <tr>
+                    <td>-4</td>   <td>0</td>   <td>2</td>   <td>4</td>   <td>10</td>
+                </tr>
+                </table>
+                Les valeurs de la deuxième ligne s'obtinnent en multipliant celles de la première ligne par 3.
+            </p>
+        <h3>C - Représentation graphique</h3>
+            <p>
+                <p class="property">
+                Dans un repère la représentation d'une fonction linéaire est un droit passant par le centre du repère.
+                </p>
+                Par exemple la représentation de f: x -> 2x est une droite passant par le centre du repère et le point (2;4).<br>
+                Car l'image de 2 par f est 4. <br>
+                <img src = "images/illustrationDroiteLineaire.png" alt="Illustration d'un droite linéaire"/>
+            </p>
+    <h2> Fonctions affines </h2>
+        <h3>A - Définitions et Notations</h3>
+            <p>
+                <p class="definition">
+                <dfn>
+                    Fonctions Affines
+                </dfn>
+                Une fonction affine est une fonction qui à un <b>x</b> fait correstondre un nombre <b>a * x + b</b>, <i> avec a et  b deux nombre donné</i>.<br>
+                On la note f: x -> ax + b ou f(x) = ax + b
+                </p>
+                <ul> On peut avoir, par Exemple la fonction f, qui à un nombre associe son double et ajoute 1 peut s'écrire de ces deux façons.
+                    <li>f: x -> 2x + 1</li>
+                    <li>f(x) = 2x + 1</li>
+                </ul>
+            </p>
+        <h3>B - Cas Particuliers</h3>
+            <p>
+                La fonction affine f: x -> ax + b est une fonction linéaire si b = 0. <br>
+                La fonction alline f: x -> ax + b est une fonction constante si a = 0.
+            </p>
+        <h3>C - Représentation Graphiques</h3>
+            <p>
+                <p class="property">
+                Dans un repère la représentation d'une fonction affine est une droite.
+                </p>
+                Pour la fonction affine f: x -> 2x + 1, sa représentation graphique dans un repère est un droite passant par (0;1) et (2;5). <br>
+                Car 1 est l'image de 0 par f, et 5 est l'image de 2.<br>
+                
+                <img src = "images/illustrationDroiteAffine.png" alt="Illustration d'un droite affine"/>
+            </p>
+    <h2>Accroissement</h2>
+        <p>
+            <p class="property">
+            f est une fonction affine de forme f: x -> ax + b.<br>
+            Si x1 et x2 sont deux nombre distincts alors: <br>
+            <b>a = (f(x2) - f(x1)) / (x2 - x1)</b>
+            On appelle <b>a</b> le coefficient directeur de la droite représentative de f.
+            </p>
+
+            On considère une fonction affine telle que f(2) = 5 et f(5) = 11.<br>
+            a = (f(5) - f(2)) / (5 - 2)<br>
+            a = 2<br>
+            Le coefficient directeur de la droite est 2.
+            </p>
