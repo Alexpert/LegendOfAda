@@ -35,7 +35,7 @@
                 Dans un repère on considère les points M de coordonnées (a;b) où f et une fonction, a est un nombre et b = f(a).<br>
                 L'ensemble de tout ces points est une courbe C appellée la représentation graphique de la fonction f.<br>
                 Par Exemple pour la fontction f: x -> x^3 - x <br>
-                <img src="images/illustrationRepFonction.png" alt="Représeantion de la fonction f" />
+                <img src="http://api.legendofada.eu/courses/2/images/illustrationRepFonction.png" alt="Représeantion de la fonction f" />
             </p>
     <h2>Image d'un nombre par une fonction</h2>
         <p>

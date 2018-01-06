@@ -37,7 +37,7 @@
                 </p>
                 Par exemple la représentation de f: x -> 2x est une droite passant par le centre du repère et le point (2;4).<br>
                 Car l'image de 2 par f est 4. <br>
-                <img src = "images/illustrationDroiteLineaire.png" alt="Illustration d'un droite linéaire"/>
+                <img src = "http://api.legendofada.eu/courses/2/images/illustrationDroiteLineaire.png" alt="Illustration d'un droite linéaire"/>
             </p>
     <h2> Fonctions affines </h2>
         <h3>A - Définitions et Notations</h3>
@@ -67,7 +67,7 @@
                 Pour la fonction affine f: x -> 2x + 1, sa représentation graphique dans un repère est un droite passant par (0;1) et (2;5). <br>
                 Car 1 est l'image de 0 par f, et 5 est l'image de 2.<br>
                 
-                <img src = "images/illustrationDroiteAffine.png" alt="Illustration d'un droite affine"/>
+                <img src = "http://api.legendofada.eu/courses/2/images/illustrationDroiteAffine.png" alt="Illustration d'un droite affine"/>
             </p>
     <h2>Accroissement</h2>
         <p>
