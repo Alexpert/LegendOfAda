@@ -1,0 +1,78 @@
+<h1>Fonctions</h1>
+    <h2>La Notion de Fonction</h2>
+        <p class="definition">
+        <dfn> Fonction </dfn>
+        Processus qui à un nombre fait correspondre un autre nombre unique.
+        </p>
+        <h3>A - Exemple et Notations</h3>
+            <p>
+                On définit la fonction appellée f par le calcul suivant:<br>
+                "Multiplier le nombre par 2 et ajouter 1."
+                <ul>
+                    <li>Au nombre <b>2</b> correspond le nombre <b>5</b>.</li>
+                    <li>Au nombre <b>4</b> correspond le nombre <b>9</b>.</li>
+                </ul>
+                On peut établir les correspondances suivantes:
+                <table>
+                <tr>
+                    <td>Nombre de Départ</td> <td>-2</td>   <td>0</td>   <td>1</td>   <td>2</td>   <td>5</td>
+                </tr>
+                <tr>
+                    <td>Nombre d'Arrivée</td> <td>-3</td>   <td>1</td>   <td>3</td>   <td>5</td>   <td>11</td>
+                </tr>
+                </table>
+                
+                <p class="property">
+                On note la fonction des manières suivantes:
+                    <ul>
+                        <li>f: x -> 2x + 1</li>
+                        <li>f(x) = 2x + 1</li>
+                    </ul>
+                </p>
+            </p>
+        <h3>B - Représentation Graphique</h3>
+            <p>
+                Dans un repère on considère les points M de coordonnées (a;b) où f et une fonction, a est un nombre et b = f(a).<br>
+                L'ensemble de tout ces points est une courbe C appellée la représentation graphique de la fonction f.<br>
+                Par Exemple pour la fontction f: x -> x^3 - x <br>
+                <img src="images/illustrationRepFonction.png" alt="Représeantion de la fonction f" />
+            </p>
+    <h2>Image d'un nombre par une fonction</h2>
+        <p>
+            <p class="definition">
+            <dfn> Image d'un nombre </dfn>
+                Par la fonction <b>f</b>, à un nombre <b>a</b> corresponds un nombre <b>b</b><br>.
+                Le nombre <b>b</b> s'appelle l'image de <b>a</b> par la fonction <b>f</b>.
+            </p>
+            Soit la fonction f: x -> x/2<br>
+            L'image de <i>2</i> par <i>f</i> est <i>1</i><br>
+            En effet: 2/2 = 1.<br><br>
+            Soit la fonction g définie par le tableau ci-dessous.
+            <table>
+                <tr>
+                    <td>x</td> <td>-2</td>   <td>0</td>   <td>1</td>   <td>2</td>   <td>5</td>
+                </tr>
+                <tr>
+                    <td>g(x)</td> <td>-3</td>   <td>1</td>   <td>3</td>   <td>5</td>   <td>11</td>
+                </tr>
+            </table>
+            La deuxième ligne contient les images des valeurs de la première ligne par g.
+        </p>  
+    <h2>Image d'un nombre par une fonction</h2>
+        <p>
+            <p class="definition">
+            <dfn> Antécédent d'un nombre </dfn>
+                Par la fonction <b>f</b>, à un nombre <b>a</b> corresponds un nombre <b>b</b><br>.
+                Le nombre <b>a</b> s'appelle l'antécédent de <b>b</b> par la fonction <b>f</b>.
+            </p>
+            Soit la fonction g définie par le tableau ci-dessous.
+            <table>
+                <tr>
+                    <td>x</td> <td>-2</td>   <td>0</td>   <td>1</td>   <td>2</td>   <td>5</td>
+                </tr>
+                <tr>
+                    <td>g(x)</td> <td>-3</td>   <td>1</td>   <td>3</td>   <td>5</td>   <td>11</td>
+                </tr>
+            </table>
+            La première ligne contient les antécédents des valeurs de la deuxième ligne par g.
+        </p>
