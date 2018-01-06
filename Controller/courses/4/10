@@ -5,7 +5,7 @@
                 <dfn>Propriété</dfn>
                 <b>Si</b>, dans un triangle, une droite coupe deux côtés parallèlement au troisième côté, <b>alors</b> les deux triangles formés ont des côtés deux à deux proportionnels.
             </p>
-            <img src="images/Thales 1.png" />
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 1.png" />
             <br />
             Si dans un triangle ABC, où D est un point de [AB] et E un point de de [AC], les droites (DE) et (BC) sont parallèles. <br />
             Alors AD/AB = AE/AC = DE/BC
@@ -21,8 +21,8 @@
                 <dfn>Propriété</dfn>
                 <b>Si</b> deux droites parallèles coupent deux droites sécantes, <b>alors</b> elles déterminent deux triangles dont les côtés correspondants ont des longueurs proportionnelles.
             </p>
-            <img src="images/Thales 2.png" />
-            <img src="images/Thales 3.png" />
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 2.png" />
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 3.png" />
             <br />
             Si (BD) et (CE) sont sécantes en A et (BC) parallèle à (DE), alors AD/AB = AE/AC = DE/BC
             <ul>
@@ -33,7 +33,7 @@
             <br />
             Exemple :
             <br/>
-            <img src="images/Thales 4.png" />
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 4.png" />
             <ul>
                 <li>Dans la figure ci-dessus, les droites (AD) et (CB) sont parallèles. On peut alors calculer la longueur AD en appliquant le théorème de Thalès. <br />
                     On a alors : EA/EB = 5/4 = AD/3.5 et, en utilisant l'égalité des produits en croix, AD= (5*3.5)/4 = 4.375cm.
