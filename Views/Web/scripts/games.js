@@ -6,7 +6,7 @@ function specific() {
 		if(request.readyState == 4
 			&& request.status == 200) {
 			let response = JSON.parse(request.responseText);
-			let content = document.body.getElementsByTagName('menu')[0];
+			let content = document.getElementById('gamelist');
 
 			for(var i = 0; i < response.length; i++) {
 				let figure = document.createElement('figure');
