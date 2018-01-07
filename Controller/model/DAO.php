@@ -4,6 +4,7 @@ require_once('Theme.php');
 require_once('Lesson.php');
 require_once('World.php');
 require_once('Level.php');
+require_once('Game.php');
 
 class DAO {
     private $db;
@@ -50,7 +51,20 @@ function getUser(string $username, string $pw) : array {
     return $user;
 }
 
-function getAllGames() : array {
+function getGame($id) {
+    try {
+	$request = $this->db->prepare('select * from games where id = :id');
+	$request->bindParam(':id', $id, PDO::PARAM_INT);
+	$request->execute();
+	$game = $request->fetchAll(PDO::FETCH_CLASS, 'Game');
+    } catch (PDOException $e) {
+	$game['error'] = $e->getMessage();
+    }
+
+    return $game[0];
+}
+
+function getGames() : array {
     try {
 	$request = $this->db->prepare('select * from games');
 	$request->execute();

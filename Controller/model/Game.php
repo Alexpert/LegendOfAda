@@ -1,6 +1,6 @@
 <?php
 
-class Lesson implements JsonSerializable {
+class Game implements JsonSerializable {
 	public $id;
 	public $name;
 	public $about;

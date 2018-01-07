@@ -37,7 +37,7 @@ function loadDialog() {
 
 function specific() {
 	let session = getSession();
-	var request = new XMLHttpRequest();
+	let request = new XMLHttpRequest();
 	var query = '';
 	var world = 'Mongolie';
 
@@ -55,9 +55,7 @@ function specific() {
 	let areaOnClick = function(event) {
 		event.preventDefault();
 
-/*
-*/
-		var requestDialog = new XMLHttpRequest();
+		let requestDialog = new XMLHttpRequest();
 
 		requestDialog.onreadystatechange = function() {
 			if(requestDialog.readyState == 4

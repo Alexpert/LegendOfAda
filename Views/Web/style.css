@@ -345,7 +345,7 @@ body.games > menu > figure.game {
 
 /* game */
 
-a.course {
+a#course {
 	position: fixed;
 	font-size: 7vh;
 	padding: 1.5vh;
@@ -360,7 +360,7 @@ a.course {
 	color: white;
 }
 
-a.course:hover {
+a#course:hover {
 	background-color: rgba(0,0,0,0.2);
 	color: black;
 }
@@ -391,7 +391,7 @@ social.game {
 	bottom: 27.5vh;
 }
 
-footer.play {
+footer#play {
 	position: fixed;
 	text-align: center;
 	border: 1vh solid #5C92C4;
@@ -407,7 +407,7 @@ footer.play {
 	transition: 0.25s;
 }
 
-footer.play:hover {
+footer#play:hover {
 	border-color: #3F77A8;
 	background-color: #4B8BC6;
 }
