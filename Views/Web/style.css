@@ -1,6 +1,5 @@
 /* General */
 
-/* Replace it with non outside import */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 html * {
@@ -304,6 +303,7 @@ body.adventure > #dialog {
 	font-size: 3vh;
 	background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
 	visibility: hidden;
+	user-select: none;
 }
 
 body.adventure > #dialog > h2 {
@@ -324,6 +324,7 @@ body.adventure > #avatar {
 	height: 90vh;
 	right: 0;
 	bottom: 0;
+	visibility: hidden;
 }
 
 body.adventure > menu > a {

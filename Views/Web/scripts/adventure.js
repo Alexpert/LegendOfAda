@@ -5,10 +5,12 @@ var dialogTargetURL;
 
 function hideDialog() {
 	let dialogFrame = document.getElementById('dialog');
+	let avatarFrame = document.getElementById('avatar');
 
 	dialogFrame.getElementsByTagName('h2')[0].innerHTML = '';
 	dialogFrame.getElementsByTagName('p')[0].innerHTML = '';
 	dialogFrame.style.visibility = 'hidden';
+	avatarFrame.style.visibility = 'hidden';
 	dialog = [];
 	dialogIndex = 0;
 	dialogTargetURL = '';
@@ -16,8 +18,11 @@ function hideDialog() {
 
 function loadDialog() {
 	let dialogFrame = document.getElementById('dialog');
+	let avatarFrame = document.getElementById('avatar');
+
 	if(dialogIndex == 0) {
 		dialogFrame.style.visibility = 'visible';
+		avatarFrame.style.visibility = 'visible';
 	}
 
 	if(dialogIndex >= dialog.length) {
@@ -30,6 +35,8 @@ function loadDialog() {
 	} else {
 		dialogFrame.getElementsByTagName('h2')[0].innerHTML = dialog[dialogIndex].name;
 		dialogFrame.getElementsByTagName('p')[0].innerHTML = dialog[dialogIndex].text;
+		avatarFrame.setAttribute('src', 'http://api.legendofada.eu/adventure/avatars/'
+						+ dialog[dialogIndex].name + '.png');
 	}
 
 	dialogIndex++;
@@ -118,5 +125,8 @@ function specific() {
 
 	let dialogFrame = document.getElementById('dialog');
 	dialogFrame.addEventListener('click', loadDialog);
+
+	let avatarFrame = document.getElementById('avatar');
+	avatarFrame.addEventListener('click', hideDialog);
 }
 
