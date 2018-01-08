@@ -53,7 +53,7 @@ function getUser(string $username, string $pw) : array {
 
 function getGame($id) {
     try {
-	$request = $this->db->prepare('select * from games where id = :id');
+	$request = $this->db->prepare('select g.*, l.theme from games g, lessons l where g.id = :id and g.about = l.id');
 	$request->bindParam(':id', $id, PDO::PARAM_INT);
 	$request->execute();
 	$game = $request->fetchAll(PDO::FETCH_CLASS, 'Game');
