@@ -202,6 +202,14 @@ body.profile > div > div > div > a:hover {
 	background-color: #9BE8E8;
 }
 
+div#achievements {
+	display: block;
+}
+
+div.achievement {
+	height: 15vh;
+}
+
 div.achievement > img {
 	float: left;
 	height: 15vh;

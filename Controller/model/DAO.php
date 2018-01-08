@@ -5,6 +5,7 @@ require_once('Lesson.php');
 require_once('World.php');
 require_once('Level.php');
 require_once('Game.php');
+require_once('Achievement.php');
 
 class DAO {
     private $db;
@@ -20,6 +21,18 @@ function __construct() {
     } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
     }
+}
+
+function getAchievements() : array {
+    try {
+	$request = $this->db->prepare('select * from achievements');
+	$request->execute();
+	$achievements = $request->fetchAll(PDO::FETCH_CLASS, 'Achievement');
+    } catch (PDOException $e) {
+	$achievements['error'] = $e->getMessage();
+    }
+
+    return $achievements;
 }
 
 // Gestion Users

@@ -1,10 +1,9 @@
 <?php
 
-class Game implements JsonSerializable {
+class Achievement implements JsonSerializable {
 	public $id;
 	public $name;
 	public $description;
-	public $about;
 
 	public function jsonSerialize() {
 		return $this;
