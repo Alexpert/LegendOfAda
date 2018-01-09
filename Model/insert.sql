@@ -39,13 +39,13 @@ insert into games (name, description, about) values
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
-	('Mongolie', 1, 0, 0, null),
-	('Mongolie', 1, 0, 0, 1),
-	('Mongolie', 1, 0, 0, 2),
-	('Mongolie', 1, 0, 0, 3),
-	('Mongolie', 1, 0, 0, 4),
-	('Mongolie', 1, 0, 0, 5),
-	('Mongolie', 1, 0, 0, 6),
+	('Mongolie', 1, 244, 264, null),
+	('Mongolie', 1, 350, 429, 1),
+	('Mongolie', 1, 512, 327, 2),
+	('Mongolie', 1, 692, 420, 3),
+	('Mongolie', 1, 963, 290, 4),
+	('Mongolie', 1, 1176, 378, 5),
+	('Mongolie', 1, 1047, 568, 6),
 -- 6 niveaux pour France
 	('France', 3, 406, 282, null),
 	('France', 2, 952, 226, 8),
