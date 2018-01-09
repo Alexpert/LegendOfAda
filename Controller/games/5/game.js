@@ -12,7 +12,7 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/kurtzgesagt-blueMarble.png"
+var defaultBackground = "assets/Moulin_Rouge_p3.jpeg";
 var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
