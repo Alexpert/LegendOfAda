@@ -36,22 +36,22 @@ insert into games (name, description, about) values
 	('QCM Inéquations', 'Bah c''est dans le titre', 3),
 	('QCM Equations', 'Bah c''est dans le titre', 3),
 	('QCM Identités Remarquables', 'Bah c''est dans le titre', 2),
-	('QCM Addition et Soustraction en écriture fractionnaire', 1),
-	('QCM Equation du premier degrée a une inconnue', 1),
-	('QCM Critere de divisibilité', 1),
-	('QCM Quotient égaux', 1),
-	('QCM Développer un produit', 1),
-	('QCM Factoriser une somme', 1);
+	('QCM Addition et Soustraction en écriture fractionnaire', 1), --7
+	('QCM Equation du premier degrée a une inconnue', 1), --8
+	('QCM Critere de divisibilité', 1), --9
+	('QCM Quotient égaux', 1), --10
+	('QCM Développer un produit', 1), --11
+	('QCM Factoriser une somme', 1); --12
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
-	('Mongolie', 7, 244, 264, null),
+	('Mongolie', 9, 244, 264, null),
 	('Mongolie', 8, 350, 429, 1),
-	('Mongolie', 9, 512, 327, 2),
-	('Mongolie', 10, 692, 420, 3),
-	('Mongolie', 11, 963, 290, 4),
-	('Mongolie', 12, 1176, 378, 5),
-	('Mongolie', 1, 1047, 568, 6),
+	('Mongolie', 10, 512, 327, 2),
+	('Mongolie', 7, 692, 420, 3),
+	('Mongolie', 1, 963, 290, 4),
+	('Mongolie', 11, 1176, 378, 5),
+	('Mongolie', 12, 1047, 568, 6),
 -- 6 niveaux pour France
 	('France', 3, 406, 282, null),
 	('France', 2, 952, 226, 8),
