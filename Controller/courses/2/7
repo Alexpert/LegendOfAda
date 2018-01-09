@@ -1,0 +1,73 @@
+<h1>Statistiques et Probabilités</h1>
+  <h2>Caractéristiques d'une série de statistiques</h2>
+    <h3>A - Caractéristiques de Position</h3>
+      <p>
+        <p class="definition">
+          <dfn>La Moyenne</dfn>
+          Dans une série de données, c'est la somme des données contenues dans la série de valeur divisée par le nombre de valeurs.
+        </p>
+        Dans une classe, les notes pour un contrôle sont: 10, 15, 12, 11, 3.
+        La moyenne de la classe est 10,2.
+        <ul>
+          <li>m = (10 + 15 + 12 + 11 + 3) / 5</li>
+          <li>m = 51 / 5</li>
+          <li>m = 10,2</li>
+        </ul>
+        <p class="definition">
+          <dfn>La Médiane</dfn>
+          La médiane d'une série de valeur est la valeur pour il y a:<br>
+          - La moitié des valeur qui lui est supérieure
+          - La moitié des valeur qui lui est inférieure
+        </p>
+        Sur la liste de valeurs suivante: 3, 10, 11, 12, 15, La médiane est 11.
+        <ul>
+          <li>3 et 10 sont inférieurs à 11</li>
+          <li>12 et 15 sont supérieurs à 11</li>
+        </ul>
+        Sur la liste de valeurs suivante: 3, 10, 11, 12, 15, 16, La médiane est 11,5.
+        <ul>
+          <li>(11 + 12) / 2 = 11,5</li>
+          <li>3, 10, 11 sont inférieurs à 11</li>
+          <li>12, 15, 16 sont supérieurs à 11</li>
+        </ul>
+      </p>
+    <h3>B - Caractéristiques de dispersion</h3>
+      <p>
+        <p class="definition">
+          <dfn>L'Etendue</dfn>
+          C'est l'écart entre la plus grande et la plus petite valeur.
+        </p>
+        Sur la liste de valeurs suivante: 3, 10, 11, 12, 15, L'Etendue est 12.
+        <ul>
+          <li>15 - 3 = 12</li>
+        </ul>
+      </p>
+  <h2>Probabilités</h2>
+    <p>
+      <p class="definition">
+        <dfn>Une Experience Aléatoire</dfn>
+        On dit qu'uen expéreince est aléatoire si elle vérifie 3 conditions:
+        <ul>
+          <li>On connais toutes les issues possibles</li>
+          <li>Le résultat n'est pas prévisible</li>
+          <li>l'experience est reproductible dans les mêmes conditions</li>
+        </ul>
+      </p>
+      On lance un dé à 6 faces et on regarde la valeur qu'il donne. Il y a 6 issues: 1, 2, 3, 4, 5, 6.<br>
+      On peut considérer:
+      <ul>
+        <li>L'évènement: "obtenir un nombre impair": réalisé pour 1, 3, 5</li>
+        <li>L'évènement: "obtenir un nombre supérieur à 4": réalisé pour 5, 6</li>
+      </ul>
+      <p class="definition">
+        Dans une expérience aléatoire ou toutes les issues ont la même probabilité de se réaliser, la probabilité d'un évènement est égale à:<br<
+        (Nombre d'issues favorable à l'évènement) / (Nombre total d'issues)
+      </p>
+      Si notre évènement quand on lance un dé à 6 faces est "obtenir un score supérieur à 4", l'évènement est réalisé pour 2 issues (5 et 6). La probabilité de ralisation de l'évènement est 2/6
+      <p class="definition">
+        La Somme des Probabilités des évènement élémentaires est égale à 1.
+      </p>
+      <p class="definition">
+        Si on répète de nombreuses fois une expérience aléatoire, la fréquence d'apparition d'un évènement se rapproche de sa probabilité d'apparition.
+      </p>
+    </p>
