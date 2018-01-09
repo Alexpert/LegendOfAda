@@ -14,7 +14,7 @@ if(isset($_POST['username'])
 	}
 
 	$data['username'] = 'Sandrine';
-	$data['avatar'] = 'sandrine.jpg';
+	$data['avatar'] = 1;
 	$data['token'] = random_int(0, PHP_INT_MAX);
 	/*
 	 * $user = (méthode du dao pour se logger)

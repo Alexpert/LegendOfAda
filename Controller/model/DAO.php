@@ -4,6 +4,8 @@ require_once('Theme.php');
 require_once('Lesson.php');
 require_once('World.php');
 require_once('Level.php');
+require_once('Game.php');
+require_once('Achievement.php');
 
 class DAO {
     private $db;
@@ -19,6 +21,18 @@ function __construct() {
     } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
     }
+}
+
+function getAchievements() : array {
+    try {
+	$request = $this->db->prepare('select * from achievements');
+	$request->execute();
+	$achievements = $request->fetchAll(PDO::FETCH_CLASS, 'Achievement');
+    } catch (PDOException $e) {
+	$achievements['error'] = $e->getMessage();
+    }
+
+    return $achievements;
 }
 
 // Gestion Users
@@ -61,7 +75,20 @@ function deleteUser(int $token) : bool {
    return false;
 }
 
-function getAllGames() : array {
+function getGame($id) {
+    try {
+	$request = $this->db->prepare('select g.*, l.theme from games g, lessons l where g.id = :id and g.about = l.id');
+	$request->bindParam(':id', $id, PDO::PARAM_INT);
+	$request->execute();
+	$game = $request->fetchAll(PDO::FETCH_CLASS, 'Game');
+    } catch (PDOException $e) {
+	$game['error'] = $e->getMessage();
+    }
+
+    return $game[0];
+}
+
+function getGames() : array {
     try {
 	$request = $this->db->prepare('select * from games');
 	$request->execute();

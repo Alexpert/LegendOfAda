@@ -29,11 +29,11 @@ function wake() {
 
 	if(session == undefined) {
 		link.setAttribute('href', 'login.html');
-		avatar.setAttribute('src', 'images/logo.png');
+		avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/1.png');
 	} else {
 		link.setAttribute('href', 'profile.html');
 		text = session.username + '  ';
-		avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/' + session.avatar);
+		avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/' + session.avatar + '.png');
 	}
 
 	link.appendChild(document.createTextNode(text));

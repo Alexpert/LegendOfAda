@@ -1,0 +1,90 @@
+<h1>Trigonométrie</h1>
+    <h2> 1 - Cosinus, sinus et tangeante</h2>
+    <p>
+        <p class="definition">
+            <dfn>Cosinus, sinus et tangeante</dfn>
+            Dans un triangle rectangle, pour un angle aigu donné, on définit trois rapports de longueurs.
+            <ul>
+                <li>Le <b>Sinus</b> de cet angle est égal au quotient : (Côté opposé à cet angle aigu)/Hypoténuse</li>
+                <li>Le <b>Cosinus</b> de cet angle est égal au quotient : (Côté adjacent à cet angle aigu)/Hypoténuse</li>
+                <li>La <b>Tangente</b> de cet angle est égal au quotient : (Côté opposé à cet angle aigu)/(Côté adjacent à cet angle aigu)</li>
+            </ul>
+            Remarque : L'expression <b>SohCahToa</b> peut être utilisée comme moyen mnémotechnique pour retenir les rapports. <br />
+            Soh : Sinus = opposé/hypoténuse <br/>
+            Cah : Cosinus = adjacent/hypoténuse <br />
+            Toa : Tangeante = opposé/adjacent <br/>
+        </p>
+        Exemple : <br/>
+        <img src="http://api.legendofada.eu/courses/4/images/Trigo 1.png" />
+        <ul>
+            <li>Dans un triangle ABC rectangle en A, on a donc : <br/>
+                Sin AB̂C = AC/CB    Cos AB̂C = AB/CB    Tan AB̂C = AC/AB
+            </li>
+            <li>Les calculatrices donnent des valeurs approchées de ces rapports. Il faut juste vérifier qu'elles sont bien configurées en "Degrés".</li>
+        </ul>
+
+        <p class="property">
+            <dfn>Propriété</dfn>
+            Dans un triangle rectangle, le cosinus et le sinus d'un angle aigu sont toujours compris entre 0 et 1.
+        </p>
+        <ul>
+            <li>En effet, dans un triangle rectangle, l'hypoténuse est le plus grand côté donc le rapport entre l'un des deux autres côtés et l'hypoténuse est toujours compris entre 0 et 1.
+            </li>
+        </ul>
+
+        <p class="property">
+            <dfn>Propriété</dfn>
+            Dans un triangle rectangle, pour tout angle aigu de mesure <var>x</var> : <br />
+            <ul>
+                <li>(sin <var>x</var>)^2 + (cos <var>x</var>)^2 = 1</li>
+                <li>tan <var>x</var> = sin <var>x</var>/cos <var>x</var></li>
+            </ul>
+        </p>
+        <ul>
+            <li>En effet, en écrivant le sinus et le cosinus d'un angle aigu à l'aide des côtés, on arrive à prouver la seconde égalité. <br/>
+                De plus, en utilisant l'égalité de Pythagore dans ce même triangle, on arrive à prouver que (sin <var>x</var>)^2 + (cos <var>x</var>)^2 = 1.
+            </li>
+        </ul>
+    </p>
+    <h2> 2 - Calculer un côté d'un triangle rectangle </h2>
+    <p>
+        Pour calculer un côté d'un triangle rectangle dont on connait un angle aigu et la longueur d'un côté, il faut :
+        <ul>
+            <li>Faire un schéma du triangle en précisant quels côtés sont l'hypoténuse, le côté opposé à l'angle connu et le côté adjacent à l'angle connu.</li>
+            <li>Se demander ensuite quel est le côté cherché et quel est le côté connu.</li>
+            <li>Écrire une égalité avec le rapport qui fait intervenir ces deux côtés.</li>
+            <li>On a ainsi une équation à une seule inconnue (le côté cherché) qu'il suffit de résoudre.</li>
+        </ul>
+        Exemple : <br/>
+        <img src="http://api.legendofada.eu/courses/4/images/Trigo 2.png" />
+        <ul>
+            <li>Calculer AC dans le triangle ABC rectangle en A. <br/>
+                C'est le <b>sinus</b> qui fait à la fois intervenir l'<b>hypoténuse</b> et le <b>côté opposé</b> à l'angle B̂. <br/>
+                On peut donc écrire : <br/>
+                sin B̂ = AC/BC    d'où     sin 29° = AC/6. <br/>
+                Donc AC = 6*sin 29° = 2.9cm.
+            </li>
+        </ul>
+    </p>
+    <h2> 3 - Déterminer la mesure d'un angle aigu d'un triangle rectangle </h2>
+    <p>
+        Pour déterminer la mesure d'un angle aigu d'un triangle rectangle dont on connait les longueurs de deux côtés, il faut :
+        <ul>
+            <li>Faire un schéma du triangle en précisant quels côtés sont l'hypoténuse, le côté opposé à l'angle cherche et le côté adjacent à l'angle cherché.</li>
+            <li>Se demander ensuite quels sont les deux côtés connus.</li>
+            <li>Écrire une égalité avec le rapport qui fait intervenir ces deux côtés.</li>
+            <li>On a ainsi une équation à une seule inconnue (l'angle cherché) dont on pourra trouver une valeur approchée grâce à la calculatrice.</li>
+        </ul>
+        Exemple : <br/>
+        <img src="http://api.legendofada.eu/courses/4/images/Trigo 3.png" />
+        <ul>
+            <li>Calcuer la mesure de l'angle B̂ dans le triangle ABC rectangle en A. <br />
+                C'est le <b>Cosinus</b> qui fait à la fois intervenir l'<b>hypoténuse</b> et le <b>côté adjacent</b> à l'angle B̂. <br/>
+                On peut donc écrire : <br/>
+                Cos B̂ = AB/BC    d'où     Cos B̂ = 11/15. <br/>
+
+                Sur la calculatrice, on tape ensuite Arccos(11/15) et on obtient une valeur approchée de B̂. <br/>
+                Donc B̂ = 43°.
+            </li>
+        </ul>
+    </p>

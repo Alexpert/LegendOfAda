@@ -1,6 +1,5 @@
 /* General */
 
-/* Replace it with non outside import */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 html * {
@@ -203,6 +202,14 @@ body.profile > div > div > div > a:hover {
 	background-color: #9BE8E8;
 }
 
+div#achievements {
+	display: block;
+}
+
+div.achievement {
+	height: 15vh;
+}
+
 div.achievement > img {
 	float: left;
 	height: 15vh;
@@ -224,10 +231,9 @@ menu.index {
 	border: 1vh solid #5C92C4;
 }
 
-menu.index > h1 {
-	text-align: center;
-	left: 0;
-	background-color: #5C92C4;
+menu.index > img {
+	width: 100%;
+	padding-bottom: 5%;
 }
 
 menu.index > p > a {
@@ -303,6 +309,8 @@ body.adventure > #dialog {
 	height: 40vh;
 	font-size: 3vh;
 	background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+	visibility: hidden;
+	user-select: none;
 }
 
 body.adventure > #dialog > h2 {
@@ -316,6 +324,7 @@ body.adventure > #dialog > h2 {
 body.adventure > #dialog > p {
 	padding-left: 2vw;
 	color: white;
+	width: 50vw;
 }
 
 body.adventure > #avatar {
@@ -323,6 +332,7 @@ body.adventure > #avatar {
 	height: 90vh;
 	right: 0;
 	bottom: 0;
+	visibility: hidden;
 }
 
 body.adventure > menu > a {
@@ -344,7 +354,7 @@ body.games > menu > figure.game {
 
 /* game */
 
-a.course {
+a#course {
 	position: fixed;
 	font-size: 7vh;
 	padding: 1.5vh;
@@ -359,7 +369,7 @@ a.course {
 	color: white;
 }
 
-a.course:hover {
+a#course:hover {
 	background-color: rgba(0,0,0,0.2);
 	color: black;
 }
@@ -390,25 +400,26 @@ social.game {
 	bottom: 27.5vh;
 }
 
-footer.play {
+footer#play {
 	position: fixed;
 	text-align: center;
-	border: 1vh solid #5C92C4;
+	border: 0.5vw solid #5C92C4;
 	border-radius: 4vh 4vh 0 0;
-	border-width: 1vh 1vh 0 1vh;
+	border-width: 0.5vw 0.5vw 0 0.5vw;
 	font-size: 5vh;
-	padding: 5vmin;
+	padding: 2.5vw;
 	width: 35vw;
 	height: 10vh;
 	bottom: 0;
-	left: 30vw;
+	left: 30.5vw;
 	background-color: #65A6E4;
 	transition: 0.25s;
 }
 
-footer.play:hover {
+footer#play:hover {
 	border-color: #3F77A8;
 	background-color: #4B8BC6;
+	cursor: pointer;
 }
 
 /* courses */

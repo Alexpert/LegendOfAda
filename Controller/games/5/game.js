@@ -108,6 +108,20 @@ answers[12][1] = "z = -4";
 answers[12][2] = "z = 10";
 answers[12][3] = "z = 2";
 
+questions[13] = "Trouvez la valeur de x pour l'équation: 30 - 9x = 0";
+answers[13] = [];
+answers[13][0] = "x = 10/3";
+answers[13][1] = "x = -3";
+answers[13][2] = "x = 3";
+answers[13][3] = "x = 10";
+
+questions[14] = "Trouvez la valeur de y pour l'équation: 3y + 6 = 0";
+answers[14] = [];
+answers[14][0] = "y = -2";
+answers[14][1] = "y = 1/2";
+answers[14][2] = "y = 2";
+answers[14][3] = "y = -1/2";
+
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
     backgrounds[i] = defaultBackground;

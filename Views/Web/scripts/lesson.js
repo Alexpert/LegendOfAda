@@ -1,7 +1,7 @@
 
 function specific() {
-	var request1 = new XMLHttpRequest();
-	var request2 = new XMLHttpRequest();
+	let request1 = new XMLHttpRequest();
+	let request2 = new XMLHttpRequest();
 	var theme = 1;
 	var lesson = 1;
 

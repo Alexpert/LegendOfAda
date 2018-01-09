@@ -29,23 +29,23 @@ insert into lessons (name, theme) values
 	('Algorithmique', 5),
 	('Programmation', 5);
 
-insert into games (name, about) values
-	('Eratoaster', 1),
-	('Réductions de Mékafractions', 1),
-	('Division de Mekayaks', 1),
-	('QCM Inéquations', 3),
-	('QCM Equations', 3),
-	('QCM Identités Remarquables', 2);
+insert into games (name, description, about) values
+	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent', 1),
+	('Réductions de Mékafractions', 'Choisissez le bon diviseur', 1),
+	('Division de Mekayaks', 'Choisissez le bon mékayak', 1),
+	('QCM Inéquations', 'Bah c''est dans le titre', 3),
+	('QCM Equations', 'Bah c''est dans le titre', 3),
+	('QCM Identités Remarquables', 'Bah c''est dans le titre', 2);
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
-	('Mongolie', 1, 0, 0, null),
-	('Mongolie', 1, 0, 0, 1),
-	('Mongolie', 1, 0, 0, 2),
-	('Mongolie', 1, 0, 0, 3),
-	('Mongolie', 1, 0, 0, 4),
-	('Mongolie', 1, 0, 0, 5),
-	('Mongolie', 1, 0, 0, 6),
+	('Mongolie', 1, 244, 264, null),
+	('Mongolie', 1, 350, 429, 1),
+	('Mongolie', 1, 512, 327, 2),
+	('Mongolie', 1, 692, 420, 3),
+	('Mongolie', 1, 963, 290, 4),
+	('Mongolie', 1, 1176, 378, 5),
+	('Mongolie', 1, 1047, 568, 6),
 -- 6 niveaux pour France
 	('France', 3, 406, 282, null),
 	('France', 2, 952, 226, 8),

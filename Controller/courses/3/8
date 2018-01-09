@@ -1,0 +1,11 @@
+<h1>Géométrie dans l'Espace</h1>
+  <h2>Spères et Boules</h2>
+    <p>
+      <p class="definition">
+        <dfn>Sphère</dfn>
+        Une sphère de centre O et de rayon r est l'ensemble des points M tels que OM = r.
+        <dfn>Boule</dfn>
+        Une Boule de centre O et de rayon r est l'ensemble des points M tels que OM <= r.
+      </p>
+
+    </p>

@@ -1,0 +1,55 @@
+<h1>Théorème de Thalès</h1>
+    <h2> 1 - Propriété de Thalès dans le triangle</h2>
+        <p>
+            <p class="property">
+                <dfn>Propriété</dfn>
+                <b>Si</b>, dans un triangle, une droite coupe deux côtés parallèlement au troisième côté, <b>alors</b> les deux triangles formés ont des côtés deux à deux proportionnels.
+            </p>
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 1.png" />
+            <br />
+            Si dans un triangle ABC, où D est un point de [AB] et E un point de de [AC], les droites (DE) et (BC) sont parallèles. <br />
+            Alors AD/AB = AE/AC = DE/BC
+            <ul>
+                <li>En effet les triangles <b>ADE</b> et <b>ABC</b> ont des côtés deux à deux proportionnels, donc les rapports entre ces côtés sont égaux.</li>
+                <li>Les triangles <b>ADE</b> et <b>ABC</b> sont des triangles semblables.</li>
+            </ul>
+        </p>
+
+    <h2> 2 - Calculer une longueur avec le théorème de Thalès </h2>
+        <p>
+            <p class="property">
+                <dfn>Propriété</dfn>
+                <b>Si</b> deux droites parallèles coupent deux droites sécantes, <b>alors</b> elles déterminent deux triangles dont les côtés correspondants ont des longueurs proportionnelles.
+            </p>
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 2.png" />
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 3.png" />
+            <br />
+            Si (BD) et (CE) sont sécantes en A et (BC) parallèle à (DE), alors AD/AB = AE/AC = DE/BC
+            <ul>
+                <li>En effet les triangles <b>ADE</b> et <b>ABC</b> ont des côtés respectivement proportionnels, donc les rapports (qui expriment les coefficients d'agranddissement ou de réduction) entre ces côtés sont égaux.</li>
+                <li>Les triangles <b>ADE</b> et <b>ABC</b> sont des triangles semblables.</li>
+            </ul>
+
+            <br />
+            Exemple :
+            <br/>
+            <img src="http://api.legendofada.eu/courses/4/images/Thales 4.png" />
+            <ul>
+                <li>Dans la figure ci-dessus, les droites (AD) et (CB) sont parallèles. On peut alors calculer la longueur AD en appliquant le théorème de Thalès. <br />
+                    On a alors : EA/EB = 5/4 = AD/3.5 et, en utilisant l'égalité des produits en croix, AD= (5*3.5)/4 = 4.375cm.
+                </li>
+            </ul>
+        </p>
+
+    <h2> 3 - Prouver que des droites sont ou ne sont pas parallèles </h2>
+        <p>
+            <p class="property">
+                <dfn>Propriété</dfn>
+                <b>Si</b> deux droites (BM) et (CN) sont sécantes en A et <b>si</b> deux des rapports AD/AB, AE/AC et DE/BC ne sont pas égaux, <b>alors</b> les droites (DE) et (BC) ne sont pas parallèles.
+            </p>
+
+            <p class="property">
+                <dfn>Réciproque du théorème de Thalès</dfn>
+                <b>Si</b> d'une part, les points A, B et D et, d'autre part, les points A, C et E sont alignés dans le même ordre sur deux droites sécantes en A et <b>si</b> AD/AB = AE/AC, <b>alors</b> les droites (DE) et (BC) sont parallèles.
+            </p>
+        </p>
