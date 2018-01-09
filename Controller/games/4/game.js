@@ -87,6 +87,41 @@ answers[9][1] = "x < 4";
 answers[9][2] = "x > 1/4";
 answers[9][3] = "x < 1/4";
 
+questions[10] = "Trouvez la valeur de y pour l'inéquation: 12 + 6y > 3 - 9y";
+answers[10] = [];
+answers[10][0] = "y > -3/5";
+answers[10][1] = "y < -3/5";
+answers[10][2] = "y > 3/5";
+answers[10][3] = "y < 3/5";
+
+questions[11] = "Trouvez la valeur de z pour l'inéquation: 6 - 2z < - 5z";
+answers[11] = [];
+answers[11][0] = "z < -2";
+answers[11][1] = "z > -2";
+answers[11][2] = "z < 2";
+answers[11][3] = "z > 2";
+
+questions[12] = "Trouvez la valeur de x pour l'inéquation: - 8x + 12 > 0";
+answers[12] = [];
+answers[12][0] = "x < 3/2";
+answers[12][1] = "x > -3/2";
+answers[12][2] = "x < -3/2";
+answers[12][3] = "x > 3/2";
+
+questions[13] = "Trouvez la valeur de y pour l'inéquation: - 7y < - 8 + 3y";
+answers[13] = [];
+answers[13][0] = "y > 4/5";
+answers[13][1] = "y < 4/5";
+answers[13][2] = "y > -4/5";
+answers[13][3] = "y < -4/5";
+
+questions[14] = "Trouvez la valeur de z pour l'inéquation: 0 > 15z - 3";
+answers[14] = [];
+answers[14][0] = "z < 1/5";
+answers[14][1] = "z > 1/5";
+answers[14][2] = "z < -1/5";
+answers[14][3] = "z > -1/5";
+
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
     backgrounds[i] = defaultBackground;

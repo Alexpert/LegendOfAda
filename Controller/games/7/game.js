@@ -17,110 +17,110 @@ var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
 
-questions[0] = "Trouvez la valeur de x pour l'équation: 4x + 6 = 0";
+questions[0] = "Quel est le résultat de l'opération suivante: 18/3 + 7/4";
 answers[0] = [];
-answers[0][0] = "x = -3/2";
-answers[0][1] = "x = 2/3";
-answers[0][2] = "x = -6/3";
-answers[0][3] = "x = 4/6";
+answers[0][0] = "73/12";
+answers[0][1] = "31/12";
+answers[0][2] = "73/4";
+answers[0][3] = "- 73/12";
 
-questions[1] = "Trouvez la valeur de x pour l'équation: 5 - 8x = 0";
+questions[1] = "Quel est le résultat de l'opération suivante: 14/5 - 8/3";
 answers[1] = [];
-answers[1][0] = "x = 5/8";
-answers[1][1] = "x = -8/5";
-answers[1][2] = "x = 3";
-answers[1][3] = "x = -5/8";
+answers[1][0] = "2/15";
+answers[1][1] = "82/15";
+answers[1][2] = "-2/15";
+answers[1][3] = "2/5";
 
-questions[2] = "Trouvez la valeur de y pour l'équation: 7y - 1 = 2y + 3";
+questions[2] = "Quel est le résultat de l'opération suivante: 3/4 + 6/7";
 answers[2] = [];
-answers[2][0] = "y = 4/5";
-answers[2][1] = "y = -5/4";
-answers[2][2] = "y = 2/3";
-answers[2][3] = "y = -7/2";
+answers[2][0] = "43/28";
+answers[2][1] = "9/11";
+answers[2][2] = "9/28";
+answers[2][3] = "43/11";
 
-questions[3] = "Trouvez la valeur de y pour l'équation: - 8 - 2y = 0";
+questions[3] = "Quel est le résultat de l'opération suivante: 24/6 - 9/3";
 answers[3] = [];
-answers[3][0] = "y = -4";
-answers[3][1] = "y = -2/8";
-answers[3][2] = "y = 4/8";
-answers[3][3] = "y = -2";
+answers[3][0] = "1";
+answers[3][1] = "15/3";
+answers[3][2] = "15/6";
+answers[3][3] = "54/6";
 
-questions[4] = "Trouvez la valeur de z pour l'équation: 12z + 6 = - 3 + 3z";
+questions[4] = "Quel est le résultat de l'opération suivante: - 13/6 - 23/5";
 answers[4] = [];
-answers[4][0] = "z = -1";
-answers[4][1] = "z = 1";
-answers[4][2] = "z = 12/3";
-answers[4][3] = "z = 9/2";
+answers[4][0] = "- 203/30";
+answers[4][1] = "203/30";
+answers[4][2] = " -230/15";
+answers[4][3] = "- 196/30";
 
-questions[5] = "Trouvez la valeur de z pour l'équation: 10 - 5z = - 2z + 1";
+questions[5] = "Quel est le résultat de l'opération suivante: 33/3 + 47/2";
 answers[5] = [];
-answers[5][0] = "z = 3";
-answers[5][1] = "z = 10/2";
-answers[5][2] = "z = -10/5";
-answers[5][3] = "z = 5";
+answers[5][0] = "207/6";
+answers[5][1] = "- 207/6";
+answers[5][2] = "207/3";
+answers[5][3] = "141/6";
 
-questions[6] = "Trouvez la valeur de y pour l'équation: y - 4 = 8 + 2y";
+questions[6] = "Quel est le résultat de l'opération suivante: 3/7 + 9/2";
 answers[6] = [];
-answers[6][0] = "y = -12";
-answers[6][1] = "y = -8/2";
-answers[6][2] = "y = 4";
-answers[6][3] = "y = 2/3";
+answers[6][0] = "69/14";
+answers[6][1] = "12/9";
+answers[6][2] = "12/14";
+answers[6][3] = "16/5";
 
-questions[7] = "Trouvez la valeur de x pour l'équation: 9 = 7x - 19";
+questions[7] = "Quel est le résultat de l'opération suivante: 15/4 + 6/7";
 answers[7] = [];
-answers[7][0] = "x = 4";
-answers[7][1] = "x = 10/7";
-answers[7][2] = "x = 9/7";
-answers[7][3] = "x = -14";
+answers[7][0] = "128/28";
+answers[7][1] = "21/11";
+answers[7][2] = "90/28";
+answers[7][3] = "45/14";
 
-questions[8] = "Trouvez la valeur de y pour l'équation: 2y + 17 = 5y + 2";
+questions[8] = "Quel est le résultat de l'opération suivante: - 7/3 + 4/5";
 answers[8] = [];
-answers[8][0] = "y = 5";
-answers[8][1] = "y = 19/7";
-answers[8][2] = "y = -15/7";
-answers[8][3] = "y = -7";
+answers[8][0] = "- 24/15";
+answers[8][1] = "- 3/8";
+answers[8][2] = "- 28/15";
+answers[8][3] = "47/15";
 
-questions[9] = "Trouvez la valeur de z pour l'équation: 3z - 25 = 11 - 5z";
+questions[9] = "Quel est le résultat de l'opération suivante: 7/3 - 4/5";
 answers[9] = [];
-answers[9][0] = "z = 9/2";
-answers[9][1] = "z = -4";
-answers[9][2] = "z = 6";
-answers[9][3] = "z = -18/3";
+answers[9][0] = "24/15";
+answers[9][1] = "- 3/2";
+answers[9][2] = "- 28/15";
+answers[9][3] = "- 47/15";
 
-questions[10] = "Trouvez la valeur de x pour l'équation: 0 = 14 - 6x";
-answers[10] = [];
-answers[10][0] = "x = 7/3";
-answers[10][1] = "x = -8";
-answers[10][2] = "x = 20";
-answers[10][3] = "x = 14/3";
+questions[10] = "Quel est le résultat de l'opération suivante: 6/7 - 3/4";
+answers1[0] = [];
+answers[10][0] = "3/28";
+answers[10][1] = "3/3";
+answers[10][2] = "- 18/28";
+answers[10][3] = "45/28";
 
-questions[11] = "Trouvez la valeur de y pour l'équation: 0 = 21 + 7y";
+questions[11] = "Quel est le résultat de l'opération suivante: 8/3 - 8/5";
 answers[11] = [];
-answers[11][0] = "y = -3";
-answers[11][1] = "y = 7/21";
-answers[11][2] = "y = 3";
-answers[11][3] = "y = -21/7";
+answers[11][0] = "16/15";
+answers[11][1] = "0/1";
+answers[11][2] = "0/(- 2)";
+answers[11][3] = "8/15";
 
-questions[12] = "Trouvez la valeur de z pour l'équation: 14z = 4z + 40";
+questions[12] = "Quel est le résultat de l'opération suivante: 4/1 + 4/2";
 answers[12] = [];
-answers[12][0] = "z = 4";
-answers[12][1] = "z = -4";
-answers[12][2] = "z = 10";
-answers[12][3] = "z = 2";
+answers[12][0] = "6/1";
+answers[12][1] = "8/3";
+answers[12][2] = "8/2";
+answers[12][3] = "6/2";
 
-questions[13] = "Trouvez la valeur de x pour l'équation: 30 - 9x = 0";
+questions[13] = "Quel est le résultat de l'opération suivante: 32/16 - 5/2";
 answers[13] = [];
-answers[13][0] = "x = 10/3";
-answers[13][1] = "x = -3";
-answers[13][2] = "x = 3";
-answers[13][3] = "x = 10";
+answers[13][0] = "- 16/32";
+answers[13][1] = "27/14";
+answers[13][2] = "16/32";
+answers[13][3] = "27/32";
 
-questions[14] = "Trouvez la valeur de y pour l'équation: 3y + 6 = 0";
+questions[14] = "Quel est le résultat de l'opération suivante: 14/3 + 28/5";
 answers[14] = [];
-answers[14][0] = "y = -2";
-answers[14][1] = "y = 1/2";
-answers[14][2] = "y = 2";
-answers[14][3] = "y = -1/2";
+answers[14][0] = "154/15";
+answers[14][1] = "42/8";
+answers[14][2] = "42/15";
+answers[14][3] = "- 42/8";
 
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {

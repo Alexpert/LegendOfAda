@@ -17,110 +17,110 @@ var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
 
-questions[0] = "Trouvez la valeur de x pour l'équation: 4x + 6 = 0";
+questions[0] = "Trouvez le quotient qui est égale a la fraction suivante: 5/6";
 answers[0] = [];
-answers[0][0] = "x = -3/2";
-answers[0][1] = "x = 2/3";
-answers[0][2] = "x = -6/3";
-answers[0][3] = "x = 4/6";
+answers[0][0] = "15/18";
+answers[0][1] = "5/12";
+answers[0][2] = "10/6";
+answers[0][3] = "15/16";
 
-questions[1] = "Trouvez la valeur de x pour l'équation: 5 - 8x = 0";
+questions[1] = "Trouvez le quotient qui est égale a la fraction suivante: 9/4";
 answers[1] = [];
-answers[1][0] = "x = 5/8";
-answers[1][1] = "x = -8/5";
-answers[1][2] = "x = 3";
-answers[1][3] = "x = -5/8";
+answers[1][0] = "81/36";
+answers[1][1] = "45/40";
+answers[1][2] = "19/14";
+answers[1][3] = "9/2";
 
-questions[2] = "Trouvez la valeur de y pour l'équation: 7y - 1 = 2y + 3";
+questions[2] = "Trouvez le quotient qui est égale a la fraction suivante: 49/21";
 answers[2] = [];
-answers[2][0] = "y = 4/5";
-answers[2][1] = "y = -5/4";
-answers[2][2] = "y = 2/3";
-answers[2][3] = "y = -7/2";
+answers[2][0] = "7/3";
+answers[2][1] = "97/42";
+answers[2][2] = "7/7";
+answers[2][3] = "9/3";
 
-questions[3] = "Trouvez la valeur de y pour l'équation: - 8 - 2y = 0";
+questions[3] = "Trouvez le quotient qui est égale a la fraction suivante: 6/9";
 answers[3] = [];
-answers[3][0] = "y = -4";
-answers[3][1] = "y = -2/8";
-answers[3][2] = "y = 4/8";
-answers[3][3] = "y = -2";
+answers[3][0] = "2/3";
+answers[3][1] = "8/11";
+answers[3][2] = "2/9";
+answers[3][3] = "2/6";
 
-questions[4] = "Trouvez la valeur de z pour l'équation: 12z + 6 = - 3 + 3z";
+questions[4] = "Trouvez le quotient qui est égale a la fraction suivante: 21/33";
 answers[4] = [];
-answers[4][0] = "z = -1";
-answers[4][1] = "z = 1";
-answers[4][2] = "z = 12/3";
-answers[4][3] = "z = 9/2";
+answers[4][0] = "7/11";
+answers[4][1] = "15/22";
+answers[4][2] = "14/21";
+answers[4][3] = "2/3";
 
-questions[5] = "Trouvez la valeur de z pour l'équation: 10 - 5z = - 2z + 1";
+questions[5] = "Trouvez le quotient qui est égale a la fraction suivante: 8/9";
 answers[5] = [];
-answers[5][0] = "z = 3";
-answers[5][1] = "z = 10/2";
-answers[5][2] = "z = -10/5";
-answers[5][3] = "z = 5";
+answers[5][0] = "16/18";
+answers[5][1] = "4/5";
+answers[5][2] = "10/11";
+answers[5][3] = "8/10";
 
-questions[6] = "Trouvez la valeur de y pour l'équation: y - 4 = 8 + 2y";
+questions[6] = "Trouvez le quotient qui est égale a la fraction suivante: - 3/6";
 answers[6] = [];
-answers[6][0] = "y = -12";
-answers[6][1] = "y = -8/2";
-answers[6][2] = "y = 4";
-answers[6][3] = "y = 2/3";
+answers[6][0] = "- 1/2";
+answers[6][1] = "1/2";
+answers[6][2] = "1/3";
+answers[6][3] = "- 1/3";
 
-questions[7] = "Trouvez la valeur de x pour l'équation: 9 = 7x - 19";
+questions[7] = "Trouvez le quotient qui est égale a la fraction suivante: 18/6";
 answers[7] = [];
-answers[7][0] = "x = 4";
-answers[7][1] = "x = 10/7";
-answers[7][2] = "x = 9/7";
-answers[7][3] = "x = -14";
+answers[7][0] = "3";
+answers[7][1] = "6/3";
+answers[7][2] = "3/2";
+answers[7][3] = "10/3";
 
-questions[8] = "Trouvez la valeur de y pour l'équation: 2y + 17 = 5y + 2";
+questions[8] = "Trouvez le quotient qui est égale a la fraction suivante: - 5/2";
 answers[8] = [];
-answers[8][0] = "y = 5";
-answers[8][1] = "y = 19/7";
-answers[8][2] = "y = -15/7";
-answers[8][3] = "y = -7";
+answers[8][0] = "- 15/6";
+answers[8][1] = "15/6";
+answers[8][2] = "- 15/5";
+answers[8][3] = "5/2";
 
-questions[9] = "Trouvez la valeur de z pour l'équation: 3z - 25 = 11 - 5z";
+questions[9] = "Trouvez le quotient qui est égale a la fraction suivante: 20/4";
 answers[9] = [];
-answers[9][0] = "z = 9/2";
-answers[9][1] = "z = -4";
-answers[9][2] = "z = 6";
-answers[9][3] = "z = -18/3";
+answers[9][0] = "5";
+answers[9][1] = "- 4/1";
+answers[9][2] = "20/1";
+answers[9][3] = "4/4";
 
-questions[10] = "Trouvez la valeur de x pour l'équation: 0 = 14 - 6x";
+questions[10] = "Trouvez le quotient qui est égale a la fraction suivante: - 36/6";
 answers[10] = [];
-answers[10][0] = "x = 7/3";
-answers[10][1] = "x = -8";
-answers[10][2] = "x = 20";
-answers[10][3] = "x = 14/3";
+answers[10][0] = "- 6";
+answers[10][1] = "6";
+answers[10][2] = "- 36";
+answers[10][3] = "- 6/6";
 
-questions[11] = "Trouvez la valeur de y pour l'équation: 0 = 21 + 7y";
+questions[11] = "Trouvez le quotient qui est égale a la fraction suivante: 110/220";
 answers[11] = [];
-answers[11][0] = "y = -3";
-answers[11][1] = "y = 7/21";
-answers[11][2] = "y = 3";
-answers[11][3] = "y = -21/7";
+answers[11][0] = "11/22";
+answers[11][1] = "10/2";
+answers[11][2] = "1/20";
+answers[11][3] = "20/10";
 
-questions[12] = "Trouvez la valeur de z pour l'équation: 14z = 4z + 40";
+questions[12] = "Trouvez le quotient qui est égale a la fraction suivante: 25/15";
 answers[12] = [];
-answers[12][0] = "z = 4";
-answers[12][1] = "z = -4";
-answers[12][2] = "z = 10";
-answers[12][3] = "z = 2";
+answers[12][0] = "5/3";
+answers[12][1] = "1/5";
+answers[12][2] = "5/12";
+answers[12][3] = "5/10";
 
-questions[13] = "Trouvez la valeur de x pour l'équation: 30 - 9x = 0";
+questions[13] = "Trouvez le quotient qui est égale a la fraction suivante: 42/21";
 answers[13] = [];
-answers[13][0] = "x = 10/3";
-answers[13][1] = "x = -3";
-answers[13][2] = "x = 3";
-answers[13][3] = "x = 10";
+answers[13][0] = "6/3";
+answers[13][1] = "21/21";
+answers[13][2] = "24/12";
+answers[13][3] = "2/3";
 
-questions[14] = "Trouvez la valeur de y pour l'équation: 3y + 6 = 0";
+questions[14] = "Trouvez le quotient qui est égale a la fraction suivante: 64/84";
 answers[14] = [];
-answers[14][0] = "y = -2";
-answers[14][1] = "y = 1/2";
-answers[14][2] = "y = 2";
-answers[14][3] = "y = -1/2";
+answers[14][0] = "32/42";
+answers[14][1] = "6/15";
+answers[14][2] = "8/12";
+answers[14][3] = "124/168";
 
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
