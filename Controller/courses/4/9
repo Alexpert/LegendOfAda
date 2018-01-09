@@ -1,0 +1,122 @@
+<h1>Les Transformations du plan - Homothéties</h1>
+  <h2>1 - Tranformer un point ou une figure par symétries, translation, rotation </h2>
+    <h3> A - Symétrie axiale</h3>
+      <p>
+        <p class="definition">
+          <dfn>Symétrie Axiale</dfn>
+          Tranformer une figure par symétrie axiale, c'est créer l'image de cette figure par rapport à un axe.
+        </p>
+        <b>Action</b> <br/>
+        Les deux figures symétriques doivent se superposer parfaitement après le pliage le long de l'axe de symétrie.
+        <br />
+        <br />
+        Exemple : <br/>
+        <img src="http://api.legendofada.eu/courses/4/images/Transfo 1.JPG" />
+        <ul>
+          <li>Le Triangle A'B'C' est l'image du triangle ABC par la symétrie d'axe (d).</li>
+        </ul>
+      </p>
+    <h3> B - Symétrie Centrale </h3>
+      <p>
+        <p class="definition">
+          <dfn>Symétrie Centrale</dfn>
+          Tranformer une figure par symétrie centrale, c'est créer l'image de cette figure par rapport à un centre de symétrie.
+        </p>
+        <b>Action</b> <br/>
+        Une symétrie centrale fait tourner une figure de 180° autour du centre de symétrie.
+        <br />
+        <br />
+        Exemple : <br/>
+        <img src="http://api.legendofada.eu/courses/4/images/Transfo 2.JPG" />
+        <ul>
+          <li>Le Triangle A'B'C' est l'image du triangle ABC par la symétrie centrale de centre O.</li>
+        </ul>
+      </p>
+    <h3> C - Translation </h3>
+      <p>
+        <p class="definition">
+          <dfn>Translation</dfn>
+          Tranformer une figure par translation, c'est créer l'image de cette figure par rapport à deux points donnés.
+        </p>
+        <b>Action</b> <br/>
+        Une translation fait glisser une forme dans une direction, un sens et une longueur donnés.
+        <br />
+        <br />
+        Exemple : <br/>
+        <img src="http://api.legendofada.eu/courses/4/images/Transfo 3.JPG" />
+        <ul>
+          <li>Le Triangle A'B'C' est l'image du triangle ABC par la translation qui transforme E en F.</li>
+        </ul>
+      </p>
+    <h3> D - Rotation </h3>
+      <p>
+        <p class="definition">
+          <dfn>Rotation</dfn>
+          Tranformer une figure par rotation, c'est créer l'image de cette figure par rapport à : un centre de rotation, un angle et un sens de rotation.
+        </p>
+        <b>Action</b> <br/>
+        Une rotation fait tourner une forme autour d'un point.
+        <br />
+        <br />
+        Exemple : <br/>
+        <img src="http://api.legendofada.eu/courses/4/images/Transfo 4.JPG" />
+        <ul>
+          <li>Le Triangle A'B'C' est l'image du triangle ABC par la rotation de centre O et d'angle 90° (dans le sens anti-horaire).</li>
+        </ul>
+    </p>
+  <h2>Transformer un point ou une figure par homothétie</h2>
+    <p>
+      <p class="definition">
+        <dfn>Homothétie</dfn>
+        Tranformer une figure par homothétie, c'est créer l'image de cette figure par rapport à un centre O et un rapport k.
+      </p>
+      Exemple : <br/>
+      <img src="http://api.legendofada.eu/courses/4/images/Transfo 5.JPG" />
+      <ul>
+        <li> Le triangle A'B'C' est l'image du triangle ABC par l'homthétie de centre O et de rapport k = 0.5.</li>
+      </ul>
+    </p>
+    <h3> A - Action </h3>
+      <p>
+        <ul>
+          <li>Si k > 1 (ou k < -1), l'homothétie correspond à un agrandissement.</li>
+          <li>Si 0 < k < 1 (ou -1 < k < 0), l'homothétie correspond à une réduction.</li>
+        </ul>
+        Exemple : <br />
+        <img src="http://api.legendofada.eu/courses/4/images/Transfo 6.JPG" />
+        <ul>
+          <li>La figure 2 est une réduction de la figure 1 par l'homothétie de centre O et de rapport k = 0.25.</li>
+        </ul>
+      </p>
+    <h3> B - Construction </h3>
+      <p>
+        <ul>
+          <li>Pour construire l'image M' d'un point M par l'homothétie de centre O et de rapport k, il faut :
+            <ul>
+              <li>Tracer la droite (OM) : Si k > 0, M' est du même côté que M par rapport à O, sinons M' est du côté opposé à M par rapport à O.</li>
+              <li>Reporter les longueurs : OM' = k*OM si k > 0, et OM' = -k*OM si k < 0.</li>
+            </ul>
+          </li>
+          <li>Si 0 < k < 1 (ou -1 < k < 0), l'homothétie correspond à une réduction.</li>
+        </ul>
+        Exemple : <br />
+        <img src="http://api.legendofada.eu/courses/4/images/Transfo 7.JPG" />
+        <ul>
+          <li>Avec k = -1.5, M' est du côté opposé à M par rapport à O. <br /> OM' = 1.5*OM</li>
+        </ul>
+      </p>
+      <h3> C - Propriétés </h3>
+        <p>
+          <p class="property">
+            <dfn>Propriété 1</dfn>
+            Un point, son image par une homothétie et le centre de l'homothétie sont alignés.
+          </p>
+          <p class="property">
+            <dfn>Propriété 2</dfn>
+            Une homothétie de rapport 1 n'effectue aucune transformation.
+          </p>
+          <p class="property">
+            <dfn>Propriété 3</dfn>
+            Une homothétie de rapport -1 est une symétrie centrale.
+          </p>
+        </p>
