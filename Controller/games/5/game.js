@@ -127,7 +127,7 @@ function QuestionObj(content) {
   this.obj = new GameObject();
   this.obj.text = content;
   this.obj.x = 0;
-  this.obj.y = 0.5;
+  this.obj.y = 2.5/8;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
 }
@@ -136,14 +136,14 @@ function ButtonObj(content, id, correct) {
   this.obj = new GameObject();
   this.obj.text = content;
   this.obj.width = 3 / 9;
-  this.obj.height = 1 / 8;
+  this.obj.height = 1.5 / 8;
   this.obj.image = game.createImage(buttonSprite[numQ]);
   this.correct = correct;
   this.id = id;
   if (Math.floor(id / 2) == 0) {
-    this.obj.y = 6 / 8;
+    this.obj.y = 4.5 / 8;
   } else {
-    this.obj.y = 7 / 8;
+    this.obj.y = 6.5 / 8;
   }
   if (id % 2 == 0) {
     this.obj.x = 1 / 9;
