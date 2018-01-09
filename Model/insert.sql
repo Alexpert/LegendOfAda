@@ -49,7 +49,7 @@ insert into levels(world, game, x, y, previous) values
 	('Mongolie', 8, 350, 429, 1),
 	('Mongolie', 10, 512, 327, 2),
 	('Mongolie', 7, 692, 420, 3),
-	('Mongolie', 1, 963, 290, 4),
+	('Mongolie', 13, 963, 290, 4),
 	('Mongolie', 11, 1176, 378, 5),
 	('Mongolie', 12, 1047, 568, 6),
 -- 6 niveaux pour France
