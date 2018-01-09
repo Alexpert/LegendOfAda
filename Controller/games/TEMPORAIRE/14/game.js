@@ -92,76 +92,63 @@ answers[4][1] = "4";
 answers[4][2] = "35";
 answers[4][3] = "12/4";
 
-questions[5] = "Que représente une distance réelle de 50m en centimètres quand le coefficient de proportionnalité est de 10 ?";
+questions[5] = "Que représente une distance de 50m en centimètres quand le coefficient de proportionnalité est de 10 ?";
 answers[5] = [];
 answers[5][0] = "5cm";
 answers[5][1] = "15cm";
 answers[5][2] = "5m";
 answers[5][3] = "10cm";
 
-questions[6] = "Que représente une distance réelle de 22m en centimètres quand le coefficient de proportionnalité est de 1/4 ?";
+questions[6] = "Que représente une distance de 22m en centimètres quand le coefficient de proportionnalité est de 1/4 ?";
 answers[6] = [];
-answers[6][0] = "22/4cm";
-answers[6][1] = "5cm";
-answers[6][2] = "22cm";
-answers[6][3] = "88cm";
+answers[6][0] = "123456789";
+answers[6][1] = "1234567891";
+answers[6][2] = "Triangle rectangle";
+answers[6][3] = "123456789123456789123456789123456789";
 
-questions[7] = "Dans un supermarché un paquet d'1 kilo de spaghetti valant 2€ subit une réduction de 20%. Combien coute à présent le kilo de spaghetti ?";
+questions[7] = "12345678901234567890123456789";
 answers[7] = [];
-answers[7][0] = "1€";
-answers[7][1] = "1.40€";
-answers[7][2] = "1.60€";
-answers[7][3] = "1.50€";
+answers[7][0] = "123456789";
+answers[7][1] = "1234567891";
+answers[7][2] = "Triangle rectangle";
+answers[7][3] = "123456789123456789123456789123456789";
+backgrounds[7] = "assets/kurtzgesagt-blueMarble.png"
+textColor[7] = "white";
+buttonSprite[7] = "assets/button.png";
+buttonTextColor[7] = "red";
 
-questions[8] = "Sur 30 personnes 40% ne boivent pas de café. Combien de personnes boivent du café ?";
+questions[8] = "12345678901234567890123456789";
 answers[8] = [];
-answers[8][0] = "20";
-answers[8][1] = "18";
-answers[8][2] = "15";
-answers[8][3] = "25";
+answers[8][0] = "123456789";
+answers[8][1] = "1234567891";
+answers[8][2] = "Triangle rectangle";
+answers[8][3] = "123456789123456789123456789123456789";
 
-questions[9] = "Un cappuccino valant 1€20 connait une augmentation de 10%. Combien vaut il maintenant ?";
+questions[9] = "12345678901234567890123456789";
 answers[9] = [];
-answers[9][0] = "2€";
-answers[9][1] = "1€25";
-answers[9][2] = "1€32";
-answers[9][3] = "1€30";
+answers[9][0] = "123456789";
+answers[9][1] = "1234567891";
+answers[9][2] = "Triangle rectangle";
+answers[9][3] = "123456789123456789123456789123456789";
 
-questions[10] = "Une pizza qui coutait hier 10€ coute aujourd'hui 12€50. De combien de % son prix à augmenter ?";
+questions[10] = "12345678901234567890123456789";
 answers[10] = [];
-answers[10][0] = "25%";
-answers[10][1] = "20%";
-answers[10][2] = "22%";
-answers[10][3] = "12%";
+answers[10][0] = "123456789";
+answers[10][1] = "1234567891";
+answers[10][2] = "Triangle rectangle";
+answers[10][3] = "123456789123456789123456789123456789";
+backgrounds[10] = "assets/kurtzgesagt-blueMarble.png"
+textColor[10] = "white";
+buttonSprite[10] = "assets/button.png";
+buttonTextColor[10] = "red";
 
 
-questions[11] = "Un pain au chocolat coute environ 1€. Mais pour Jean-François Copé ils coutent 15 centimes. De combien de % ont-ils subit une réduction ?";
+questions[11] = "12345678901234567890123456789";
 answers[11] = [];
-answers[11][0] = "80%";
-answers[11][1] = "0%";
-answers[11][2] = "85%";
-answers[11][3] = "30%";
-
-questions[12] = "Un enfant mange 4 parts d'un gâteau coupé en 12 parts. Combien de % du gâteau a-t-il mangé ?";
-answers[12] = [];
-answers[12][0] = "33.3333333%";
-answers[12][1] = "27.7777777%";
-answers[12][2] = "30%";
-answers[12][3] = "40%";
-
-questions[13] = "Un jeu a un prix de base de 40€. Lors des soldes il a une réduction de 30%. A quel prix le jeu se vend à présent ?";
-answers[13] = [];
-answers[13][0] = "42€";
-answers[13][1] = "20€";
-answers[13][2] = "32€";
-answers[13][3] = "28€";
-
-questions[14] = "Quelle est la taille d'une figurine d'une personne d'1m50 à l'échelle 1/2 ?";
-answers[14] = [];
-answers[14][0] = "75cm";
-answers[14][1] = "80cm";
-answers[14][2] = "15cm";
-answers[14][3] = "35cm";
+answers[11][0] = "123456789";
+answers[11][1] = "1234567891";
+answers[11][2] = "Triangle rectangle";
+answers[11][3] = "123456789123456789123456789123456789";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Ne pas toucher au code à partir de ce point
@@ -186,7 +173,7 @@ function QuestionObj(content) {
   this.obj = new GameObject();
   this.obj.text = content;
   this.obj.x = 0;
-  this.obj.y = 2.5/8;
+  this.obj.y = 0.5;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
 }
@@ -195,14 +182,14 @@ function ButtonObj(content, id, correct) {
   this.obj = new GameObject();
   this.obj.text = content;
   this.obj.width = 3 / 9;
-  this.obj.height = 1.5 / 8;
+  this.obj.height = 1 / 8;
   this.obj.image = game.createImage(buttonSprite[numQ]);
   this.correct = correct;
   this.id = id;
   if (Math.floor(id / 2) == 0) {
-    this.obj.y = 4.5 / 8;
+    this.obj.y = 6 / 8;
   } else {
-    this.obj.y = 6.5 / 8;
+    this.obj.y = 7 / 8;
   }
   if (id % 2 == 0) {
     this.obj.x = 1 / 9;
