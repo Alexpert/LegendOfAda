@@ -34,7 +34,7 @@
 
         <p class="property">
             <dfn>Propriété</dfn>
-            Dans un triangle rectangle, pour tout angle aigu de mesure <var>x</var> : <br />
+            Dans un triangle rectangle, pour tout angle aigu de mesure <var>x</var> :
             <ul>
                 <li>(sin <var>x</var>)^2 + (cos <var>x</var>)^2 = 1</li>
                 <li>tan <var>x</var> = sin <var>x</var>/cos <var>x</var></li>
