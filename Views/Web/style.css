@@ -231,10 +231,9 @@ menu.index {
 	border: 1vh solid #5C92C4;
 }
 
-menu.index > h1 {
-	text-align: center;
-	left: 0;
-	background-color: #5C92C4;
+menu.index > img {
+	width: 100%;
+	padding-bottom: 5%;
 }
 
 menu.index > p > a {
