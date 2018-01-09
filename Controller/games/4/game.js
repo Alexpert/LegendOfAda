@@ -12,7 +12,7 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/kurtzgesagt-blueMarble.png"
+var defaultBackground = "assets/Paris_ile_Cite_ile_Saint_Louis_pont_Tournelle.jpg";
 var defaultTextColor = "black";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
