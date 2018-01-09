@@ -53,8 +53,8 @@ function addUser(string $username, string $pw) : array {
 function getUser(string $username, string $pw) : array {
     try {
 	$request = $this->db->prepare('select * from users where username = :username and password = :pw');
-	$request->bindParam(':username', $username);
-	$request->bindParam(':pw', $pw);
+	$request->bindParam(':username', $username, PDO::PARAM_STR);
+	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
 	$request->execute();
 	$user = $request->fetchAll(PDO::FETCH_CLASS, 'User');
     } catch (PDOException $e) {
@@ -62,6 +62,17 @@ function getUser(string $username, string $pw) : array {
     }
 
     return $user;
+}
+
+function deleteUser(int $token) : bool {
+   try {
+	$request = $this->db->prepare('delete from users where token = :token');
+	$request->bindParam(':token', $token, PDO::PARAM_INT);
+	return $request->execute();
+   } catch (PDOException $e) {
+   }
+
+   return false;
 }
 
 function getGame($id) {
@@ -137,6 +148,77 @@ function getLevelsFromWorld($world) : array {
    }
 
    return $levels;
+}
+
+// Gestion Score
+function addScore(int $token, int $value, int $game, int $level, string $guild) : bool {
+   try {
+	$request = $this->db->prepare('insert into scores values select username, :value, :game, :level, :guild
+								from users
+								where token = :token');
+	$request->bindParam(':value', $value, PDO::PARAM_INT);
+	$request->bindParam(':game', $game, PDO::PARAM_INT);
+	$request->bindParam(':level', $level, PDO::PARAM_INT);
+	$request->bindParam(':guild', $guild, PDO::PARAM_STR);
+	$request->bindParam(':token', $token, PDO::PARAM_INT);
+	return $request->execute();
+   } catch (PDOException $e) {
+   }
+   return false;
+}
+
+function getScoreGame(int $game) : array {
+   try {
+	$request = $this->db->prepare('select * from scores where game = :game');
+	$request->bindParam(':game', $game);
+	$request->execute();
+	$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
+   } catch (PDOException $e) {
+	$scores['error'] = $e->getMessage();
+   }
+
+   return $scores;
+}
+
+function getScoreGameUser(int $game, int $token) : array {
+   try {
+	$request = $this->db->prepare('select * from scores where game = :game and username = (select username from users where token = :token');
+	$request->bindParam(':game', $game);
+	$request->bindParam(':token', $token);
+	$request->execute();
+	$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
+   } catch (PDOException $e) {
+	$scores['error'] = $e->getMessage();
+   }
+
+   return $scores;
+}
+
+function getScoreLevel(int $level) : array {
+   try {
+	$request = $this->db->prepare('select * from scores where level = :level');
+	$request->bindParam(':level', $level);
+	$request->execute();
+	$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
+   } catch (PDOException $e) {
+	$scores['error'] = $e->getMessage();
+   }
+
+   return $scores;
+}
+
+function getScoreLevelUser(int $level, int $token) : array {
+   try {
+	$request = $this->db->prepare('select * from scores where level = :level and username = (select username from users where token = :token');
+	$request->bindParam(':level', $level);
+	$request->bindParam(':token', $token);
+	$request->execute();
+	$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
+   } catch (PDOException $e) {
+	$scores['error'] = $e->getMessage();
+   }
+
+   return $scores;
 }
 
 }
