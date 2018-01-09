@@ -120,6 +120,21 @@ social > table td {
 	color: white;
 }
 
+body.submit #docs a,
+body.login > form input[type="submit"],
+body.login > form a {
+	border: none;
+	padding: 1%;
+	background-color: #5C92C4;
+	transition: 0.25s;
+}
+
+body.submit #docs a:hover,
+body.login > form input[type="submit"]:hover,
+body.login > form a:hover {
+	background-color: #9BE8E8;
+}
+
 /* login */
 
 body.login > form {
@@ -148,19 +163,6 @@ body.login > form input[type="text"],
 body.login > form input[type="password"] {
 	border: 0.5vh solid #5C92C4;
 	padding: 0.5vh;
-}
-
-body.login > form input[type="submit"],
-body.login > form a {
-	border: none;
-	padding: 1%;
-	background-color: #5C92C4;
-	transition: 0.25s;
-}
-
-body.login > form input[type="submit"]:hover,
-body.login > form a:hover {
-	background-color: #9BE8E8;
 }
 
 div#error {
@@ -491,3 +493,12 @@ body.courses > div.lesson ul, body.courses > div.lesson li {
 
 /* submit */
 
+body.submit > div p {
+	padding: 2%;
+}
+
+body.submit #docs {
+	padding: 2%;
+	text-align: center;
+	line-height: 50px;
+}

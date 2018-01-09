@@ -121,6 +121,8 @@ let game = new function() {
 
 	this.end = function(score) {
 		clearInterval(this.timerId);
-		window.history.go(-1);
+		document.body.addEventListener('click', function() {
+			window.history.go(-1);
+		});
 	}
 }
