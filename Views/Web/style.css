@@ -57,7 +57,7 @@ body > header > p#user img {
 	vertical-align: bottom;
 }
 
-body.profile > div, body.courses > div {
+body.profile > div, body.courses > div, body.submit > div {
 	margin-top: 15vh;
 	margin-left: 19.5vw;
 	margin-right: 19.5vw;
@@ -66,6 +66,11 @@ body.profile > div, body.courses > div {
 	border: 0.5vw solid #5C92C4;
 	padding-top: 1%;
 	padding-bottom: 1%;
+}
+
+body.profile > div > h1, body.submit > div h1 {
+	text-align: center;
+	background-color: #5C92C4;
 }
 
 figure.game {
@@ -173,11 +178,6 @@ div#error {
 }
 
 /* profile */
-
-body.profile > div > h1 {
-	text-align: center;
-	background-color: #5C92C4;
-}
 
 body.profile > div > div {
 	display: flex;
@@ -488,3 +488,6 @@ body.courses > div.lesson ul, body.courses > div.lesson li {
 	margin: 0 1pt 0 1pt;
 	border-radius: 1vmin;
 }
+
+/* submit */
+

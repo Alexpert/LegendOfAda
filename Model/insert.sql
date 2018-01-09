@@ -37,8 +37,8 @@ insert into games (name, description, about) values
 	('QCM Equations', 'Bah c''est dans le titre', 3),
 	('QCM Identités Remarquables', 'Bah c''est dans le titre', 2),
 	('QCM Addition et Soustraction en écriture fractionnaire', 1),
-	('QCM Equation du premier degrée a une inconnue', 1),
-	('QCM Critere de divisibilité', 1),
+	('QCM Equation du premier degrée à une inconnue', 1),
+	('QCM Critère de divisibilité', 1),
 	('QCM Quotient égaux', 1),
 	('QCM Développer un produit', 1),
 	('QCM Factoriser une somme', 1);
