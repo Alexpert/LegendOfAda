@@ -59,10 +59,10 @@ var defaultButtonTextColor = "blue";
 
 questions[0] = "Que représente une distance de 5cm en mètres quand le coefficient de proportionnalité est de 12/4 ?";
 answers[0] = [];
-answers[0][0] = "5cm";
-answers[0][1] = "12cm";
+answers[0][0] = "5m";
+answers[0][1] = "12m";
 answers[0][2] = "3 Mekayaks";
-answers[0][3] = "15cm";
+answers[0][3] = "15m";
 
 questions[1] = "Quel est le coefficient de proportionnalité quand la distance sur une carte est de 2cm et la distance réelle de 70m ?";
 answers[1] = [];
@@ -78,24 +78,19 @@ answers[2][1] = "12";
 answers[2][2] = "7";
 answers[2][3] = "10";
 
-questions[3] = "Que représente une distance de 5cm en mètres quand le coefficient de proportionnalité est de 12/4 ?";
+questions[3] = "Que représente une distance de 10cm en mètres quand le coefficient de proportionnalité est de 7/14 ?";
 answers[3] = [];
-answers[3][0] = "123456789";
-answers[3][1] = "1234567891";
-answers[3][2] = "Triangle rectangle";
-answers[3][3] = "123456789123456789123456789123456789";
+answers[3][0] = "5m";
+answers[3][1] = "12m";
+answers[3][2] = "7m";
+answers[3][3] = "42m";
 
-questions[4] = "12345678901234567890123456789";
+questions[4] = "Quel est le coefficient de proportionnalité quand la distance sur une carte est de 12cm et la distance réelle de 48m ?";
 answers[4] = [];
-answers[4][0] = "123456789";
-answers[4][1] = "1234567891";
-answers[4][2] = "Triangle rectangle";
-answers[4][3] = "123456789123456789123456789123456789";
-backgrounds[4] = "assets/kurtzgesagt-blueMarble.png"
-textColor[4] = "white";
-buttonSprite[4] = "assets/button.png";
-buttonTextColor[4] = "red";
-
+answers[4][0] = "12";
+answers[4][1] = "4";
+answers[4][2] = "35";
+answers[4][3] = "12/4";
 
 questions[5] = "12345678901234567890123456789";
 answers[5] = [];
