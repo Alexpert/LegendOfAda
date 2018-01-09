@@ -325,6 +325,7 @@ body.adventure > #dialog > h2 {
 body.adventure > #dialog > p {
 	padding-left: 2vw;
 	color: white;
+	width: 50vw;
 }
 
 body.adventure > #avatar {
