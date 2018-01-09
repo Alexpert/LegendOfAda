@@ -52,7 +52,7 @@ var buttonTextColor = [];
 // Modifiez à partir d'ici pour ajouter et modifier les questions du QCM
 ////////////////////////////////////////////////////////////////////////////////
 
-var defaultBackground = "assets/wallpaperAlexGrey.jpg"
+var defaultBackground = "assets/wallpaperAlexGrey.jpg";
 var defaultTextColor = "red";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "blue";
