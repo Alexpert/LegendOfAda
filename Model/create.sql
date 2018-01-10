@@ -141,4 +141,4 @@ WHERE timeout >= now();
 
 CREATE RULE connection as on INSERT
 TO CONNECTEDUSERS WHERE token is null
-DO INSTEAD UPDATE Users set timeout = now() + interval 30 seconds where username = new.username and password = new.password;
+DO INSTEAD UPDATE Users set timeout = ADDTIME(now(), "30") where username = new.username and password = new.password;
