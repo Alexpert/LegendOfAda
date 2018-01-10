@@ -26,8 +26,7 @@ insert into lessons (name, theme) values
 	('Les transformations du plan - Homothéties', 4),
 	('Théorème de Thalès', 4),
 	('Trigonométrie', 4),
-	('Algorithmique', 5),
-	('Programmation', 5);
+	('Algorithmique', 5);
 
 insert into games (name, description, about) values
 	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent.', 1),
