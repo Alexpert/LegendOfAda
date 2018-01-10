@@ -7,5 +7,77 @@
         <dfn>Boule</dfn>
         Une Boule de centre O et de rayon r est l'ensemble des points M tels que OM <= r.
       </p>
-
+      On peut représenter un sphère en perspective. Pour représenter un point qui appartient à la sphère, comme le point D par exemple, on place sur un cercle de centre O et de même rayon que la sphère. On appelle les cercles de centre O et de rayon r des grands cercles de la sphère. Dans cette sphère: OA = OB = OC = OD
+      <p class="property">
+        <ul>
+          <li>Une Sphère de rayon r a pout aire 4πr²</li>
+          <li>Une Boule a pour volume (4/3)πr³</li>
+        </ul>
+      </p>
+    </p>
+  <h2>Repérage dans l'Espace</h2>
+    <h3>A - Repérages dans un parallépipède Rectangle</h3>
+      <p>
+        On peut se repérer dans un parallélépipède rectangle en prenant l'un des sommets comme origine et en notant l'<b>abscisse</b> et l'<b>ordonnée</b> sur la base du pavé droit et l'<b>altitude</b> sur e troisième côté.
+      </p>
+    <h3>B - Repérage sur une sphère</h3>
+      <p>
+        Dans ce pavé droit, le point C est repéré à l'aide de grands cercles.<br>
+        Sur notre planète que l'on assimile à une sphère, ces grands cercles, ces grands cercles sont des méridiens et le premier d'entre eux est le méridien de Greenwich.
+        <p class="definition">
+          <dfn>Latitude</dfn>
+            Exprime la position Nord-Sud par rapport à l'équateur.
+          <dfn>Longitude</dfn>
+            Exprime la position Est-Ouest par rapport au meridien de Greenwich.
+        </p>
+      </p>
+<h2>Sections planes de Solides</h2>
+  <h3>A - Sections de différents solides</h3>
+    <p>
+        <p class="definition">
+          <dfn>Section</dfn>
+          On apelle section d'un solide par un plan l'intersection de ce solide par ce plan.
+        </p>
+      <ul>
+        <li>Cube et Parallélipipède Rectangle</li>
+          <p class="property">
+            <ul>
+              <li>La section d'un cube par un plan parallèle à l'un de ses faces est un carré de me dimension que cette face.</li>
+              <li>La section d'un parallèlipipède rectangle par un plan parallèle à l'un de ses faces est un rectangle identique à cette face.</li>
+            </ul>
+          </p>
+        <li>Cylindre</li>
+          <p class="property">
+            La section d'un cylindre de révolution par un plan parallèle à sa base est un disque identique au disque de base.
+          </p>
+          <p class="property">
+            La section d'un cylindre de révolution par un plan perpendiculaire à sa base est un rectangle.
+          </p>
+        <li>Cône et Pyramide</li>
+          <p class="property">
+            La section d'un cône de révolution par un plan parallèle à sa base est un disque (qui est une réductioin de sa base).
+          </p>
+          <p class="property">
+            La section d'une pyramide par un plan parallèle à sa base est un polygone (qui est une réductioin de sa base).
+          </p>
+        <li>Sphère</li>
+          <p class="property">
+            La section d'une sphère par un plan est un cercle.
+          </p>
+      </ul>
+    </p>
+  <h3>B - Agrandissement et Reductions</h3>
+    <p>
+      <p class="definition">
+        <ul>
+          <li>Réduire les dimensions d'une figure ou d'un solide, c'est multiplier ses dimensions par un nombre compris entre 0 et 1.</li>
+          <li>Augmenter les dimensions d'un figure ou d'un solide, c'est multiplier ses dimensions par un nombre par un nombre supérieur à 1.</li>
+        </ul>
+      </p>
+      <p class="property">
+        Quand on multiplie les dimensions d'une figure ou d'un solide par un nombre k, son aire est multipliée par k².
+      </p>
+      <p class="property">
+        Quand on multiplie les dimensions d'un solide par un nombre k, son volume est multiplié par k³.
+      </p>
     </p>

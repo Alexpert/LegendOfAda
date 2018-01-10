@@ -1,10 +1,10 @@
 <h1>Les Transformations du plan - Homothéties</h1>
-  <h2>1 - Tranformer un point ou une figure par symétries, translation, rotation </h2>
+  <h2>1 - Transformer un point ou une figure par symétries, translation, rotation </h2>
     <h3> A - Symétrie axiale</h3>
       <p>
         <p class="definition">
           <dfn>Symétrie Axiale</dfn>
-          Tranformer une figure par symétrie axiale, c'est créer l'image de cette figure par rapport à un axe.
+          Transformer une figure par symétrie axiale, c'est créer l'image de cette figure par rapport à un axe.
         </p>
         <b>Action</b> <br/>
         Les deux figures symétriques doivent se superposer parfaitement après le pliage le long de l'axe de symétrie.
@@ -20,7 +20,7 @@
       <p>
         <p class="definition">
           <dfn>Symétrie Centrale</dfn>
-          Tranformer une figure par symétrie centrale, c'est créer l'image de cette figure par rapport à un centre de symétrie.
+          Transformer une figure par symétrie centrale, c'est créer l'image de cette figure par rapport à un centre de symétrie.
         </p>
         <b>Action</b> <br/>
         Une symétrie centrale fait tourner une figure de 180° autour du centre de symétrie.
@@ -36,7 +36,7 @@
       <p>
         <p class="definition">
           <dfn>Translation</dfn>
-          Tranformer une figure par translation, c'est créer l'image de cette figure par rapport à deux points donnés.
+          Transformer une figure par translation, c'est créer l'image de cette figure par rapport à deux points donnés.
         </p>
         <b>Action</b> <br/>
         Une translation fait glisser une forme dans une direction, un sens et une longueur donnés.
@@ -68,7 +68,7 @@
     <p>
       <p class="definition">
         <dfn>Homothétie</dfn>
-        Tranformer une figure par homothétie, c'est créer l'image de cette figure par rapport à un centre O et un rapport k.
+        Transformer une figure par homothétie, c'est créer l'image de cette figure par rapport à un centre O et un rapport k.
       </p>
       Exemple : <br/>
       <img src="http://api.legendofada.eu/courses/4/images/Transfo 5.JPG" />
