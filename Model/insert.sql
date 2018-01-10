@@ -30,12 +30,12 @@ insert into lessons (name, theme) values
 	('Programmation', 5);
 
 insert into games (name, description, about) values
-	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent', 1),
-	('Réductions de Mékafractions', 'Choisissez le bon diviseur', 1),
-	('Division de Mekayaks', 'Choisissez le bon mékayak', 1),
-	('QCM Inéquations', 'Bah c''est dans le titre', 3),
-	('QCM Equations', 'Bah c''est dans le titre', 3),
-	('QCM Identités Remarquables', 'Bah c''est dans le titre', 2),
+	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent.', 1),
+	('Réductions de Mékafractions', 'Choisissez les diviseurs communs des deux mekayak français.', 1),
+	('Division de Mekayaks', 'Choisissez les diviseurs du mekayak français.', 1),
+	('QCM Inéquations', 'Donner le résultat des inéquations pour assembler le Demekanisateur.', 3),
+	('QCM Equations', 'Donner le résultat des équations pour ouvrir la porte des égouts', 3),
+	('QCM Identités Remarquables', 'Battez François Viète en répondant aux questions', 2),
 	('QCM Addition et Soustraction en écriture fractionnaire', 1),
 	('QCM Equation du premier degrée à une inconnue', 1),
 	('QCM Critère de divisibilité', 1),
