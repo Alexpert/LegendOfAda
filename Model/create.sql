@@ -134,3 +134,8 @@ CREATE TABLE FAVORITES
 	PRIMARY KEY (username, game)
 );
 
+CREATE VIEW CONNECTEDUSERS AS 
+SELECT *
+FROM Users
+WHERE timeout < now();
+
