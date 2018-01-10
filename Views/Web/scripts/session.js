@@ -34,6 +34,12 @@ function wake() {
 		link.setAttribute('href', 'profile.html');
 		text = session.username + '  ';
 		avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/' + session.avatar + '.png');
+
+		let socials = document.getElementsByTagName('social');
+
+		for(var i = 0; i < socials.length; i++) {
+			socials[i].style.visibility = 'visible';
+		}
 	}
 
 	link.appendChild(document.createTextNode(text));
