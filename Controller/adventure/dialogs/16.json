@@ -1,18 +1,14 @@
 [
   {
-    "name":"Mafyak",
-    "text":"Vous voulez bien nous aider à sauver Rome des zombies mécaniques ?"
+    "name":"Ada Lovelace",
+    "text":"Ces thermes étaient intéressantes... Malheureusement, il n'y avait pas d'armes secrètes. <br/> Je ne songeais pas au fait que les mekayaks zombies italiens soient autant aimant des thermes."
   },
   {
-    "name":Ada Lovelace",
-    "text":"Fort bien ! Nous nous sommes hâter en Italie pour sauver Maria Gaëtana Agnési et cela passe par vous tendre la main."
+    "name":Mafyak",
+    "text":"Je ne pensais pas qu'ils pouvaient apprécier la chaleur des eaux thermales ! Qu'est-ce qu'on fait du coup ?"
   },
   {
-    "name":"Mafyak",
-    "text":"Nous savons que beaucoup de mekayaks zombies se retrouvent dans les thermes de Caracalla."
-  },
-  {
-    "name":Ada Lovelace",
-    "text":"Peut-être qu'une arme secrète s'y trouve.<br/> Nous devons nous y infiltrer sans plus attendre."
+    "name":"Ada Lovelace",
+    "text":"Nous pourrions aller visiter le cirque Flaminius. Il était très populaire dans la Rome antique.<br/> Nous aurons sûrement plus de chance de trouver des informations comprommettantes sur les mekayaks zombies."
   }
 ]

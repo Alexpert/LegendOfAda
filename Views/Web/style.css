@@ -499,6 +499,13 @@ body.courses > div.lesson h2, body.courses > div.lesson h3 {
 	background-color: #5C92C4;
 }
 
+body.courses > div.lesson table {
+	text-align: center;
+	width: 80%;
+	border: 1vmin solid #5C92C4;
+	margin: 2% 10% 2% 10%;
+}
+
 body.courses > div.lesson > p.definition, body.courses > div.lesson > p.property {
 	margin: 1vmin;
 	padding: 1vmin;
