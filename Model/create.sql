@@ -134,7 +134,3 @@ CREATE TABLE FAVORITES
 	PRIMARY KEY (username, game)
 );
 
-/* Triggers et rules nécessaires */
-CREATE RULE rLoginTimeOut AS ON SELECT
-TO users where timeout >= now()
-DO ALSO UPDATE Users set token = null where username = old.username;
