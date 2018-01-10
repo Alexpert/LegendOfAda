@@ -12,7 +12,7 @@ CREATE TABLE USERS
 	password VARCHAR(32) NOT NULL, -- md5 sum always 32 hex chars
 
 	token INTEGER UNIQUE,
-	timeout TIMESTAMP,
+	timeout TIMESTAMP NOT NULL DEFAULT now(),
 	avatar INTEGER NOT NULL DEFAULT 1,
 
 	FOREIGN KEY(avatar) REFERENCES ACHIEVEMENTS(id)
@@ -134,11 +134,17 @@ CREATE TABLE FAVORITES
 	PRIMARY KEY (username, game)
 );
 
-CREATE VIEW CONNECTEDUSERS AS 
+-- Ci dessous, vues, règles et autres
+
+CREATE VIEW CONNECTED AS 
 SELECT *
-FROM Users
+FROM USERS
 WHERE timeout >= now();
 
-CREATE RULE connection as on INSERT
-TO CONNECTEDUSERS WHERE token is null
-DO INSTEAD UPDATE Users set timeout = now() + interval '30 seconds', token = floor(random()*2147483647) where username = new.username and password = new.password;
+CREATE RULE CONNECTION as on INSERT
+TO CONNECTED DO INSTEAD UPDATE USERS
+set timeout = now() + interval '45 seconds', token = floor(random()*2147483647)
+where username = new.username
+and password = new.password
+and timeout < now();
+

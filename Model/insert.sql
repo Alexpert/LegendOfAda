@@ -1,3 +1,7 @@
+
+insert into users(username, password) values
+	('Sandrine', 'Seychelle');
+
 insert into worlds values
 	('Mongolie'),
 	('France'),
