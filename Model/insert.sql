@@ -36,12 +36,12 @@ insert into games (name, description, about) values
 	('QCM Inéquations', 'Donner le résultat des inéquations pour assembler le Demekanisateur.', 3),
 	('QCM Equations', 'Donner le résultat des équations pour ouvrir la porte des égouts', 3),
 	('QCM Identités Remarquables', 'Battez François Viète en répondant aux questions', 2),
-	('QCM Addition et Soustraction en écriture fractionnaire', 1),
-	('QCM Equation du premier degrée à une inconnue', 1),
-	('QCM Critère de divisibilité', 1),
-	('QCM Quotient égaux', 1),
-	('QCM Développer un produit', 1),
-	('QCM Factoriser une somme', 1);
+	('QCM Addition et Soustraction en écriture fractionnaire','Donner le résultat des calculs fractionnels', 1),
+	('QCM Equation du premier degrée à une inconnue','', 1),
+	('QCM Critère de divisibilité','', 1),
+	('QCM Quotient égaux','', 1),
+	('QCM Développer un produit','', 1),
+	('QCM Factoriser une somme','', 1);
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
