@@ -41,8 +41,14 @@ insert into games (name, description, about) values
 	('QCM Critère de divisibilité','', 1),
 	('QCM Quotient égaux','', 1),
 	('QCM Développer un produit','', 1),
+<<<<<<< HEAD
 	('QCM Factoriser une somme','', 1),
 	('QCM pas fini','', 1);
+=======
+	('QCM Factoriser une somme','', 1);
+	--13ème QCM
+	('QCM Proportionnalité', 'QCM sur la proportionnalité', 6);
+>>>>>>> 0d1b09070308845dbf61d9625098722e4252ff75
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
