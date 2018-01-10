@@ -1,34 +1,18 @@
 [
   {
-    "name":"Ada Lovelace",
-    "text":"Nous voici en Italie ! <br/> Maria Gaëtana Agnesi s'est faite elle aussi mécaniser."
+    "name":"Mafyak",
+    "text":"Vous voulez bien nous aider à sauver Rome des zombies mécaniques ?"
   },
   {
     "name":Ada Lovelace",
-    "text":"Cette sorcière a réussi à ramener à la vie des yaks pour ensuite les transformer en mekayak zombie italien! <br/> Nous devons être très prudent dans Rome pour découvrir comment l'arrêter."
+    "text":"Fort bien ! Nous nous sommes hâter en Italie pour sauver Maria Gaëtana Agnési et cela passe par vous tendre la main."
   },
   {
     "name":"Mafyak",
-    "text":"Halte-là ! Qu'est-ce que vous faites ici ?"
+    "text":"Nous savons que beaucoup de mekayaks zombies se retrouvent dans les thermes de Caracalla."
   },
   {
-    "name":"Ada Lovelace",
-    "text":"Que nous voulez-vous, vile créature mécanique ?"
-  },
-  {
-    "name":"Mafyak",
-    "text":"Oh pas d'insulte là ! <br/> Je veux bien être une vile créature mais mécanique faut pas déconner non plus !"
-  },
-  {
-    "name":"Ada Lovelace",
-    "text":"Je vous prie d'accepter mes plus plates excuses. Je me suis fourvoyée sur vos intentions et votre nature."
-  },
-  {
-    "name":"Ada Lovelace",
-    "text":"Nous sommes actuellement à la recherche de Maria Gaëtana Agnesi pour la sauver de l'emprise de MekAristote."
-  },
-  {
-    "name":"Mafyak",
-    "text":"Vraiment ? Je ne sais pas si je peux vous faire confiance...<br/> Résolvez ce problème et je pense que je pourrais au moins vous faire passer."
+    "name":Ada Lovelace",
+    "text":"Peut-être qu'une arme secrète s'y trouve.<br/> Nous devons nous y infiltrer sans plus attendre."
   }
 ]
