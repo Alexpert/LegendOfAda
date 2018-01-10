@@ -137,5 +137,8 @@ CREATE TABLE FAVORITES
 CREATE VIEW CONNECTEDUSERS AS 
 SELECT *
 FROM Users
-WHERE timeout < now();
+WHERE timeout >= now();
 
+CREATE RULE connection as on INSERT
+TO CONNECTEDUSERS WHERE token is null
+DO INSTEAD UPDATE Users set timeout = now() + interval 30 seconds where username = new.username;
