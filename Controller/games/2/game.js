@@ -130,12 +130,6 @@ function endScreen() {
   game.draw(score.obj);
 
   game.setFontSize(0.04);
-  game.fill("red");
-  for (i = 0; i < mekasSecondaireObj.length; i++) {
-    mekasSecondaireObj[i].obj.x = (i + 1) / (mekasSecondaireObj.length + 1) - mekasSecondaireObj[i].obj.width/2;
-    game.draw(mekasSecondaireObj[i].obj);
-  }
-  game.end(score.obj.text);
 }
 
 function setup() {
@@ -156,6 +150,7 @@ function update() {
     drawAll();
   } else {
     endScreen();
+    game.end(score.obj.text);
   }
 
 }
