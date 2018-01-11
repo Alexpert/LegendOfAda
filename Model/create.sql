@@ -215,7 +215,7 @@ BEGIN
 	ENDIF;
 END;$$ language 'plpgsql';
 
-CREATE TRIGGER tSaveTheWorld() RETURNS trigger
+CREATE TRIGGER tSaveTheWorld RETURNS trigger
 FOR EACH ROW
 EXECUTE PROCEDURE saveTheWorld();
 
@@ -225,7 +225,7 @@ BEGIN
 	IF ((select count(*) from scores where username = new.username and value > 0) = 0)
 	THEN
 		INSERT INTO ACHIEVED VALUES (new.username, 11);
-	ENDIF;
+	END IF;
 	RETURN NEW;
 END;$$ language'plpgsql';
 
@@ -237,7 +237,7 @@ EXECUTE PROCEDURE apprentiMath();
 -- Fin ACHIEVEMENTS
 
 
-CREATE FUNCTION delUser() RETURN trigger
+CREATE FUNCTION delUser() RETURNS trigger
 AS $$ declare username VARCHAR(32) ; 
 BEGIN
 	SELECT users.username INTO username
@@ -253,7 +253,7 @@ BEGIN
 		RETURN old;
 	else
 		RAISE EXCEPTION 'User invalide pour la suppression';
-	endif;
+	end if;
 END ; $$ language ’plpgsql’;
 
 CREATE TRIGGER deleteUser BEFORE DELETE ON USERS 
@@ -276,7 +276,7 @@ AS $$
 BEGIN
 	IF (old.username = (select leader from guilds where name = old.name)) then
 		PERFORM DELETE FROM GUILDS WHERE guild = old.name;
-	ENDIF;
+	END IF;
 	RETURN old;
 END; $$ language 'plpgsql';
 
