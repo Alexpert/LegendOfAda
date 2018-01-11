@@ -1,3 +1,7 @@
+DROP FUNCTION achieves(tok integer, achievement integer);
+DROP FUNCTION delUser(tok integer);
+
+DROP TRIGGER deleteUser ON USERS;
 DROP RULE CONNECTION ON CONNECTED;
 
 DROP VIEW CONNECTED;
