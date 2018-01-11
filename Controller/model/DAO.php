@@ -269,7 +269,7 @@ function leaveGuild(int $token, string $name) : bool {
 // Gestion Score
 function addScoreSolo(int $token, int $value, int $game) : bool {
 	try {
-		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, null, null from users where token = :token');
+		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, null, null from connected where token = :token');
 		$request->bindParam(':value', $value, PDO::PARAM_INT);
 		$request->bindParam(':game', $game, PDO::PARAM_INT);
 		$request->bindParam(':level', $level, PDO::PARAM_INT);
@@ -283,7 +283,7 @@ function addScoreSolo(int $token, int $value, int $game) : bool {
 	
 function addScoreSoloLevel(int $token, int $value, int $game, int $level) : bool {
 	try {
-		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, :level, null from users where token = :token');
+		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, :level, null from connected where token = :token');
 		$request->bindParam(':value', $value, PDO::PARAM_INT);
 		$request->bindParam(':game', $game, PDO::PARAM_INT);
 		$request->bindParam(':level', $level, PDO::PARAM_INT);
@@ -296,7 +296,7 @@ function addScoreSoloLevel(int $token, int $value, int $game, int $level) : bool
 	
 function addScoreGuild(int $token, int $value, int $game, int $level, string $guild) : bool {
 	try {
-		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, :level, :guild from users where token = :token');
+		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, :level, :guild from connected where token = :token');
 		$request->bindParam(':value', $value, PDO::PARAM_INT);
 		$request->bindParam(':game', $game, PDO::PARAM_INT);
 		$request->bindParam(':level', $level, PDO::PARAM_INT);

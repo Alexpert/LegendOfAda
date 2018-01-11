@@ -359,6 +359,7 @@ BEGIN
 	THEN
 		INSERT INTO ACHIEVED VALUES (new.username, 10);
 	END IF;
+	RETURN NEW;
 END;$$ language 'plpgsql';
 
 CREATE TRIGGER tSaveTheWorld BEFORE INSERT ON SCORES
