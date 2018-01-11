@@ -142,9 +142,9 @@ function QuestionObj(content) {
   this.objContent = new GameObject();
   this.objContent.text = content;
 
-  this.obj.x = 0;
+  this.obj.x = 0.05;
   this.obj.y = 2.5/8;
-  this.obj.width = 1;
+  this.obj.width = 0.9;
   this.obj.height = 1 / 8;
 
   this.objContent.x = 1/20;
@@ -152,6 +152,7 @@ function QuestionObj(content) {
   this.objContent.width = 0.9;
   this.objContent.height = 1 / 8;
 
+ this.obj.image = game.createImage('assets/white_bg.png');
 }
 
 function ButtonObj(content, id, correct) {
@@ -214,6 +215,7 @@ function shuffle() {
 }
 
 function endScreen() {
+  game.fill('white');
   game.clearAll();
 
   var message = new GameObject();
@@ -234,6 +236,7 @@ function endScreen() {
 }
 
 function drawAll() {
+  game.setFontSize(0.08);
   game.fill(textColor[numQ]);
   game.draw(score.obj);
   game.draw(questionObj.obj);
