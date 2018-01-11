@@ -88,7 +88,7 @@ answers[9][2] = "- 28/15";
 answers[9][3] = "- 47/15";
 
 questions[10] = "Quel est le résultat de l'opération suivante: 6/7 - 3/4";
-answers1[0] = [];
+answers[10] = [];
 answers[10][0] = "3/28";
 answers[10][1] = "3/3";
 answers[10][2] = "- 18/28";
