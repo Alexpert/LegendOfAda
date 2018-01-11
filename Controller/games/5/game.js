@@ -139,11 +139,19 @@ for (i = 0; i < questions.length; i++) {
 
 function QuestionObj(content) {
   this.obj = new GameObject();
-  this.obj.text = content;
+  this.objContent = new GameObject();
+  this.objContent.text = content;
+
   this.obj.x = 0;
   this.obj.y = 2.5/8;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
+
+  this.objContent.x = 1/20;
+  this.objContent.y = 2.5/8;
+  this.objContent.width = 0.9;
+  this.objContent.height = 1 / 8;
+
 }
 
 function ButtonObj(content, id, correct) {
@@ -228,6 +236,7 @@ function drawAll() {
   game.fill(textColor[numQ]);
   game.draw(score.obj);
   game.draw(questionObj.obj);
+  game.draw(questionObj.objContent);
   game.fill(buttonTextColor[numQ]);
   for (i = 0; i < 4; i++) {
     game.draw(buttonObj[i].obj);
