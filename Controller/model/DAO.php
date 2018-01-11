@@ -69,37 +69,9 @@ function achieved($token) : array {
     return $achievements;
 }
 
-function addUser(string $username, string $pw) : array {
-    try {
-	$request = $this->db->prepare('insert into USERS values (:username, :pw)');
-	$request->bindParam(':username', $username, PDO::PARAM_STR);
-	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
-	$request->execute();
-	$user = getUser($username, $pw);
-    } catch (PDOException $e) {
-	$users['error'] = $e->getMessage();
-    }
-
-    return $user;
-}
-
-function getUser(string $username, string $pw) : array {
-    try {
-	$request = $this->db->prepare('select * from users where username = :username and password = :pw');
-	$request->bindParam(':username', $username, PDO::PARAM_STR);
-	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
-	$request->execute();
-	$user = $request->fetchAll(PDO::FETCH_CLASS, 'User');
-    } catch (PDOException $e) {
-	$user['error'] = $e->getMessage();
-    }
-
-    return $user;
-}
-
 function deleteUser(int $token) : bool {
    try {
-	$request = $this->db->prepare('delete from users where token = :token');
+	$request = $this->db->prepare('delete from users where token = :token and timeout > now()');
 	$request->bindParam(':token', $token, PDO::PARAM_INT);
 	return $request->execute();
    } catch (PDOException $e) {
@@ -215,7 +187,7 @@ function getScoreGame(int $game) : array {
 
 function getScoreGameUser(int $game, int $token) : array {
    try {
-	$request = $this->db->prepare('select * from scores where game = :game and username = (select username from users where token = :token');
+	$request = $this->db->prepare('select * from scores where game = :game and username = (select username from connected where token = :token limit 1)');
 	$request->bindParam(':game', $game);
 	$request->bindParam(':token', $token);
 	$request->execute();
