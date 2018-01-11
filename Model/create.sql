@@ -154,6 +154,21 @@ DO ALSO INSERT INTO BELONGS VALUES (new.leader, new.name);
 
 -- ACHIEVEMENTS
 
+CREATE FUNCTION debut() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 1) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 1);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tDebut BEFORE INSERT ON USERS
+FOR EACH ROW
+EXECUTE PROCEDURE debut();
+
+
 CREATE FUNCTION chiefGuild() RETURNS trigger
 AS $$
 BEGIN
