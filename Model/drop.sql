@@ -7,6 +7,7 @@ DROP FUNCTION delGuild();
 DROP FUNCTION chiefLeave();
 
 -- Achievements
+DROP TRIGGER tDebut ON USERS;
 DROP TRIGGER tChiefGuild ON GUILDS;
 DROP TRIGGER tSaveTheWorld ON SCORES;
 DROP TRIGGER tApprentiMath ON SCORES;
@@ -22,6 +23,8 @@ DROP TRIGGER tMafia ON SCORES;
 DROP TRIGGER tManifProlo ON SCORES;
 DROP TRIGGER tLoveIsReal ON FAVORITES;
 DROP TRIGGER tPhilantrope ON BELONGS;
+
+DROP FUNCTION debut();
 DROP FUNCTION chiefGuild();
 DROP FUNCTION saveTheWorld();
 DROP FUNCTION apprentiMath();
