@@ -1,7 +1,7 @@
 var mekasSecondaireObj = [];
 var mekaYakObj;
 var buttonsObj = [];
-var scoreObj;
+var score;
 var fin = false;
 var primeNumbers = [2, 3, 5, 7, 11];
 
@@ -78,7 +78,7 @@ function drawAll() {
   game.fill("black");
 
   game.setFontSize(0.1);
-  game.draw(scoreObj.obj);
+  game.draw(score.obj);
 
   game.setFontSize(0.07);
   for (i = 0; i < buttonsObj.length; i++) {
@@ -101,11 +101,11 @@ function endScreen() {
   message.text = "Résultat";
   game.draw(message);
 
-  scoreObj.obj.x = 1 / 3;
-  scoreObj.obj.y = 2 / 5;
-  scoreObj.obj.width = 1 / 3;
-  scoreObj.obj.height = 1 / 4;
-  game.draw(scoreObj.obj);
+  score.obj.x = 1 / 3;
+  score.obj.y = 2 / 5;
+  score.obj.width = 1 / 3;
+  score.obj.height = 1 / 4;
+  game.draw(score.obj);
 
   game.setFontSize(0.04);
   game.fill("red");
@@ -119,7 +119,7 @@ function endScreen() {
 function setup() {
   game.setBackground("./assets/backgroundParis.jpg");
   mekaYakObj = new MekaYak(initValue(), 4);
-  scoreObj = new Score();
+  score = new Score();
 
   buttonsObj.push(new Button(0.01,  2));
   buttonsObj.push(new Button(0.21,  3));
@@ -134,6 +134,7 @@ function update() {
     drawAll();
   } else {
     endScreen();
+    game.end(score.obj.text);
   }
 }
 
@@ -145,10 +146,10 @@ function clicked(x, y) {
       if (buttonsObj[i].obj.contains(x, y)) {
         if (mekaYakObj.obj.text % buttonsObj[i].obj.text == 0) {
           mekaYakObj.divide(buttonsObj[i].obj.text);
-          scoreObj.increment();
+          score.increment();
           fin = mekaYakObj.obj.text == 1;
         } else {
-          scoreObj.decrement();
+          score.decrement();
         }
       }
     }
