@@ -199,8 +199,7 @@ function deleteFriendship(int $token, string $friend) : bool {
     
 function acceptFriendship(int $token, string $friend) : bool {
     try {
-        $request = $this->db->prepare('update friends set accepted = TRUE where (user1 = (select username from connected where token = :token) and user2 = :friend)
-                                                                    or (user2 = (select username from connected where token = :token) and user1 = :friend)');
+        $request = $this->db->prepare('update friends set accepted = TRUE where (user1 = (select username from connected where token = :token) and user2 = :friend)');
         $request->bindParam(':friend', $friend, PDO::PARAM_STR);
         $request->bindParam(':token', $token, PDO::PARAM_INT);
         return $request->execute();
