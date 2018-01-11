@@ -16,13 +16,13 @@ if(isset($_GET['token'])
 	if(isset($_GET['name'])) {
 		switch($_GET['action']) {
 		case 'add':
-			$data['success'] = true;
+			$data['success'] = $dao->createFriendship($_GET['token'], $_GET['name']);
 			break;
 		case 'accept':
-			$data['success'] = true;
+			$data['success'] = $dao->acceptFriendship($_GET['token'], $_GET['name']);
 			break;
 		case 'remove':
-			$data['success'] = true;
+			$data['success'] = $dao->deleteFriendship($_GET['token'], $_GET['name']);
 			break;
 		default:
 			$data['error'] = 'Action invalide';
@@ -30,7 +30,7 @@ if(isset($_GET['token'])
 		}
 	} else {
 		if($_GET['action'] == 'list') {
-			$data = [ 'pouet', 'sufferring', 'death' ];
+			$data = $dao->listFriendship($_GET['token']);
 		} else {
 			$data['error'] = 'Action invalide';
 		}
