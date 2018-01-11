@@ -5,7 +5,7 @@ function specific() {
 	request.onreadystatechange = function() {
 		if(request.readyState == 4
 			&& request.status == 200) {
-			let response = JSON.parse(request.responseText);
+			let response = parseResponse(request.responseText);
 			let content = document.getElementById('gamelist');
 
 			for(var i = 0; i < response.length; i++) {

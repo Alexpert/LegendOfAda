@@ -20,6 +20,14 @@ function setSession(session) {
 	localStorage.setItem('session', JSON.stringify(session));
 }
 
+function parseResponse(raw) {
+	let response = JSON.parse(raw);
+	if(response.error != undefined) {
+		window.location.assign('login.html');
+	}
+	return response;
+}
+
 function wake() {
 	let session = getSession();
 	var user = document.getElementById('user');

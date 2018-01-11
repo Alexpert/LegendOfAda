@@ -10,21 +10,20 @@ require_once('model/DAO.php');
 if(isset($_POST['username'])
 	and isset($_POST['password'])) {
 	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$password = md5($_POST['password']);
+	$valid = true;
 
 	if(isset($_POST['create'])
 		and $_POST['create'] == 'true') {
-		// Méthode du dao pour créer un utilisateur
-		$data['created'] = 'success';
-	} else {
+		$valid = $dao->createUser($username, $password);
+		if(!$valid) {
+			$data['error'] = 'Impossible de créer l\'utilisateur '.$username;
+		}
+	}
+
+	if($valid) {
 		$data = $dao->login($username, $password);
 	}
-/*
-	$data['username'] = 'Sandrine';
-	$data['avatar'] = 1;
-	$data['token'] = random_int(0, PHP_INT_MAX);
- */
-
 } else {
 	$data['error'] = 'Arguments invalides';
 }

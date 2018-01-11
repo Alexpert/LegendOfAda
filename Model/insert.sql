@@ -1,7 +1,3 @@
-
-insert into users(username, password) values
-	('Sandrine', 'Seychelle');
-
 insert into worlds values
 	('Mongolie'),
 	('France'),
@@ -90,3 +86,10 @@ insert into achievements (name, description) values
 	('Explorateur intrépide', 'Finir un niveau bonus'),
 	('Love is real', 'Mettre un mini-jeu en favori'),
 	('Philantrope', 'Rejoindre une guilde');
+
+insert into users(username, password) values
+	('Sandrine', 'b1e117cbc10fea22803e69cf8226cbca'); -- Mot de passe =  md5(Seychelle)
+
+insert into achieved values
+	('Sandrine', 1);
+

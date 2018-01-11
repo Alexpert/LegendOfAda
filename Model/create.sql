@@ -143,7 +143,7 @@ WHERE timeout >= now();
 
 CREATE RULE CONNECTION as on INSERT
 TO CONNECTED DO INSTEAD UPDATE USERS
-set timeout = now() + interval '45 seconds', token = floor(random()*2147483647)
+set timeout = now() + interval '2 hours', token = floor(random()*2147483647)
 where username = new.username
 and password = new.password
 and timeout < now();

@@ -5,6 +5,4 @@ function specific() {
 	if(session == undefined) {
 		window.location.assign("login.html");
 	}
-
-
 }

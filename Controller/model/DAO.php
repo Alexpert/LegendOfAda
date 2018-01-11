@@ -24,6 +24,13 @@ function __construct() {
     }
 }
 
+function createUser(string $username, string $pw) : bool {
+	$request = $this->db->prepare('insert into users values (:username, :pw)');
+	$request->bindParam(':username', $username, PDO::PARAM_STR);
+	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
+	return $request->execute();
+}
+
 function login(string $username, string $pw) {
     try {
 	$request = $this->db->prepare('insert into connected values (:username, :pw)');
@@ -49,9 +56,10 @@ function login(string $username, string $pw) {
     return $user;
 }
 
-function getAchievements() : array {
+function achieved($token) : array {
     try {
-	$request = $this->db->prepare('select * from achievements');
+	$request = $this->db->prepare('select a.* from achievements a, achieved d where username = (select username from connected where token = :token) and a.id = d.achievement');
+	$request->bindParam(':token', $token, PDO::PARAM_INT);
 	$request->execute();
 	$achievements = $request->fetchAll(PDO::FETCH_CLASS, 'Achievement');
     } catch (PDOException $e) {

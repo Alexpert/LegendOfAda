@@ -71,7 +71,7 @@ function specific() {
 				if(dialogTargetURL == event.target.href) {
 					hideDialog();
 				} else {
-					dialog = JSON.parse(requestDialog.responseText);
+					dialog = parseResponse(requestDialog.responseText);
 					dialogIndex = 0;
 					dialogTargetURL = event.target.href;
 
@@ -88,7 +88,7 @@ function specific() {
 	request.onreadystatechange = function() {
 		if(request.readyState == 4
 			&& request.status == 200) {
-			let response = JSON.parse(request.responseText);
+			let response = parseResponse(request.responseText);
 			let menu = document.getElementsByTagName('menu')[0];
 			let map = document.getElementsByTagName('map')[0];
 

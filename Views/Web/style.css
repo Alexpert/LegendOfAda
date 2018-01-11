@@ -126,6 +126,7 @@ body.submit #docs a,
 body.login > form input[type="submit"],
 body.login > form a {
 	border: none;
+	border-radius: 0;
 	padding: 1%;
 	background-color: #5C92C4;
 	transition: 0.25s;
