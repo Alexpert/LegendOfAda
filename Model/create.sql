@@ -148,3 +148,45 @@ where username = new.username
 and password = new.password
 and timeout < now();
 
+CREATE FUNCTION achieves( tok integer, achievement integer)
+RETURNS integer
+AS $$ declare username VARCHAR(32) ; 
+BEGIN 
+      SELECT username INTO username
+      FROM USERS
+      WHERE token = tok; 
+      INSERT INTO ACHIEVED VALUES (username, achievement);
+END ; $$ language ’plpgsql’;
+
+CREATE FUNCTION delUser( tok integer) RETURN trigger
+AS $$ declare username VARCHAR(32) ; 
+BEGIN
+	SELECT users.username INTO username
+     	FROM USERS
+    	WHERE token = tok AND timeout > now();
+	if (username is not null) then
+		PERFORM DELETE FROM ACHIEVED WHERE achieved.username = username;
+		PERFORM DELETE FROM FRIENDS WHERE user1 = username OR user2 = username;
+		PERFORM DELETE FROM SCORES WHERE scores.username = username;
+		PERFORM DELETE FROM BELONGS WHERE belongs.username = username;
+		PERFORM DELETE FROM FAVORITES WHERE favorites.username = username;
+		PERFORM DELETE FROM GUILDS WHERE leader = username;
+		RETURN old;
+	else
+		RAISE EXCEPTION 'User invalide pour la suppression';
+	endif;
+END ; $$ language ’plpgsql’;
+
+CREATE TRIGGER deleteUser BEFORE DELETE ON USERS 
+FOR EACH ROW EXECUTE PROCEDURE delUser(old.token);
+
+CREATE FUNCTION delGuild(name varchar(32)) RETURN trigger
+AS $$
+BEGIN
+	PERFORM DELETE FROM SCORES WHERE guild = name;
+	PERFORM DELETE FROM BELONGS WHERE guild = name;
+	RETURN old;
+END; $$ language 'plpgsql';
+
+CREATE TRIGGER deleteGuild BEFORE DELETE ON GUILDS
+FOR EACH ROW EXECUTE PROCEDURE delGuild(old.name);
