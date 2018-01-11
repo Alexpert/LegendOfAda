@@ -22,6 +22,7 @@ function setSession(session) {
 
 function parseResponse(raw) {
 	let response = JSON.parse(raw);
+	console.log(response);
 	if(response.error != undefined) {
 		window.location.assign('login.html');
 	}
