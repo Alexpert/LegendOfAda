@@ -7,7 +7,7 @@ DROP FUNCTION delGuild();
 DROP FUNCTION chiefLeave();
 
 -- Achievements
-DROP TRIGGER tChiefGuild ON SCORES;
+DROP TRIGGER tChiefGuild ON GUILDS;
 DROP TRIGGER tSaveTheWorld ON SCORES;
 DROP TRIGGER tApprentiMath ON SCORES;
 DROP TRIGGER tApprentice ON SCORES;
