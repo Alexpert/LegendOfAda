@@ -170,8 +170,8 @@ function createFriendship(int $token, string $friend) : bool {
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		return $request->execute();
 	} catch (PDOException $e) {
+		return false;
 	}
-	return false;
 }
 	
 function deleteFriendship(int $token, string $friend) : bool {
@@ -182,8 +182,8 @@ function deleteFriendship(int $token, string $friend) : bool {
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		return $request->execute();
 	} catch (PDOException $e) {
+		return false;
 	}
-	return false;
 }
 	
 function acceptFriendship(int $token, string $friend) : bool {
