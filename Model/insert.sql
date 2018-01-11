@@ -3,6 +3,7 @@ insert into worlds values
 	('France'),
 	('Italie'),
 	('Inde'),
+	('Angleterre'),
 	('Atlantis'),
 	('Enfer');
 
