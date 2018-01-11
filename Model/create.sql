@@ -212,10 +212,10 @@ BEGIN
 	IF ((select count(*) from scores where username = new.username and value > 0 and level in (7, 13, 19, 25, 31, 36, 41)) > 0)
 	THEN
 		INSERT INTO ACHIEVED VALUES (new.username, 10);
-	ENDIF;
+	END IF;
 END;$$ language 'plpgsql';
 
-CREATE TRIGGER tSaveTheWorld RETURNS trigger
+CREATE TRIGGER tSaveTheWorld AS ON INSERT
 FOR EACH ROW
 EXECUTE PROCEDURE saveTheWorld();
 
