@@ -149,7 +149,6 @@ and password = new.password
 and timeout < now();
 
 CREATE FUNCTION achieves( tok integer, achievement integer)
-RETURNS integer
 AS $$ declare username VARCHAR(32) ; 
 BEGIN 
       SELECT username INTO username
