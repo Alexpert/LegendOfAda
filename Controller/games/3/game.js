@@ -33,7 +33,7 @@ function MekaYak(valeur, size) {
     this.obj.text = this.obj.text / divider;
     this.size--;
 
-    this.obj.width = 0.4 * (4 + mekaYakObj.size)/8;
+    this.obj.width = 0.25 * (4 + mekaYakObj.size)/8;
     this.obj.height = 0.5* (4 + mekaYakObj.size)/8;
     this.obj.x = 0.5 - this.obj.width/2;
     this.obj.y = 0.5 - this.obj.height/2;
