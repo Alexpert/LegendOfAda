@@ -7,6 +7,8 @@ require_once('Game.php');
 require_once('Achievement.php');
 require_once('User.php');
 require_once('Friendship.php');
+require_once('Guild.php');
+
 class DAO {
     private $db;
 // Ouverture de la base de donnée
@@ -199,7 +201,7 @@ function deleteFriendship(int $token, string $friend) : bool {
     
 function acceptFriendship(int $token, string $friend) : bool {
     try {
-        $request = $this->db->prepare('update friends set accepted = TRUE where (user1 = (select username from connected where token = :token) and user2 = :friend)');
+        $request = $this->db->prepare('update friends set accepted = TRUE where (user2 = (select username from connected where token = :token) and user1 = :friend)');
         $request->bindParam(':friend', $friend, PDO::PARAM_STR);
         $request->bindParam(':token', $token, PDO::PARAM_INT);
         return $request->execute();
@@ -227,8 +229,8 @@ function createGuild(int $token, string $name) : bool {
         $request->bindParam(':token', $token, PDO::PARAM_INT);
         return $request->execute();
     } catch (PDOException $e) {
+    	return false;
     }
-    return false;
 }
     
 function deleteGuild(int $token, string $name) : bool {
@@ -244,15 +246,16 @@ function deleteGuild(int $token, string $name) : bool {
     
 function listGuild(int $token) : array {
     try {
-        $request = $this->db->prepare('select g.*, (select count(b.*) from belongs b where b.username = (select username from connected where token = :token) and b.guild = g.name) as belong from guilds g');
+        $request = $this->db->prepare('select g.*, (select count(b.*) from belongs b where b.username = (select username from connected where token = :token) and b.guild = g.name) as belongs from guilds g');
         $request->bindParam(':token', $token, PDO::PARAM_INT);
         $request->execute();
-        $guilds = $request->fetchAll(PDO::FETCH_CLASS, 'Friendship');
+        $guilds = $request->fetchAll(PDO::FETCH_CLASS, 'Guild');
     } catch (PDOException $e) {
         $guilds['error'] = $e->getMessage();
     }
     return $guilds;
 }
+
 function joinGuild(int $token, string $name) : bool {
     try {
         $request = $this->db->prepare('insert into belongs select username, :name from connected where token = :token');
@@ -263,6 +266,7 @@ function joinGuild(int $token, string $name) : bool {
     }
     return false;
 }
+
 function leaveGuild(int $token, string $name) : bool {
     try {
         $request = $this->db->prepare('delete from belongs where guild = :name and username = (select username from connected where token = :token)');

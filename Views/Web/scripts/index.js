@@ -70,8 +70,7 @@ function specific() {
 											&& requestAccept.status == 200) {
 											let responseAccept = parseResponse(requestAccept.responseText);
 											if(responseAccept.success == true) {
-												friendRelation.removeChild(acceptButton);
-												friendRelation.appendChild(document.createTextNode('Ami'));
+												window.location.reload(false);
 											}
 										}
 									}
