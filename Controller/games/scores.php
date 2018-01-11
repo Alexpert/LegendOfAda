@@ -16,19 +16,19 @@ if(isset($_GET['game'])
 	if(isset($_GET['token'])) {
 		if(isset('level')) {
 			if(isset($_GET['guild'])) {
-				$data = $dao->addScoreGuild($_GET['token'],
+				$data['success'] = $dao->addScoreGuild($_GET['token'],
 								$_GET['value'],
 								$_GET['game'],
 								$_GET['level'],
 								$_GET['guild']);
 			} else {
-				$data = $dao->addScoreSoloLevel($_GET['token'],
+				$data['success'] = $dao->addScoreSoloLevel($_GET['token'],
 								$_GET['value'],
 								$_GET['game'],
 								$_GET['level']);
 			}
 		} else {
-			$data = $dao->addScoreSolo($_GET['token'],
+			$data['success'] = $dao->addScoreSolo($_GET['token'],
 							$_GET['value'],
 							$_GET['game']);
 		}

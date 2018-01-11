@@ -126,28 +126,49 @@ let game = new function() {
 			query = window.location.search.substring(1);
     		var queryURL = {};
 		let request = new XMLHttpRequest();
+		let metas = document.getElementsByTagName('meta');
 
 		while(match = search.exec(query)) {
 			queryURL[decode(match[1])] = decode(match[2]);
 		}
 
+		for(var i = 0; i < metas.length; i++) {
+			if(metas[i].name == 'id') {
+				queryURL.game = metas[i].content;
+			}
+		}
+
+		console.log(queryURL);
 		clearInterval(this.timerId);
 
 		if(queryURL.token != undefined) {
+			var reqQuery = 'http://api.legendofada.eu/games/scores.php?game=' + queryURL.game
+				+ '&token=' + queryURL.token
+				+ '&score=' + score;
 			request.onreadystatechange = function() {
-				if(request.readyState == 4
-					&& request.status == 200) {
-					let response = JSON.parse(request.responseText);
-					console.log(response);
+				if(request.readyState == 4) {
+					if(request.status == 200) {
+						let response = JSON.parse(request.responseText);
+						console.log(response);
+					}
+
+					document.body.addEventListener('click', function() {
+						window.history.go(-1);
+					});
 				}
 			}
 
-			request.open('GET', 'http://api.legendofada.eu/games/scores.php?token=' + session.token);
+			if(queryURL.level != undefined) {
+				reqQuery += '&level=' + queryURL.level;
+				if(queryURL.guild != undefined) {
+					reqQuery += '&guild=' + queryURL.guild;
+				}
+			}
+			console.log(reqQuery);
+
+			request.open('GET', reqQuery);
 			request.send();
 		}
 
-		document.body.addEventListener('click', function() {
-			window.history.go(-1);
-		});
 	}
 }

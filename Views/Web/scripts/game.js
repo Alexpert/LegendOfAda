@@ -16,6 +16,18 @@ function specific() {
 				let preview = document.createElement('img');
 				let description = document.createElement('p');
 				let footer = document.getElementById('play');
+				let session = getSession();
+				var reqQuery = '';
+
+				if(session != undefined) {
+					reqQuery += '?token=' + session.token;
+					if(queryURL.level != undefined) {
+						reqQuery += '&level=' + session.level;
+						if(session.guild != undefined) {
+							reqQuery += '&guild=' + session.guild;
+						}
+					}
+				}
 
 				document.title = response.name;
 				course.setAttribute('href', 'lesson.html?theme='
@@ -28,7 +40,7 @@ function specific() {
 					+ response.id + '/preview.png');
 				description.appendChild(document.createTextNode(response.description));
 				footer.addEventListener('click', function() {
-					window.location.assign('http://api.legendofada.eu/games/' + response.id);
+					window.location.assign('http://api.legendofada.eu/games/' + response.id + '/index.html' + reqQuery);
 				});
 			} else {
 				window.location.assign('index.html');

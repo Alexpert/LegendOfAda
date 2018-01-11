@@ -33,36 +33,38 @@ function createUser(string $username, string $pw) : bool {
 
 function login(string $username, string $pw) {
 	try {
-	$request = $this->db->prepare('insert into connected values (:username, :pw)');
-	$request->bindParam(':username', $username, PDO::PARAM_STR);
-	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
-	$request->execute();
-	$request = $this->db->prepare('select * from connected where username = :username and password = :pw');
-	$request->bindParam(':username', $username, PDO::PARAM_STR);
-	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
-	$request->execute();
-	$users = $request->fetchAll(PDO::FETCH_CLASS, 'User');
-	if($users) {
-		$user = $users[0];
-		unset($user->password);
-	} else {
-		$user['error'] = 'Identifiants invalides';
-	}
+		$request = $this->db->prepare('insert into connected values (:username, :pw)');
+		$request->bindParam(':username', $username, PDO::PARAM_STR);
+		$request->bindParam(':pw', $pw, PDO::PARAM_STR);
+		$request->execute();
+		$request = $this->db->prepare('select * from connected where username = :username and password = :pw');
+		$request->bindParam(':username', $username, PDO::PARAM_STR);
+		$request->bindParam(':pw', $pw, PDO::PARAM_STR);
+		$request->execute();
+		$users = $request->fetchAll(PDO::FETCH_CLASS, 'User');
+		if($users) {
+			$user = $users[0];
+			unset($user->password);
+		} else {
+			$user['error'] = 'Identifiants invalides';
+		}
 	} catch (PDOException $e) {
-	$user['error'] = $e->getMessage();
+		$user['error'] = $e->getMessage();
 	}
+
 	return $user;
 }
 
 function achieved($token) : array {
 	try {
-	$request = $this->db->prepare('select a.* from achievements a, achieved d where username = (select username from connected where token = :token) and a.id = d.achievement');
-	$request->bindParam(':token', $token, PDO::PARAM_INT);
-	$request->execute();
-	$achievements = $request->fetchAll(PDO::FETCH_CLASS, 'Achievement');
+		$request = $this->db->prepare('select a.* from achievements a, achieved d where username = (select username from connected where token = :token) and a.id = d.achievement');
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		$request->execute();
+		$achievements = $request->fetchAll(PDO::FETCH_CLASS, 'Achievement');
 	} catch (PDOException $e) {
-	$achievements['error'] = $e->getMessage();
+		$achievements['error'] = $e->getMessage();
 	}
+
 	return $achievements;
 }
 
@@ -98,6 +100,7 @@ function getGames() : array {
 	} catch (PDOException $e) {
 		$games['error'] = $e->getMessage();
 	}
+
 	return $games;
 }
 
@@ -108,8 +111,9 @@ function getThemes() : array {
 		$request->execute();
 		$themes = $request->fetchAll(PDO::FETCH_CLASS, 'Theme');
 	} catch (PDOException $e) {
-	$themes['error'] = $e->getMessage();
+		$themes['error'] = $e->getMessage();
 	}
+
 	return $themes;
 }
 
@@ -122,6 +126,7 @@ function getLessons(int $theme) : array {
 	} catch (PDOException $e) {
 		$lessons['error'] = $e->getMessage();
 	}
+
 	return $lessons;
 }
 	
@@ -132,10 +137,12 @@ function getWorlds() : array {
 		$request->execute();
 		$worlds = $request->fetchAll(PDO::FETCH_CLASS, 'World');
 	} catch (PDOException $e) {
-	$worlds['error'] = $e->getMessage();
+		$worlds['error'] = $e->getMessage();
 	}
+
 	return $worlds;
 }
+
 function getLevelsFromWorld(string $world) : array {
 	try {
 		$request = $this->db->prepare('select * from levels where world = :world');
@@ -145,6 +152,7 @@ function getLevelsFromWorld(string $world) : array {
 	} catch (PDOException $e) {
 		$levels['error'] = $e->getMessage();
 	}
+
 	return $levels;
 }
 	
@@ -158,6 +166,7 @@ function getLevelsFromWorldUser(string $world, int $token) : array {
 	} catch (PDOException $e) {
 		$levels['error'] = $e->getMessage();
 	}
+
 	return $levels;
 }
 	
@@ -171,8 +180,10 @@ function getLevelsFromWorldGuild(string $world, string $guild) : array {
 	} catch (PDOException $e) {
 		$levels['error'] = $e->getMessage();
 	}
+
 	return $levels;
 }
+
 // Gestion ami
 function createFriendship(int $token, string $friend) : bool {
 	try {
@@ -181,8 +192,8 @@ function createFriendship(int $token, string $friend) : bool {
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		return $request->execute();
 	} catch (PDOException $e) {
+		return false;
 	}
-	return false;
 }
 	
 function deleteFriendship(int $token, string $friend) : bool {
@@ -193,8 +204,8 @@ function deleteFriendship(int $token, string $friend) : bool {
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		return $request->execute();
 	} catch (PDOException $e) {
+		return false;
 	}
-	return false;
 }
 	
 function acceptFriendship(int $token, string $friend) : bool {
@@ -204,9 +215,10 @@ function acceptFriendship(int $token, string $friend) : bool {
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		return $request->execute();
 	} catch (PDOException $e) {
+		return false;
 	}
-	return false;
 }
+
 function listFriendship(int $token) : array {
 	try {
 		$request = $this->db->prepare('select * from friends where user1 = (select username from connected where token = :token) or user2 = (select username from connected where token = :token)');
@@ -216,6 +228,7 @@ function listFriendship(int $token) : array {
 	} catch (PDOException $e) {
 		$friendship['error'] = $e->getMessage();
 	}
+
 	return $friendship;
 }
 	
