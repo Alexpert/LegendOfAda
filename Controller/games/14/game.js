@@ -59,10 +59,10 @@ var defaultButtonTextColor = "blue";
 
 questions[0] = "Que représente une distance de 5cm en mètres quand le coefficient de proportionnalité est de 12/4 ?";
 answers[0] = [];
-answers[0][0] = "5m";
+answers[0][0] = "15m";
 answers[0][1] = "12m";
 answers[0][2] = "3 Mekayaks";
-answers[0][3] = "15m";
+answers[0][3] = "5m";
 
 questions[1] = "Quel est le coefficient de proportionnalité quand la distance sur une carte est de 2cm et la distance réelle de 70m ?";
 answers[1] = [];
@@ -73,9 +73,9 @@ answers[1][3] = "4";
 
 questions[2] = "Quel est le coefficient de proportionnalité quand la distance sur une carte est de 10cm et la distance réelle de 70m ?";
 answers[2] = [];
-answers[2][0] = "35";
+answers[2][0] = "7";
 answers[2][1] = "12";
-answers[2][2] = "7";
+answers[2][2] = "35";
 answers[2][3] = "10";
 
 questions[3] = "Que représente une distance de 10cm en mètres quand le coefficient de proportionnalité est de 7/14 ?";
@@ -87,8 +87,8 @@ answers[3][3] = "42m";
 
 questions[4] = "Quel est le coefficient de proportionnalité quand la distance sur une carte est de 12cm et la distance réelle de 48m ?";
 answers[4] = [];
-answers[4][0] = "12";
-answers[4][1] = "4";
+answers[4][0] = "4";
+answers[4][1] = "12";
 answers[4][2] = "35";
 answers[4][3] = "12/4";
 
@@ -101,30 +101,30 @@ answers[5][3] = "10cm";
 
 questions[6] = "Que représente une distance réelle de 22m en centimètres quand le coefficient de proportionnalité est de 1/4 ?";
 answers[6] = [];
-answers[6][0] = "22/4cm";
+answers[6][0] = "88cm";
 answers[6][1] = "5cm";
 answers[6][2] = "22cm";
-answers[6][3] = "88cm";
+answers[6][3] = "22/4cm";
 
 questions[7] = "Dans un supermarché un paquet d'1 kilo de spaghetti valant 2€ subit une réduction de 20%. Combien coute à présent le kilo de spaghetti ?";
 answers[7] = [];
-answers[7][0] = "1€";
+answers[7][0] = "1.60€";
 answers[7][1] = "1.40€";
-answers[7][2] = "1.60€";
+answers[7][2] = "1€";
 answers[7][3] = "1.50€";
 
 questions[8] = "Sur 30 personnes 40% ne boivent pas de café. Combien de personnes boivent du café ?";
 answers[8] = [];
-answers[8][0] = "20";
-answers[8][1] = "18";
+answers[8][0] = "18";
+answers[8][1] = "20";
 answers[8][2] = "15";
 answers[8][3] = "25";
 
 questions[9] = "Un cappuccino valant 1€20 connait une augmentation de 10%. Combien vaut il maintenant ?";
 answers[9] = [];
-answers[9][0] = "2€";
+answers[9][0] = "1.32€";
 answers[9][1] = "1€25";
-answers[9][2] = "1€32";
+answers[9][2] = "2€";
 answers[9][3] = "1€30";
 
 questions[10] = "Une pizza qui coutait hier 10€ coute aujourd'hui 12€50. De combien de % son prix à augmenter ?";
@@ -137,9 +137,9 @@ answers[10][3] = "12%";
 
 questions[11] = "Un pain au chocolat coute environ 1€. Mais pour Jean-François Copé ils coutent 15 centimes. De combien de % ont-ils subit une réduction ?";
 answers[11] = [];
-answers[11][0] = "80%";
+answers[11][0] = "85%";
 answers[11][1] = "0%";
-answers[11][2] = "85%";
+answers[11][2] = "80%";
 answers[11][3] = "30%";
 
 questions[12] = "Un enfant mange 4 parts d'un gâteau coupé en 12 parts. Combien de % du gâteau a-t-il mangé ?";
@@ -151,10 +151,10 @@ answers[12][3] = "40%";
 
 questions[13] = "Un jeu a un prix de base de 40€. Lors des soldes il a une réduction de 30%. A quel prix le jeu se vend à présent ?";
 answers[13] = [];
-answers[13][0] = "42€";
+answers[13][0] = "28€";
 answers[13][1] = "20€";
 answers[13][2] = "32€";
-answers[13][3] = "28€";
+answers[13][3] = "42€";
 
 questions[14] = "Quelle est la taille d'une figurine d'une personne d'1m50 à l'échelle 1/2 ?";
 answers[14] = [];
