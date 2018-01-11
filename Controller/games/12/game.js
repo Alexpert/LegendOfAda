@@ -12,7 +12,7 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/Chinggis_Khan.jpg"
+var defaultBackground = "assets/Secret_base.JPEG"
 var defaultTextColor = "black";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
