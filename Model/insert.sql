@@ -80,7 +80,7 @@ insert into achievements (name, description) values
 	('Mechtulu Ftagh''n', 'Vous avez sauvé Thalès et Pythagore'),
 	('Un petit pas pour l''homme', 'Vous avez banni MekAristote'),
 	('Victoire !', 'Vous avez sauvé le monde'),
-	('Apprenti mathématicien', 'Finir un mini-jeu'),
+	('Apprenti mathématicien', 'Gagner un mini-jeu'),
 	('Forever alone', 'Se demander en ami'),
 	('Une offre que vous ne pouvez pas refuser', 'Aider la mafyak'),
 	('Manifestation spontanée', 'Aider les proloyaks'),
