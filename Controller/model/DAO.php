@@ -150,7 +150,7 @@ function getLevelsFromWorld(string $world) : array {
     
 function getLevelsFromWorldUser(string $world, int $token) : array {
     try {
-        $request = $this->db->prepare('select l.*, (select count(s.*) from scores s where l.id = s.level and username = (select username from connected where token = :token)) as nbScore from levels l where world = :world ');
+        $request = $this->db->prepare('select l.*, (select count(s.*) from scores s where l.id = s.level and value > 0 and username = (select username from connected where token = :token)) as nbScore from levels l where world = :world ');
         $request->bindParam(':world', $world, PDO::PARAM_STR);
         $request->bindParam(':token', $token, PDO::PARAM_INT);
         $request->execute();
@@ -163,7 +163,7 @@ function getLevelsFromWorldUser(string $world, int $token) : array {
     
 function getLevelsFromWorldGuild(string $world, string $guild) : array {
     try {
-        $request = $this->db->prepare('select l.*, (select count(s.*) from scores s where l.id = s.level and guild = :guild) as nbScore from levels l where world = :world');
+        $request = $this->db->prepare('select l.*, (select count(s.*) from scores s where l.id = s.level  and value > 0 and guild = :guild) as nbScore from levels l where world = :world');
         $request->bindParam(':world', $world, PDO::PARAM_STR);
         $request->bindParam(':guild', $guild, PDO::PARAM_INT);
         $request->execute();
