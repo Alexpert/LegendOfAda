@@ -1,5 +1,6 @@
 <?php
-    class User implements JsonSerializable {
+
+class User implements JsonSerializable {
 	public $username;
 	public $password;
 	public $token;
@@ -9,5 +10,6 @@
 	public function jsonSerialize() {
 		return $this;
 	}
-    }
+}
+
 ?>

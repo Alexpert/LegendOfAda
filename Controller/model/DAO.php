@@ -7,6 +7,7 @@ require_once('Level.php');
 require_once('Game.php');
 require_once('Achievement.php');
 require_once('User.php');
+require_once('Friendship.php');
 
 class DAO {
     private $db;
@@ -24,6 +25,8 @@ function __construct() {
     }
 }
 
+	
+// Gestion Users
 function createUser(string $username, string $pw) : bool {
 	$request = $this->db->prepare('insert into users values (:username, :pw)');
 	$request->bindParam(':username', $username, PDO::PARAM_STR);
@@ -80,6 +83,7 @@ function deleteUser(int $token) : bool {
    return false;
 }
 
+// Gestion Games
 function getGame($id) {
     try {
 	$request = $this->db->prepare('select g.*, l.theme from games g, lessons l where g.id = :id and g.about = l.id');
@@ -105,6 +109,7 @@ function getGames() : array {
     return $games;
 }
 
+// Gestion Cours et themes
 function getThemes() : array {
     try {
         $request = $this->db->prepare('select * from themes order by id');
@@ -130,6 +135,8 @@ function getLessons($theme) : array {
     return $lessons;
 }
 
+	
+// Gestion Worlds
 function getWorlds() : array {
     try {
         $request = $this->db->prepare('select * from worlds');
@@ -144,23 +151,74 @@ function getWorlds() : array {
 
 function getLevelsFromWorld($world) : array {
     try {
-	$request = $this->db->prepare('select * from levels where world = :world');
-	$request->bindParam(':world', $world, PDO::PARAM_STR);
-	$request->execute();
-	$levels = $request->fetchAll(PDO::FETCH_CLASS, 'Level');
+		$request = $this->db->prepare('select * from levels where world = :world');
+		$request->bindParam(':world', $world, PDO::PARAM_STR);
+		$request->execute();
+		$levels = $request->fetchAll(PDO::FETCH_CLASS, 'Level');
    } catch (PDOException $e) {
-	$levels['error'] = $e->getMessage();
+		$levels['error'] = $e->getMessage();
    }
 
    return $levels;
 }
 
+// Gestion ami
+function createFriendship(int $token, string $friend) : bool {
+	try {
+		$request = $this->db->prepare('insert into friends (user1, user2) values select username, :friend
+																					from connected
+																					where token = :token');
+		$request->bindParam(':friend', $friend, PDO::PARAM_STR);
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		return $request->execute();
+	} catch (PDOException $e) {
+	}
+	return false;
+}
+	
+function deleteFriendship(int $token, string $friend) : bool {
+	try {
+		$request = $this->db->prepare('delete from friends where (user1 = (select username from connected where token = :token) and user2 = :friend)
+																	or (user2 = (select username from connected where token = :token) and user1 = :friend)');
+		$request->bindParam(':friend', $friend, PDO::PARAM_STR);
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		return $request->execute();
+	} catch (PDOException $e) {
+	}
+	return false;
+}
+	
+function acceptFriendship(int $token, string $friend) : bool {
+	try {
+		$request = $this->db->prepare('update friends set accepted = TRUE where (user1 = (select username from connected where token = :token) and user2 = :friend)
+																	or (user2 = (select username from connected where token = :token) and user1 = :friend)');
+		$request->bindParam(':friend', $friend, PDO::PARAM_STR);
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		return $request->execute();
+	} catch (PDOException $e) {
+	}
+	return false;
+}
+
+function listFriend(int $token) : array {
+	try {
+		$request = $this->db->prepare('select * from friendships where user1 = (select username from connected where token = :token) or user2 = (select username from connected where token = :token)');
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		$request->execute();
+		$friendship = $request->fetchAll(PDO::FETCH_CLASS, 'Friendship');
+	} catch (PDOException $e) {
+		$friendship['error'] = $e->getMessage();
+	}
+
+	return $friendship;
+}
+	
 // Gestion Score
 function addScore(int $token, int $value, int $game, int $level, string $guild) : bool {
    try {
 	$request = $this->db->prepare('insert into scores values select username, :value, :game, :level, :guild
-								from users
-								where token = :token');
+																from users
+																where token = :token');
 	$request->bindParam(':value', $value, PDO::PARAM_INT);
 	$request->bindParam(':game', $game, PDO::PARAM_INT);
 	$request->bindParam(':level', $level, PDO::PARAM_INT);
