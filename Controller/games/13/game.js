@@ -108,19 +108,19 @@ answers[12][1] = "8/27";
 answers[12][2] = "42/65";
 answers[12][3] = "- 65/42";
 
-questions[13] = "Quel est le résultat du quotient suivant: - () * ()";
+questions[13] = "Quel est le résultat du quotient suivant: - (8/15) * (22/10)";
 answers[13] = [];
-answers[13][0] = "";
-answers[13][1] = "";
-answers[13][2] = "";
-answers[13][3] = "";
+answers[13][0] = "- 176/150";
+answers[13][1] = "14/(- 5)";
+answers[13][2] = "80/330";
+answers[13][3] = "330/80";
 
-questions[14] = "Quel est le résultat du quotient suivant: () * (- ())";
+questions[14] = "Quel est le résultat du quotient suivant: (3/4) * (- (7/2))";
 answers[14] = [];
-answers[14][0] = "";
-answers[14][1] = "";
-answers[14][2] = "";
-answers[14][3] = "";
+answers[14][0] = "- 21/8";
+answers[14][1] = "- 4";
+answers[14][2] = "6/28";
+answers[14][3] = "- 28/6";
 
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
@@ -140,12 +140,21 @@ for (i = 0; i < questions.length; i++) {
 
 function QuestionObj(content) {
   this.obj = new GameObject();
-  this.obj.text = content;
+  this.objContent = new GameObject();
+  this.objContent.text = content;
+
   this.obj.x = 0;
   this.obj.y = 2.5/8;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
+
+  this.objContent.x = 1/20;
+  this.objContent.y = 2.5/8;
+  this.objContent.width = 0.9;
+  this.objContent.height = 1 / 8;
+
 }
+
 
 function ButtonObj(content, id, correct) {
   this.obj = new GameObject();
@@ -229,6 +238,7 @@ function drawAll() {
   game.fill(textColor[numQ]);
   game.draw(score.obj);
   game.draw(questionObj.obj);
+  game.draw(questionObj.objContent);
   game.fill(buttonTextColor[numQ]);
   for (i = 0; i < 4; i++) {
     game.draw(buttonObj[i].obj);
