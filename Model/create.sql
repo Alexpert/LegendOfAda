@@ -141,7 +141,7 @@ SELECT *
 FROM USERS
 WHERE timeout >= now();
 
-CREATE RULE CONNECTION as on INSERT
+CREATE RULE CONNECTION AS ON INSERT
 TO CONNECTED DO INSTEAD UPDATE USERS
 set timeout = now() + interval '2 hours', token = floor(random()*2147483647)
 where username = new.username
@@ -156,6 +156,31 @@ BEGIN
       WHERE token = tok; 
       INSERT INTO ACHIEVED VALUES (username, achievement);
 END ; $$ language ’plpgsql’;
+
+-- ACHIEVEMENTS
+
+CREATE RULE chiefGuild AS ON INSERT
+TO GUILDS
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 2);
+
+CREATE RULE apprentice AS ON INSERT
+TO SCORE WHERE 
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 3);
+
+CREATE RULE foreverAlone AS ON INSERT
+TO FRIENDS WHERE new.user1 = new.user2
+DO ALSO INSERT INTO ACHIEVED VALUES (new.user1, 12);
+
+CREATE RULE loveIsReal AS ON INSERT
+TO FAVORITES
+DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 16);
+
+
+-- Fin ACHIEVEMENTS
+
+CREATE RULE chiefBelong AS ON INSERT
+TO GUILDS
+DO ALSO INSERT INTO BELONGS VALUES (new.leader, new.name);
 
 CREATE FUNCTION delUser( tok integer) RETURN trigger
 AS $$ declare username VARCHAR(32) ; 
@@ -187,5 +212,7 @@ BEGIN
 	RETURN old;
 END; $$ language 'plpgsql';
 
-CREATE TRIGGER deleteGuild BEFORE DELETE ON GUILDS
-FOR EACH ROW EXECUTE PROCEDURE delGuild(old.name);
+CREATE TRIGGER chiefLeave BEFORE DELETE ON BELONGS
+WHEN (old.username = (select leader from guilds where name = old.name)
+EXECUTE PROCEDURE delGuild(old.name);
+
