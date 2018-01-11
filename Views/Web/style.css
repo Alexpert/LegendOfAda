@@ -57,7 +57,7 @@ body > header > p#user img {
 	vertical-align: bottom;
 }
 
-body.profile > div, body.courses > div, body.submit > div {
+body.profile > div, body.courses > div, body.submit > div, body.about > div {
 	margin-top: 15vh;
 	margin-left: 19.5vw;
 	margin-right: 19.5vw;
@@ -68,7 +68,7 @@ body.profile > div, body.courses > div, body.submit > div {
 	padding-bottom: 1%;
 }
 
-body.profile > div > h1, body.submit > div h1 {
+body.profile > div > h1, body.submit > div h1, body.about > div h1 {
 	text-align: center;
 	background-color: #5C92C4;
 }
