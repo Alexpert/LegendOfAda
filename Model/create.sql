@@ -283,4 +283,3 @@ END; $$ language 'plpgsql';
 CREATE TRIGGER chiefLeave AFTER DELETE ON BELONGS
 FOR EACH ROW
 EXECUTE PROCEDURE chiefLeave();
-
