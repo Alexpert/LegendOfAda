@@ -148,14 +148,9 @@ where username = new.username
 and password = new.password
 and timeout < now();
 
-CREATE FUNCTION achieves( tok integer, achievement integer)
-AS $$ declare username VARCHAR(32) ; 
-BEGIN 
-      SELECT username INTO username
-      FROM USERS
-      WHERE token = tok; 
-      INSERT INTO ACHIEVED VALUES (username, achievement);
-END ; $$ language ’plpgsql’;
+CREATE RULE chiefBelong AS ON INSERT
+TO GUILDS
+DO ALSO INSERT INTO BELONGS VALUES (new.leader, new.name);
 
 -- ACHIEVEMENTS
 
@@ -164,30 +159,90 @@ TO GUILDS
 DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 2);
 
 CREATE RULE apprentice AS ON INSERT
-TO SCORE WHERE 
+TO SCORES WHERE level = 7 AND value > 0;
 DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 3);
+
+CREATE RULE baguette AS ON INSERT
+TO SCORES WHERE level = 13 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 4);
+
+CREATE RULE zombie AS ON INSERT
+TO SCORES WHERE level = 19 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 5);
+
+CREATE RULE curry AS ON INSERT
+TO SCORES WHERE level = 25 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 6);
+
+CREATE RULE teaTime AS ON INSERT
+TO SCORES WHERE level = 31 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 7);
+
+CREATE RULE chtulu AS ON INSERT
+TO SCORES WHERE level = 36 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 8);
+
+CREATE RULE moon AS ON INSERT
+TO SCORES WHERE level = 41 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 9);
 
 CREATE RULE foreverAlone AS ON INSERT
 TO FRIENDS WHERE new.user1 = new.user2
 DO ALSO INSERT INTO ACHIEVED VALUES (new.user1, 12);
 
+CREATE RULE mafia AS ON INSERT
+TO SCORES WHERE level = 18 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 13);
+
+CREATE RULE manif AS ON INSERT
+TO SCORES WHERE level = 29 AND value > 0;
+DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 14);
+
 CREATE RULE loveIsReal AS ON INSERT
 TO FAVORITES
 DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 16);
 
+CREATE RULE philantrope AS ON INSERT
+TO BELONGS
+DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 17);
+
+CREATE FUNCTION saveTheWorld() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from scores where username = new.username and value > 0 and level in (7, 13, 19, 25, 31, 36, 41)) > 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 10);
+	ENDIF;
+END;$$ language 'plpgsql';
+
+CREATE TRIGGER tSaveTheWorld() RETURNS trigger
+FOR EACH ROW
+EXECUTE PROCEDURE saveTheWorld();
+
+CREATE FUNCTION apprentiMath() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from scores where username = new.username and value > 0) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 11);
+	ENDIF;
+	RETURN NEW;
+END;$$ language'plpgsql';
+
+CREATE TRIGGER tApprentiMath BEFORE INSERT ON SCORES
+FOR EACH ROW
+EXECUTE PROCEDURE apprentiMath();
+
 
 -- Fin ACHIEVEMENTS
 
-CREATE RULE chiefBelong AS ON INSERT
-TO GUILDS
-DO ALSO INSERT INTO BELONGS VALUES (new.leader, new.name);
 
-CREATE FUNCTION delUser( tok integer) RETURN trigger
+CREATE FUNCTION delUser() RETURN trigger
 AS $$ declare username VARCHAR(32) ; 
 BEGIN
 	SELECT users.username INTO username
      	FROM USERS
-    	WHERE token = tok AND timeout > now();
+    	WHERE token = old.token AND timeout > now();
 	if (username is not null) then
 		PERFORM DELETE FROM ACHIEVED WHERE achieved.username = username;
 		PERFORM DELETE FROM FRIENDS WHERE user1 = username OR user2 = username;
@@ -202,17 +257,30 @@ BEGIN
 END ; $$ language ’plpgsql’;
 
 CREATE TRIGGER deleteUser BEFORE DELETE ON USERS 
-FOR EACH ROW EXECUTE PROCEDURE delUser(old.token);
+FOR EACH ROW EXECUTE PROCEDURE delUser();
 
-CREATE FUNCTION delGuild(name varchar(32)) RETURN trigger
+CREATE FUNCTION delGuild() RETURNS trigger
 AS $$
 BEGIN
-	PERFORM DELETE FROM SCORES WHERE guild = name;
-	PERFORM DELETE FROM BELONGS WHERE guild = name;
+	PERFORM DELETE FROM SCORES WHERE guild = old.name;
+	PERFORM DELETE FROM BELONGS WHERE guild = old.name;
 	RETURN old;
 END; $$ language 'plpgsql';
 
-CREATE TRIGGER chiefLeave BEFORE DELETE ON BELONGS
-WHEN (old.username = (select leader from guilds where name = old.name)
-EXECUTE PROCEDURE delGuild(old.name);
+CREATE TRIGGER deleteGuild BEFORE DELETE ON GUILDS
+FOR EACH ROW
+EXECUTE PROCEDURE delGuild();
+
+CREATE FUNCTION chiefLeave() RETURNS trigger
+AS $$
+BEGIN
+	IF (old.username = (select leader from guilds where name = old.name)) then
+		PERFORM DELETE FROM GUILDS WHERE guild = old.name;
+	ENDIF;
+	RETURN old;
+END; $$ language 'plpgsql';
+
+CREATE TRIGGER chiefLeave AFTER DELETE ON BELONGS
+FOR EACH ROW
+EXECUTE PROCEDURE chiefLeave();
 
