@@ -254,7 +254,7 @@ BEGIN
 	else
 		RAISE EXCEPTION 'User invalide pour la suppression';
 	end if;
-END ; $$ language ’plpgsql’;
+END ; $$ language 'plpgsql';
 
 CREATE TRIGGER deleteUser BEFORE DELETE ON USERS 
 FOR EACH ROW EXECUTE PROCEDURE delUser();
