@@ -29,21 +29,6 @@ insert into lessons (name, theme) values
 	('Algorithmique', 5);
 
 insert into games (name, description, about) values
-<<<<<<< HEAD
-	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent', 1),
-	('Réductions de Mékafractions', 'Choisissez le bon diviseur', 1),
-	('Division de Mekayaks', 'Choisissez le bon mékayak', 1),
-	('QCM Inéquations', 'Bah c''est dans le titre', 3),
-	('QCM Equations', 'Bah c''est dans le titre', 3),
-	('QCM Identités Remarquables', 'Bah c''est dans le titre', 2),
-	('QCM Addition et Soustraction en écriture fractionnaire', 1),
-	('QCM Equation du premier degrée à une inconnue', 1),
-	('QCM Critère de divisibilité', 1),
-	('QCM Quotient égaux', 1),
-	('QCM Développer un produit', 1),
-	('QCM Factoriser une somme', 1),
-	('QCM Multiplication en ecriture fractionnaire', 1);
-=======
 	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent.', 1),
 	('Réductions de Mékafractions', 'Choisissez les diviseurs communs des deux mekayak français.', 1),
 	('Division de Mekayaks', 'Choisissez les diviseurs du mekayak français.', 1),
@@ -58,7 +43,6 @@ insert into games (name, description, about) values
 	('QCM Factoriser une somme','', 1),
 	('QCM Multiplication en écriture fractionnaire','', 1),
 	('QCM Proportionnalité', 'QCM sur la proportionnalité', 6);
->>>>>>> 335d8e503908ced64fc2ae3316c7ebd971466b0f
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
