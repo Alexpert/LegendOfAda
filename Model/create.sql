@@ -277,7 +277,7 @@ BEGIN
 END;$$ language 'plpgsql';
 	   
 CREATE TRIGGER tForeverAlone BEFORE INSERT ON FRIENDS
-FOR EACH ROW WHEN new.user1 = new.user2
+FOR EACH ROW WHEN (new.user1 = new.user2)
 EXECUTE PROCEDURE foreverAlone();
 
 
@@ -340,7 +340,7 @@ EXECUTE PROCEDURE philantrope();
 CREATE FUNCTION saveTheWorld() RETURNS trigger
 AS $$
 BEGIN
-	IF (((select count(*) from scores where username = new.username and value > 0 and level in (7, 13, 19, 25, 31, 36, 41)) > 0)) AND (select count(*) from achieved where username = new.username and achievement = 10) = 0)
+	IF (((select count(*) from scores where username = new.username and value > 0 and level in (7, 13, 19, 25, 31, 36, 41)) > 0) AND (select count(*) from achieved where username = new.username and achievement = 10) = 0)
 	THEN
 		INSERT INTO ACHIEVED VALUES (new.username, 10);
 	END IF;
