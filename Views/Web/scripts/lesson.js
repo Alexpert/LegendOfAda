@@ -28,7 +28,7 @@ function specific() {
 	request2.onreadystatechange = function() {
 		if(request2.readyState == 4
 			&& request2.status == 200) {
-			let response = JSON.parse(request2.responseText);
+			let response = parseResponse(request2.responseText);
 
 			for(var i = 0; i < response.length; i++) {
 				if(response[i].id == theme) {

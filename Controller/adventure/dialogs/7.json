@@ -1,34 +1,6 @@
 [
   {
     "name":"Charles Babbage",
-    "text":"C'est un plaisir de vous retrouver, mon amie ! Je suis heureux que nous soyons arrivé à temps pour vous sauver d'une mécanisation certaine !"
-  },
-  {
-    "name":"Ada Lovelace",
-    "text":"En effet, je ne peux que vous offrir ma grattitude pour ce sauvetage in extremis !"
-  },
-  {
-    "name":"Ada Lovelace",
-    "text":"Qui est cette jeune personne avec vous ? N'essaieriez-vous point de remplacer votre acolyte préférée ?"
-  },
-  {
-    "name":"Charles Babbage",
-    "text":"Je n'oserait pas ! Hohoho ! Mais en tout cas, vous pouvez lui dire merci pour vous avoir sauvé. Cette personne a fait preuve d'un talent pour les mathématiques certain et je crois qu'il pourrait nous apporter son aide."
-  },
-  {
-    "name":"Ada Lovelace",
-    "text":"Et bien ! Cela ne serait pas de trop ! Qu'en dites vous ?"
-  },
-  {
-    "name":"",
-    "text":"Vous acceptez puisqu'après tout ce conflit vous touche aussi, vous et vos yaks."
-  },
-  {
-    "name":"Charles Babbage",
-    "text":"FA-BU-LEUX ! Je vous souhaite bonne chance. Je dois m'occuper de bien des choses pour éviter que les mekayaks ne reprennent le contrôle de ce laboratoire."
-  },
-  {
-    "name":"Ada Lovelace",
-    "text":"Bonne chance à vous aussi, mon ami. Nous devons voyager autour du globe pour sauver les scientifiques mécanisés de l'emprise de MekAristote. Choississez votre destination et je vous expliquerai sur place ce que nous pourrions réaliser pour améliorer la situation des habitants"
+    "text":"Le complexe est très gardé. Ada doit être prisionnière dans la salle du Mékanisateur. On doit vraiment se dépêcher. Je n'ose pas imaginer ce qu'il se passerait s'ils réussissent à la mécaniser."
   }
 ]

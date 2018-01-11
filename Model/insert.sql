@@ -26,10 +26,10 @@ insert into lessons (name, theme) values
 	('Les transformations du plan - Homothéties', 4),
 	('Théorème de Thalès', 4),
 	('Trigonométrie', 4),
-	('Algorithmique', 5),
-	('Programmation', 5);
+	('Algorithmique', 5);
 
 insert into games (name, description, about) values
+<<<<<<< HEAD
 	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent', 1),
 	('Réductions de Mékafractions', 'Choisissez le bon diviseur', 1),
 	('Division de Mekayaks', 'Choisissez le bon mékayak', 1),
@@ -43,6 +43,22 @@ insert into games (name, description, about) values
 	('QCM Développer un produit', 1),
 	('QCM Factoriser une somme', 1),
 	('QCM Multiplication en ecriture fractionnaire', 1);
+=======
+	('Eratoaster', 'Cliquez sur les toasts premiers pour annihiler Eratoaster l''omnipotent.', 1),
+	('Réductions de Mékafractions', 'Choisissez les diviseurs communs des deux mekayak français.', 1),
+	('Division de Mekayaks', 'Choisissez les diviseurs du mekayak français.', 1),
+	('QCM Inéquations', 'Donner le résultat des inéquations pour assembler le Demekanisateur.', 3),
+	('QCM Equations', 'Donner le résultat des équations pour ouvrir la porte des égouts', 3),
+	('QCM Identités Remarquables', 'Battez François Viète en répondant aux questions', 2),
+	('QCM Sommes de fractions','Donner le résultat des calculs fractionnels', 1),
+	('QCM Equation du premier degrée','', 1),
+	('QCM Critère de divisibilité','', 1),
+	('QCM Quotient égaux','', 1),
+	('QCM Développer un produit','', 1),
+	('QCM Factoriser une somme','', 1),
+	('QCM pas fini','', 1),
+	('QCM Proportionnalité', 'QCM sur la proportionnalité', 6);
+>>>>>>> 335d8e503908ced64fc2ae3316c7ebd971466b0f
 
 insert into levels(world, game, x, y, previous) values
 --  7 niveaux pour Mongolie
@@ -86,3 +102,10 @@ insert into achievements (name, description) values
 	('Explorateur intrépide', 'Finir un niveau bonus'),
 	('Love is real', 'Mettre un mini-jeu en favori'),
 	('Philantrope', 'Rejoindre une guilde');
+
+insert into users(username, password) values
+	('Sandrine', 'b1e117cbc10fea22803e69cf8226cbca'); -- Mot de passe =  md5(Seychelle)
+
+insert into achieved values
+	('Sandrine', 1);
+

@@ -103,6 +103,8 @@ social {
 	border: 1px solid black;
 	color: white;
 	background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+	overflow-y: scroll;
+	visibility: hidden;
 }
 
 social > h1 {
@@ -111,13 +113,29 @@ social > h1 {
 	color: white;
 }
 
-social > table {
+social table {
 	width: 100%;
 }
 
-social > table td {
-	text-align: center;
+social table td,
+social table th {
 	color: white;
+}
+
+body.submit #docs a,
+body.login > form input[type="submit"],
+body.login > form a {
+	border: none;
+	border-radius: 0;
+	padding: 1%;
+	background-color: #5C92C4;
+	transition: 0.25s;
+}
+
+body.submit #docs a:hover,
+body.login > form input[type="submit"]:hover,
+body.login > form a:hover {
+	background-color: #9BE8E8;
 }
 
 /* login */
@@ -148,19 +166,6 @@ body.login > form input[type="text"],
 body.login > form input[type="password"] {
 	border: 0.5vh solid #5C92C4;
 	padding: 0.5vh;
-}
-
-body.login > form input[type="submit"],
-body.login > form a {
-	border: none;
-	padding: 1%;
-	background-color: #5C92C4;
-	transition: 0.25s;
-}
-
-body.login > form input[type="submit"]:hover,
-body.login > form a:hover {
-	background-color: #9BE8E8;
 }
 
 div#error {
@@ -251,32 +256,27 @@ menu.index > p > a:hover {
 	background-color: #9BE8E8;
 }
 
-scroller {
+social.trends {
 	position: fixed;
 	width: 25vw;
 	top: 15vh;
 	bottom: 15vh;
 	left: 0;
-	background-color: #65A6E4;
-	border: 1vh solid #5C92C4;
-	border-width: 1vh 1vh 1vh 0;
+	border-width: 1px 1px 1px 0;
 }
 
-scroller > h1 {
+social.trends > h1 {
 	position: absolute;
 	width: 100%;
 	z-index: 1;
 	text-align: center;
-	background-color: rgba(92, 146, 196, 0.9);
 }
 
-scroller > div {
-	overflow-x: hidden;
-	overflow-y: scroll;
+social.trends > div {
 	height: 100%;
 }
 
-scroller > div > figure {
+social.trends > div > figure {
 	width: 49%;
 }
 
@@ -284,6 +284,43 @@ social.index {
 	width: 25vw;
 	top: 15vh;
 	bottom: 15vh;
+}
+
+social.index > div {
+	height: 100%;
+}
+
+social.index table {
+	margin-bottom: 5%;
+}
+
+social.index div.friends,
+social.index div.guilds {
+	padding-bottom: 5%;
+}
+
+social.index div.request {
+	width: 100%;
+	text-align: center;
+}
+
+social.index div.request input {
+	width: 70%;
+	text-align: center;
+	border: none;
+	padding: 1%;
+	margin-bottom: 1%;
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.9);
+}
+
+social.index div.request button {
+	padding: 2%;
+	border-radius: 4px;
+	border: none;
+	color: white;
+	background: rgba(0, 0, 0, 0.6);
+	cursor: pointer;
 }
 
 /* adventure */
@@ -398,6 +435,7 @@ social.game {
 	width: 25vw;
 	top: 15vh;
 	bottom: 27.5vh;
+	text-align: center;
 }
 
 footer#play {
@@ -462,6 +500,13 @@ body.courses > div.lesson h2, body.courses > div.lesson h3 {
 	background-color: #5C92C4;
 }
 
+body.courses > div.lesson table {
+	text-align: center;
+	width: 80%;
+	border: 1vmin solid #5C92C4;
+	margin: 2% 10% 2% 10%;
+}
+
 body.courses > div.lesson > p.definition, body.courses > div.lesson > p.property {
 	margin: 1vmin;
 	padding: 1vmin;
@@ -491,3 +536,12 @@ body.courses > div.lesson ul, body.courses > div.lesson li {
 
 /* submit */
 
+body.submit > div p {
+	padding: 2%;
+}
+
+body.submit #docs {
+	padding: 2%;
+	text-align: center;
+	line-height: 50px;
+}

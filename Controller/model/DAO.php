@@ -6,6 +6,7 @@ require_once('World.php');
 require_once('Level.php');
 require_once('Game.php');
 require_once('Achievement.php');
+require_once('User.php');
 
 class DAO {
     private $db;
@@ -23,9 +24,42 @@ function __construct() {
     }
 }
 
-function getAchievements() : array {
+function createUser(string $username, string $pw) : bool {
+	$request = $this->db->prepare('insert into users values (:username, :pw)');
+	$request->bindParam(':username', $username, PDO::PARAM_STR);
+	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
+	return $request->execute();
+}
+
+function login(string $username, string $pw) {
     try {
-	$request = $this->db->prepare('select * from achievements');
+	$request = $this->db->prepare('insert into connected values (:username, :pw)');
+	$request->bindParam(':username', $username, PDO::PARAM_STR);
+	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
+	$request->execute();
+
+	$request = $this->db->prepare('select * from connected where username = :username and password = :pw');
+	$request->bindParam(':username', $username, PDO::PARAM_STR);
+	$request->bindParam(':pw', $pw, PDO::PARAM_STR);
+	$request->execute();
+	$users = $request->fetchAll(PDO::FETCH_CLASS, 'User');
+	if($users) {
+		$user = $users[0];
+		unset($user->password);
+	} else {
+		$user['error'] = 'Identifiants invalides';
+	}
+    } catch (PDOException $e) {
+	$user['error'] = $e->getMessage();
+    }
+
+    return $user;
+}
+
+function achieved($token) : array {
+    try {
+	$request = $this->db->prepare('select a.* from achievements a, achieved d where username = (select username from connected where token = :token) and a.id = d.achievement');
+	$request->bindParam(':token', $token, PDO::PARAM_INT);
 	$request->execute();
 	$achievements = $request->fetchAll(PDO::FETCH_CLASS, 'Achievement');
     } catch (PDOException $e) {
@@ -35,7 +69,6 @@ function getAchievements() : array {
     return $achievements;
 }
 
-// Gestion Users
 function addUser(string $username, string $pw) : array {
     try {
 	$request = $this->db->prepare('insert into USERS values (:username, :pw)');

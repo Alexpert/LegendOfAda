@@ -1,0 +1,72 @@
+<h1>Algorithmique</h1>
+  <h2>A - Instructions et Algorithmes</h2>
+    <p>
+      <p class="definition">
+        <dfn>Séquence d'Instruction</dfn>
+        Suite d'action à executer dans l'ordre.
+        <dfn>Algorithme</dfn>
+        Suite finie d'instruction permettant de résoudre un problème.
+      </p>
+      Par Exemple, dans la vie courante, un recette de cuisine est un algorithme:
+      - Faire fondre du chocolat
+      - Ajouter 90g beurre fondu
+      etc...
+
+      <p class="property">
+        Vous pouvez utiliser le logiciel Scratch pour essayer d'écrire des Algorithmes avec une interface simple.
+      </p>
+    </p>
+  <h2>B - Utilisations des Variables</h2>
+    <p>
+      <p class="definition">
+        <dfn>Variable</dfn>
+        Une variables est une boite ayant un nom et contenant une valeur.
+      </p>
+      Par Exemple dans un jeu: Le joueur doit récuperer 10 pommes.
+      On peut imaginer une variable nommée "nombre_de_pommes" et contenant le nombre de pommes ramassées par le joueur.
+    </p>
+  <h2>C - Utilisation des Boucles</h2>
+    <p>
+      <p class="definition">
+        <dfn>Boucle</dfn>
+        Une boucle permet de répéter un ensemble d'instructions jusqu'a ce qu'un condition soit validée, c'est une boucle "répéter jusqu'a".<br>
+        Une boucle permet aussi de répéter un certain nombre de fois, c'est un boucle "répéter x fois".
+      </p>
+      Par Exemple si on veut faire de la grenadine dans un verre on peut considérer l'algorithme suivant:
+      <ul>
+        <li>Verser 1 dose de grenadine</li>
+        <li>Répéter 9 fois (Verser 1 dose d'eau)</li>
+      </ul>
+      Ou bien
+      <ul>
+        <li>Verser 1 dose de grenadine</li>
+        <li>Répéter jusqu'a ce que le verre soit plein (Verser 1 dose d'eau)</li>
+      </ul>
+    </p>
+  <h2>D - Utilisation des Instructions Conditionnelles</h2>
+    <p>
+      <p class="definition">
+        <dfn>Instruction Conditionnelle</dfn>
+          Une instruction conditionelle est de la forme "<b>SI</b> Condition <b>ALORS</b> Instructions"<br>
+          ou "<b>SI</b> Condition <b>ALORS</b> Instructions <b>SINON</b> autres instructions"<br>
+      </p>
+      Par Exemple:
+      <ul>
+        <li><b>Si</b> il fait beau <b>alors</b> j'irai dehors</li>
+        <li><b>Sinon</b> je resterai chez moi.</li>
+      </ul>
+    </p>
+  <h2>E - Utilisation d'un bloc d'instructions paramétré</h2>
+    <p>
+      <p class="definition">
+        <dfn>Bloc d'Instructions Paramétré</dfn>
+        C'est un ensemble d'instruction qui utilise au moins un paramètre défini dans le bloc lui même.
+      </p>
+      On peut faire un bloc d'instruction que l'on nommera "verser_eau" et prendra en entrée un paramètre "quantité"" et contiendra les instructions suivantes:
+        <ul><li>Répéter "quantité" fois (Verser 1 dose d'eau)</li></ul>
+        On peut donc préparer de la grenadine de la manière suivante:
+        <ul>
+          <li>Verser une dose de grenadine</li>
+          <li>verser_eau(9), <i>9 étant notre paramètre quantité</i></li>
+        </ul>
+    </p>

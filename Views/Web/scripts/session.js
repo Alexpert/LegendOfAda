@@ -20,6 +20,15 @@ function setSession(session) {
 	localStorage.setItem('session', JSON.stringify(session));
 }
 
+function parseResponse(raw) {
+	let response = JSON.parse(raw);
+	console.log(response);
+	if(response.error != undefined) {
+		window.location.assign('login.html');
+	}
+	return response;
+}
+
 function wake() {
 	let session = getSession();
 	var user = document.getElementById('user');
@@ -34,6 +43,12 @@ function wake() {
 		link.setAttribute('href', 'profile.html');
 		text = session.username + '  ';
 		avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/' + session.avatar + '.png');
+
+		let socials = document.getElementsByTagName('social');
+
+		for(var i = 0; i < socials.length; i++) {
+			socials[i].style.visibility = 'visible';
+		}
 	}
 
 	link.appendChild(document.createTextNode(text));

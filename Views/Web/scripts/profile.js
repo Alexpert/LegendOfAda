@@ -22,7 +22,7 @@ function specific() {
 	request.onreadystatechange = function() {
 		if(request.readyState == 4
 			&& request.status == 200) {
-			let response = JSON.parse(request.responseText);
+			let response = parseResponse(request.responseText);
 			let container = document.getElementById('achievements');
 
 			for(var i = 0; i < response.length; i++) {
@@ -43,7 +43,7 @@ function specific() {
 		}
 	}
 
-	request.open('GET', 'http://api.legendofada.eu/adventure/achievements.php');
+	request.open('GET', 'http://api.legendofada.eu/adventure/achievements.php?token=' + session.token);
 	request.send();
 }
 
