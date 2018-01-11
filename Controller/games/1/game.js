@@ -45,7 +45,7 @@ function Toast() {
 
 function Score() {
 	var score = new GameObject();
-	score.x = 0.05;
+	score.x = 0.45;
 	score.y = 0.05;
 	score.width = 0.1;
 	score.height = 0.15;
@@ -56,7 +56,7 @@ function Score() {
 
 function Clock() {
 	var clock = new GameObject();
-	clock.x = 0.45;
+	clock.x = 0.05;
 	clock.y = 0.05;
 	clock.width = 0.1;
 	clock.height = 0.15;
@@ -127,7 +127,7 @@ function update() {
 	game.setFontSize(0.05);
 	game.draw(toast);
 	game.setFontSize(0.1);
-	
+
 	if(clock.text <= 10)
 		game.fill('red');
 	else

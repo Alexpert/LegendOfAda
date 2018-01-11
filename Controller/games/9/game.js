@@ -12,7 +12,7 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/Yurt_mongole.jpg"
+var defaultBackground = "assets/Paysage_de_mongolie.jpg"
 var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
@@ -230,6 +230,7 @@ function endScreen() {
   score.obj.height = 1 / 4;
 
   game.draw(score.obj);
+  game.end(score.obj.text);
 }
 
 function drawAll() {

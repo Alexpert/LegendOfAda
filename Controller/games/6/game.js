@@ -273,6 +273,7 @@ function endScreen() {
   score.obj.height = 1 / 4;
 
   game.draw(score.obj);
+  game.end(score.obj.text);
 }
 
 function drawAll() {
