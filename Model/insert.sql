@@ -56,7 +56,7 @@ insert into games (name, description, about) values
 	('QCM Quotient égaux','', 1),
 	('QCM Développer un produit','', 1),
 	('QCM Factoriser une somme','', 1),
-	('QCM pas fini','', 1),
+	('QCM Multiplication en écriture fractionnaire','', 1),
 	('QCM Proportionnalité', 'QCM sur la proportionnalité', 6);
 >>>>>>> 335d8e503908ced64fc2ae3316c7ebd971466b0f
 
@@ -108,4 +108,3 @@ insert into users(username, password) values
 
 insert into achieved values
 	('Sandrine', 1);
-
