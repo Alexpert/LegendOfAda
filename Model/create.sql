@@ -154,62 +154,208 @@ DO ALSO INSERT INTO BELONGS VALUES (new.leader, new.name);
 
 -- ACHIEVEMENTS
 
-CREATE RULE chiefGuild AS ON INSERT
-TO GUILDS
-DO ALSO INSERT INTO ACHIEVED VALUES (new.leader, 2);
+CREATE FUNCTION debut() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 1) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 1);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tDebut AFTER INSERT ON USERS
+FOR EACH ROW
+EXECUTE PROCEDURE debut();
 
-CREATE RULE apprentice AS ON INSERT
-TO SCORES WHERE (level = 7 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 3);
 
-CREATE RULE baguette AS ON INSERT
-TO SCORES WHERE (level = 13 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 4);
+CREATE FUNCTION chiefGuild() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.leader and achievement = 2) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.leader, 2);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tChiefGuild BEFORE INSERT ON GUILDS
+FOR EACH ROW
+EXECUTE PROCEDURE chiefGuild();
 
-CREATE RULE zombie AS ON INSERT
-TO SCORES WHERE (level = 19 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 5);
+CREATE FUNCTION apprentice() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 3) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 3);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tApprentice BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 7 AND new.value > 0)
+EXECUTE PROCEDURE apprentice();    
 
-CREATE RULE curry AS ON INSERT
-TO SCORES WHERE (level = 25 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 6);
+CREATE FUNCTION baguette() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 4) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 4);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tBaguette BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 13 AND new.value > 0)
+EXECUTE PROCEDURE baguette(); 
 
-CREATE RULE teaTime AS ON INSERT
-TO SCORES WHERE (level = 31 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 7);
+CREATE FUNCTION zombie() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 5) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 5);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tZombie BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 19 AND new.value > 0)
+EXECUTE PROCEDURE zombie(); 
 
-CREATE RULE chtulu AS ON INSERT
-TO SCORES WHERE (level = 36 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 8);
+CREATE FUNCTION curry() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 6) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 6);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tCurry BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 25 AND new.value > 0)
+EXECUTE PROCEDURE curry(); 
 
-CREATE RULE moon AS ON INSERT
-TO SCORES WHERE (level = 41 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 9);
+CREATE FUNCTION teaTime() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 7) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 7);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tTeaTime BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 31 AND new.value > 0)
+EXECUTE PROCEDURE teaTime(); 
 
-CREATE RULE foreverAlone AS ON INSERT
-TO FRIENDS WHERE new.user1 = new.user2
-DO ALSO INSERT INTO ACHIEVED VALUES (new.user1, 12);
+CREATE FUNCTION chtulu() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 8) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 8);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tChtulu BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 36 AND new.value > 0)
+EXECUTE PROCEDURE chtulu(); 
 
-CREATE RULE mafia AS ON INSERT
-TO SCORES WHERE (level = 18 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 13);
+CREATE FUNCTION moon() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 9) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 9);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tMoon BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 41 AND new.value > 0)
+EXECUTE PROCEDURE moon(); 
 
-CREATE RULE manif AS ON INSERT
-TO SCORES WHERE (level = 29 AND value > 0)
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 14);
+CREATE FUNCTION foreverAlone() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 12) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 12);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tForeverAlone BEFORE INSERT ON FRIENDS
+FOR EACH ROW WHEN (new.user1 = new.user2)
+EXECUTE PROCEDURE foreverAlone();
 
-CREATE RULE loveIsReal AS ON INSERT
-TO FAVORITES
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 16);
 
-CREATE RULE philantrope AS ON INSERT
-TO BELONGS
-DO ALSO INSERT INTO ACHIEVED VALUES (new.username, 17);
+CREATE FUNCTION mafia() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 13) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 13);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tMafia BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 18 AND new.value > 0)
+EXECUTE PROCEDURE mafia(); 
+
+CREATE FUNCTION manifProlo() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 14) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 14);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tManifProlo BEFORE INSERT ON SCORES
+FOR EACH ROW WHEN (new.level = 29 AND new.value > 0)
+EXECUTE PROCEDURE manifProlo(); 
+
+CREATE FUNCTION loveIsReal() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 16) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 16);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tLoveIsReal BEFORE INSERT ON FAVORITES
+FOR EACH ROW
+EXECUTE PROCEDURE loveIsReal(); 
+
+CREATE FUNCTION philantrope() RETURNS trigger
+AS $$
+BEGIN
+	IF ((select count(*) from achieved where username = new.username and achievement = 17) = 0)
+	THEN
+		INSERT INTO ACHIEVED VALUES (new.username, 17);
+	END IF;
+	RETURN new;
+END;$$ language 'plpgsql';
+	   
+CREATE TRIGGER tPhilantrope BEFORE INSERT ON BELONGS
+FOR EACH ROW
+EXECUTE PROCEDURE philantrope();
 
 CREATE FUNCTION saveTheWorld() RETURNS trigger
 AS $$
 BEGIN
-	IF ((select count(*) from scores where username = new.username and value > 0 and level in (7, 13, 19, 25, 31, 36, 41)) > 0)
+	IF (((select count(*) from scores where username = new.username and value > 0 and level in (7, 13, 19, 25, 31, 36, 41)) > 0) AND (select count(*) from achieved where username = new.username and achievement = 10) = 0)
 	THEN
 		INSERT INTO ACHIEVED VALUES (new.username, 10);
 	END IF;
@@ -222,7 +368,7 @@ EXECUTE PROCEDURE saveTheWorld();
 CREATE FUNCTION apprentiMath() RETURNS trigger
 AS $$
 BEGIN
-	IF ((select count(*) from scores where username = new.username and value > 0) = 0)
+	IF (((select count(*) from scores where username = new.username and value > 0) = 0) AND (select count(*) from achieved where username = new.username and achievement = 10) = 0)
 	THEN
 		INSERT INTO ACHIEVED VALUES (new.username, 11);
 	END IF;
