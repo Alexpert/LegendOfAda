@@ -91,5 +91,3 @@ insert into achievements (name, description) values
 insert into users(username, password) values
 	('Sandrine', 'b1e117cbc10fea22803e69cf8226cbca'); -- Mot de passe =  md5(Seychelle)
 
-insert into achieved values
-	('Sandrine', 1);

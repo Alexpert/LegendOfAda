@@ -550,3 +550,9 @@ body.submit #docs {
 	text-align: center;
 	line-height: 50px;
 }
+
+/* about */
+
+body.about > div img {
+	width: 100%;
+}

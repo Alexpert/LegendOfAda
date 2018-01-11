@@ -1,7 +1,7 @@
 
 function actionGuild(action) {
 	let session = getSession();
-	let name = document.getElementById('guildname').value;
+	let name = document.getElementById('guildname');
 	let request = new XMLHttpRequest();
 
 	request.onreadystatechange = function() {
@@ -9,19 +9,20 @@ function actionGuild(action) {
 			&& request.status == 200) {
 			let response = parseResponse(request.responseText);
 			if(response.success == true) {
+				name.value = '';
 				window.location.reload(false);
 			}
 		}
 	}
 
-	requestAdd.open('GET', 'http://api.legendofada.eu/social/guilds.php?action='
-		+ action + '&token=' + session.token + '&name=' + name);
-	requestAdd.send();
+	request.open('GET', 'http://api.legendofada.eu/social/guilds.php?action='
+		+ action + '&token=' + session.token + '&name=' + name.value);
+	request.send();
 }
 
 function addFriend() {
 	let session = getSession();
-	let name = document.getElementById('friendname').value;
+	let name = document.getElementById('friendname');
 	let requestAdd = new XMLHttpRequest();
 
 	requestAdd.onreadystatechange = function() {
@@ -29,13 +30,14 @@ function addFriend() {
 			&& requestAdd.status == 200) {
 			let responseAdd = parseResponse(requestAdd.responseText);
 			if(responseAdd.success == true) {
+				name.value = '';
 				window.location.reload(false);
 			}
 		}
 	}
 
 	requestAdd.open('GET', 'http://api.legendofada.eu/social/friends.php?action=add&token='
-		+ session.token + '&name=' + name);
+		+ session.token + '&name=' + name.value);
 	requestAdd.send();
 }
 
@@ -185,7 +187,7 @@ function specific() {
 											}
 										}
 									}
-									requestLeave.open('GET', 'http://api.legendofada.eu/social/friends.php?action=leave&token='
+									requestLeave.open('GET', 'http://api.legendofada.eu/social/guilds.php?action=leave&token='
 										+ session.token + '&name=' + name);
 									requestLeave.send();
 								});

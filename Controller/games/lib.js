@@ -120,7 +120,32 @@ let game = new function() {
 	}
 
 	this.end = function(score) {
+		var match, pl = /\+/g,  // Regex for replacing addition symbol with a space
+			search = /([^&=]+)=?([^&]*)/g,
+			decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+			query = window.location.search.substring(1);
+    		var queryURL = {};
+		let request = new XMLHttpRequest();
+
+		while(match = search.exec(query)) {
+			queryURL[decode(match[1])] = decode(match[2]);
+		}
+
 		clearInterval(this.timerId);
+
+		if(queryURL.token != undefined) {
+			request.onreadystatechange = function() {
+				if(request.readyState == 4
+					&& request.status == 200) {
+					let response = JSON.parse(request.responseText);
+					console.log(response);
+				}
+			}
+
+			request.open('GET', 'http://api.legendofada.eu/games/scores.php?token=' + session.token);
+			request.send();
+		}
+
 		document.body.addEventListener('click', function() {
 			window.history.go(-1);
 		});

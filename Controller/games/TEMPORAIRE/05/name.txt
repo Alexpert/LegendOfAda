@@ -1,2 +1,0 @@
-developper un produit
-monde de revision (mongolie)

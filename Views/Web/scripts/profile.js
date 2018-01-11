@@ -11,13 +11,6 @@ function specific() {
 
 	username.innerHTML = session.username;
 	avatar.setAttribute('src', 'http://api.legendofada.eu/avatar/' + session.avatar + '.png');
-	/*
-		<div class="achievement">
-			<img src="http://api.legendofada.eu/avatar/sandrine.jpg"></img>
-			<h2>Sandrine</h2>
-			<p>Sandrinisez</p>
-		</div>
-	*/
 
 	request.onreadystatechange = function() {
 		if(request.readyState == 4
