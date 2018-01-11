@@ -4,6 +4,9 @@ function actionGuild(action) {
 	let name = document.getElementById('guildname');
 	let request = new XMLHttpRequest();
 
+	if(name.value == '')
+		return;
+
 	request.onreadystatechange = function() {
 		if(request.readyState == 4
 			&& request.status == 200) {
@@ -24,6 +27,9 @@ function addFriend() {
 	let session = getSession();
 	let name = document.getElementById('friendname');
 	let requestAdd = new XMLHttpRequest();
+
+	if(name.value == '')
+		return;
 
 	requestAdd.onreadystatechange = function() {
 		if(requestAdd.readyState == 4

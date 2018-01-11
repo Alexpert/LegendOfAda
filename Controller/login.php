@@ -8,6 +8,7 @@ header('Content-type: application/json');
 require_once('model/DAO.php');
 
 if(isset($_POST['username'])
+	and $_POST['username'] != ''
 	and isset($_POST['password'])) {
 	$username = $_POST['username'];
 	$password = md5($_POST['password']);

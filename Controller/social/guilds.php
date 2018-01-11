@@ -13,7 +13,8 @@ require_once('../model/DAO.php');
 
 if(isset($_GET['token'])
 	and isset($_GET['action'])) {
-	if(isset($_GET['name'])) {
+	if(isset($_GET['name'])
+		and $_GET['name'] != '') {
 		switch($_GET['action']) {
 		case 'add':
 			$data['success'] = $dao->createGuild($_GET['token'], $_GET['name']);

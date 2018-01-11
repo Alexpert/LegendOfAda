@@ -6,6 +6,7 @@ function specific() {
 
 	let request = new XMLHttpRequest();
 
+	console.log(queryURL);
 	request.onreadystatechange = function() {
 		if(request.readyState == 4) {
 			if(request.status == 200) {
@@ -22,7 +23,7 @@ function specific() {
 				if(session != undefined) {
 					reqQuery += '?token=' + session.token;
 					if(queryURL.level != undefined) {
-						reqQuery += '&level=' + session.level;
+						reqQuery += '&level=' + queryURL.level;
 						if(session.guild != undefined) {
 							reqQuery += '&guild=' + session.guild;
 						}

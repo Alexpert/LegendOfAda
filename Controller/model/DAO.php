@@ -262,6 +262,7 @@ function joinGuild(int $token, string $name) : bool {
 		$request = $this->db->prepare('insert into belongs select username, :name from connected where token = :token');
 		$request->bindParam(':name', $name, PDO::PARAM_STR);
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
+
 		return $request->execute();
 	} catch (PDOException $e) {
 		return false;
@@ -273,6 +274,7 @@ function leaveGuild(int $token, string $name) : bool {
 		$request = $this->db->prepare('delete from belongs where guild = :name and username = (select username from connected where token = :token)');
 		$request->bindParam(':name', $name, PDO::PARAM_STR);
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
+
 		return $request->execute();
 	} catch (PDOException $e) {
 		return false;
@@ -282,12 +284,11 @@ function leaveGuild(int $token, string $name) : bool {
 // Gestion Score
 function addScoreSolo(int $token, int $value, int $game) : bool {
 	try {
-		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, null, null from connected where token = :token');
-		$request->bindParam(':value', $value, PDO::PARAM_INT);
-		$request->bindParam(':game', $game, PDO::PARAM_INT);
-		$request->bindParam(':level', $level, PDO::PARAM_INT);
-		$request->bindParam(':guild', $guild, PDO::PARAM_STR);
+		$request = $this->db->prepare('insert into scores(username, game, value) select username, :game, :value from connected where token = :token');
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		$request->bindParam(':game', $game, PDO::PARAM_INT);
+		$request->bindParam(':value', $value, PDO::PARAM_INT);
+
 		return $request->execute();
 	} catch (PDOException $e) {
 		return false;
@@ -296,11 +297,12 @@ function addScoreSolo(int $token, int $value, int $game) : bool {
 	
 function addScoreSoloLevel(int $token, int $value, int $game, int $level) : bool {
 	try {
-		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, :level, null from connected where token = :token');
-		$request->bindParam(':value', $value, PDO::PARAM_INT);
-		$request->bindParam(':game', $game, PDO::PARAM_INT);
-		$request->bindParam(':level', $level, PDO::PARAM_INT);
+		$request = $this->db->prepare('insert into scores(username, game, value, level) select username, :game, :value, :level from connected where token = :token');
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		$request->bindParam(':game', $game, PDO::PARAM_INT);
+		$request->bindParam(':value', $value, PDO::PARAM_INT);
+		$request->bindParam(':level', $level, PDO::PARAM_INT);
+
 		return $request->execute();
 	} catch (PDOException $e) {
 		return false;
@@ -309,23 +311,25 @@ function addScoreSoloLevel(int $token, int $value, int $game, int $level) : bool
 	
 function addScoreGuild(int $token, int $value, int $game, int $level, string $guild) : bool {
 	try {
-		$request = $this->db->prepare('insert into scores select username, now(), :value, :game, :level, :guild from connected where token = :token');
-		$request->bindParam(':value', $value, PDO::PARAM_INT);
-		$request->bindParam(':game', $game, PDO::PARAM_INT);
-		$request->bindParam(':level', $level, PDO::PARAM_INT);
-		$request->bindParam(':guild', $guild, PDO::PARAM_STR);
+		$request = $this->db->prepare('insert into scores(username, game, value, level, guild) select username, :game, :value, :level, :guild from connected where token = :token');
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		$request->bindParam(':game', $game, PDO::PARAM_INT);
+		$request->bindParam(':value', $value, PDO::PARAM_INT);
+		$request->bindParam(':level', $level, PDO::PARAM_INT);
+		$request->bindParam(':guild', $guild, PDO::PARAM_INT);
+
 		return $request->execute();
 	} catch (PDOException $e) {
 		return false;
 	}
 }
 
-function getScoreGame(int $game) : array {
+function getScoreSolo(int $game) : array {
 	try {
-		$request = $this->db->prepare('select * from scores where game = :game');
-		$request->bindParam(':game', $game);
+		$request = $this->db->prepare('select * from scores where game = :game order by value desc limit 10');
+		$request->bindParam(':game', $game, PDO::PARAM_INT);
 		$request->execute();
+
 		$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
 	} catch (PDOException $e) {
 		$scores['error'] = $e->getMessage();
@@ -334,12 +338,13 @@ function getScoreGame(int $game) : array {
 	return $scores;
 }
 
-function getScoreGameUser(int $game, int $token) : array {
+function getScoreSoloLevel(int $token, int $level) : array {
 	try {
-		$request = $this->db->prepare('select * from scores where game = :game and username = (select username from connected where token = :token limit 1)');
-		$request->bindParam(':game', $game);
-		$request->bindParam(':token', $token);
+		$request = $this->db->prepare('select scores.* from scores, connected where level = :level and token = :token order by value desc limit 10');
+		$request->bindParam(':level', $level, PDO::PARAM_INT);
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		$request->execute();
+
 		$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
 	} catch (PDOException $e) {
 		$scores['error'] = $e->getMessage();
@@ -348,30 +353,18 @@ function getScoreGameUser(int $game, int $token) : array {
 	return $scores;
 }
 
-function getScoreLevel(int $level) : array {
+function getScoreGuild(int $game, string $guild) : array {
 	try {
-		$request = $this->db->prepare('select * from scores where level = :level');
-		$request->bindParam(':level', $level);
+		$request = $this->db->prepare('select * from scores where game = :game and guild = :guild order by value desc limit 10');
+		$request->bindParam(':game', $game, PDO::PARAM_INT);
+		$request->bindParam(':guild', $guild, PDO::PARAM_STR);
 		$request->execute();
+
 		$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
 	} catch (PDOException $e) {
 		$scores['error'] = $e->getMessage();
 	}
 
-	return $scores;
-}
-
-function getScoreLevelUser(int $level, int $token) : array {
-	try {
-		$request = $this->db->prepare('select * from scores where level = :level and username = (select username from users where token = :token');
-		$request->bindParam(':level', $level);
-		$request->bindParam(':token', $token);
-		$request->execute();
-		$scores = $request->fetchAll(PDO::FETCH_CLASS, 'Score');
-	} catch (PDOException $e) {
-		$scores['error'] = $e->getMessage();
-	}
-	
 	return $scores;
 }
 

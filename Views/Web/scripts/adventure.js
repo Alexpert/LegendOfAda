@@ -107,7 +107,8 @@ function specific() {
 				area.setAttribute('coords', response.world[i].x
 							+ ',' + response.world[i].y
 							+ ',35');
-				area.setAttribute('href', 'game.html?id=' + response.world[i].game);
+				area.setAttribute('href', 'game.html?id=' + response.world[i].game
+								+ '&level=' + response.world[i].id);
 				area.setAttribute('alt', response.world[i].id);
 
 				area.addEventListener('click', areaOnClick);
