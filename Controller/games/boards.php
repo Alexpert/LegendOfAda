@@ -4,26 +4,15 @@ header('Content-type: application/json');
 
 require_once('../model/DAO.php');
 
-if(isset($_GET['game'])
-	and isset($_GET['score'])) {
-	if(isset($_GET['token'])) {
-		if(isset($_GET['level'])) {
-			if(isset($_GET['guild'])) {
-				$data = $dao->addScoreGuild($_GET['token'],
-								$_GET['score'],
-								$_GET['game'],
-								$_GET['level'],
-								$_GET['guild']);
-			} else {
-				$data = $dao->addScoreSoloLevel($_GET['token'],
-								$_GET['score'],
-								$_GET['game'],
-								$_GET['level']);
-			}
-		} else {
-			$data = $dao->addScoreSolo($_GET['token'], $_GET['score'], $_GET['game']);
-		}
+if(isset($_GET['game'])) {
+	if(isset['guild']) {
+		$data = $dao->getScoreGuild($_GET['game'], $_GET['guild']);
+	} else {
+		$data = $dao->getScoreSolo($_GET['game']);
 	}
+} else if(isset($_GET['token'])
+	and isset($_GET['level'])) {
+		$data = $dao->getScoreSoloLevel($_GET['token'], $_GET['level']);
 } else {
 	$data['error'] = 'Arguments Invalides';
 }

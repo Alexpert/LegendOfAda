@@ -5,8 +5,21 @@ function specific() {
 	}
 
 	let request = new XMLHttpRequest();
+	let session = getSession();
+	var reqQuery = '';
 
-	console.log(queryURL);
+	if(session != undefined) {
+		reqQuery += '?token=' + session.token;
+		if(queryURL.level != undefined) {
+			reqQuery += '&level=' + queryURL.level;
+			if(session.guild != undefined) {
+				reqQuery += '&guild=' + session.guild;
+			}
+		}
+	}
+
+	let endQuery = reqQuery; // Les fonctions ne semblent pas aimer les vars...
+
 	request.onreadystatechange = function() {
 		if(request.readyState == 4) {
 			if(request.status == 200) {
@@ -17,18 +30,6 @@ function specific() {
 				let preview = document.createElement('img');
 				let description = document.createElement('p');
 				let footer = document.getElementById('play');
-				let session = getSession();
-				var reqQuery = '';
-
-				if(session != undefined) {
-					reqQuery += '?token=' + session.token;
-					if(queryURL.level != undefined) {
-						reqQuery += '&level=' + queryURL.level;
-						if(session.guild != undefined) {
-							reqQuery += '&guild=' + session.guild;
-						}
-					}
-				}
 
 				document.title = response.name;
 				course.setAttribute('href', 'lesson.html?theme='
@@ -41,7 +42,7 @@ function specific() {
 					+ response.id + '/preview.png');
 				description.appendChild(document.createTextNode(response.description));
 				footer.addEventListener('click', function() {
-					window.location.assign('http://api.legendofada.eu/games/' + response.id + '/index.html' + reqQuery);
+					window.location.assign('http://api.legendofada.eu/games/' + response.id + '/index.html' + endQuery);
 				});
 			} else {
 				window.location.assign('index.html');

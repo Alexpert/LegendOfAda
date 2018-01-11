@@ -149,7 +149,6 @@ let game = new function() {
 				if(request.readyState == 4) {
 					if(request.status == 200) {
 						let response = JSON.parse(request.responseText);
-						console.log(response);
 					}
 
 					document.body.addEventListener('click', function() {
@@ -164,7 +163,6 @@ let game = new function() {
 					reqQuery += '&guild=' + queryURL.guild;
 				}
 			}
-			console.log(reqQuery);
 
 			request.open('GET', reqQuery);
 			request.send();
