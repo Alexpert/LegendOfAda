@@ -12,115 +12,115 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/Secret_base.JPEG"
+var defaultBackground = "assets/Chinggis_Khan.jpg"
 var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";
 
-questions[0] = "Quel est le résultat du quotient suivant: ";
+questions[0] = "Quel est le résultat du quotient suivant: (4/5) * (3/2)";
 answers[0] = [];
-answers[0][0] = "";
-answers[0][1] = "";
-answers[0][2] = "";
-answers[0][3] = "";
+answers[0][0] = "12/10";
+answers[0][1] = "23/10";
+answers[0][2] = "15/8";
+answers[0][3] = "8/15";
 
-questions[1] = "Quel est le résultat du quotient suivant: ";
+questions[1] = "Quel est le résultat du quotient suivant: (2/3) * (9/7)";
 answers[1] = [];
-answers[1][0] = "";
-answers[1][1] = "";
-answers[1][2] = "";
-answers[1][3] = "";
+answers[1][0] = "18/21";
+answers[1][1] = "41/21";
+answers[1][2] = "27/14";
+answers[1][3] = "14/27";
 
-questions[2] = "Quel est le résultat du quotient suivant: ";
+questions[2] = "Quel est le résultat du quotient suivant: - (7/2) * (10/4)";
 answers[2] = [];
-answers[2][0] = "";
-answers[2][1] = "";
-answers[2][2] = "";
-answers[2][3] = "";
+answers[2][0] = "- 70/8";
+answers[2][1] = "48/8";
+answers[2][2] = "- 20/28";
+answers[2][3] = "28/20";
 
-questions[3] = "Quel est le résultat du quotient suivant: ";
+questions[3] = "Quel est le résultat du quotient suivant: (12/7) * (3/4)";
 answers[3] = [];
-answers[3][0] = "";
-answers[3][1] = "";
-answers[3][2] = "";
-answers[3][3] = "";
+answers[3][0] = "36/28";
+answers[3][1] = "69/28";
+answers[3][2] = "21/48";
+answers[3][3] = "48/21";
 
-questions[4] = "Quel est le résultat du quotient suivant: ";
+questions[4] = "Quel est le résultat du quotient suivant: (8/7) * (- (9/2))";
 answers[4] = [];
-answers[4][0] = "";
-answers[4][1] = "";
-answers[4][2] = "";
-answers[4][3] = "";
+answers[4][0] = "- 72/14";
+answers[4][1] = "79/14";
+answers[4][2] = "63/16";
+answers[4][3] = "- 16/63";
 
-questions[5] = "Quel est le résultat du quotient suivant: ";
+questions[5] = "Quel est le résultat du quotient suivant: - (5/9) * (13/6)";
 answers[5] = [];
-answers[5][0] = "";
-answers[5][1] = "";
-answers[5][2] = "";
-answers[5][3] = "";
+answers[5][0] = "- 65/54";
+answers[5][1] = "147/54";
+answers[5][2] = "- 117/30";
+answers[5][3] = "30/117";
 
-questions[6] = "Quel est le résultat du quotient suivant: ";
+questions[6] = "Quel est le résultat du quotient suivant: (1/2) * (15/8)";
 answers[6] = [];
-answers[6][0] = "";
-answers[6][1] = "";
-answers[6][2] = "";
-answers[6][3] = "";
+answers[6][0] = "15/16";
+answers[6][1] = "19/16";
+answers[6][2] = "30/8";
+answers[6][3] = "8/30";
 
-questions[7] = "Quel est le résultat du quotient suivant: ";
+questions[7] = "Quel est le résultat du quotient suivant: - (7/3) * (- (16/12))";
 answers[7] = [];
-answers[7][0] = "";
-answers[7][1] = "";
-answers[7][2] = "";
-answers[7][3] = "";
+answers[7][0] = "112/36";
+answers[7][1] = "- 1";
+answers[7][2] = "- 48/84";
+answers[7][3] = "- 84/48";
 
-questions[8] = "Quel est le résultat du quotient suivant: ";
+questions[8] = "Quel est le résultat du quotient suivant: - (6/14) * (18/4)";
 answers[8] = [];
-answers[8][0] = "";
-answers[8][1] = "";
-answers[8][2] = "";
-answers[8][3] = "";
+answers[8][0] = "- 108/56";
+answers[8][1] = "228/56";
+answers[8][2] = "- 252/24";
+answers[8][3] = "24/252";
 
-questions[9] = "Quel est le résultat du quotient suivant: ";
+questions[9] = "Quel est le résultat du quotient suivant: (3/7) * (- (12/5))";
 answers[9] = [];
-answers[9][0] = "";
-answers[9][1] = "";
-answers[9][2] = "";
-answers[9][3] = "";
+answers[9][0] = "- 36/35";
+answers[9][1] = "- 1";
+answers[9][2] = "1";
+answers[9][3] = "- 9/2";
 
-questions[10] = "Quel est le résultat du quotient suivant: ";
+questions[10] = "Quel est le résultat du quotient suivant: (2/9) * (15/4)";
 answers[10] = [];
-answers[10][0] = "";
-answers[10][1] = "";
-answers[10][2] = "";
-answers[10][3] = "";
+answers[10][0] = "30/36";
+answers[10][1] = "17/13";
+answers[10][2] = "6/24";
+answers[10][3] = "135/8";
 
-questions[11] = "Quel est le résultat du quotient suivant: ";
+questions[11] = "Quel est le résultat du quotient suivant: - (16/6) * (14/4)";
 answers[11] = [];
-answers[11][0] = "";
-answers[11][1] = "";
-answers[11][2] = "";
-answers[11][3] = "";
+answers[11][0] = "- 224/24";
+answers[11][1] = "10";
+answers[11][2] = "- 1";
+answers[11][3] = "- 2/2";
 
-questions[12] = "Quel est le résultat du quotient suivant: ";
+questions[12] = "Quel est le résultat du quotient suivant: (3/13) * (5/14)";
 answers[12] = [];
-answers[12][0] = "";
-answers[12][1] = "";
-answers[12][2] = "";
-answers[12][3] = "";
+answers[12][0] = "15/182";
+answers[12][1] = "8/27";
+answers[12][2] = "42/65";
+answers[12][3] = "- 65/42";
 
-questions[13] = "Quel est le résultat du quotient suivant: ";
+questions[13] = "Quel est le résultat du quotient suivant: - (8/15) * (22/10)";
 answers[13] = [];
-answers[13][0] = "";
-answers[13][1] = "";
-answers[13][2] = "";
-answers[13][3] = "";
+answers[13][0] = "- 176/150";
+answers[13][1] = "14/(- 5)";
+answers[13][2] = "80/330";
+answers[13][3] = "330/80";
 
-questions[14] = "Quel est le résultat du quotient suivant: ";
+questions[14] = "Quel est le résultat du quotient suivant: (3/4) * (- (7/2))";
 answers[14] = [];
-answers[14][0] = "";
-answers[14][1] = "";
-answers[14][2] = "";
-answers[14][3] = "";
+answers[14][0] = "- 21/8";
+answers[14][1] = "- 4";
+answers[14][2] = "6/28";
+answers[14][3] = "- 28/6";
 
 for (i = 0; i < questions.length; i++) {
   if (backgrounds[i] == undefined) {
@@ -140,12 +140,21 @@ for (i = 0; i < questions.length; i++) {
 
 function QuestionObj(content) {
   this.obj = new GameObject();
-  this.obj.text = content;
+  this.objContent = new GameObject();
+  this.objContent.text = content;
+
   this.obj.x = 0;
   this.obj.y = 2.5/8;
   this.obj.width = 1;
   this.obj.height = 1 / 8;
+
+  this.objContent.x = 1/20;
+  this.objContent.y = 2.5/8;
+  this.objContent.width = 0.9;
+  this.objContent.height = 1 / 8;
+
 }
+
 
 function ButtonObj(content, id, correct) {
   this.obj = new GameObject();
@@ -229,6 +238,7 @@ function drawAll() {
   game.fill(textColor[numQ]);
   game.draw(score.obj);
   game.draw(questionObj.obj);
+  game.draw(questionObj.objContent);
   game.fill(buttonTextColor[numQ]);
   for (i = 0; i < 4; i++) {
     game.draw(buttonObj[i].obj);

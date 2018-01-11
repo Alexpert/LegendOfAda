@@ -12,7 +12,7 @@ var textColor = [];
 var buttonSprite = [];
 var buttonTextColor = [];
 
-var defaultBackground = "assets/Paysage_de_mongolie.jpg"
+var defaultBackground = "assets/Yurt_mongole.jpg"
 var defaultTextColor = "white";
 var defaultButtonSprite = "assets/button.png";
 var defaultButtonTextColor = "black";

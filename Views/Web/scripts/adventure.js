@@ -89,7 +89,7 @@ function specific() {
 		if(request.readyState == 4
 			&& request.status == 200) {
 			let response = parseResponse(request.responseText);
-			let menu = document.getElementsByTagName('menu')[0];
+			let menu = document.getElementById('worldlist');
 			let map = document.getElementsByTagName('map')[0];
 
 			for(var i = 0; i < response.worlds.length; i++) {
