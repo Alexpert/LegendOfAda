@@ -185,9 +185,9 @@ function specific() {
 											}
 										}
 									}
-									requestAccept.open('GET', 'http://api.legendofada.eu/social/friends.php?action=leave&token='
+									requestLeave.open('GET', 'http://api.legendofada.eu/social/friends.php?action=leave&token='
 										+ session.token + '&name=' + name);
-									requestAccept.send();
+									requestLeave.send();
 								});
 								guildLeave.appendChild(leaveButton);
 
