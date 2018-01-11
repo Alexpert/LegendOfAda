@@ -13,22 +13,27 @@ require_once('../model/DAO.php');
 
 if(isset($_GET['token'])
 	and isset($_GET['action'])) {
-	switch($_GET['action']) {
-	case 'add':
-		$data['success'] = true;
-		break;
-	case 'accept':
-		$data['success'] = true;
-		break;
-	case 'remove':
-		$data['success'] = true;
-		break;
-	case 'list':
-		$data = [ 'pouet', 'sufferring', 'death' ];
-		break;
-	default:
-		$data['error'] = 'Action invalide';
-		break;
+	if(isset($_GET['name'])) {
+		switch($_GET['action']) {
+		case 'add':
+			$data['success'] = true;
+			break;
+		case 'accept':
+			$data['success'] = true;
+			break;
+		case 'remove':
+			$data['success'] = true;
+			break;
+		default:
+			$data['error'] = 'Action invalide';
+			break;
+		}
+	} else {
+		if($_GET['action'] == 'list') {
+			$data = [ 'pouet', 'sufferring', 'death' ];
+		} else {
+			$data['error'] = 'Action invalide';
+		}
 	}
 } else {
 	$data['error'] = 'Arguments Invalides';
