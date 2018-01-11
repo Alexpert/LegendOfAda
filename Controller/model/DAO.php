@@ -232,18 +232,7 @@ function createGuild(int $token, string $name) : bool {
     	return false;
     }
 }
-    
-function deleteGuild(int $token, string $name) : bool {
-    try {
-        $request = $this->db->prepare('delete from guilds where name = :name and leader = (select username from connected where token = :token)');
-        $request->bindParam(':name', $name, PDO::PARAM_STR);
-        $request->bindParam(':token', $token, PDO::PARAM_INT);
-        return $request->execute();
-    } catch (PDOException $e) {
-    }
-    return false;
-}
-    
+
 function listGuild(int $token) : array {
     try {
         $request = $this->db->prepare('select g.*, (select count(b.*) from belongs b where b.username = (select username from connected where token = :token) and b.guild = g.name) as belongs from guilds g');
@@ -253,6 +242,7 @@ function listGuild(int $token) : array {
     } catch (PDOException $e) {
         $guilds['error'] = $e->getMessage();
     }
+
     return $guilds;
 }
 
@@ -263,8 +253,8 @@ function joinGuild(int $token, string $name) : bool {
         $request->bindParam(':token', $token, PDO::PARAM_INT);
         return $request->execute();
     } catch (PDOException $e) {
+    	return false;
     }
-    return false;
 }
 
 function leaveGuild(int $token, string $name) : bool {
@@ -274,8 +264,8 @@ function leaveGuild(int $token, string $name) : bool {
         $request->bindParam(':token', $token, PDO::PARAM_INT);
         return $request->execute();
     } catch (PDOException $e) {
+    	return false;
     }
-    return false;
 }
         
 // Gestion Score

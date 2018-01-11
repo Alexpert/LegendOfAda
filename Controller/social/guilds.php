@@ -21,8 +21,8 @@ if(isset($_GET['token'])
 		case 'join':
 			$data['success'] = $dao->joinGuild($_GET['token'], $_GET['name']);
 			break;
-		case 'remove':
-			$data['success'] = $dao->deleteGuild($_GET['token'], $_GET['name']);
+		case 'leave':
+			$data['success'] = $dao->leaveGuild($_GET['token'], $_GET['name']);
 			break;
 		default:
 			$data['error'] = 'Action invalide';

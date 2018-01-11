@@ -56,7 +56,7 @@
 	<div>
 		<div class="friends">
 			<table>
-				<tr><th>Amis</th></tr>
+				<tr><th>Amis</th><th>Statut</th><th>Quitter</th></tr>
 			</table>
 			<div class="request">
 				<input id="friendname" type="text" maxlength="32" placeholder="Nom" required><br>
@@ -65,12 +65,12 @@
 		</div>
 		<div class="guilds">
 			<table>
-				<tr><th>Guildes</th></tr>
+				<tr><th>Guildes</th><th>Chef</th></tr>
 			</table>
 			<div class="request">
 				<input id="guildname" type="text" maxlength="32" placeholder="Guilde" required><br>
-				<button>Joindre une Guilde</button>
-				<button>Créer une guilde</button>
+				<button onclick="actionGuild('join')">Joindre une guilde</button>
+				<button onclick="actionGuild('add')">Créer une guilde</button>
 			</div>
 		</div>
 	</div>
