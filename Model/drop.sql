@@ -5,7 +5,7 @@ DROP TRIGGER chiefLeave ON BELONGS;
 DROP TRIGGER tSaveTheWorld ON SCORES;
 DROP TRIGGER tApprentiMath ON SCORES;
 
-DROP FUNCTION delUser(tok integer);
+DROP FUNCTION delUser();
 DROP FUNCTION delGuild();
 DROP FUNCTION chiefLeave();
 DROP FUNCTION saveTheWorld();
