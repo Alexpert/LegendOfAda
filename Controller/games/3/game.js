@@ -21,7 +21,7 @@ function MekaYak(valeur, size) {
 
   this.obj.text = valeur;
   this.obj.image = game.createImage("./assets/mekayak-français.png");
-  this.obj.width = 0.4 * this.size/4;
+  this.obj.width = 0.25 * this.size/4;
   this.obj.height = 0.5 * this.size/4;
   this.obj.x = 0.5 - this.obj.width/2;
   this.obj.y = 0.5 - this.obj.height/2;
@@ -113,6 +113,7 @@ function endScreen() {
     mekasSecondaireObj[i].obj.x = (i + 1) / (mekasSecondaireObj.length + 1) - mekasSecondaireObj[i].obj.width/2;
     game.draw(mekasSecondaireObj[i].obj);
   }
+  game.end(score.obj.text);
 }
 
 function setup() {

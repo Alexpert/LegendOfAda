@@ -93,9 +93,13 @@ function coupleEntiers() {
 function drawAll() {
   game.draw(score.obj);
 
+  game.setFontSize(0.1);
   game.fill("red");
   game.draw(mekaFract.mekaUp);
   game.draw(mekaFract.mekaDown);
+
+
+  game.setFontSize(0.07);
   game.fill("black");
   game.draw(mekaFract.barreMid);
 
@@ -116,7 +120,7 @@ function endScreen() {
   message.y = 1 / 5;
   message.width = 1 / 2;
   message.height = 1 / 4;
-  message.text = "Résultat";  
+  message.text = "Résultat";
   game.draw(message);
 
   score.obj.x = 1 / 3;
@@ -131,9 +135,11 @@ function endScreen() {
     mekasSecondaireObj[i].obj.x = (i + 1) / (mekasSecondaireObj.length + 1) - mekasSecondaireObj[i].obj.width/2;
     game.draw(mekasSecondaireObj[i].obj);
   }
+  game.end(score.obj.text);
 }
 
 function setup() {
+  game.setBackground("./assets/backgroundParis.png");
   mekaFract = new MekaFract(coupleEntiers());
   score = new Score();
 
