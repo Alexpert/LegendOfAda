@@ -52,11 +52,14 @@ function specific() {
 		world = queryURL.world;
 	}
 
+	query = '?world=' + world;
+
 	if(session != undefined) {
-		query = '?token=' + session.token
-			+ '&world=' + world;
-	} else {
-		query = '?world=' + world;
+		query += '&token=' + session.token;
+
+		if(session.guild != undefined) {
+			query += '&guild=' + session.guild;
+		}
 	}
 
 	let areaOnClick = function(event) {

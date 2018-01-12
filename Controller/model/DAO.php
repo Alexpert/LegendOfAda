@@ -71,12 +71,12 @@ function achieved($token) : array {
 
 function deleteUser(int $token) : bool {
 	try {
-	$request = $this->db->prepare('delete from users where token = :token and timeout > now()');
-	$request->bindParam(':token', $token, PDO::PARAM_INT);
-	return $request->execute();
+		$request = $this->db->prepare('delete from users where token = :token and timeout > now()');
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		return $request->execute();
 	} catch (PDOException $e) {
+		return false;
 	}
-	return false;
 }
 
 // Gestion Games
@@ -156,7 +156,7 @@ function getLevelsFromWorld(string $world) : array {
 
 	return $levels;
 }
-	
+
 function getLevelsFromWorldUser(string $world, int $token) : array {
 	try {
 		$request = $this->db->prepare('select l.*, (select count(s.*) from scores s where l.id = s.level and value > 0 and username = (select username from connected where token = :token)) as nbScore from levels l where world = :world ');
@@ -170,7 +170,7 @@ function getLevelsFromWorldUser(string $world, int $token) : array {
 
 	return $levels;
 }
-	
+
 function getLevelsFromWorldGuild(string $world, string $guild) : array {
 	try {
 		$request = $this->db->prepare('select l.*, (select count(s.*) from scores s where l.id = s.level  and value > 0 and guild = :guild) as nbScore from levels l where world = :world');
