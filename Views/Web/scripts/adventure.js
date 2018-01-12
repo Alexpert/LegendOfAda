@@ -29,7 +29,7 @@ function loadDialog() {
 		let game = dialogTargetURL;
 
 		hideDialog();
-		if(game != window.location) {
+		if(game != window.location.href) {
 			window.location.assign(game);
 		}
 	} else {
@@ -110,11 +110,24 @@ function specific() {
 				area.setAttribute('coords', response.world[i].x
 							+ ',' + response.world[i].y
 							+ ',35');
-				area.setAttribute('href', 'game.html?id=' + response.world[i].game
-								+ '&level=' + response.world[i].id);
 				area.setAttribute('alt', response.world[i].id);
 
-				area.addEventListener('click', areaOnClick);
+				if(response.world[i].previous != null
+					&& response.world[i-1].nbscore != undefined
+					&& response.world[i-1].nbscore == 0) {
+					console.log(window.location);
+					area.addEventListener('click', function() {
+						dialog = [{ 'name' : '', 'text' : 'Vous n\'avez pas encore débloqué ce niveau' }];
+						dialogIndex = 0;
+						dialogTargetURL = window.location.href;
+
+						loadDialog();
+					});
+				} else {
+					area.setAttribute('href', 'game.html?id=' + response.world[i].game
+								+ '&level=' + response.world[i].id);
+					area.addEventListener('click', areaOnClick);
+				}
 
 				map.appendChild(area);
 			}
