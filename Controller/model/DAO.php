@@ -8,6 +8,7 @@ require_once('Achievement.php');
 require_once('User.php');
 require_once('Friendship.php');
 require_once('Guild.php');
+require_once('Score.php');
 
 class DAO {
 	private $db;

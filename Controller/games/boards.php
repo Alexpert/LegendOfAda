@@ -5,7 +5,7 @@ header('Content-type: application/json');
 require_once('../model/DAO.php');
 
 if(isset($_GET['game'])) {
-	if(isset['guild']) {
+	if(isset($_GET['guild'])) {
 		$data = $dao->getScoreGuild($_GET['game'], $_GET['guild']);
 	} else {
 		$data = $dao->getScoreSolo($_GET['game']);
