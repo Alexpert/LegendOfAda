@@ -217,7 +217,8 @@ body.profile > div > div > div > a {
 	padding: 1%;
 }
 
-body.profile > div > div > div > a:hover {
+body.profile > div > div > div > a:hover,
+div.achievement > button:hover {
 	background-color: #9BE8E8;
 }
 
@@ -237,6 +238,15 @@ div.achievement > img {
 div.achievement > h2 {
 	background-color: #5C92C4;
 	text-align: center;
+}
+
+div.achievement > button {
+	border: none;
+	padding: 5px;
+	border-radius: 4px;
+	background-color: #5C92C4;
+	transition: 0.25s;
+	cursor: pointer;
 }
 
 /* index */
@@ -270,7 +280,7 @@ menu.index > p > a:hover {
 	background-color: #9BE8E8;
 }
 
-social.trends {
+social.favs {
 	position: fixed;
 	width: 25vw;
 	top: 15vh;
@@ -279,18 +289,18 @@ social.trends {
 	border-width: 1px 1px 1px 0;
 }
 
-social.trends > h1 {
+social.favs > h1 {
 	position: absolute;
 	width: 100%;
 	z-index: 1;
 	text-align: center;
 }
 
-social.trends > div {
+social.favs > div {
 	height: 100%;
 }
 
-social.trends > div > figure {
+social.favs > div > figure {
 	width: 49%;
 }
 

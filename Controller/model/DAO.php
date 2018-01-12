@@ -73,6 +73,19 @@ function deleteUser(int $token) : bool {
 	try {
 		$request = $this->db->prepare('delete from users where token = :token and timeout > now()');
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
+
+		return $request->execute();
+	} catch (PDOException $e) {
+		return false;
+	}
+}
+
+function selectAvatar(int $token, int $id) : bool {
+	try {
+		$request = $this->db->prepare('update connected set avatar = :id where token = :token');
+		$request->bindParam(':token', $token, PDO::PARAM_INT);
+		$request->bindParam(':id', $id, PDO::PARAM_INT);
+
 		return $request->execute();
 	} catch (PDOException $e) {
 		return false;
