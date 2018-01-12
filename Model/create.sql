@@ -421,8 +421,8 @@ EXECUTE PROCEDURE delGuild();
 CREATE FUNCTION chiefLeave() RETURNS trigger
 AS $$
 BEGIN
-	IF (old.username = (select leader from guilds where name = old.name)) then
-		PERFORM DELETE FROM GUILDS WHERE guild = old.name;
+	IF (old.username = (select leader from guilds where leader = old.username)) then
+		PERFORM DELETE FROM GUILDS WHERE name = old.guild;
 	END IF;
 	RETURN old;
 END; $$ language 'plpgsql';

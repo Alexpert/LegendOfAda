@@ -122,7 +122,7 @@ function specific() {
 										}
 									}
 								}
-								requestRemove.open('GET', 'http://api.legendofada.eu/social/friends.php?action=remove&token='
+								requestRemove.open('GET', 'http://api.legendofada.eu/social/friends.php?action=leave&token='
 									+ session.token + '&name=' + name);
 								requestRemove.send();
 							});
