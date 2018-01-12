@@ -63,7 +63,24 @@ function specific() {
 			&& requestBoard.status == 200) {
 			let response = parseResponse(requestBoard.responseText);
 			let board = document.getElementsByTagName('social')[0];
+			let container = board.getElementsByTagName('table')[0];
 			board.style.visibility = 'visible';
+
+			for(var i = 0; i < response.length; i++) {
+				let row = document.createElement('tr');
+				let rank = document.createElement('td');
+				let name = document.createElement('td');
+				let score = document.createElement('td');
+
+				rank.appendChild(document.createTextNode(i + 1));
+				name.appendChild(document.createTextNode(response[i].username));
+				score.appendChild(document.createTextNode(response[i].value));
+
+				container.appendChild(row);
+				row.appendChild(rank);
+				row.appendChild(name);
+				row.appendChild(score);
+			}
 		}
 	}
 
