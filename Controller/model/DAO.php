@@ -80,7 +80,7 @@ function deleteUser(int $token) : bool {
 }
 
 // Gestion Games
-function getGame($id) {
+function getGame(int $id) {
 	try {
 		$request = $this->db->prepare('select g.*, l.theme from games g, lessons l where g.id = :id and g.about = l.id');
 		$request->bindParam(':id', $id, PDO::PARAM_INT);
