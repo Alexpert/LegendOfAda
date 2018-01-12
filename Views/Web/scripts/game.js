@@ -5,12 +5,13 @@ function specific() {
 	}
 
 	let request = new XMLHttpRequest();
-	let requestBoard = new XMLHttpRequest();
 	let session = getSession();
-	var boardURL = 'http://api.legendofada.eu/games/boards.php';
 	var reqQuery = '';
 
 	if(session != undefined) {
+		let requestBoard = new XMLHttpRequest();
+		var boardURL = 'http://api.legendofada.eu/games/boards.php';
+
 		reqQuery += '?token=' + session.token;
 		if(queryURL.level != undefined) {
 			reqQuery += '&level=' + queryURL.level;
@@ -24,6 +25,35 @@ function specific() {
 				boardURL += '&guild=' + session.guild;
 			}
 		}
+
+		requestBoard.onreadystatechange = function() {
+			if(requestBoard.readyState == 4
+				&& requestBoard.status == 200) {
+				let response = parseResponse(requestBoard.responseText);
+				let board = document.getElementsByTagName('social')[0];
+				let container = board.getElementsByTagName('table')[0];
+				board.style.visibility = 'visible';
+
+				for(var i = 0; i < response.length; i++) {
+					let row = document.createElement('tr');
+					let rank = document.createElement('td');
+					let name = document.createElement('td');
+					let score = document.createElement('td');
+
+					rank.appendChild(document.createTextNode(i + 1));
+					name.appendChild(document.createTextNode(response[i].username));
+					score.appendChild(document.createTextNode(response[i].value));
+
+					container.appendChild(row);
+					row.appendChild(rank);
+					row.appendChild(name);
+					row.appendChild(score);
+				}
+			}
+		}
+
+		requestBoard.open('GET', boardURL);
+		requestBoard.send();
 	}
 
 	let endQuery = reqQuery; // Les fonctions ne semblent pas aimer les vars...
@@ -58,36 +88,7 @@ function specific() {
 		}
 	}
 
-	requestBoard.onreadystatechange = function() {
-		if(requestBoard.readyState == 4
-			&& requestBoard.status == 200) {
-			let response = parseResponse(requestBoard.responseText);
-			let board = document.getElementsByTagName('social')[0];
-			let container = board.getElementsByTagName('table')[0];
-			board.style.visibility = 'visible';
-
-			for(var i = 0; i < response.length; i++) {
-				let row = document.createElement('tr');
-				let rank = document.createElement('td');
-				let name = document.createElement('td');
-				let score = document.createElement('td');
-
-				rank.appendChild(document.createTextNode(i + 1));
-				name.appendChild(document.createTextNode(response[i].username));
-				score.appendChild(document.createTextNode(response[i].value));
-
-				container.appendChild(row);
-				row.appendChild(rank);
-				row.appendChild(name);
-				row.appendChild(score);
-			}
-		}
-	}
-
 	request.open('GET', 'http://api.legendofada.eu/games/index.php?id=' + queryURL.id);
 	request.send();
-
-	requestBoard.open('GET', boardURL);
-	requestBoard.send();
 }
 
