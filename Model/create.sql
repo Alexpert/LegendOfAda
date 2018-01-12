@@ -391,12 +391,12 @@ BEGIN
      	FROM USERS
     	WHERE token = old.token AND timeout > now();
 	if (username is not null) then
-		PERFORM DELETE FROM ACHIEVED WHERE achieved.username = username;
-		PERFORM DELETE FROM FRIENDS WHERE user1 = username OR user2 = username;
-		PERFORM DELETE FROM SCORES WHERE scores.username = username;
-		PERFORM DELETE FROM BELONGS WHERE belongs.username = username;
-		PERFORM DELETE FROM FAVORITES WHERE favorites.username = username;
-		PERFORM DELETE FROM GUILDS WHERE leader = username;
+		DELETE FROM ACHIEVED WHERE achieved.username = username;
+		DELETE FROM FRIENDS WHERE user1 = username OR user2 = username;
+		DELETE FROM SCORES WHERE scores.username = username;
+		DELETE FROM BELONGS WHERE belongs.username = username;
+		DELETE FROM FAVORITES WHERE favorites.username = username;
+		DELETE FROM GUILDS WHERE leader = username;
 		RETURN old;
 	else
 		RAISE EXCEPTION 'User invalide pour la suppression';
@@ -409,8 +409,8 @@ FOR EACH ROW EXECUTE PROCEDURE delUser();
 CREATE FUNCTION delGuild() RETURNS trigger
 AS $$
 BEGIN
-	PERFORM DELETE FROM SCORES WHERE guild = old.name;
-	PERFORM DELETE FROM BELONGS WHERE guild = old.name;
+	DELETE FROM SCORES WHERE guild = old.name;
+	DELETE FROM BELONGS WHERE guild = old.name;
 	RETURN old;
 END; $$ language 'plpgsql';
 
@@ -421,12 +421,12 @@ EXECUTE PROCEDURE delGuild();
 CREATE FUNCTION chiefLeave() RETURNS trigger
 AS $$
 BEGIN
-	IF (old.username = (select leader from guilds where leader = old.username)) then
-		PERFORM DELETE FROM GUILDS WHERE name = old.guild;
+	IF ((select count(*) from guilds where leader = old.username) > 0) then
+		DELETE FROM GUILDS WHERE name = old.guild;
 	END IF;
-	RETURN old;
+	RETURN NULL;
 END; $$ language 'plpgsql';
 
-CREATE TRIGGER chiefLeave AFTER DELETE ON BELONGS
+CREATE TRIGGER tChiefLeave AFTER DELETE ON BELONGS
 FOR EACH ROW
 EXECUTE PROCEDURE chiefLeave();
