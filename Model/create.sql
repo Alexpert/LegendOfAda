@@ -295,7 +295,6 @@ CREATE TRIGGER tForeverAlone BEFORE INSERT ON FRIENDS
 FOR EACH ROW WHEN (new.user1 = new.user2)
 EXECUTE PROCEDURE foreverAlone();
 
-
 CREATE FUNCTION mafia() RETURNS trigger
 AS $$
 BEGIN

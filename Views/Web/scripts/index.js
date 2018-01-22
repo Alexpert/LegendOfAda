@@ -97,6 +97,7 @@ function specific() {
 											&& requestAccept.status == 200) {
 											let responseAccept = parseResponse(requestAccept.responseText);
 											if(responseAccept.success == true) {
+												alert(responseAccept.success);
 												window.location.reload(false);
 											}
 										}
@@ -122,7 +123,7 @@ function specific() {
 										}
 									}
 								}
-								requestRemove.open('GET', 'http://api.legendofada.eu/social/friends.php?action=leave&token='
+								requestRemove.open('GET', 'http://api.legendofada.eu/social/friends.php?action=remove&token='
 									+ session.token + '&name=' + name);
 								requestRemove.send();
 							});

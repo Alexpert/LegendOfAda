@@ -201,7 +201,9 @@ function getLevelsFromWorldGuild(string $world, string $guild) : array {
 // Gestion ami
 function createFriendship(int $token, string $friend) : bool {
 	try {
-		$request = $this->db->prepare('insert into friends (user1, user2) select username, :friend from connected where token = :token');
+		$request = $this->db->prepare('insert into friends (user1, user2) select username, :friend from connected where token = :token
+								and (select count(*) from friends, connected
+									where token = :token and user2 = username and user1 = :friend) = 0');
 		$request->bindParam(':friend', $friend, PDO::PARAM_STR);
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		return $request->execute();
@@ -224,7 +226,8 @@ function deleteFriendship(int $token, string $friend) : bool {
 	
 function acceptFriendship(int $token, string $friend) : bool {
 	try {
-		$request = $this->db->prepare('update friends set accepted = TRUE where (user2 = (select username from connected where token = :token) and user1 = :friend)');
+		$request = $this->db->prepare('update friends set accepted = TRUE where (user2 = (select username from connected where token = :token) and user1 = :friend)
+								or (user1 = (select username from connected where token = :token) and user2 = :friend)');
 		$request->bindParam(':friend', $friend, PDO::PARAM_STR);
 		$request->bindParam(':token', $token, PDO::PARAM_INT);
 		return $request->execute();
