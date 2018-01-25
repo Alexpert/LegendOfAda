@@ -1,7 +1,9 @@
 
+DROP TRIGGER checkFriends ON FRIENDS;
 DROP TRIGGER deleteUser ON USERS;
 DROP TRIGGER deleteGuild ON GUILDS;
 DROP TRIGGER tChiefLeave ON BELONGS;
+DROP FUNCTION chFriends();
 DROP FUNCTION delUser();
 DROP FUNCTION delGuild();
 DROP FUNCTION chiefLeave();

@@ -42,10 +42,8 @@ function addFriend() {
 		}
 	}
 
-	let str = 'http://api.legendofada.eu/social/friends.php?action=add&token='
-	                + session.token + '&name=' + name.value;
-	alert(str);
-	requestAdd.open('GET', str);
+	requestAdd.open('GET', 'http://api.legendofada.eu/social/friends.php?action=add&token='
+	                + session.token + '&name=' + name.value);
 	requestAdd.send();
 }
 

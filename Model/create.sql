@@ -382,6 +382,20 @@ EXECUTE PROCEDURE apprentiMath();
 
 -- Fin ACHIEVEMENTS
 
+CREATE FUNCTION chFriends() RETURNS trigger
+AS $$
+BEGIN
+	if ((select count(*) from friends
+		where user1 = new.user2 and user2 = new.user1) = 0)
+	then
+		return new;
+	end if;
+
+	return null;
+END ; $$ language 'plpgsql';
+
+CREATE TRIGGER checkFriends BEFORE INSERT ON FRIENDS
+FOR EACH ROW EXECUTE PROCEDURE chFriends();
 
 CREATE FUNCTION delUser() RETURNS trigger
 AS $$ declare username VARCHAR(32) ; 
